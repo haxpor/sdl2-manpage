@@ -1,0 +1,64 @@
+.TH SDL_Init 3 "2018.08.14" "https://wiki.libsdl.org/CategoryAPI" "SDL2"
+.SH NAME
+SDL_Init
+
+.SH Synopsis
+.sb
+\fBint SDL_Init(Uint32 \fB\fRflags\fR\fB)\fB
+
+.SH DESCRIPTION
+Use this function to initialize the SDL library. This must be called before using most other SDL functions.
+
+.SH REMARKS
+\fISDL_Init()\fR simply forwards to calling \fISDL_InitSubSystem()\fR. Therefore, the two may be used interchangeably. Though for readability of your code \fISDL_InitSubSystem()\fR might be preferred.
+.PP
+The file I/O and threading subsystem are intitialized by default. You must specifically initialize other subsystems if you use them in your application.
+.PP
+Logging works without initialization too.
+
+.PP
+\fBflags\fR may be any of the following OR'd together.
+.PP
+.RS 4
+\fISDL_INIT_TIMER
+\fRtimer subsystem
+.br
+\fISDL_INIT_AUDIO
+\fRaudio subsystem
+.br
+\fISDL_INIT_AUDIO
+\fRaudio subsystem
+.br
+\fISDL_INIT_VIDEO
+\fRvideo subsystem; automatically initializes the events subsystem
+.br
+\fISDL_INIT_JOYSTICK
+\fRjoystick subsystem; automatically initializes the events subsystem
+.br
+\fISDL_INIT_HAPTIC
+\fRhaptic (force feedback) subsystem
+.br
+\fISDL_INIT_GAMECONTROLLER
+\fRcontroller subsystem; automatically intitializes the joystick subsystem
+.br
+\fISDL_INIT_EVENTS
+\fRevents subsytem
+.br
+\fISDL_INIT_EVERYTHING
+\fRall of the above subsystems
+.br
+\fISDL_INIT_NOPARACHUTE
+\fRcompatibility; this flag is ignored
+.RE
+
+.PP
+If you want to initialize subsystems separately you would call \fISDL_Init(0)\fR followed by \fISDL_InitSubSystem()\fR with the desired subsystem flag.
+
+.SH "SEE ALSO"
+.I SDL_InitSubSystem
+,
+.I SDL_Quit
+,
+.I SDL_SetMainReady
+,
+.I SDL_WasInit
