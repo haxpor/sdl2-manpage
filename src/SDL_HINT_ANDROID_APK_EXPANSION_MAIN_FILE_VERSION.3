@@ -13,15 +13,15 @@ A hint that specifies the Android APK expansion main file version
 \fRthe Android APK expansion main file version (should be a string number like "1", "2", etc.)
 .RE
 
-.SH Default
+.SH DEFAULT
 
 By default this hint is not set.
 
 .SH REMARKS
 This hint must be set together with the hint \fISDL_HINT_ANDROID_APK_EXPANSION_PATCH_FILE_VERSION\fR
-.sb
+.PP
 If both hints were set then \fISDL_RWFromFile()\fR will look into expansion files after a given relative path was not found in the internal storage and assets.
-.sb
+.PP
 By default this hint is not set and the APK expansion files are not searched.
 
 .SH VERSION

@@ -6,8 +6,8 @@ TARGET=/usr/local/share/man/man3
 WORKING_DIR=$(pwd)
 
 for f in "${FILES[@]}"; do
-	echo "Create symlink for $f at $TARGET/$f"
 	ln -sf "$WORKING_DIR/src/$f" "$TARGET/$f"
+	echo "[OK] $f"
 done
 
 echo "done"
