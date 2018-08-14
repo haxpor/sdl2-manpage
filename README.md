@@ -1,5 +1,5 @@
 # sdl2-manpage
-Man-pages generated for SDL2
+Man-pages generated for SDL2. It covers APIs as listed [here](https://github.com/haxpor/sdl2-manpage/blob/master/COVER.md).
 
 # Installation
 
