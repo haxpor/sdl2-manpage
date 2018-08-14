@@ -1,0 +1,27 @@
+.TH SDL_HINT_ACCELEROMETER_AS_JOYSTICK 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+SDL_HINT_ACCELEROMETER_AS_JOYSTICK - Hints
+
+.SH Synopsis
+.sb
+\fBValues
+.PP
+.RS 4
+\fI0
+\fRlist only real joysticks and accept input from them
+.br
+\fI1
+\fRlist real joysticks along with the accelerometer as if it were a 3 axis joystick \fI(the default)
+.RE
+
+.SH DESCRIPTION
+A hint that specifies whether the Android / iOS built-in accelerometer should be listed as a joystick device, rather than listing actual.
+
+.PP
+By default SDL will list real joysticks along with the accelerometer as if it were a 3 axis joystick.
+
+.SH REMARKS
+The hint is supported for iOS since SDL 2.0.4
+
+.SH VERSION
+Since SDL 2.0.2
