@@ -1,7 +1,8 @@
-# TODO
+# API Coverage
 
-Relevant API as seen [here](https://wiki.libsdl.org/CategoryAPI).
-We will check it off when such API done.
+Mirror support against online API as seen [here](https://wiki.libsdl.org/CategoryAPI).
+
+Chcked items are covered by this project.
 
 ## Hints
 
