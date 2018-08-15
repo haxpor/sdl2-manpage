@@ -1,0 +1,27 @@
+.TH SDL_HINT_RENDER_DRIVER 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_RENDER_DRIVER\fR -- Hints
+
+.SH Synopsis
+A hint that specifies which render driver to use.
+
+.SH DESCRIPTION
+Values
+.TP 20
+.BI direct3d
+.TP
+.BI opengl
+.TP
+.BI opengles2
+.TP
+.BI opengles
+.TP
+.BI software
+
+.SH DEFAULT
+By default the first one in the list that is available on the current platform is chosen.
+
+.SH REMARKS
+The values are case-insensitive.
+.PP
+If the application doesn't pick a specific renderer to use, this variable specifies the name of the preferred renderer. If the preferred renderer can't be initialized, the normal default renderer is used.

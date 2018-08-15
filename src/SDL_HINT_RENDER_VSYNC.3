@@ -1,0 +1,21 @@
+.TH SDL_HINT_RENDER_VSYNC 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_RENDER_VSYNC\fR -- Hints
+
+.SH Synopsis
+A hint that specifies whether sync to vertical refresh is enabled or disabled in \fBSDL_CreateRenderer\fR() to avoid tearing.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI 0
+disable vsync
+.TP 5
+.BI 1
+enable vsync
+
+.SH DEFAULT
+By default SDL uses the \fBSDL_RENDERER_PRESENTVSYNC\fR flag passed into \fBSDL_CreateRenderer\fR().
+
+.SH REMARKS
+\fBSDL_HINT_RENDER_VSYNC\fR overrides the \fBSDL_RENDERER_PRESENTVSYNC\fR flag in \fBSDL_CreateRenderer\fR().

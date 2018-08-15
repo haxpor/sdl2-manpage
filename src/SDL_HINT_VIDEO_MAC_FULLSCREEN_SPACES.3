@@ -1,0 +1,29 @@
+.TH SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES\fR -- Hints
+
+.SH Synopsis
+A hint that dictates policy for fullscreen Spaces on macOS.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI 0
+disable Spaces support (\fBFULLSCREEN_DESKTOP\fR won't use them and \fBSDL_WINDOW_RESIZABLE\fR windows won't offer the "fullscreen" button on their titlebars)
+.TP
+.BI 1
+enable Spaces support (\fBFULLSCREEN_DESKTOP\fR will use them and \fBSDL_WINDOW_RESIZABLE\fR windows will offer the "fullscreen" button on their titlebars)
+
+.SH DEFAULT
+By default Spaces supports is enabled.
+
+.SH REMARKS
+This hint only applies to macOS.
+.PP
+Spaces are disabled regardless of this hint if the OS isn't at least macOS Lion (10.7). This hint must be set before any windows are created.
+
+.SH VERSION
+Available since SDL 2.0.2
+
+.SH NOTE
+Draft

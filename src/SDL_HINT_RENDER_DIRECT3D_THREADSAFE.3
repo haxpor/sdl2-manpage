@@ -1,0 +1,24 @@
+.TH SDL_HINT_RENDER_DIRECT3D_THREADSAFE 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_RENDER_DIRECT3D_THREADSAFE\fR -- Hints
+
+.SH Synopsis
+A hint that specifies whether the Direct3D device is initialized for thread-safe operations.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI 0
+disable thread-safety (faster)
+.TP
+.BI 1
+enable thread-safety (slower)
+
+.SH DEFAULT
+By default the Direct3D device is created with thread-safety disabled.
+
+.SH VERSION
+Available since SDL 2.0.1
+
+.SH NOTE
+Draft

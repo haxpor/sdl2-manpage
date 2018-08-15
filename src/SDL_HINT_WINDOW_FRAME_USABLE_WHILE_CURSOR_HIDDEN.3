@@ -1,0 +1,27 @@
+.TH SDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_WINDOW_FRAME_USABLE_WHILE_CURSOR_HIDDEN\fR -- Hints
+
+.SH Synopsis
+A hint that specifies whether the window frame and title bar are interactive when the cursor is hidden.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI 0
+the window frame is not interactive when the cursor is hidden (no move, resize, etc)
+.TP
+.BI 1
+the window frame is interactive when the cursor is hidden
+
+.SH DEFAULT
+By default SDL will allow interaction with the window frame when the cursor is hidden.
+
+.SH REMARKS
+This hint must be set together with the hint ...
+
+.SH VERSION
+Available since SDL 2.0.4
+
+.SH NOTE
+Draft

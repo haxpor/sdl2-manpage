@@ -1,0 +1,33 @@
+.TH SDL_HINT_WINRT_PRIVACY_POLICY_URL 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_WINRT_PRIVACY_POLICY_URL\fR -- Hints
+
+.SH Synopsis
+A hint that specifies a URL to a WinRT app's privacy policy.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI X
+a URL to a WinRT app's privacy policy
+
+.SH DEFAULT
+By default this hint is not set.
+
+.SH REMARKS
+All network-enabled WinRT apps must make a privacy available to its users. On Windows 8, 8.1, and RT, Microsft mandates that this policy be available in the Windows Settings charm, as accessed from within the app. SDL provides code to add a URL-based link there, which can point to the app's privacy policy.
+.PP
+To setup a URL to an app's privacy policy, set \fBSDL_HINT_WINRT_PRIVACY_URL\fR before calling any \fBSDL_Init\fR() functions. The contents of the hint should be a valid URL. For example, "
+\fIhttp://www.example.com\fR".
+.PP
+The default value is "", which will prevent SDL from adding a privacy policy link to the Settings charm. This hint should only be set during app init.
+.PP
+The label text of an app's "Privacy Policy" link may be  customized via another hint, \fBSDL_HINT_WINRT_PRIVACY_POLICY_LABEL\fR.
+.PP
+Please note that on Windows Phone, MIcrosoft does not provide standard UI for displaying a privacy policy link, and as such, \fBSDL_HINT_WINRT_PRIVACY_POLICY_URL\fR will not get used on that platform. Network-enabled phone apps should display their privacy policy through some other, in-app means.
+
+.SH VERSION
+Available since SDL 2.0.3
+
+.SH NOTE
+Draft

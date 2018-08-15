@@ -1,0 +1,27 @@
+.TH SDL_HINT_VIDEO_X11_NET_WM_PING 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_VIDEO_X11_NET_WM_PING\fR -- Hints
+
+.SH Synopsis
+A hint that specifies whether the X11 \fB_NET_WM_PING\fR protocol should be supported.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI 0
+disable \fB_NET_WM_PING
+.TP
+.BI 1
+enable \fB_NET_WM_PING
+
+.SH DEFAULT
+By default SDL will use \fB_NET_WM_PING\fR, but for applications that know they will not always be able to repsond to ping requests in a timely manner they can turn it off to avoid the window manager thinking the app is hung.
+
+.SH REMARKS
+The hint is checked in \fBSDL_CreateWindow()\fR.
+
+.SH VERSION
+Available since SDL 2.0.4
+
+.SH NOTE
+Draft

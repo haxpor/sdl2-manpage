@@ -1,0 +1,32 @@
+.TH SDL_HINT_WINRT_PRIVACY_POLICY_LABEL 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_WINRT_PRIVACY_POLICY_LABEL\fR -- Hints
+
+.SH Synopsis
+A hint that specifies a label text for a WinRT app's privacy policy link.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI X
+a label text for a WinRT app's privacy policy link
+
+.SH DEFAULT
+By default this hint's value is "Privacy Policy".
+
+.SH REMARKS
+Network-enabled WinRT apps must include a privacy policy. On Windows 8, 8.1 and RT, Microsoft mandates that this policy be available via the Windows Settings charm. SDL provides code to add a link there, with its label text being set via the optional hint, \fBSDL_HINT_WINRT_PRIVACY_POLICY_LABEL\fR.
+.PP
+Please note that a privacy policy's contents are not set via this hint. A separate hint, \fBSDL_HINT_WINRT_PRIVACY_POLICY_URL\fR, is used to link to the actual text of the policy.
+.PP
+The contents of this hint should be encoded as a UTF8 string.
+.PP
+The default value is "Privacy Policy". This hint should only be set during app initialization, preferably before any calls to \fBSDL_Init\fR().
+.PP
+For additional information on linking to privacy policy, see the documentation for \fBSDL_HINT_WINRT_PRIVACY_POLICY_URL\fR.
+
+.SH VERSION
+Available since SDL 2.0.3
+
+.SH NOTE
+Draft

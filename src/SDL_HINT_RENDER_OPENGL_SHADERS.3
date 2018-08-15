@@ -1,0 +1,18 @@
+.TH SDL_HINT_RENDER_OPENGL_SHADERS 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_RENDER_OPENGL_SHADERS\fR -- Hints
+
+.SH Synopsis
+A hint that specifies whether the OpenGL render driver uses shader.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI 0
+disable shaders
+.TP
+.BI 1
+enable shaders, if they are available
+
+.SH DEFAULT
+By default shaders are used if OpenGL supports them.

@@ -1,0 +1,28 @@
+.TH SDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_VIDEO_WINDOW_SHARE_PIXEL_FORMAT\fR -- Hints
+
+.SH Synopsis
+A hint that specifies the address of another \fBSDL_Window*\fR (as a hex string formatted with "%p").
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI X
+the address (as a string "%p") of the \fBSDL_Window*\fR that new windows created with \fBSDL_CreateWindowFrom\fR() should share a pixel format with
+
+.SH DEFAULT
+By default this hint is not set.
+
+.SH REMARKS
+If this hint is set before \fBSDL_CreateWindowFrom\fR() and the \fBSDL_Window*\fR it is set to has \fBSDL_WINDOW_OPENGL\fR set (and running on WGL only, currently), then two things will occur on the newly created \fBSDL_Window\fR:
+
+.TP 5
+.BI "1."
+Its pixel format will be set to the same pixel format as this \fBSDL_Window\fR. This is needed for example when sharing an OpenGL context across multiple windows.
+.TP
+.BI "2."
+The flag \fBSDL_WINDOW_OPENGL\fR will be set on the new window so it can be used for OpenGL rendering.
+
+.SH VERSION
+Available since SDL 2.0.2

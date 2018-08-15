@@ -1,0 +1,45 @@
+.TH SDL_HINT_ORIENTATIONS 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_ORIENTATIONS\fR -- Hints
+
+.SH Synopsis
+A hint that specifies a variable controlling which orientations are allowed on iOS.
+
+.SH DESCRIPTION
+Values
+.TP 25
+.BI LandscapeLeft
+top of device left
+.TP
+.BI LandscapeRight
+top of device right
+.TP
+.BI Portrait
+top of device up
+.TP
+.BI PortraitUpsideDown
+top of device down
+
+.SH DEFAULT
+By default all orientations are allowed.
+
+.SH CODE EXAMPLES
+
+.TS
+box;
+l.
+#include <stdio.h>
+
+int main(int argc, char* argv[])
+{
+  SDL_SetHint(SDL_HINT_ORIENTATIONS, "LandscapeLeft LandscapeRight");
+}
+.TE
+
+.SH REMARKS
+In some circumstances it is necessary to be able to explicitly control which UI orientations are allowed.
+.PP
+This variable is a space delimited list of the above values.
+
+.SH NOTE
+Draft

@@ -1,0 +1,27 @@
+.TH SDL_HINT_NO_SIGNAL_HANDLERS 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_NO_SIGNAL_HANDLERS\fR -- Hints
+
+.SH Synopsis
+A hint that specifies not to catch the SIGINT or SIGTERM signals.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI 0
+SDL will install a SIGINT and SIGTERM handler, and when it caches a signal, convert it into an \fBSDL_QUIT\fR event
+.TP
+.BI 1
+SDL will not install a signal handler at all
+
+.SH DEFAULT
+By default install a SIGINT and SIGTERM handler, and when it catches a signal, convert it into an \fBSDL_QUIT\fR event.
+
+.SH REMARKS
+This hint only applies to Unix-like platforms.
+
+.SH VERSION
+Available since SDL 2.0.4
+
+.SH NOTE
+Draft

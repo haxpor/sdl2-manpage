@@ -1,0 +1,29 @@
+.TH SDL_HINT_VIDEO_HIGHDPI_DISABLED 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_VIDEO_HIGHDPI_DISABLED\fR -- Hints
+
+.SH Synopsis
+A hint that specifies if high-DPI windows ("Retina" on macOS and iOS) are not allowed.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI 0
+allow high-DPI windows
+.TP
+.BI 1
+do not allow high-DPI windows
+
+.SH DEFAULT
+By default high-DPI windows ("Retina" on macOS and iOS) are allowed.
+
+.SH REMARKS
+On Apple's macOS you \fBmust\fR set the \fBNSHighResolutionCapable\fR in \fIInfo.plist\fR property to \fBYES\fR, otherwise you will not receive a high-DPI OpenGL display.
+.PP
+This hint is supported for iOS since SDL 2.0.4
+
+.SH VERSION
+Available since SDL 2.0.1
+
+.SH NOTE
+Draft

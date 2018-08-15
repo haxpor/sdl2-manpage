@@ -1,0 +1,24 @@
+.TH SDL_HINT_VIDEO_X11_XRANDR 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_VIDEO_X11_XRANDR\fR -- Hints
+
+.SH Synopsis
+A hint that specifies whether the X11 XRandR extension should be used.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI 0
+disable XRandR
+.TP
+.BI 1
+enable XRandR
+
+.SH DEFAULT
+By default SDL will not use XRandR because of window manager issues.
+
+.SH REMARKS
+For details about the referenced window manager issues, see the following message (and its thread) on the SDL mailing list: \fIhttp://lists.libsdl.org/pipermail/sdl-libsdl.org/2012-October/651919.html
+
+.SH NOTE
+Draft

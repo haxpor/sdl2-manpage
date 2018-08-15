@@ -1,0 +1,27 @@
+.TH SDL_HINT_TIMER_RESOLUTION 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_TIMER_RESOLUTION\fR -- Hints
+
+.SH Synopsis
+A hint that specifies the timer resolution in millseconds.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI X
+the timer resolution in milliseconds.
+
+.SH DEFAULT
+By default the value is "1".
+
+.SH REMARKS
+The higher resolution the timer, the more frequently the CPU services timer interrupts, and the more precise delays are, but this takes up power and CPU time. This hint is only used on Windows, but not supported on WinRT.
+.PP
+See this blog post for more information: \fIhttp://randomascii.wordpress.com/2013/07/08/windows-timer-resolution-megawatts-wasted/
+.PP
+If this variable is set to "0", the system timer resolution is not set.
+.PP
+This hint may be set at any time.
+
+.SH NOTE
+Draft
