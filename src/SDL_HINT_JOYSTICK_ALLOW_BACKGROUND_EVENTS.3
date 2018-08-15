@@ -1,0 +1,24 @@
+.TH SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS\fR -- Hints
+
+.SH Synopsis
+A hint that specifies if joystick (and gamecontroller) events are enabled even when the application is in the background.
+
+.SH DESCRIPTION
+Values
+.TP 5
+.BI 0
+disable joystick & gamecontroller input events when the application is in the background
+.TP
+.BI 1
+enable joystick & gamecontroller input events when the application is in the background
+
+.SH DEFAULT
+By default joystick (and gamecontroller) events are not enabled when the application is in the background.
+
+.SH REMARKS
+This hint may be set at any time.
+
+.SH NOTE
+Draft
