@@ -1,0 +1,28 @@
+.TH SDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_ANDROID_SEPARATE_MOUSE_AND_TOUCH\R -- Hints
+
+.SH Synopsis
+A hint that specifies a variable to control whether mouse and touch events are to be treated together or separately.
+
+.SH DESCRIPTION
+\fBValues
+.RS 4
+\fB0
+\fRmouse events will be handled as touch events and touch will raise fake mouse events
+.br
+\fB1
+\fRmouse events will be handled separately from pure touch events
+.RE
+
+.SH DEFAULT
+By default mouse events will be handled as touch events and touch will raise fake mouse events
+
+.SH REMARKS
+The value of this hint is used at runtime, so it can be changed at any time.
+
+.SH VERSION
+Available since SDL 2.0.4
+
+.SH NOTE
+Draft
