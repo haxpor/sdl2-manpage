@@ -1,0 +1,30 @@
+.TH SDL_BlendMode 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_BlendMode\fR -- Enumerations
+
+.SH Synopsis
+An enumeration of blend modes used in \fBSDL_RenderCopy\fR() and drawing operations.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab a.
+SDL_BLENDMODE_NONE:no blending
+:dstRGBA = srcRGBA
+SDL_BLENDMODE_BLEND:alpha blending
+:dstRGB = (srcRGB * srcA) + (dstRGB * (1-srcA))
+:dstA = srcA + (dstA * (1-srcA))
+SDL_BLENDMODE_ADD:additive blending
+:dstRGB = (srcRGB * srcA) + dstRGB
+:dstA = dstA
+SDL_BLENDMODE_MOD:color modulate
+:dstRGB = srcRGB * dstRGB
+:dstA = dstA
+.TE
+
+.SH RELATED STRUCTURES
+\fISDL_RenderInfo
+
+.SH RELATED FUNCTIONS
+\fISDL_GetRenderDrawBlendMode\fR, \fISDL_GetSurfaceBlendMode\fR, \fISDL_GetTextureBlendMode\fR, \fISDL_RenderCopy\fR, \fISDL_SetRenderDrawBlendMode\fR, \fISDL_SetSurfaceBlendMode\fR, \fISDL_SetTextureBlendMode

@@ -1,0 +1,34 @@
+.TH SDL_AssertState 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AssertState\fR -- Enumerations
+
+.SH Synopsis
+An enumeration of assertion handling states.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab a.
+SDL_ASSERTION_RETRY:T{
+retry the assert immediately
+T}
+SDL_ASSERTION_BREAK:T{
+trigger a breakpoint under the debugger
+T}
+SDL_ASSERTION_ABORT:T{
+terminate the program
+T}
+SDL_ASSERTION_IGNORE:T{
+ignore the assert
+T}
+SDL_ASSERTION_ALWAYS_IGNORE:T{
+ignore the assert from now on
+T}
+.TE
+
+.SH REMARKS
+This enumeration is returned by the callback function in \fBSDL_SetAssertionHandler\fR() to determine the response to failed assertions.
+
+.SH "SEE ALSO"
+SDL_SetAssertionHandler

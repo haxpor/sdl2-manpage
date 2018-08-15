@@ -1,0 +1,360 @@
+.TH SDL_EventType 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_EventType\fR -- Enumerations
+
+.SH Synopsis
+An enumeration of the types of events that can be delivered.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_FIRSTEVENT:T{
+do not remove (unused)
+T}
+.TE
+
+.PP
+Application Events
+.TS
+tab(:) allbox;
+ab l.
+SDL_QUIT:T{
+user-requested quit; see \fIRemarks\fR for details.
+T}
+.TE
+
+.PP
+Android, iOS and WinRT events; see \fIRemarks\fR for details
+.TS
+tab(:) allbox;
+ab l.
+SDL_APP_TERMINATING:T{
+OS is terminating the application
+T}
+SDL_APP_LOWMEMORY:T{
+OS is low on memory; free some
+T}
+SDL_APP_WILLENTERBACKGROUND:T{
+application is entering background
+T}
+SDL_APP_DIDENTERBACKGROUND:T{
+application entered background
+T}
+SDL_APP_WILLENTERFOREGROUND:T{
+application is entering foreground
+T}
+SDL_APP_DIDENTERFOREGROUND:T{
+application entered foreground
+T}
+.TE
+
+.PP
+Window events
+.TS
+tab(:) allbox;
+ab l.
+SDL_WINDOWEVENT:T{
+window state chagne
+T}
+SDL_SYSWMEVENT:T{
+system specific event
+T}
+.TE
+
+.PP
+Keyboard events
+.TS
+tab(:) allbox;
+ab l.
+SDL_KEYDOWN:T{
+key pressed
+T}
+SDL_KEYUP:T{
+key released
+T}
+SDL_TEXTEDITING:T{
+keyboard text editing (composition)
+T}
+SDL_TEXTINPUT:T{
+keyboard text input
+T}
+SDL_KEYMAPCHANGED:T{
+keymap changed due to a system event such as an input language or keyboard layout change (>= SDL 2.0.4)
+T}
+.TE
+
+.PP
+Mouse events
+.TS
+tab(:) allbox;
+ab l.
+SDL_MOUSEMOTION:T{
+mouse moved
+T}
+SDL_MOUSEBUTTONDOWN:T{
+mouse button pressed
+T}
+SDL_MOUSEBUTTONUP:T{
+mouse button released
+T}
+SDL_MOUSEWHEEL:T{
+mouse wheel motion
+T}
+.TE
+
+.PP
+Joystick events
+.TS
+tab(:) allbox;
+ab l.
+SDL_JOYAXISMOTION:T{
+joystick axis motion
+T}
+SDL_JOYALLMOTION:T{
+joystick trackball motion
+T}
+SDL_JOYHATMOTION:T{
+joystick hat position change
+T}
+SDL_JOYBUTTONDOWN:T{
+joystick button pressed
+T}
+SDL_JOYBUTTONUP:T{
+joystick button released
+T}
+SDL_JOYDEVICEADDED:T{
+joystick connected
+T}
+SDL_JOYDEVICEREMOVED:T{
+joystick disconnected
+T}
+.TE
+
+.PP
+Controller events
+.TS
+tab(:) allbox;
+ab l.
+SDL_CONTROLLERAXISMOTION:T{
+controller axis motion
+T}
+SDL_CONTROLLERBUTTONDOWN:T{
+controller button pressed
+T}
+SDL_CONTROLLERBUTTONUP:T{
+controller button released
+T}
+SDL_CONTROLLERDEVICEADDED:T{
+controller connected
+T}
+SDL_CONTROLLERDEVICEREMOVED:T{
+controller disconnected
+T}
+SDL_CONTROLLERDEVICEREMAPPED:T{
+controller mapping updated
+T}
+.TE
+
+.PP
+Touch events
+.TS
+tab(:) allbox;
+ab l.
+SDL_FINGERDOWN:T{
+user has touched input device
+T}
+SDL_FINGERUP:T{
+user stopped touching input device
+T}
+SDL_FINGERMOTION:T{
+user is dragging finger on input device
+T}
+.TE
+
+.PP
+Gesture events
+.TS
+tab(:) allbox;
+ab l.
+SDL_DOLLARGESTURE:
+SDL_DOLLARRECORD:
+SDL_MULTIGESTURE:
+.TE
+
+.PP
+Clipboard events
+.TS
+tab(:) allbox;
+ab l.
+SDL_CLIPBOARDUPDATE:T{
+the clipboard changed
+T}
+.TE
+
+.PP
+Drag and drop events
+.TS
+tab(:) allbox;
+ab l.
+SDL_DROPFILE:T{
+the system requests a file open
+T}
+SDL_DROPTEXT:T{
+text/plain drag-and-drop event
+T}
+SDL_DROPBEGIN:T{
+a new set of drops is beginning (>= SDL 2.0.5)
+T}
+SDL_DROPCOMPLETE:T{
+current set of drops is now complete (>= SDL 2.0.5)
+T}
+.TE
+
+.PP
+Audio hotplug events
+.TS
+tab(:) allbox;
+ab l.
+SDL_AUDIODEVICEADDED:T{
+a new audio device is available (>= SDL 2.0.4)
+T}
+SDL_AUDIODEVICEREMOVED:T{
+an audio device has been removed (>= SDL 2.0.4)
+T}
+.TE
+
+.PP
+Render events
+.TS
+tab(:) allbox;
+ab l.
+SDL_RENDER_TARGETS_RESET:T{
+the render targets have been reset and their contents need to be updated (>= SDL 2.0.2)
+T}
+SDL_RENDER_DEVICE_RESET:T{
+the device has been reset and all textures need to be recreated (>= SDL 2.0.4)
+T}
+.TE
+
+.PP
+There are for your use, and should be allocated with \fBSDL_RegisterEvents\fR()
+.TS
+tab(:) allbox;
+ab l.
+SDL_USEREVENT:T{
+a user-specified event
+T}
+SDL_LASTEVENT:T{
+only for bounding internal arrays
+T}
+.TE
+
+.SH CODE EXAMPLES
+
+.TS
+box;
+a.
+SDL_Event e;
+while (SDL_PollEvent(&e)) {
+    if (e.type == SDL_KEYDOWN) {
+        SDL_Log("User just pressed down a key!");
+    }
+}
+.TE
+
+.SH REMARKS
+\fBSDL_QUIT
+.PP
+\fBSDL_QUIT\fR events are generated for a variety of reasons. An application can choose to ignore the event, for example, if it wants to offer a prompt asking the user to save the current work.
+.PP
+An \fBSDL_QUIT\fR event is generated when the user clicks on the close button of the last existing window. This happens in addition to the \fBSDL_WINDOWEVENT\fR/\fBSDL_WINDOWEVENT_CLOSE\fR event, so the application can check whichever is appropriate, or both, or neither. If the application ignores this event and creates another window, \fBSDL_QUIT\fR will be sent again the next time the user clicks on the last remaining window's close button.
+.PP
+\fBSDL_QUIT\fR is not limited to window closing. On macOS, pressing Commmand+Q (the standard keyboard shortcut for "Quit this application") will cause SDL to generate and \fBSDL_QUIT\fR event, regardless of what windows exist at the time. The application is still responsible for terminating itself properly, however. Applications that completely ignore Command+Q will fail macOS App Store certification.
+.PP
+On POSIX systems, \fBSDL_Init\fR() installs signal handlers (\fIhttps://en.wikipedia.org/wiki/Signal_(IPC)\fR) for SIGINT (keyboard interrupt) and SIGTERM (system termination request), if handlers do not already exist, that generate \fBSDL_QUIT\fR events as well. There is no way to determine the cause of an \fBSDL_QUIT\fR event, but setting a signal handler in your application will override the default generation of quit events for that signal.
+
+.PP
+\fBAndroid, iOS, and WinRT Events
+.PP
+What we currently label as "Android, iOS, and WinRT Events" are specific to mobile and embedded devices that have different requirements than your usual desktop application. These events \fImust\fR be handled in an event filter, since often the OS needs an immediate response and will terminate your process shortly after sending the event, and if it sits in the SDL event queue, it'll be too late. You can handle everything else through a normal \fBSDL_PollEvent\fR() loop, but you should set up a callback with \fBSDL_SetEventFilter\fR() for these specific events.
+.PP
+This is how these events currently map to the underlying OS:
+
+.TS
+tab(:) allbox;
+cb cb cb cb cb
+ab l l l l.
+SDL Event:What:iOS:Android:WinRT
+SDL_APP_TERMINATING:T{
+The application is being terminated by the OS.
+T}:applicationWillTerminate():onDestroy():Exiting()
+SDL_APP_LOWMEMORY:T{
+the application is low on memory, free memory if possible.
+T}:applicationDidReceiveMemoryWarning():onLowMemory():--
+SDL_APP_WILLENTERBACKGROUND:T{
+The application is about to enter the background.
+T}:applicationWillResignActive():onPause():Suspending()
+SDL_APP_DIDENTERBACKGROUND:T{
+The application did enter the background and may not get CPU for some time.
+T}:applicationDidEnterBackground():onPause():Suspending()
+SDL_APP_WILLENTERFOREGROUND:T{
+The application is about to enter the foreground.
+T}:applicationWillEnterForeground():onResume():Resuming()
+SDL_APP_DIDENTERFOREGROUND:T{
+The application is now interactive.
+T}:applicationDidBecomeActive():onResume():Resuming()
+.TE
+
+.SH RELATED STRUCTURES
+\fISDL_JoyAxisEvent
+.br
+\fISDL_JoyBallEvent
+.br
+\fISDL_JooyButtonEvent
+.br
+\fISDL_JoyHatEvent
+.br
+\fISDL_JoyDeviceEvent
+.br
+\fISDL_ControllerAxisEvent
+.br
+\fISDL_ControllerButtonEvent
+.br
+\fISDL_ControllerDeviceEvent
+.br
+\fISDL_KeyboardEvent
+.br
+\fISDL_MouseButtonEvent
+.br
+\fISDL_MouseMotionEvent
+.br
+\fISDL_MouseWheelEvent
+.br
+\fISDL_QuitEvent
+.br
+\fISDL_SysWMEvent
+.br
+\fISDL_TextEditingEvent
+.br
+\fISDL_TextInputEvent
+.br
+\fISDL_UserEvent
+.br
+\fISDL_WindowEvent
+.br
+\fISDL_DropEvent
+.br
+\fISDL_AudioDeviceEvent
+.br
+\fISDL_TouchFingerEvent
+.br
+\fISDL_DollarGestureEvent
+.br
+\fISDL_MultiGestureEvent
+
+.SH RELATED FUNCTIONS
+\fISDL_PollEvent
+.br
+\fISDL_SetEventFilter

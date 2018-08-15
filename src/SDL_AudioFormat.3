@@ -1,0 +1,174 @@
+.TH SDL_AudioFormat 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AudioFormat\fR -- Enumerations
+
+.SH Synopsis
+An enumeration of audio formats.
+
+.SH DESCRIPTION
+\fBBit Meanings\fR
+.PP
+These are what the 16 bits in \fBSDL_AudioFormat\fR currently mean:
+.TS
+ box;
+a.
+ +----------------------sample is signed if set
+ |
+ |        +----------sample is bigendian if set
+ |        |
+ |        |           +--sample is float if set
+ |        |           |
+ |        |           |  +--sample bit size---+
+ |        |           |  |                    |
+15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0
+.TE
+
+.PP
+Unspecified bits are always zero, but may be used in later versions of SDL. There are macros to query the specified bits.
+
+\fBAudio Format Macros\fR
+
+.TS
+tab(:) allbox;
+ab a.
+SDL_AUDIO_MASK_BITSIZE:T{
+(0xFF)
+T}
+SDL_AUDIO_MASK_DATATYPE:T{
+(1<<8)
+T}
+SDL_AUDIO_MASK_ENDIAN:T{
+(1<<12)
+T}
+SDL_AUDIO_MASK_SIGNED:T{
+(1<<15)
+T}
+SDL_AUDIO_BITSIZE(x):T{
+(x & SDL_AUDIO_MASK_BIT_SIZE)
+T}
+SDL_AUDIO_ISFLOAT(x):T{
+(x & SDL_AUDIO_MASK_DATATYPE)
+T}
+SDL_AUDIO_ISBIGENDIAN(x):T{
+(x & SDL_AUDIO_MASK_ENDIAN)
+T}
+SDL_AUDIO_ISSIGNED(x):T{
+(x & SDL_AUDIO_MASK_SIGNED)
+T}
+SDL_AUDIO_ISINT(x):T{
+(!SDL_AUDIO_ISFLOAT(x))
+T}
+SDL_AUDIO_ISLITTLEENDIAN(x):T{
+(!SDL_AUDIO_ISBIGENDIAN(x))
+T}
+SDL_AUDIO_ISUNSIGNED(x):T{
+(!SDL_AUDIO_ISSIGNED(x))
+T}
+.TE
+
+.PP
+\fBAudio Format Values\fR
+
+8-bit support
+.TS
+tab(:) allbox;
+ab a.
+AUDIO_S8:T{
+signed 8-bit samples
+T}
+AUDIO_U8:T{
+unsigned 8-bit samples
+T}
+.TE
+
+.PP
+16-bit support
+.TS
+tab(:) allbox;
+ab a.
+AUDIO_S16LSB:T{
+signed 16-bit samples in little-endian byte order
+T}
+AUDIO_S16MSB:T{
+signed 16-bit samples in big-endian byte order
+T}
+AUDIO_S16SYS:T{
+signed 16-bit samples in native byte order
+T}
+AUDIO_S16:T{
+AUDIO_S16LSB
+T}
+AUDIO_U16LSB:T{
+unsigned 16-bit samples in little-endian byte order
+T}
+AUDIO_U16MSB:T{
+unsigned 16-bit samples in big-endian byte order
+T}
+AUDIO_U16SYS:T{
+unsigned 16-bit samples in native byte order
+T}
+AUDIO_U16:T{
+AUDIO_U16LSB
+T}
+.TE
+
+.PP
+32-bit support (new to SDL 2.0)
+
+.TS
+tab(:) allbox;
+ab a.
+AUDIO_S32LSB:T{
+32-bit integer samples in little-endian byte order
+T}
+AUDIO_S32MSB:T{
+32-bit integer samples in big-indian byte order
+T}
+AUDIO_S32SYS:T{
+32-bit integer samples in native byte order
+T}
+AUDIO_S32:T{
+AUDIO_S32LSB
+T}
+.TE
+
+.PP
+float support (new to SDL 2.0)
+
+.TS
+tab(:) allbox;
+ab a.
+AUDIO_F32LSB:T{
+32-bit floating point samples in little-endian byte order
+T}
+AUDIO_F32MSB:T{
+32-bit floating point samples in big-endian byte order
+T}
+AUDIO_F32SYS:T{
+32-bit floating point samples in native byte order
+T}
+AUDIO_F32:AUDIO_F32LSB
+.TE
+
+.SH CODE EXAMPLES
+
+.TS
+box;
+a.
+extern SDL_AudioFormat fmt;
+if (SDL_AUDIO_ISFLOAT(fmt)) {
+    printf("floating point data\\n");
+} else {
+    printf("integer data\\n");
+}
+printf("%d bits per sample\\n", (int) SDL_AUDIO_BITSIZE(fmt));
+.TE
+
+.SH REMARKS
+Be careful about assuming details of a data format. If you only check \fBSDL_AUDIO_ISFLOAT()\fR, you might be surprised to find a later version of SDL adds Float64 support when you expected there to be only 32-bit data, for example.
+
+.SH RELATED STRUCTURES
+\fISDL_AudioCVT\fR, \fISDL_AudioSpec
+
+.SH RELATED FUNCTIONS
+\fISDL_BuildAudioCVT\fR, \fISDL_MixAudioFormat

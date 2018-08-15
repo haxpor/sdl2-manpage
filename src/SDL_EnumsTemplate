@@ -1,16 +1,18 @@
 .TH SDL_EnumsTemplate 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
 .SH NAME
-SDL_EnumsTemplate
+\fBSDL_EnumsTemplate\fR -- Enumerations
 
 .SH Synopsis
 An enumeration of ...
 
 .SH DESCRIPTION
 Values
-.TP 30
-.BI "item 1"
-.TP
-.BI "item 2"
+.TS
+tab(:) allbox;
+ab a.
+1st header:1st content
+1nd header:2nd content
+.TE
 
 .SH REMARKS
 This enumeration is ...

@@ -1,0 +1,37 @@
+.TH SDL_BlendFactor 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_BlendFactor\fR -- Enumerations
+
+.SH Synopsis
+An enumeration of blend factors used when creating a custom blend mode with \fBSDL_ComposeCustomBlendMode\fR().
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab a.
+SDL_BLENDFACTOR_ZERO:0, 0, 0, 0
+SDL_BLENDFACTOR_ONE:1, 1, 1, 1
+SDL_BLENDFACTOR_SRC_COLOR:srcR, srcG, srcB, srcA
+SDL_BLENDFACTOR_ONE_MINUS_SRC_COLOR:1-srcR, 1-srcG, 1-srcB, 1-srcA
+SDL_BLENDFACTOR_SRC_ALPHA:srcA, srcA, srcA, srcA
+SDL_BLENDFACTOR_ONE_MINUS_SRC_ALPHA:1-srcA, 1-srcA, 1-srcA, 1-srcA
+SDL_BLENDFACTOR_DST_COLOR:dstR, dstG, dstB, dstA
+SDL_BLENDFACTOR_ONE_MINUS_DST_COLOR:1-dstR, 1-dstG, 1-dstB, 1-dstA
+SDL_BLENDFACTOR_DST_ALPHA:dstA, dstA, dstA, dstA
+SDL_BLENDFACTOR_ONE_MINUS_DST_ALPHA:1-dstA, 1-dstA, 1-dstA, 1-dstA
+.TE
+
+.SH REMARKS
+The blend factors are multiplied with the pixels from a drawing operation (src) and the pixels from the render target (dst) before the blend operation. The comma-separated factors listed above are always applied in the component order red, green, blue, and alpha.
+.PP
+Some renderers may not support all factors. See \fBSDL_ComposeCustomBlendMode\fR() for a list of what the current renderers support.
+
+.SH VERSION
+This enumeration is available since SDL 2.0.6
+
+.SH RELATED ENUMERATIONS
+\fISDL_BlendOperation
+
+.SH RELATED FUNCTIONS
+\fISDL_ComposeCustomBlendMode\fR, \fISDL_SetRenderDrawBlendMode\fR, \fISDL_SetTextureBlendMode

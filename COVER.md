@@ -57,13 +57,13 @@ Chcked items are covered by this project.
 
 ## Enumberations
 
-* [ ] `SDL_AssertState`
-* [ ] `SDL_AudioFormat`
-* [ ] `SDL_AudioStatus`
-* [ ] `SDL_BlendFactor`
-* [ ] `SDL_BlendMode`
-* [ ] `SDL_BlendOperation`
-* [ ] `SDL_EventType`
+* [x] `SDL_AssertState`
+* [x] `SDL_AudioFormat`
+* [x] `SDL_AudioStatus`
+* [x] `SDL_BlendFactor`
+* [x] `SDL_BlendMode`
+* [x] `SDL_BlendOperation`
+* [x] `SDL_EventType`
 * [ ] `SDL_GLattr`
 * [ ] `SDL_GLcontextFlag`
 * [ ] `SDL_GLprofile`
