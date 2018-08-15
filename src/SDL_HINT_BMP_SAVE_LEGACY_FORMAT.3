@@ -1,0 +1,35 @@
+.TH SDL_HINT_BMP_SAVE_LEGACY_FORMAT 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_BMP_SAVE_LEGACY_FORMAT\fR -- Hints
+
+.SH Synopsis
+A hint that specifies whether SDL should \fBnot\fR use version 4 of the bitmap header when saving BMPs.
+
+.SH DESCRIPTION
+\fBValues
+.RS 4
+\fB0
+\fRversion 4 of the bitmap header will be used when saving BMPs
+.br
+\fB1
+\fRversion 4 of the bitmap header will not be used when saving BMPs
+.RE
+
+.SH DEFAULT
+By default SDL will use version 4 of the bitmap header when saving BMPs.
+
+.SH REMARKS
+The bitmap header version 4 is required for proper alpha channel support and SDL will use it when required. Should this not be desired, this hint can force the use of the 40 bytes header version which is supported everywhere.
+.PP
+If the hint is not set then surfaces with a colorkey or an alpha channel are saved to a 32-bit BMP file with an alpha mask. SDL will use the bitmap header version 4 and set the alpha mask accordingly. This is the \fIdefault\fR behavior since SDL 2.0.5.
+.PP
+If the hint is set then surfaces with a colorkey or an alpha channel are saved to a 32-bit BMP file without an alpha mask. The alpha channel data will be in the file, but application are going to ignore it. This was the default behavior before SDL 2.0.5.
+
+.SH VERSION
+Available since SDL 2.0.5
+
+.SH SEE ALSO
+SDL_SaveBMP, SDL_SaveBMP_RW
+
+.SH NOTE
+Draft

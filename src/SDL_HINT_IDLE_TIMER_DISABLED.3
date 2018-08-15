@@ -1,0 +1,27 @@
+.TH SDL_HINT_IDLE_TIMER_DISABLED 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_IDLE_TIMER_DISABLED\fR -- Hints
+
+.SH Synopsis
+A hint that specifies a variable controlling whether the idle timer is disabled on iOS.
+
+.SH DESCRIPTION
+\fBValues
+.RS 4
+\fB0
+\fRenable idle timer
+.br
+\fB1
+\fRdisable idle timer
+.RE
+
+.SH DEFAULT
+By default the idle timer is enabled.
+
+.SH REMARKS
+When an iOS application does not receive touches for some time, the screen is dimmed automatically. For games where the accelerometer is the only input this is problematic. This functionality can be disabled by setting this hint.
+.PP
+As of SDL 2.0.4, \fBSDL_EnableScreenSaver\fR() and \fBSDL_DisableScreenSaver\fR() accomplish the same thing on iOS. They should be preferred over this hint.
+
+.SH NOTE
+Draft

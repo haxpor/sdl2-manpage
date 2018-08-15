@@ -1,0 +1,24 @@
+.TH SDL_HINT_GAMECONTROLLERCONFIG 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_GAMECONTROLLERCONFIG\fR -- Hints
+
+.SH Synopsis
+A hint that specifies extra gamecontroller db entries.
+
+.SH DESCRIPTION
+\fBValues
+.RS 4
+\fBX
+\fRa newline delimited rows of gamecontroller config data, see \fISDL_gamecontroller.h
+.RE
+
+.SH DEFAULT
+By default no extra gamecontroller db entries are specified.
+
+.SH REMARKS
+This hint must be set before calling \fBSDL_Init\fR(SDL_INIT_GAMECONTROLLER).
+.PP
+You can update mappings after the system is initialized with \fBSDL_GameControllerMappingForGUID\fR() and \fBSDL_GameControllerAddMapping\fR().
+
+.SH NOTE
+Draft

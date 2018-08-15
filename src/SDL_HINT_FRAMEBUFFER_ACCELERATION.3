@@ -1,0 +1,25 @@
+.TH SDL_HINT_FRAMEBUFFER_ACCELERATION 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_FRAMEBUFFER_ACCELERATION\fR -- Hints
+
+.SH Synopsis
+A hint tha specifies how 3D acceleration is used with \fBSDL_GetWindowSurface\fR().
+
+.SH DESCRIPTION
+\fBValues
+.RS 4
+\fB0
+\fRdisable 3D accleration
+.br
+\fB1
+\fRenable 3D acceleration, using the default renderer
+.br
+\fBX
+\fRenable 3D acceleration, using X where X is one of the valid rendering drivers. (e.g. "direct3d", "opengl", etc.)
+.RE
+
+.SH DEFAULT
+By default SDL tries to make a best guess whether to use accleration or not on each platform.
+
+.SH REMARKS
+SDL can try to accelerate the screen surface returned by \fBSDL_GetWindowSurface\fR() by using streaming textures with a 3D rendering engine. This variable controls whether and how this is done.

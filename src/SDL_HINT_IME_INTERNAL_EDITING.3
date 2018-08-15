@@ -1,0 +1,25 @@
+.TH SDL_HINT_IME_INTERNAL_EDITING 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HINT_IME_INTERNAL_EDITING\fR -- Hints
+
+.SH Synopsis
+A hint that specifies whether certain IMEs should handle text editing internally instead of sending \fBSDL_TEXTEDITING\fR events.
+
+.SH DESCRIPTION
+Values
+.PP
+.TP 10
+.BI 0
+\fR\fBSDL_TEXTEDITING\fR events are sent, and it is the application's responsibility to render the text from these events and differentiate it somehow from committed text. (\fIdefault\fR)
+.TP
+.BI 1
+\fRIf supported by the IME then \fBSDL_TEXTEDITING\fR events are not sent, and text that is being composed will be rendered in its own UI.
+
+.SH DEFAULT
+By default \fBSDL_TEXTEDITING\fR events are sent, and it is the applications's responsibility to render the text from these events and differentiate it somehow forom committed text.
+
+.SH VERSION
+Available since SDL 2.0.4
+
+.SH NOTE
+Draft
