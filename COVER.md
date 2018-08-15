@@ -55,7 +55,7 @@ Chcked items are covered by this project.
 * [x] `SDL_HINT_XINPUT_ENABLED`
 * [x] `SDL_HINT_XINPUT_USE_OLD_JOYSTICK_MAPPING`
 
-## Enumberations
+## Enumerations
 
 * [x] `SDL_AssertState`
 * [x] `SDL_AudioFormat`
