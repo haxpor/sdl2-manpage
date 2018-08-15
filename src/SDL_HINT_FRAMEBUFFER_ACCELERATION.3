@@ -6,17 +6,16 @@
 A hint tha specifies how 3D acceleration is used with \fBSDL_GetWindowSurface\fR().
 
 .SH DESCRIPTION
-\fBValues
-.RS 4
-\fB0
-\fRdisable 3D accleration
-.br
-\fB1
-\fRenable 3D acceleration, using the default renderer
-.br
-\fBX
-\fRenable 3D acceleration, using X where X is one of the valid rendering drivers. (e.g. "direct3d", "opengl", etc.)
-.RE
+Values
+.TP 5
+.BI 0
+disable 3D acceleration
+.TP
+.BI 1
+enable 3D acceleration, using the default renderer
+.TP
+.BI X
+enable 3D acceleration, using X where X is one of the valid rendering drivers. (e.g. "direct3d", "opengl", etc.)
 
 .SH DEFAULT
 By default SDL tries to make a best guess whether to use accleration or not on each platform.

@@ -6,20 +6,19 @@
 A hint that specifies a value to override the binding element for keyboard inputs for Emscripten builds.
 
 .SH DESCRIPTION
-\fBValues
-.RS 4
-\fB#window
-\fRthe JavaScript window object \fB(this is the default)
-.br
-\fB#document
-\fRthe JavaScript document object
-.br
-\fB#screen
-\fRthe JavaScript \fBwindow.screen\fR object
-.br
-\fB#canvas
-\fRthe default WebGL canvas element
-.RE
+Values
+.TP 12
+.BI #window
+the JavaScript window object \fB(this is the default)
+.TP
+.BI #document
+the JavaScript document object
+.TP
+.BI #screen
+the JavaScript \fBwindow.screen\fR object
+.TP
+.BI #canvas
+the default WebGL canvas element
 
 .PP
 Any other string without a leading # sign applies to the element on the page with that ID.
