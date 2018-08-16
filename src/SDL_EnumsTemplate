@@ -9,7 +9,7 @@ An enumeration of ...
 Values
 .TS
 tab(:) allbox;
-ab a.
+ab l.
 1st header:1st content
 1nd header:2nd content
 .TE

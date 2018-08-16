@@ -64,14 +64,14 @@ Chcked items are covered by this project.
 * [x] `SDL_BlendMode`
 * [x] `SDL_BlendOperation`
 * [x] `SDL_EventType`
-* [ ] `SDL_GLattr`
-* [ ] `SDL_GLcontextFlag`
-* [ ] `SDL_GLprofile`
-* [ ] `SDL_GameControllerAxis`
-* [ ] `SDL_GameControllerButton`
-* [ ] `SDL_HintPriority`
-* [ ] `SDL_HitTestResult`
-* [ ] `SDL_JoystickPowerLevel`
+* [x] `SDL_GLattr`
+* [x] `SDL_GLcontextFlag`
+* [x] `SDL_GLprofile`
+* [x] `SDL_GameControllerAxis`
+* [x] `SDL_GameControllerButton`
+* [x] `SDL_HintPriority`
+* [x] `SDL_HitTestResult`
+* [x] `SDL_JoystickPowerLevel`
 * [ ] `SDL_Keycode`
 * [ ] `SDL_Keymod`
 * [ ] `SDL_LOG_CATEGORY`

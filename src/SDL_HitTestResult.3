@@ -1,0 +1,49 @@
+.TH SDL_HitTestResult 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HitTestResult\fR -- Enumerations
+
+.SH Synopsis
+An enumeration of possible return values from the \fBSDL_SetWindowHitTest\fR() callback.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_HITTEST_NORMAL:T{
+region is normal and has no special properties
+T}
+SDL_HITTEST_DRAGGABLE:T{
+region can drag entire window
+T}
+SDL_HITTEST_RESIZE_TOPLEFT:T{
+region can resize top left window
+T}
+SDL_HITTEST_RESIZE_TOP:T{
+region can resize top window
+T}
+SDL_HITTEST_TOPRIGHT:T{
+region can resize top right window
+T}
+SDL_HITTEST_RESIZE_RIGHT:T{
+region can resize right window
+T}
+SDL_HITTEST_RESIZE_BOTTOMRIGHT:T{
+region can resize bottom right window
+T}
+SDL_HITTEST_RESIZE_BOTTOM:T{
+region can resize bottom window
+T}
+SDL_HITTEST_RESIZE_BOTTOMLEFT:T{
+region can resize bottom left window
+T}
+SDL_HITTEST_RESIZE_LEFT:T{
+region can resize left window
+T}
+.TE
+
+.SH VERSION
+This enumeration is available since SDL 2.0.4
+
+.SH RELATED FUNCTIONS
+\fISDL_SetWindowHitTest

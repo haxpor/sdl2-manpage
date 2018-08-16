@@ -1,0 +1,53 @@
+.TH SDL_GLcontextFlag 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GLcontextFlag\fR -- Enumerations
+
+.SH Synopsis
+An enumeration of OpenGL context configuration flags.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab a.
+SDL_GL_CONTEXT_DEBUG_FLAG:see \fIRemarks\fR
+SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG:see \fIRemarks\fR
+SDL_GL_CONTEXT_ROBUST_ACCESS_FLAG:see \fIRemarks\fR
+SDL_GL_CONTEXT_RESET_ISOLATION_FLAG:see \fIRemarks\fR
+.TE
+
+.SH CODE EXAMPLES
+.TS
+box;
+l.
+SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
+.TE
+
+.SH REMARKS
+This enumeration is used in conjunction with \fBSDL_GL_SetAttribute\fR and \fBSDL_GL_CONTEXT_FLAGS\fR. Multiple flags can be OR'd together.
+.PP
+If you don't know what these values do, you should assume the defaults are already fine and shouldn't use these flags. Not only are they not available on all platforms and GPU drivers, they can also have dramatic consequences for OpenGL functionality and performance, so please research them heavily before putting these flags to use.
+.PP
+\fBSDL_GL_CONTEXT_DEBUG_FLAG
+.PP
+This flag maps to \fBGLX_CONTEXT_DEBUG_BIT_ARB\fR in the \fBGLX_ARB_create_context\fR (\fIhttps://www.khronos.org/registry/OpenGL/extensions/ARB/GLX_ARB_create_context.txt\fR) extension for X11 and \fBWGL_CONTEXT_DEBUG_BIT_ARB\fR in the \fBWGL_ARB_create_context\fR (\fIhttps://www.khronos.org/registry/OpenGL/extensions/ARB/WGL_ARB_create_context.txt\fR) extension for Windows. This flag is currently ignored on other targets that don't support equivalent functionality. This flag is intended to put the GL into a "debug" mode which might offer better developer insights, possibly at a loss of performance (although a given GL implmentation may or may not do anything differently in the presense of this flag).
+.PP
+\fBSDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG
+.PP
+This flag maps to \fBGLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB\fR in the \fBGLX_ARB_create_context\fR (\fIhttps://www.khronos.org/registry/OpenGL/extensions/ARB/GLX_ARB_create_context.txt\fR) extension for X11 and \fBWGL_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB\fR in the \fBWGL_ARB_create_context\fR (\fIhttps://www.khronos.org/registry/OpenGL/extensions/ARB/WGL_ARB_create_context.txt\fR) extension for Windows. This flag is currently ignored on other targets that don't support equivalent functionality. This flag is intended to put the GL into a "forward compatible" mode, which means that no deprecated functionality will be supported, possibly at a gain in performance, and only applies to GL 3.0 and later contexts.
+.PP
+\fBSDL_GL_CONTEXT_ROBUST_ACCESS_FLAG
+.PP
+This flag maps to \fBGLX_CONTEXT_ROBUST_ACCESS_BIT_ARB\fR in the \fBGLX_ARB_create_context_robustness\fR (\fIhttps://www.khronos.org/registry/OpenGL/extensions/ARB/GLX_ARB_create_context_robustness.txt\fR) extension for X11 and \fBWGL_CONTEXT_ROBUST_ACCESS_BIT_ARB\fR in the \fBWGL_ARB_create_context_robustness\fR (\fIhttps://www.khronos.org/registry/OpenGL/extensions/ARB/WGL_ARB_create_context_robustness.txt\fR) extension for Windows. This flag is currently ignored on other targets that don't support equivalent functionality. This flag is intended to require a GL context that supports the \fBGL_ARB_robustness\fR extension--a mode that offers a few APIs that are safer than the usual defaults (think \fBsnprintf\fR() vs \fBsprintf\fR()).
+.PP
+\fBSDL_GL_CONTEXT_RESET_ISOLATION_FLAG
+.PP
+This flag maps to \fBGLX_CONTEXT_RESET_ISOLATION_BIT_ARB\fR in the \fBGLX_ARB_robustness_isolation\fR (\fIhttps://www.khronos.org/registry/OpenGL/extensions/ARB/GLX_ARB_robustness_application_isolation.txt\fR) extension for X11 and \fBWGL_CONTEXT_RESET_ISOLATION_BIT_ARB\fR) in the \fBWGL_ARB_robustness_isolation\fR (\fIhttps://www.khronos.org/registry/OpenGL/extensions/ARB/WGL_ARB_robustness_application_isolation.txt\fR) extension for Windows. This flag is currently ignored on other targets that don't support equivalent functionality. This flag is intended to require the GL to make promises about what to do in the face of driver or hardware failure.
+
+.SH RELATED ENUMERATIONS
+\fISDL_GLattr
+
+.SH RELATED FUNCTIONS
+\fISDL_GL_GetAttribute
+.br
+\fISDL_GL_SetAttribute
