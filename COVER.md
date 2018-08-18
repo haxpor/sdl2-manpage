@@ -685,3 +685,8 @@ Chcked items are covered by this project.
 * [ ] `SDL_assert_release`
 * [ ] `SDL_iPhoneSetAnimationCallback`
 * [ ] `SDL_iPhoneSetEventPump`
+
+## Misc
+
+* [ ] `SDL Scancode Lookup Table`
+* [ ] `SDL Keycode Lookup Table`
