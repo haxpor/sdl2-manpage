@@ -688,5 +688,5 @@ Chcked items are covered by this project.
 
 ## Misc
 
-* [ ] `SDL Scancode Lookup Table`
+* [x] `SDL Scancode Lookup Table`
 * [ ] `SDL Keycode Lookup Table`
