@@ -88,16 +88,14 @@ T}
 .TE
 
 .SH CODE EXAMPLES
-.TS
-box;
-l.
+.nf
 SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
 SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
 SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
 SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 SDL_GL_CreateContext(window);
-.TE
+.fi
 
 .SH REMARKS
 While you can set most OpenGL attributes normally, the attributes listed above must be known before SDL creates the window that will be used the OpenGL context. These attributes are set and read with \fBSDL_GL_SetAttribute\fR() and \fBSDL_GL_GetAttribute\fR().

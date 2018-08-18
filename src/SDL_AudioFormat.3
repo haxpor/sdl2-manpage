@@ -151,10 +151,7 @@ AUDIO_F32:AUDIO_F32LSB
 .TE
 
 .SH CODE EXAMPLES
-
-.TS
-box;
-a.
+.nf
 extern SDL_AudioFormat fmt;
 if (SDL_AUDIO_ISFLOAT(fmt)) {
     printf("floating point data\\n");
@@ -162,7 +159,7 @@ if (SDL_AUDIO_ISFLOAT(fmt)) {
     printf("integer data\\n");
 }
 printf("%d bits per sample\\n", (int) SDL_AUDIO_BITSIZE(fmt));
-.TE
+.fi
 
 .SH REMARKS
 Be careful about assuming details of a data format. If you only check \fBSDL_AUDIO_ISFLOAT()\fR, you might be surprised to find a later version of SDL adds Float64 support when you expected there to be only 32-bit data, for example.

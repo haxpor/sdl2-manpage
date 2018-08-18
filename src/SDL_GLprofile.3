@@ -22,11 +22,9 @@ T}
 .TE
 
 .SH CODE EXAMPLES
-.TS
-box;
-a.
+.nf
 SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
-.TE
+.fi
 
 .SH REMARKS
 This enumeration is used in conjunction with \fBSDL_GL_SetAttribute\fR() and \fBSDL_GL_CONTEXT_PROFILE_MASK\fR. Although the name \fBSDL_GL_CONTEXT_PROFILE_MASK\fR implies that multiple flags can be OR'd together, the profiles are mutually exclusive, and \fBSDL_GL_SetAttribute\fR() accepts at most one of them. Setting the \fBSDL_GL_CONTEXT_PROFILE_MASK\fR attribute to 0 leaves the choice of profile up to SDL. Should be used in conjunction with the \fBSDL_GL_CONTEXT_MAJOR_VERSION\fR and \fBSDL_GL_CONTEXT_MINOR_VERSION\fR attributes, since OpenGL profiles are defined relative to a particular version of OpenGL. There is no way to distinquish between the common and common lite profiles of OpenGL ES versions 1.0 and 1.1.
