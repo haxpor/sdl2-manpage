@@ -1,0 +1,72 @@
+.TH SDL_Keymod 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Keymod\fR -- Enumerations
+
+.SH Synopsis
+An enumeration of key modifier masks.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+KMOD_NONE:T{
+0 (no modifier is applicable)
+T}
+KMOD_LSHIFT:T{
+the left Shift key is down
+T}
+KMOD_RSHIFT:T{
+the right Shift key is down
+T}
+KMOD_LCTRL:T{
+the left Ctrl (Control) key is down
+T}
+KMOD_RCTRL:T{
+the right Ctrl (Control) key is down
+T}
+KMOD_LALT:T{
+the left Alt key is down
+T}
+KMOD_RALT:T{
+the right Alt key is down
+T}
+KMOD_LGUI:T{
+the left GUI key (often the Windows key) is down
+T}
+KMOD_RGUI:T{
+the right GUI key (often the Windows key) is down
+T}
+KMOD_NUM:T{
+the Num Lock key (may be located on an extended keypad) is down
+T}
+KMOD_CAPS:T{
+the Caps Lock key is down
+T}
+KMOD_MODE:T{
+the AltGr key is down
+T}
+KMOD_CTRL:T{
+(KMOD_LCTRL | KMOD_RCTRL)
+T}
+KMOD_SHIFT:T{
+(KMOD_LSHIFT | KMOD_RSHIFT)
+T}
+KMOD_ALT:T{
+(KMOD_LALT | KMOD_RALT)
+T}
+KMOD_GUI:T{
+(KMOD_LGUI | KMOD_RGUI)
+T}
+KMOD_RESERVED:T{
+reserved for future use
+T}
+.TE
+
+.SH REMARKS
+These may be OR'd together.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetModState
+.br
+\fISDL_SetModState

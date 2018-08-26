@@ -73,7 +73,7 @@ Chcked items are covered by this project.
 * [x] `SDL_HitTestResult`
 * [x] `SDL_JoystickPowerLevel`
 * [x] `SDL_Keycode`
-* [ ] `SDL_Keymod`
+* [x] `SDL_Keymod`
 * [ ] `SDL_LOG_CATEGORY`
 * [ ] `SDL_LogPriority`
 * [ ] `SDL_MessageBoxButtonFlags`
