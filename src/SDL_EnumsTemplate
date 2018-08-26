@@ -2,7 +2,7 @@
 .SH NAME
 \fBSDL_EnumsTemplate\fR -- Enumerations
 
-.SH Synopsis
+.SH SYNOPSIS
 An enumeration of ...
 
 .SH DESCRIPTION
@@ -17,4 +17,4 @@ ab l.
 .SH REMARKS
 This enumeration is ...
 
-.SH "SEE ALSO"
+.SH RELATED FUNCTIONS
