@@ -75,7 +75,7 @@ Chcked items are covered by this project.
 * [x] `SDL_Keycode`
 * [x] `SDL_Keymod`
 * [x] `SDL_LOG_CATEGORY`
-* [ ] `SDL_LogPriority`
+* [x] `SDL_LogPriority`
 * [ ] `SDL_MessageBoxButtonFlags`
 * [ ] `SDL_MessageBoxColorType`
 * [ ] `SDL_MessageBoxFlags`

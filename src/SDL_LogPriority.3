@@ -1,0 +1,47 @@
+.TH SDL_LogPriority 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_LogPriority\fR -- Enumerations
+
+.SH Synopsis
+An enumeration of the predefined log priorities.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_LOG_PRIORITY_VERBOSE:
+SDL_LOG_PRIORITY_DEBUG:
+SDL_LOG_PRIORITY_INFO:
+SDL_LOG_PRIORITY_WARN:
+SDL_LOG_PRIORITY_ERROR:
+SDL_LOG_PRIORITY_CRITICAL:
+SDL_NUM_LOG_PRIORITIES:T{
+(internal use)
+T}
+.TE
+
+.SH REMARKS
+The default log priorities are as follows:
+
+.TS
+tab(:) allbox;
+a l.
+SDL_LOG_CATEGORY_APPLICATION:SDL_LOG_PRIORITY_INFO
+SDL_LOG_CATEGORY_ASSERT:SDL_LOG_PRIORITY_WARN
+SDL_LOG_CATEGORY_TEST:SDL_LOG_PRIORITY_VERBOSE
+everything else:SDL_LOG_PRIORITY_CRITICAL
+.TE
+
+If you're debugging SDL you might want to call:
+
+SDL_LogSetAllPriority(SDL_LOG_PRIORITY_WARN);
+
+.SH RELATED FUNCTIONS
+\fISDL_LogMessage
+.br
+\fISDL_LogMessageV
+.br
+\fISDL_LogSetAllPriority
+.br
+\fISDL_LogSetPriority
