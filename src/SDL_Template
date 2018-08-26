@@ -2,11 +2,11 @@
 .SH NAME
 SDL_Template
 
-.SH Synopsis
+.SH SYNOPSIS
 \fBint SDL_Template(Uint32 \fB\fRflags\fR\fB)\fB
 
 .SH DESCRIPTION
 
 .SH REMARKS
 
-.SH "SEE ALSO"
+.SH RELATED FUNCTIONS
