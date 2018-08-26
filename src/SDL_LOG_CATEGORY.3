@@ -1,0 +1,67 @@
+.TH SDL_LOG_CATEGORY 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_LOG_CATEGORY\fR -- Enumerations
+
+.SH Synopsis
+An enumeration of the predefined log categories.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_LOG_CATEGORY_APPLICATION:T{
+application log
+T}
+SDL_LOG_CATEGORY_ERROR:T{
+error log
+T}
+SDL_LOG_CATEGORY_ASSERT:T{
+assert log
+T}
+SDL_LOG_CATEGORY_SYSTEM:T{
+system log
+T}
+SDL_LOG_CATEGORY_AUDIO:T{
+audio log
+T}
+SDL_LOG_CATEGORY_VIDEO:T{
+video log
+T}
+SDL_LOG_CATEGORY_RENDER:T{
+render log
+T}
+SDL_LOG_CATEGORY_INPUT:T{
+input log
+T}
+SDL_LOG_CATEGORYL_TEST:T{
+test log
+T}
+SDL_LOG_CATEGORY_RESERVED#:T{
+# = 1-10; reserved for future SDL libray use
+T}
+SDL_LOG_CATEGORY_CUSTOM:T{
+reserved for application use; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH REMARKS
+By default the APPLICATION category is enabled at the \fBSDL_LOG_PRIORITY_INFO\fR level and all other categories are enabled at the \fBSDL_LOG_PRIORITY_CRITICAL\fR level. See \fBSDL_LogPriority\fR for details.
+.PP
+\fBSDL_LOG_CATEGORY_CUSTOM\fR is reserved for application use; for example:
+.PP
+.nf
+enum {
+  MYAPP_CATEGORY_AWESOME1 = SDL_LOG_CATEGORY_CUSTOM,
+  MYAPP_CATEGORY_AWESOME2,
+  MYAPP_CATEGORY_AWESOME3,
+  ...
+}
+.fi
+
+.SH RELATED FUNCTIONS
+\fISDL_Log
+.br
+\fISDL_LogMessage
+.br
+\fISDL_LogMessageV
