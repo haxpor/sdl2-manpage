@@ -1,0 +1,25 @@
+.TH SDL_ThreadPriority 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ThreadPriority\fR -- Enumerations
+
+.SH SYNOPSIS
+An enumeration of the available thread priorities.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_THREAD_PRIORITY_LOW:T{
+for non-urgent, background processing
+T}
+SDL_THREAD_PRIORITY_NORMAL:T{
+for general purpose processing (default)
+T}
+SDL_THREAD_PRIORITY_HIGH:T{
+for timing-critical processing
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_SetThreadPriority

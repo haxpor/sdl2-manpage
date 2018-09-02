@@ -1,0 +1,33 @@
+.TH SDL_WinRT_Path 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_WinRT_Path\fR -- Enumerations
+
+.SH SYNOPSIS
+An enumeration of WinRT / Windows Phone path types.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_WINRT_PATH_INSTALLED_LOCATION:T{
+the installed apps's root directory; files here are likely to be read-only
+T}
+SDL_WINRT_PATH_LOCAL_FOLDER:T{
+the app's local data store; files may be written here
+T}
+SDL_WINRT_PATH_ROAMING_FOLDER:T{
+the app's roaming data store (unsupported on Windows Phone); files written here may be copied to other machines via a network connection.
+T}
+SDL_WINRT_PATH_TEMP_FOLDER:T{
+the app's temporary data store (unsupported on Windows Phone); files written here may be deleted at any time
+T}
+.TE
+
+.SH VERSIONS
+This enumeration is available since SDL 2.0.3.
+
+.SH RELATED FUNCTIONS
+\fISDL_WinRTGetFSPathUNICODE
+.br
+\fISDL_WinRTGetFSPathUTF8

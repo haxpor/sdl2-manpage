@@ -1,0 +1,127 @@
+.TH SDL_WindowEventID 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_WindowEventID\fR -- Enumerations
+
+.SH SYNOPSIS
+An enumeration of window events.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_WINDOWEVENT_NONE:T{
+(never used)
+T}
+SDL_WINDOWEVENT_SHOWN:T{
+window has been shown
+T}
+SDL_WINDOWEVENT_HIDDEN:T{
+window has been hidden
+T}
+SDL_WINDOWEVENT_EXPOSED:T{
+window has been exposed and should be redrawn
+T}
+SDL_WINDOWEVENT_MOVED:T{
+window has been moved to data1, data2
+T}
+SDL_WINDOWEVENT_RESIZED:T{
+window has been resized to data1xdata2; this event is always preceded by \fBSDL_WINDOWEVENT_SIZE_CHANGED\fR
+T}
+SDL_WINDOWEVENT_SIZE_CHANGED:T{
+window size has changed, either as a result of an API call or through the system or user changing the window size; this event is followed by \fBSDL_WINDOWEVENT_RESIZED\fR if the size was changed by an external event, i.e. the user or the window manager.
+T}
+SDL_WINDOWEVENT_MINIMIZED:T{
+window has been minimized
+T}
+SDL_WINDOWEVENT_MAXIMIZED:T{
+window has been maximized
+T}
+SDL_WINDOWEVENT_RESTORED:T{
+window has been restored to normal size and position
+T}
+SDL_WINDOWEVENT_ENTER:T{
+window has gained mouse focus
+T}
+SDL_WINDOWEVENT_LEAVE:T{
+window has lost mouse focus
+T}
+SDL_WINDOWEVENT_FOCUS_GAINED:T{
+window has gained keyboard focus
+T}
+SDL_WINDOWEVENT_FOCUS_LOST:T{
+window has lost keyboard focus
+T}
+SDL_WINDOWEVENT_CLOSE:T{
+the window manager requests that the window be closed
+T}
+SDL_WINDOWEVENT_TAKE_FOCUS:T{
+window is being offered a focus (should \fBSDL_SetWindowInputFocus()\fR on itself or a subwindow, or ignore) (>= SDL 2.0.5)
+T}
+SDL_WINDOWEVENT_HIT_TEST:T{
+window had a hit test that wasn't \fBSDL_HITTEST_NORMAL\fR (>= SDL 2.0.5)
+T}
+.TE
+
+.SH CODE EXAMPLES
+.nf
+#include <stdlib.h>
+#include "SDL.h"
+
+int main(int argc, char *argv[]) {
+  int width = 640;
+  int height = 480;
+
+  if (SDL_Init(SDL_INIT_VIDEO) != 0) {
+    return 1;
+  } 
+  atexit(SDL_QUIT);
+
+  SDL_Window* window = SDL_CreateWindow("Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_RESIZABLE);
+  Uint32 windowID = SDL_GetWindowID(window);
+
+  while(1) {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+      switch (event.type) {
+        case SDL_WINDOWEVENT: {
+          if (event.window.windowID == windowID) {
+            switch (event.window.event) {
+              case SDL_WINDOWEVENT_SIZE_CHANGED: {
+                width = event.window.data1;
+                height = event.window.data2;
+                break;
+              }
+
+              case SDL_WINDOWEVENT_CLOSE: {
+                event.type = SDL_QUIT;
+                SDL_PushEvent(&event);
+                break;
+              }
+            }
+          }
+          break;
+        }
+
+        case SDL_QUIT: {
+          return 0;
+        }
+
+        /* ... */
+      }
+    }
+
+    /* ... */
+
+    SDL_Delay(1);
+  }
+}
+.fi
+
+.SH RELATED STRUCTURES
+\fISDL_WindowEvent
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowFormID
+.br
+\fISDL_GetWindowID

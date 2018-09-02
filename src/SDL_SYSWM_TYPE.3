@@ -1,0 +1,52 @@
+.TH SDL_SYSWM_TYPE 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SYSWM_TYPE\fR -- Enumerations
+
+.SH SYNOPSIS
+An enumeration of the various supported windowing subsystems.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_SYSTEM_UNKNOWN:
+SDL_SYSTEM_WINDOWS:T{
+Microsoft Windows
+T}
+SDL_SYSWM_X11:T{
+X Window System
+T}
+SDL_SYSWM_DIRECTFB:T{
+\fIDirectFB\fR (see https://github.com/DirectFB/directfb)
+T}
+SDL_SYSWM_COCOA:T{
+Apple Mac OS X
+T}
+SDL_SYSWM_UIKIT:T{
+Apple iOS
+T}
+SDL_SYSWM_WAYLAND:T{
+Wayland (>= SDL 2.0.2)
+T}
+SDL_SYSWM_MIR:T{
+Mir (>= SDL 2.0.2)
+T}
+SDL_SYSWM_WINRT:T{
+WinRT (>= SDL 2.0.3)
+T}
+SDL_SYSWM_ANDROID:T{
+Android (>= SDL 2.0.4)
+T}
+SDL_SYSWM_VIVANTE:T{
+Vivante (>= SDL 2.0.5)
+T}
+.TE
+
+.SH RELATED STRUCTURES
+\fISDL_SysWMInfo
+.br
+\fISDL_SysWMmsg
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowWMInfo

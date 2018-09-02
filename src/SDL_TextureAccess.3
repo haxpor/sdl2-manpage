@@ -1,0 +1,29 @@
+.TH SDL_TextureAccess 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_TextureAccess\fR -- Enumerations
+
+.SH SYNOPSIS
+An enumeration of texture access patterns.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_TEXTUREACCESS_STATIC:T{
+changes rarely, not lockable
+T}
+SDL_TEXTUREACCESS_STREAMING:T{
+changes frequently, lockable
+T}
+SDL_TEXTUREACCESS_TARGET:T{
+can be used as a render target
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateTexture
+.br
+\fISDL_LockTexture
+.br
+\fISDL_QueryTexture

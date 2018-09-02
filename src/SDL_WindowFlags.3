@@ -1,0 +1,98 @@
+.TH SDL_WindowFlags 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_WindowFlags\fR -- Enumerations
+
+.SH SYNOPSIS
+An enumeration of window states.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_WINDOW_FULLSCREEN:T{
+fullscreen window
+T}
+SDL_WINDOW_FULLSCREEN_DESKTOP:T{
+fullscreen windnow at the current desktop resolution
+T}
+SDL_WINDOW_OPENGL:T{
+window usable with OpenGL context
+T}
+SDL_WINDOW_SHOWN:T{
+window is visible
+T}
+SDL_WINDOW_HIDDEN:T{
+window is not visible
+T}
+SDL_WINDOW_BORDERLESS:T{
+no window decoration
+T}
+SDL_WINDOW_RESIZABLE:T{
+window can be resized
+T}
+SDL_WINDOW_MINIMIZED:T{
+window is minimized
+T}
+SDL_WINDOW_MAXIMIZED:T{
+window is maximized
+T}
+SDL_WINDOW_INPUT_GRABBED:T{
+window has grabbed input focus
+T}
+SDL_WINDOW_INPUT_FOCUS:T{
+window has input fous
+T}
+SDL_WINDOW_MOUSE_FOCUS:T{
+window has mouse focus
+T}
+SDL_WINDOW_FOREIGN:T{
+window not created by SDL
+T}
+SDL_WINDOW_ALLOW_HIGHDPI:T{
+window should be created in high-DPI mode if supported (>= SDL 2.0.1)
+T}
+SDL_WINDOW_MOUSE_CAPTURE:T{
+window has mouse captured (unrelated to INPUT_GRABBED, >= SDL 2.0.4)
+T}
+SDL_WINDOW_ALWAYS_ON_TOP:T{
+window should always be above others (X11 only, >= SDL 2.0.5)
+T}
+SDL_WINDOW_SKIP_TASKBAR:T{
+window should not be added to the taskbar (X11 only, >= SDL 2.0.5)
+T}
+SDL_WINDOW_UTILITY:T{
+window should be treated as a utility window (X11 only, >= SDL 2.0.5)
+T}
+SDL_WINDOW_TOOLTIP:T{
+window should be treated as a tooltip (X11 only, >= SDL 2.0.5)
+T}
+SDL_WINDOW_POPUP_MENU:T{
+window should be treated as a popup menu (X11 only, >= SDL 2.0.5)
+T}
+.TE
+
+.SH REMARKS
+The \fBSDL_WINDOW_OPENGL\fR flag prepares your window for use with OpenGL, but you will still need to create an OpenGL context using \fBSDL_GL_CreateContext()\fR after window creation, before calling any OpenGL functions.
+.PP
+On Apple's OS X you must set the \fBNSHighResolutionCapable\fR Info.plist property to YES, otherwise you will not receive a high DPI OpenGL canvas.
+
+.SH VERSIONS
+This enumeration is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateWindow
+.br
+\fISDL_GetWindowFlags
+.br
+\fISDL_HideWindow
+.br
+\fISDL_MaximizeWindow
+.br
+\fISDL_MinimizeWindow
+.br
+\fISDL_SetWindowFullscreen
+.br
+\fISDL_SetWindowGrab
+.br
+\fISDL_ShowWindow

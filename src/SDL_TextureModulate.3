@@ -1,0 +1,28 @@
+.TH SDL_TextureModulate 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_TextureModulate\fR -- Enumerations
+
+.SH SYNOPSIS
+An enumeration of the texture channel modulation used in \fBSDL_RenderCopy()\fR.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_TEXTUREMODULATE_NONE:T{
+no modulation
+T}
+SDL_TEXTUREMODULATE_COLOR:T{
+srcC = srcC * color
+T}
+SDL_TEXTUREMODULATE_ALPHA:T{
+srcA = srcA * alpha
+T}
+.TE
+
+.SH RELATED STRUCTURES
+\fISDL_RendererInfo
+
+.SH RELATED FUNCTIONS
+\fISDL_RenderCopy

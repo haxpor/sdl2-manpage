@@ -1,0 +1,35 @@
+.TH SDL_RendererFlip 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RendererFlip\fR -- Enumerations
+
+.SH SYNOPSIS
+An enumeration of flags that can be used in the flip parameter for \fBSDL_RenderCopyEx\fR.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_FLIP_NONE:T{
+do not flip
+T}
+SDL_FLIP_HORIZONTAL:T{
+flip horizontally
+T}
+SDL_FLIP_VERTICAL:T{
+flip vertically
+T}
+.TE
+
+.SH CODE EXAMPLES
+.nf
+/* cast may be necessary f or some compiler settings or languages (e.g. C++) */
+SDL_RendererFlip flip = SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL;
+SDL_RenderCopyEx(renderer, texture, &srcrect, &dstrect, angle, &center, flip);
+.fi
+
+.SH REMARKS
+If you want to do a diagonal flip (both horizontal and vertical), use bitwise or ('|' operator).
+
+.SH RELATED FUNCTIONS
+\fISDL_RenderCopyEx

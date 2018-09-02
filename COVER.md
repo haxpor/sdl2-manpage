@@ -82,16 +82,16 @@ Chcked items are covered by this project.
 * [x] `SDL_PixelFormatEnum`
 * [x] `SDL_PowerState`
 * [x] `SDL_RendererFlags`
-* [ ] `SDL_RendererFlip`
-* [ ] `SDL_SYSWM_TYPE`
-* [ ] `SDL_Scancode`
-* [ ] `SDL_TextureAccess`
-* [ ] `SDL_TextureModulate`
-* [ ] `SDL_ThreadPriority`
-* [ ] `SDL_WinRT_Path`
-* [ ] `SDL_WindowEventID`
-* [ ] `SDL_WindowFlags`
-* [ ] `SDL_bool`
+* [x] `SDL_RendererFlip`
+* [x] `SDL_SYSWM_TYPE`
+* [x] `SDL_Scancode`
+* [x] `SDL_TextureAccess`
+* [x] `SDL_TextureModulate`
+* [x] `SDL_ThreadPriority`
+* [x] `SDL_WinRT_Path`
+* [x] `SDL_WindowEventID`
+* [x] `SDL_WindowFlags`
+* [x] `SDL_bool`
 
 ## Structures
 
