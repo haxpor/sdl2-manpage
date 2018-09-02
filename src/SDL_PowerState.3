@@ -1,0 +1,41 @@
+.TH SDL_PowerState 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_PowerState\fR -- Enumerations
+
+.SH SYNOPSIS
+An enumeration of the basic state of the system's power supply.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_POWERSTATE_UNKNOWN:T{
+cannot determine power status
+T}
+SDL_POWERSTATE_ON_BATTERY:T{
+not plugged in, running on the battery
+T}
+SDL_POWERSTATE_NO_BATTERY:T{
+plugged in, no battery available
+T}
+SDL_POWERSTATE_CHARGING:T{
+plugged in, charging battery
+T}
+SDL_POWERSTATE_CHARGED:T{
+plugged in, battery charged
+T}
+.TE
+
+.SH CODE EXAMPLES
+.nf
+if (SDL_GetPowerInfo(NULL, NULL) == SDL_POWERSTATE_ON_BATTERY) {
+  printf("You should plug in your laptop before running this update.\\n");
+}
+.fi
+
+.SH REMARKS
+Not all machines can have batteries at all, and not all platforms can report battery status. Those that do can still having minor moments of confusion about the state of the battery. As such, you should always be prepared to get an otherwise-unexpected \fBSDL_POWERSTATE_UNKNOWN\fR from \fBSDL_GetPowerInfo()\fR. Also, batteries are fickle hardware: reported status can flicker between two states for no obvious reason on occasion.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetPowerInfo
