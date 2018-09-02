@@ -76,10 +76,10 @@ Chcked items are covered by this project.
 * [x] `SDL_Keymod`
 * [x] `SDL_LOG_CATEGORY`
 * [x] `SDL_LogPriority`
-* [ ] `SDL_MessageBoxButtonFlags`
-* [ ] `SDL_MessageBoxColorType`
-* [ ] `SDL_MessageBoxFlags`
-* [ ] `SDL_PixelFormatEnum`
+* [x] `SDL_MessageBoxButtonFlags`
+* [x] `SDL_MessageBoxColorType`
+* [x] `SDL_MessageBoxFlags`
+* [x] `SDL_PixelFormatEnum`
 * [ ] `SDL_PowerState`
 * [ ] `SDL_RendererFlags`
 * [ ] `SDL_RendererFlip`
