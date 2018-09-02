@@ -1,0 +1,35 @@
+.TH SDL_RendererFlags 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RendererFlags\fR -- Enumerations
+
+.SH SYNOPSIS
+An enumeration of flags used when creating a rendering context.
+
+.SH DESCRIPTION
+Values
+.TS
+tab(:) allbox;
+ab l.
+SDL_RENDERER_SOFTWARE:T{
+the renderer is a software fallback
+T}
+SDL_RENDERER_ACCELERATED:T{
+the renderer uses hardware acceleration
+T}
+SDL_RENDERER_PRESENTVSYNC:T{
+present is synchronized with the refresh rate
+T}
+SDL_RENDERER_TARGETTEXTURE:T{
+the renderer supports rendering to texture
+T}
+.TE
+
+.PP
+Note that providing no flags gives priority to available \fBSDL_RENDERER_ACCELERATED\fR renderers.
+
+.SH RELATED STRUCTURES
+\fISDL_RendererInfo
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateRenderer
+

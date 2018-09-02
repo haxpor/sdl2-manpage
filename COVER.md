@@ -81,7 +81,7 @@ Chcked items are covered by this project.
 * [x] `SDL_MessageBoxFlags`
 * [x] `SDL_PixelFormatEnum`
 * [x] `SDL_PowerState`
-* [ ] `SDL_RendererFlags`
+* [x] `SDL_RendererFlags`
 * [ ] `SDL_RendererFlip`
 * [ ] `SDL_SYSWM_TYPE`
 * [ ] `SDL_Scancode`
