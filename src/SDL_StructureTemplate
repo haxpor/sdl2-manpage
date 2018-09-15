@@ -1,0 +1,18 @@
+.TH SDL_StructureTemplate 3 "2018.09.16" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_StructureTemplate\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains ...
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+l lb l.
+type:name:description
+.TE
+
+.SH REMARKS
+This structure ...
+
+.SH RELATED FUNCTIONS

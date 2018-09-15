@@ -1,0 +1,74 @@
+.TH SDL_AudioCVT 3 "2018.09.16" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AudioCVT\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains audio data conversion information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+l lb l.
+int:needed:T{
+set to 1 if conversion possible
+T}
+\fBSDL_AudioFormat\fR:src_format:T{
+source audio format
+T}
+\fBSDL_AudioFormat\fR:dst_format:T{
+target audio format
+T}
+double:rate_incr:T{
+rate conversion increment
+T}
+Uint8*:buf:T{
+the buffer to hold entire audio data; see \fIRemarks\fR for details
+T}
+int:len:T{
+length of original audio buffer; see \fIRemarks\fR for details
+T}
+int:len_cvt:T{
+length of converted audio buffer
+T}
+int:len_mult:T{
+\fBbuf\fR must be len*len_mult big; see \fIRemarks\fR for details
+T}
+double:len_ratio:T{
+given \fBlen\fR, final size is len*len_ratio; see \fIRemarks\fR for details
+T}
+\fBSDL_AudioFilter[10]\fR:filters:T{
+filter list (internal use)
+T}
+int:filter_index:T{
+current audio conversion function (internal use)
+T}
+.TE
+
+.SH CODE EXAMPLES
+.nf
+// Change 1024 stereo sample frames at 48000Hz from float32 to int16.
+SDL_AudioCVT cvt;
+SDL_BuildAudioCVT(&cvt, AUDIO_F32, 2, 48000, AUDIO_S16, 2, 48000);
+SDL_assert(cvt.needed);	// obviously, this one is always needed.
+cvt.len = 1024 * 2 * 4; // 1024 stereo float32 sample frames.
+cvt.buf = (Uint8 *)SDL_malloc(cvt.len * cvt.len_mult);
+// read your float32 data into cvt.buf here.
+SDL_ConvertAudio(&cvt);
+// cvt.buf has cvt.len_cvt bytes of converted data now.
+.fi
+
+.SH REMARKS
+The \fBSDL_AudioCVT\fR structure is used to convert audio data between different formats. An \fBSDL_AudioCVT\fR structure is initialized with the \fBSDL_BuildAudioCVT()\fR function, while the actual conversion is done by the \fBSDL_ConvertAudio()\fR function, once the application has set up appropriately-sized buffers between these two function calls.
+.PP
+\fBbuf\R points to the audio data that will be used in the conversion. It is both the source and the destination, which means the converted audio data overwrites the original data. It also means that the converted data may be larger than the original data (if you were converting from 8-bit to 16-bit, for instance), so you must ensure \fBbuf\fR is large enough for any stage of the conversion, regardless of the final converted data's size. See \fBlen_mult\fR below for more info.
+.PP
+\fBlen\fR is the length of the original audio data in bytes.
+.PP
+\fBlen_mult\fR is the length multiplier for determining the size of the converted data. The audio buffer may need to be larger than either the orignal data or the converted data. The allocated size of \fBbuf\fR should be \fBlen*len_mult\fR.
+.PP
+\fBlen_ratio\fR is the length ratio of the converted data to the original data. When you have finished converting your audio data, you need to know how much of your audio buffer is valid. \fBlen*len_ratio\fR is the size of the converted audio data in bytes. This is very similar to \fBlen_mult\fR, however when the converted audio data is shorter than the original, \fBlen_mult\fR would be 1. \fBlen_ratio\fR, on the other hand, would be a fractional number between 0 and 1.
+
+.SH RELATED FUNCTIONS
+\fISDL_BuildAudioCVT
+.br
+\fISDL_ConvertAudio
