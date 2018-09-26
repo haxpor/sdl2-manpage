@@ -1,4 +1,4 @@
-.TH SDL_StructureTemplate 3 "2018.09.16" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.TH SDL_StructureTemplate 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
 .SH NAME
 \fBSDL_StructureTemplate\fR -- Structure
 

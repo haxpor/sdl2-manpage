@@ -1,0 +1,191 @@
+.TH SDL_AudioSpec 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AudioSpec\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains the audio output format. It also contains a callback that is called when the audio device needs more data.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+l lb l.
+int:freq:T{
+DSP frequency (samples per second); see \fIRemarks\fR for details
+T}
+\fBSDL_AudioFormat\fR:format:T{
+audio data format; see \fIRemarks\fR for details
+T}
+Uint8:channels:T{
+number of separate sound channels; see \fIRemarks\fR for details
+T}
+Uint8:silence:T{
+audio buffer silence value (calculated)
+T}
+Uint16:samples:T{
+audio buffer size in samples (power of 2); see \fIRemarks\fR for details
+T}
+Uint32:size:T{
+audio buffer size in bytes (calculated)
+T}
+\fBSDL_AudioCallback\fR:callback:T{
+the function to call when the audio device needs more data; see \fIRemarks\fR for details
+T}
+void*:userdata:T{
+a pointer that is passed to \fBcallback\fR (otherwise ignroed by SDL)
+T}
+.TE
+
+.SH CODE EXAMPLES
+.nf
+SDL_AudioSpec want, have;
+SDL_AudioDeviceID dev;
+
+SDL_memset(&want, 0, sizeof(want));		/* or SDL_zero(want) */
+want.freq = 48000;
+want.format = AUDIO_F32;
+want.channels = 2;
+want.samples = 4096;
+want.callback = MyAudioCallback;		// you wrote this function elsewhere.
+dev = SDL_OpenAudioDevice(NULL, 0, &want, &have, SDL_AUDIO_ALLOW_FORMAT_CHANGE);
+.fi
+
+.SH REMARKS
+
+This structure is used by \fBSDL_OpenAudioDevice()\fR and \fBSDL_LoadWav()\fR. While all fields are used by \fBSDL_OpenAudioDevice()\fR, only \fBfreq\fR, \fBformat\fR, \fBchannels\fR, and \fBsamples\fR are used by \fBSDL_LoadWAV()\fR.
+
+\fBfreq\fR specifies the number of sample frames sent to the sound device per second. Common values are 11025, 22050, 44100 and 48000. Larger values produce cleaner audio, in much the same way that larger resolutions produce cleaner graphics.
+
+\fBformat\fR specifies the size and type of each sample element and may be one of the following.
+
+.TS
+tab(:) allbox;
+ab s.
+.T&
+cb l.
+8-bit support
+.T&
+ab l.
+AUDIO_S8:T{
+signed 8-bit samples
+T}
+AUDIO_U8:T{
+unsigned 8-bit samples
+T}
+.T&
+cb s.
+16-bit support
+.T&
+ab l.
+AUDIO_S16LSB:T{
+signed 16-bit samples in little-endian byte order
+T}
+AUDIO_S16MSB:T{
+signed 16-bit samples in big-endian byte order
+T}
+AUDIO_S16SYS:T{
+signed 16-bit samples in native byte order
+T}
+AUDIO_S16:T{
+AUDIO_S16LSB
+T}
+AUDIO_U16LSB:T{
+unsigned 16-bit samples in little-endian byte order
+T}
+AUDIO_U16MSB:T{
+unsigned 16-bit samples in big-endian byte order
+T}
+AUDIO_U16SYS:T{
+unsigned 16-bit samples in native byte order
+T}
+AUDIO_U16:T{
+AUDIO_U16LSB
+T}
+.T&
+ab s.
+32-bit support (new to SDL 2.0)
+.T&
+ab l.
+AUDIO_S32LSB:T{
+32-bit integer samples in little-endian byte order
+T}
+AUDIO_S32MSB:T{
+32-bit integer samples in big-endian byte order
+T}
+AUDIO_S32SYS:T{
+32-bit integer samples in native byte order
+T}
+AUDIO_S32:T{
+AUDIO_S32LSB
+T}
+.T&
+ab s.
+float support (new to SDL 2.0)
+.T&
+ab l.
+AUDIO_F32LSB:T{
+32-bit floating point samples in little-endian byte order
+T}
+AUDIO_F32MSB:T{
+32-bit floating point samples in big-endian byte order
+T}
+AUDIO_F32SYS:T{
+32-bit floating point samples in native byte order
+T}
+AUDIO_F32:T{
+AUDIO_F32LSB
+T}
+.TE
+
+See \fBSDL_AudioFormat\fR for more info.
+
+\fBchannels\fR specifies the number of output channels. As of SDL 2.0, supported values are 1 (mono), 2 (stereo), 4 (quad), and 6 (5.1).
+
+\fBsamples\fR specifies a unit of audio data. When used with \fBSDL_OpenAudioDevice()\fR this refers to the size of the audio buffer in sample frames. A sample frame is a chunk of audio data of the size specified in \fBformat\fR multiplied by the number of channels. When the \fBSDL_AudioSpec\fR is used with \fBSDL_LoadWAV()\fR \fBsamples\fR is set to 4096. This field's value must be a power of two.
+
+The values \fBsilence\fR and \fBsize\fR are calculated by \fBSDL_OpenAudioDevice()\fR.
+
+Channel data is interleaved. Stereo samples are stored in left/right ordering. Quad is stored in front-left/front-right/rear-left/rear-right order. 5.1 is stored in front-left/front-right/center/low-freq/rear-left/rear-right ordering ("low-freq" is the ".1" speaker).
+
+The function prototype for \fBcallback\fR is:
+
+.TS
+box;
+a.
+.nf
+T{
+void SDL_AudioCallback(void*  userdata,
+.br
+						Uint8* stream,
+.br
+						int len)
+T}
+.fi
+.TE
+
+where its parameters are:
+
+.TS
+tab(:) allbox;
+a l.
+userdata:T{
+an application-specific parameter saved in the \fBSDL_AudioSpec\fR structure's \fBuserdata\fR field.
+T}
+stream:T{
+a pointer to the audio data buffer filled in by \fBSDL_AudioCallback()\fR
+T}
+len:T{
+the length of that buffer in bytes
+T}
+.TE
+
+Once the callback returns, the buffer will no longer be valid. Stereo samples are stored in a LRLRLR ordering.
+
+The callback \fImust\fR completely initialize the buffer; as of SDL 2.0, this buffer is not initialized before the callback is called. If there is nothing to play, the callback should fill the buffer with silence.
+
+With SDL >= 2.0.4 you can choose to avoid callbacks and use \fBSDL_QueueAudio()\fR instead, if you like. Just open your audio device with a NULL callback.
+
+.SH RELATED FUNCTIONS
+
+\fISDL_LoadWAV
+\fISDL_LoadWAV_RW
+\fISDL_OpenAudioDevice

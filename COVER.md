@@ -96,8 +96,8 @@ Chcked items are covered by this project.
 ## Structures
 
 * [x] `SDL_AudioCVT`
-* [ ] `SDL_AudioDeviceEvent`
-* [ ] `SDL_AudioSpec`
+* [x] `SDL_AudioDeviceEvent`
+* [x] `SDL_AudioSpec`
 * [ ] `SDL_AudioStream`
 * [ ] `SDL_Color`
 * [ ] `SDL_ControllerAxisEvent`
