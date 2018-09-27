@@ -1,0 +1,30 @@
+.TH SDL_ControllerDeviceEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ControllerDeviceEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains controller device event information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+\fBSDL_CONTROLLERDEVICEADDED\fR, \fBSDL_CONTROLLERDEVICEREMOVED\fR or \fBSDL_CONTROLLERDEVICEREMAPPED\fR
+T}
+Uint32:timestamp:T{
+the timestamp of the event
+T}
+Sint32:which:T{
+the joystick device index for the \fBSDL_CONTROLLERDEVICEDADDED\fR event or instance id for the \fBSDL_CONTROLLERDEVICEREMOVED\fR or \fBSDL_CONTROLLERDEVICEREMAPPED\fR event
+T}
+.TE
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerEventState

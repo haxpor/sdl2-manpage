@@ -1,0 +1,36 @@
+.TH SDL_ControllerButtonEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ControllerButtonEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains game controller button event information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+\fBSDL_CONTROLLERBUTTONDOWN\fR or \fBSDL_CONTROLLERBUTTONUP\fR
+T}
+Uint32:timestamp:T{
+the timestamp of the event
+T}
+\fBSDL_JoystickID\fR:which:T{
+the joystick instance id
+T}
+Uint8:button:T{
+the controller button (\fBSDL_GameControllerButton\fR)
+T}
+Uint8:state:T{
+\fBSDL_PRESSED\fR or \fBSDL_RELEASED\fR
+T}
+.TE
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerEventState

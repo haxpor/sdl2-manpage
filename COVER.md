@@ -98,13 +98,13 @@ Chcked items are covered by this project.
 * [x] `SDL_AudioCVT`
 * [x] `SDL_AudioDeviceEvent`
 * [x] `SDL_AudioSpec`
-* [ ] `SDL_AudioStream`
-* [ ] `SDL_Color`
-* [ ] `SDL_ControllerAxisEvent`
-* [ ] `SDL_ControllerButtonEvent`
-* [ ] `SDL_ControllerDeviceEvent`
-* [ ] `SDL_DisplayMode`
-* [ ] `SDL_DollarGestureEvent`
+* [x] `SDL_AudioStream`
+* [x] `SDL_Color`
+* [x] `SDL_ControllerAxisEvent`
+* [x] `SDL_ControllerButtonEvent`
+* [x] `SDL_ControllerDeviceEvent`
+* [x] `SDL_DisplayMode`
+* [x] `SDL_DollarGestureEvent`
 * [ ] `SDL_DropEvent`
 * [ ] `SDL_Event`
 * [ ] `SDL_Finger`

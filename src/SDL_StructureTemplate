@@ -8,7 +8,7 @@ A structure that contains ...
 .SH DATA FIELDS
 .TS
 tab(:) allbox;
-l lb l.
+a lb l.
 type:name:description
 .TE
 

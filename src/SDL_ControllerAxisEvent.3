@@ -1,0 +1,39 @@
+.TH SDL_ControllerAxisEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ControllerAxisEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains game controller axis motion event information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+\fBSDL_CONTROLLERAXISMOTION\fR
+T}
+Uint32:timestamp:T{
+the timestamp of the event
+T}
+\fBSDL_JoystickID\fR:which:T{
+the joystick instance id
+T}
+Uint8:axis:T{
+the controller axis (\fBSDL_GameControllerAxis\fR)
+T}
+Sint16:value:T{
+the axis value (range: -32768 to 32767)
+T}
+.TE
+
+.SH REMARKS
+The direction "down" and "right" have positive values here.
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerEventState

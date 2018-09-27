@@ -1,0 +1,43 @@
+.TH SDL_Color 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Color\fR -- Structure
+
+.SH SYNOPSIS
+A structure that represents a color.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint8:r:T{
+the red component in the range 0-255
+T}
+Uint8:g:T{
+the green component in the range 0-255
+T}
+Uint8:b:T{
+the blue component in the range 0-255
+T}
+Uint8:a:T{
+the alpha component in the range 0-255
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_Color\fR and \fBSDL_Colour\fR are interchangeable.
+
+If you have RGB color values you would use decimal values in this struct.
+.br
+	\fIExamples\fR: orange = 255, 165, 0 so set r=255, g=165, b=0, a=255.
+
+If you have HTML color codes you would use hexadecimal values in this struct.
+.br
+	\fIExamples\fR: orange = #FFA500 so set r=0xFF, g=0xA5, b=0x00, a=0xFF.
+
+\fBSDL_Color\fR describes a color in a format independent way. You can convert an \fBSDL_Color\fR to a pixel value for a certain pixel format using \fBSDL_MapRGB()\fR.
+
+.SH RELATED STRUCTURES
+\fISDL_Palette
+
+.SH RELATED FUNCTIONS
+\fISDL_SetPaletteColors

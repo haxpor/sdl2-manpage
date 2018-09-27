@@ -1,0 +1,142 @@
+.TH SDL_DisplayMode 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DisplayMode\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains the description of a display mode.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:format:T{
+one of the \fBSDL_PixelFormatEnum\fR values; see \fIRemarks\fR for details
+T}
+int:w:T{
+width, in screen coordinates
+T}
+int:h:T{
+height, in screen coordinates
+T}
+int:refresh_rate:T{
+refresh rate (in Hz), or 0 for unspecified
+T}
+void*:driverdata:T{
+driver-specific data, initialize to 0
+T}
+.TE
+
+.SH CODE EXAMPLES
+
+.nf
+static int display_in_use = 0;	/* Only using first display */
+int i, display_mode_count;
+SDL_DisplayMode mode;
+Uint32 f;
+
+SDL_Log("SDL_GetNumVideoDisplays(): %i", SDL_GetNumVideoDisplay());
+
+display_mode_count = SDL_GetNumDisplayModes(display_in_use);
+if (display_mode_count < 1) {
+	SDL_Log("SDL_GetNumDisplayModes failed: %s", SDL_GetError());
+	return 1;
+}
+SDL_Log("SDL_GetNumDisplayModes: %i", display_mode_count);
+
+for (i=0; i < display_mode_count; ++i) {
+	if (SDL_GetDisplayMode(display_in_use, i, &mode) != 0) {
+		SDL_Log("SDL_GetDisplayMode failed: %s", SDL_GetError());
+		return 1;
+	}
+	f = mode.format;
+
+	SDL_Log("Mode %i\tbpp %i\t%s\t%i x %i", i, SDL_BITSPERPIXEL(f), SDL_GetPixelFormatName(f), mode.w, mode.h);
+}
+.fi
+
+.SH REMARKS
+\fBformat\fR may be one of the following:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_PIXELFORMAT_UNKNOWN:
+SDL_PIXELFORMAT_INDEX1LSB:
+SDL_PIXELFORMAT_INDEX1MSB:
+SDL_PIXELFORMAT_INDEX4LSB:
+SDL_PIXELFORMAT_INDEX4MSB:
+SDL_PIXELFORMAT_INDEX8:
+SDL_PIXELFORMAT_RGB332:
+SDL_PIXELFORMAT_RGB444:
+SDL_PIXELFORMAT_RGB555:
+SDL_PIXELFORMAT_BGR555:
+SDL_PIXELFORMAT_ARGB4444:
+SDL_PIXELFORMAT_RGBA4444:
+SDL_PIXELFORMAT_ABGR4444:
+SDL_PIXELFORMAT_BGRA4444:
+SDL_PIXELFORMAT_ARGB1555:
+SDL_PIXELFORMAT_RGBA5551:
+SDL_PIXELFORMAT_ABGR1555:
+SDL_PIXELFORMAT_BGRA5551:
+SDL_PIXELFORMAT_RGB565:
+SDL_PIXELFORMAT_BGR565:
+SDL_PIXELFORMAT_RGB24:
+SDL_PIXELFORMAT_BGR24:
+SDL_PIXELFORMAT_RGB888:
+SDL_PIXELFORMAT_RGBX8888:
+SDL_PIXELFORMAT_BGR888:
+SDL_PIXELFORMAT_BGRX8888:
+SDL_PIXELFORMAT_ARGB8888:
+SDL_PIXELFORMAT_RGBA8888:
+SDL_PIXELFORMAT_ABGR8888:
+SDL_PIXELFORMAT_BGRA8888:
+SDL_PIXELFORMAT_ARGB2101010:
+SDL_PIXELFORMAT_RGBA32:T{
+alias for RGBA byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_ARGB32:T{
+alias for ARGB byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_BGRA32:T{
+alias for BGRA byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_ABGR32:T{
+alias for ABGR byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_YV12:T{
+planar mode: Y + V + U (3 planes)
+T}
+SDL_PIXELFORMAT_IYUV:T{
+planar mode: Y + U + V (3 planes)
+T}
+SDL_PIXELFORMAT_YUY2:T{
+packed mode: Y0+U0+Y1+V0 (1 plane)
+T}
+SDL_PIXELFORMAT_UYVY:T{
+packed mode: U0+Y0+V0+Y1 (1 plane)
+T}
+SDL_PIXELFORMAT_YVYU:T{
+packed mode: Y0+V0+Y1+U0 (1 plane)
+T}
+SDL_PIXELFORMAT_NV12:T{
+planar mode: Y + U/V interleaved (2 planes) (>= SDL 2.0.4)
+T}
+SDL_PIXELFORMAT_NV21:T{
+planar mode: Y + V/U interleaved (2 planes) (>= SDL 2.0.4)
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GetClosestDisplayMode
+.br
+\fISDL_GetCurrentDisplayMode
+.br
+\fISDL_GetDesktopDisplayMode
+.br
+\fISDL_GetDisplayMode
+.br
+\fISDL_GetNumDisplayModes
+.br
+\fISDL_GetWindowDisplayMode
+.br
+\fISDL_SetWindowDisplayMode

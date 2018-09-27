@@ -1,0 +1,53 @@
+.TH SDL_DollarGestureEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DollarGestureEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains complex gesture event information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+\fBSDL_DOLLARGESTURE\fR or \fBSDL_DOLLARRECORD\fR
+T}
+Uint32:timetamp:T{
+timestamp of the event
+T}
+\fBSDL_TouchID\fR:touchId:T{
+the touch device id
+T}
+\fBSDL_GestureID\fR:gestureId:T{
+the unique id of the closest gesture to the performed stroke
+T}
+Uint32:numFingers:T{
+the number of fingers used to draw the stroke
+T}
+float:error:T{
+the difference between the gesture template and the actual performed gesture (lower error is a better match)
+T}
+float:x:T{
+the normalized center of gesture
+T}
+float:y:T{
+the normalized center of gesture
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_DollarGestureEvent\fR is a member of the \fBSDL_Event\fR union and is used when an event of type \fBSDL_DOLLARGESTURE\fR is reported. You would access it through the event's \fBdgesture\fR field.
+
+\fBx\fR and \fBy\fR are in range 0 to 1.
+
+For \fBSDL_DOLLARRECORD\fR only \fBtouchId\fR and \fBgestureId\fR are valid.
+
+For more information see: \fIREADME-gesture.md\fR (\fIhttps://hg.libsdl.org/SDL/file/default/docs/README-gesture.md\fR)
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
+.br
+\fISDL_MultiGestureEVent

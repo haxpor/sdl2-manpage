@@ -1,0 +1,28 @@
+.TH SDL_AudioStream 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AudioStream\fR -- Structure
+
+.SH SYNOPSIS
+An opaque structure that buffers, converts, resamples, and generally streams audio data.
+
+.SH REMARKS
+The \fBSDL_AudioStream\fR structure is used to convert audio data between different formats in arbitrarily-sized blocks. It is meant to be a replacement for the \fBSDL_AudioCVT\fR-related interfaces.
+
+A tutorial on using audio stream is at \fITutorials/AudioStream\fR (https://wiki.libsdl.org/Tutorials/AudioStream).
+
+(this page should be fleshed out more, too).
+
+.SH RELATED FUNCTIONS
+\fISDL_NewAudioStream
+.br
+\fISDL_AudioStreamPut
+.br
+\fISDL_AudioStreamAvailable
+.br
+\fISDL_AudioStreamGet
+.br
+\fISDL_AudioStreamFlush
+.br
+\fISDL_AudioStreamClear
+.br
+\fISDL_FreeAudioStream
