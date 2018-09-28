@@ -105,7 +105,7 @@ Chcked items are covered by this project.
 * [x] `SDL_ControllerDeviceEvent`
 * [x] `SDL_DisplayMode`
 * [x] `SDL_DollarGestureEvent`
-* [ ] `SDL_DropEvent`
+* [x] `SDL_DropEvent`
 * [ ] `SDL_Event`
 * [ ] `SDL_Finger`
 * [ ] `SDL_HapticCondition`

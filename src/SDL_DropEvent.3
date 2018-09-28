@@ -1,0 +1,117 @@
+.TH SDL_DropEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DropEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains an event used to request a file open by the system.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+the event type \fBSDL_DROPFILE\fR, \fBSDL_DROPTEXT\fR, \fBSDL_DROPBEGIN\fR, or \fBSDL_DROPCOMPLETE\fR
+T}
+Uint32:timestamp:T{
+timestamp of the event
+T}
+char*:file:T{
+the file name, which should be freed with \fBSDL_free()\fR, is NULL on BEGIN/COMPLETE
+T}
+Uint32:windowID:T{
+the window that was dropped on, if any
+T}
+.TE
+
+.SH CODE EXAMPLES
+
+.nf
+// Example program:
+// SDL_DropEvent usage
+
+#include "SDL.h"
+
+int main(int argc, char *argv[]) {
+	SDL_bool done;
+	SDL_Window *window;
+	SDL_Event event;					// Declare event handle
+	char* dropped_filedir;				// Pointer for directory of dropped file
+
+	SDL_Init(SDL_INIT_VIDEO);			// SDL2 initialization
+
+	window = SDL_CreateWindow(	// Create a window
+		"SDL_DropEvent usage, please drop the file on window",
+		SDL_WINDOWPOS_CENTERED,
+		SDL_WINDOWPOS_CENTERED,
+		640,
+		480,
+		SDL_WINDOW_OPENGL
+	);
+
+	// Check that the window was successfully made
+	if (window == NULL) {
+		// In the event that the window could not be made...
+		SDL_Log("Could not create window: %s", SDL_GetError());
+		SDL_Quit();
+		return 1;
+	}
+
+	SDL_EventState(SDL_DROPFILE, SDL_ENABLE);
+
+	done = SDL_FALSE;
+	while (!done) {
+		while (!done && SDL_PollEvent(&event)) {
+			switch (event.type) {
+				case SDL_QUIT: {			// In case of exit
+					done = SDL_TRUE;
+					break;
+				}
+
+				case SDL_DROPFILE: {		// In case of dropped file
+					dropped_filedir = event.drop.file;
+					// Shows directory of dropped file
+					SDL_ShowSimpleMessageBox(
+						SDL_MESSAGEBOX_INFORMATION,
+						"File dropped on window",
+						dropped_filedir,
+						window
+					);
+					SDL_free(dropped_filedir);		// Free dropped_diledir memory
+					break;
+				}
+			}
+		}
+		SDL_Delay(0);
+	}
+	
+	SDL_DestroyWindow(window);		// Close and destroy the window
+	SDL_Quit();						// Clean up
+	return 0;
+}
+.fi
+
+.SH REMARKS
+\fBSDL_DropEvent\fR is a member of the \fBSDL_Event\fR union and is used when an event of type \fBSDL_DROPFILE\fR, \fBSDL_DROPTEXT\fR, \fBSDL_DROPBEGIN\fR, or \fBSDL_DROPCOMPLETE\fR is reported. You would access it through the event's drop field.
+
+These events are enabled by default. You can disable it with \fBSDL_EventState()\fR.
+
+If these events are enabled you must free the filename in the events using \fBSDL_free()\fR.
+
+\fBSDL_DROPTEXT\fR, \fBSDL_DROPBEGIN\fR, and \fBSDL_DROPCOMPLETE\fR are available since SDL 2.0.5.
+
+.SS macOS
+
+To enable drag & drop on your SDL app, you must \fIalso\fR edit your info.plist file. Add/Modify \fBDocument Types\fR. For examples, to enable all document types, add the "public.data" mime type as a document type.
+
+.SH VERSION
+
+This structure is available since SDL 2.0.0.
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
+
+.SH RELATED FUNCTIONS
+\fISDL_EventState
