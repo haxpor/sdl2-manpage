@@ -1,0 +1,335 @@
+.TH SDL_Event 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Event\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains structures for the different event types.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+event type, shared with all events
+T}
+\fBSDL_CommonEvent\fR:common:T{
+common event data
+T}
+\fBSDL_WindowEvent\fR:window:T{
+window event data
+T}
+\fBSDL_KeyboardEvent\fR:key:T{
+keyboard event data
+T}
+\fBSDL_TextEditingEvent\fR:edit:T{
+text editing event data
+T}
+\fBSDL_TextInputEvent\fR:text:T{
+text input event data
+T}
+\fBSDL_MouseMotionEvent\fR:motion:T{
+mouse motion event data
+T}
+\fBSDL_MouseButtonEvent\fR:button:T{
+mouse button event data
+T}
+\fBSDL_MouseWheelEvent\fR:wheel:T{
+mouse wheel event data
+T}
+\fBSDL_JoyAxisEvent\fR:jaxis:T{
+joystick axis event data
+T}
+\fBSDL_JoyBallEvent\fR:jball:T{
+joystick ball event data
+T}
+\fBSDL_JoyHatEvent\fR:jhat:T{
+joystick hat event data
+T}
+\fBSDL_JoyButtonEvent\fR:jbutton:T{
+joystick button event data
+T}
+\fBSDL_JoyDeviceEvent\fR:jdevice:T{
+joystick device event data
+T}
+\fBSDL_ControllerAxisEvent\fR:caxis:T{
+game controller axis event data
+T}
+\fBSDL_ControllerButtonEvent\fR:cbutton:T{
+game controller button event data
+T}
+\fBSDL_ControllerDeviceEvent\fR:cdevice:T{
+game controller device event data
+T}
+\fBSDL_AudioDeviceEvent\fR:adevice:T{
+audio device event data (>= SDL 2.0.4)
+T}
+\fBSDL_QuitEvent\fR:quit:T{
+quit request event data
+T}
+\fBSDL_UserEvent\fR:user:T{
+custom event data
+T}
+\fBSDL_SysWMEvent\fR:syswm:T{
+system dependent window event data
+T}
+\fBSDL_TouchFingerEvent\fR:tfinger:T{
+touch finger event data
+T}
+\fBSDL_MultiGestureEvent\fR:mgesture:T{
+multi-finger gesture data
+T}
+\fBSDL_DollarGestureEvent\fR:dgesture:T{
+multi-finger gesture data
+T}
+\fBSDL_DropEvent\fR:drop:T{
+drag and drop event data
+T}
+.TE
+
+.SH REMARKS
+The \fBSDL_Event\fR structure is the core of all event handling in SDL. \fBSDL_Event\fR is a union of all event structure used in SDL. Using it is a simple matter of knowing which event type corresponds to which union member. The \fItable\fR below lists these relationships.
+
+The \fBSDL_Event\fR structure has two uses:
+.br	
+  - Reading events from the event queue
+.br
+  - Placing events on the event queue
+
+.SS Reading events from the event queue
+
+Reading events from the event queue is done with either \fBSDL_PollEvent()\fR or \fBSDL_PeepEvent()\fR. We'll use \fBSDL_PollEvent()\fR and step through an example.
+
+First off, we create an empty \fBSDL_Event\fR structure.
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Event test_event;
+.fi
+T}
+.TE
+
+.PP
+\fBSDL_PollEvent()\fR removes the next event from the event queue. If there are no events on the queue it returns 0, otherwise it returns 1. We use a \fIwhile\fR loop to process each event in turn.
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+while (SDL_PollEvent(&test_event)) {
+.fi
+T}
+.TE
+
+.PP
+The \fBSDL_PollEvent()\fR function takes a pointer to an \fBSDL_Event\fR structure that is to be filled with event information. We know that if \fBSDL_PollEvent()\fR removes an event from the queue then the event information will be placed in our test_event structure, but we also know that the type of event will be placed in the \fBtype\fR member of test_event. So to handle each event type separately we use a \fIswitch\fR statement.
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+switch (test_event.type) {
+.fi
+T}
+.TE
+
+.PP
+We need to know what kind of events we're looking for and the event types of those events. So let's assume we want to detect where the user is moving the mouse pointer within our application. We look through our event types and notice that \fBSDL_MOUSEMOTION\fR is, more than likely, the event we're looking for. Looking at the \fItable\fR below tells us that \fBSDL_MOUSEMOTION\fR events are handled within the \fBSDL_MouseMotionEvent\fR structure which is the \fBmotion\fR member of \fBSDL_Event\fR. We can check for \fBSDL_MOUSEMOTION\fR event \fBtype\fR within our \fIswitch\fR statement like so:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+  case SDL_MOUSEMOTION:
+.fi
+T}
+.TE
+
+.PP
+All we need to do now is read the information out of the \fBmotion\fR member of test_event.
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+    printf("We got a motion event.\n");
+    printf("Current mouse position is: (%d, %d)\n", test_event.motion.x, test_event.motion.y);
+    break;
+  default:
+    printf("Unhandled Event!\n");
+    break;
+  }
+}
+printf("Event queue empty.\n");
+.fi
+T}
+.TE
+
+.SS Placing events on the event queue
+
+It is also possible to push events onto the event queue and so use it as a two-way communication path. Both \fBSDL_PushEvent()\fR and \fBSDL_PeepEvent()\fR allow you to place events onto the event queue. This is usually used to place a \fBSDL_USEREVENT\fR on the event queue, however you could use it to post fake input events if you wished. Creating your own events is a simple matter of choosing the event type you want, setting the \fBtype\fR member and filling the appropriate member structure with information.
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Event user_event;
+
+user_event.type = SDL_USEREVENT;
+user_event.user.code = 2;
+user_event.user.data1 = NULL;
+user_event.user.data2 = NULL;
+SDL_PushEvent(&user_event);
+.fi
+T}
+.TE
+
+.SS Relationships between event types and union members
+
+.TS
+tab(:) allbox;
+c c c.
+Event Type:Event Structure:\fBSDL_Event\fR Field
+.T&
+a b b.
+T{
+SDL_AUDIODEVICEADDED
+.br
+SDL_AUDIODEVICEREMOVED
+T}:SDL_AudioDeviceEvent:adevice
+SDL_CONTROLLERAXISMOTION:SDL_ControllerAxisEvent:caxis
+T{
+SDL_CONTROLLERBUTTONDOWN
+.br
+SDL_CONTROLLERBUTTONUP
+T}:SDL_ControllerButtonEvent:cbutton
+T{
+SDL_CONTROLLERDEVICEADDED
+.br
+SDL_CONTROLLERDEVICEREMOVED
+.br
+SDL_CONTROLLERDEVICEREMAPPED
+T}:SDL_ControllerDeviceEvent:cdevice
+T{
+SDL_DOLLARGESTURE
+.br
+SDL_DOLLARRECORD
+T}:SDL_DollarGestureEvent:dgesture
+T{
+SDL_DROPFILE
+.br
+SDL_DROPTEXT
+.br
+SDL_DROPBEGIN
+.br
+SDL_DROPCOMPLETE
+T}:SDL_DropEvent:drop
+T{
+SDL_FINGERMOTION
+.br
+SDL_FINGERDOWN
+.br
+SDL_FINGERUP
+T}:SDL_TouchFignerEvent:tfinger
+T{
+SDL_KEYDOWN
+.br
+SDL_KEYUP
+T}:SDL_KeyboardEvent:key
+SDL_JOYAXISMOTION:SDL_JoyAxisEvent:jaxis
+SDL_JOYBALLMOTION:SDL_JoyBallEvent:jball
+SDL_JOYHATMOTION:SDL_JoyHatEvent:jhat
+T{
+SDL_JOYBUTTONDOWN
+.br
+SDL_JOYBUTTONUP
+T}:SDL_JoyButtonEvent:jbutton
+T{
+SDL_JOYDEVICEADDED
+.br
+SDL_JOYDEVICEREMOVED
+T}:SDL_JoyDeviceEvent:jdevice
+SDL_MOUSEMOTION:SDL_MouseMotionEvent:motion
+T{
+SDL_MOUSEBUTTONDOWN
+.br
+SDL_MOUSEBUTTONUP
+T}:SDL_MouseButtonEvent:button
+SDL_MOUSEWHEEL:SDL_MouseWheelEvent:wheel
+SDL_MULTIGESTURE:SDL_MultiGestureEvent:mgesture
+SDL_QUIT:SDL_QuitEvent:quit
+SDL_SYSWMEVENT:SDL_SysWMEvent:syswm
+SDL_TEXTEDITING:SDL_TextEditingEvent:edit
+SDL_TEXTINPUT:SDL_TextInputEvent:text
+SDL_USEREVENT:SDL_UserEvent:user
+SDL_WINDOWEVENT:SDL_WindowEvent:window
+Other events:SDL_CommonEvent:none, use \fI.type\fR
+.TE
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_AudioDeviceEvent
+.br
+\fISDL_ControllerAxisEvent
+.br
+\fISDL_ControllerButtonEvent
+.br
+\fISDL_ControllerDeviceEvent
+.br
+\fISDL_DollarGestureEvent
+.br
+\fISDL_DropEvent
+.br
+\fISDL_JoyAxisEvent
+.br
+\fISDL_JoyBallEvent
+.br
+\fISDL_JoyButtonEvent
+.br
+\fISDL_JoyDeviceEvent
+.br
+\fISDL_JoyHatEvent
+.br
+\fISDL_KeyboardEvent
+.br
+\fISDL_MouseButtonEvent
+.br
+\fISDL_MouseMotionEvent
+.br
+\fISDL_MouseWheelEvent
+.br
+\fISDL_MultiGestureEvent
+.br
+\fISDL_QuitEvent
+.br
+\fISDL_SysWMEvent
+.br
+\fISDL_TextEditingEvent
+.br
+\fISDL_TextInputEvent
+.br
+\fISDL_TouchFingerEvent
+.br
+\fISDL_UserEvent
+.br
+\fISDL_WindowEvent
+
+.SH RELATED FUNCTIONS
+\fISDL_PeepEvents
+.br
+\fISDL_PollEvent
+.br
+\fISDL_PushEvent
+.br
+\fISDL_WaitEvent
+.br
+\fISDL_WaitEventTimeout
