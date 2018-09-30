@@ -107,12 +107,12 @@ Chcked items are covered by this project.
 * [x] `SDL_DollarGestureEvent`
 * [x] `SDL_DropEvent`
 * [x] `SDL_Event`
-* [ ] `SDL_Finger`
-* [ ] `SDL_HapticCondition`
-* [ ] `SDL_HapticConstant`
-* [ ] `SDL_HapticCustom`
-* [ ] `SDL_HapticDirection`
-* [ ] `SDL_HapticEffect`
+* [x] `SDL_Finger`
+* [x] `SDL_HapticCondition`
+* [x] `SDL_HapticConstant`
+* [x] `SDL_HapticCustom`
+* [x] `SDL_HapticDirection`
+* [x] `SDL_HapticEffect`
 * [ ] `SDL_HapticLeftRight`
 * [ ] `SDL_HapticPeriodic`
 * [ ] `SDL_HapticRamp`

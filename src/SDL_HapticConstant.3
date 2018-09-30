@@ -1,0 +1,76 @@
+.TH SDL_HapticConstant 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticConstant\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains a template for a constant effect.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+c s s.
+Header
+.T&
+a lb l.
+Uint16:type:T{
+\fBSDL_HAPTIC_CONSTANT
+T}
+\fBSDL_HapticDirection\fR:direction:T{
+direction of the effect
+T}
+.T&
+c s s.
+Replay
+.T&
+a lb l.
+Uint32:length:T{
+duration of the effect
+T}
+Uint16:delay:T{
+delay before starting the effect
+T}
+.T&
+c s s.
+Trigger
+.T&
+a lb l.
+Uint16:button:T{
+button that triggers the effect
+T}
+Uint16:interval:T{
+how soon it can be triggered again after button
+T}
+.T&
+c s s.
+Constant
+.T&
+a lb l.
+Sint16:level:T{
+strength of the constant effect
+T}
+.T&
+c s s.
+Envelope
+.T&
+a lb l.
+Uint16:attack_length:T{
+duration of the attack
+T}
+Uint16:attack_level:T{
+level at the start of the attack
+T}
+Uint16:fade_length:T{
+duration of the fade
+T}
+Uint16:fade_level:T{
+level at the end of the fade
+T}
+.TE
+
+.SH REMARKS
+This struct is exclusively for the \fBSDL_HAPTIC_CONSTANT\fR effect.
+
+A constant effect applies a constant force to the joystick in the specified direction.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticNewEffect

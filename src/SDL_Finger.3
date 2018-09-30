@@ -1,0 +1,35 @@
+.TH SDL_Finger 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Finger\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains touch information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+\fBSDL_FingerID\fR:id:T{
+the finger id
+T}
+float:x:T{
+the x-axis location of the touch event, normalized (0...1)
+T}
+float:y:T{
+the y-axis location of the touch event, normalized (0...1)
+T}
+float:pressure:T{
+the quantity of pressure applied, normalized (0...1)
+T}
+.TE
+
+.SH VERSION
+This structure is available since SDL 2.0.0.
+
+.SH RELATED STRUCTURES
+\fISDL_TouchFingerEvent
+
+.SH RELATED FUNCTIONS
+\fISDL_GetNumTouchFingers
+.br
+\fISDL_GetTouchFinger

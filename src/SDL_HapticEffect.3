@@ -1,0 +1,145 @@
+.TH SDL_HapticEffect 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticEffect\fR -- Structure
+
+.SH SYNOPSIS
+A union that contains the generic template of any haptic effect.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint16:type:T{
+effect type; see \fBSDL_HapticPeriodic\fR for details
+T}
+\fBSDL_HapticConstant\fR:constant:T{
+constant effect; see \fIRemarks\fR for details
+T}
+\fBSDL_HapticPeriodic\fR:periodic:T{
+periodic effect; see \fIRemarks\fR for details
+T}
+\fBSDL_HapticCondition\fR:condition:T{
+condition effect; see \fIRemarks\fR for details
+T}
+\fBSDL_HapticRamp\fR:ramp:T{
+ramp effect; see \fIRemarks\fR for details
+T}
+\fBSDL_HapticLeftRight\fR:leftright:T{
+left/right effect; see \fIRemarks\fR for details
+T}
+\fBSDL_HapticCustom\fR:custom:T{
+custom effect; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH REMARKS
+All structures in this union contain the following common parts:
+
+.TS
+tab(:) allbox;
+c s s.
+T{
+Replay (all effects except left-right have this)
+T}
+.T&
+a lb l.
+Uint32:length:T{
+duration of effect (ms)
+T}
+Uint16:delay:T{
+delay before starting effect
+T}
+.T&
+c s s.
+T{
+Trigger (all effects except left-right have this)
+T}
+.T&
+a lb l.
+Uint16:button:T{
+button that triggers effect
+T}
+Uint16:interval:T{
+how soon before effect can be triggered again
+T}
+.T&
+a s s.
+T{
+Envelope (all effects except condition effects and left-right have this)
+T}
+.T&
+a lb l.
+Uint16:attack_length:T{
+duration of the attack (ms)
+T}
+Uint16:attack_level:T{
+level at the start of the attack
+T}
+Uint16:fade_length:T{
+duration of the fade out (ms)
+T}
+Uint16:fade_level:T{
+level at the end of the fade
+T}
+.TE
+
+.PP
+All values max at 32767 (0x7FFF). Signed values can be negative. Time values, unless specified otherwise, are in millseconds.
+
+You can pass \fBSDL_HAPTIC_INFINITY\fR to \fBlength\fR instead of a 0-32767 value. Neither \fBdelay\fR, \fBinterval\fR, \fBattack_length\fR, nor \fBfade_length\fR support \fBSDL_HAPTIC_INFINITY\fR. The \fBSDL_HAPTIC_RAMP\fR effect does not support a duration of \fBSDL_HAPTIC_INFINITY\fR. Fade will also not be used since effect never ends.
+
+Button triggers may not be supported on all devices. It is advised not to use them if possible. Buttons start at index 1 instead of index 0 like the joystick.
+
+If both \fBattack_length\fR and \fBfade_lendth\fR are 0 the \fBenvelope\fR is not used, otherwise both values are used.
+
+Here is an example of a constant effect evolution in time:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Strength
+^
+|
+|    effect level -->  _________________
+|                     /                 \(rs 
+|                    /                   \(rs 
+|                   /                     \(rs
+|                  /                       \(rs
+| attack_level --> |                        \(rs
+|                  |                        |  <---  fade_level
+|
++--------------------------------------------------> Time
+
+                   [--]                 [---]
+               attack_length          fade_length
+
+[------------------][-----------------------]
+       delay                 length
+.fi
+T}
+.TE
+
+.PP
+Note that either the \fBattack_level\fR or the \fBfade_level\fR may be above the actual effect level.
+
+.SH RELATED STRUCTURES
+\fISDL_HapticCondition
+.br
+\fISDL_HapticConstant
+.br
+\fISDL_HapticCustom
+.br
+\fISDL_HapticLeftRight
+.br
+\fISDL_HapticPeriodic
+.br
+\fISDL_HapticRamp
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticEffectSupported
+.br
+\fISDL_HapticNewEffect
+.br
+\fISDL_HapticUpdateEffect

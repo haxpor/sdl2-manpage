@@ -1,0 +1,156 @@
+.TH SDL_HapticDirection 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticDirection\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains a haptic direction.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint8:type:T{
+the type of encoding; see \fIRemarks\fR for details
+T}
+Sint32:dir:T{
+the encoding direction; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH CODE EXAMPLES
+
+Example of force coming from the south with all encodings (force coming from the south means the user will have to pull the stick to counteract):
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_HapticDirection direction;
+
+// Cartesian directions
+direction.type = SDL_HAPTIC_CARTESIAN;  // Using cartesian direction encoding.
+direction.dir[0] = 0;  // X position
+direction.dir[1] = 1;  // Y position
+// Assuming the device has 2 axes, we don't need to specify third parameter.
+
+// Polar directions
+direction.type = SDL_HAPTIC_POLAR;  // We'll be using polar direction encoding.
+direction.dir[0] = 18000;  // Polar only uses first parameter
+
+// Spherical coordinates
+direction.type = SDL_HAPTIC_SPHERICAL;  // Spherical encoding
+direction.dir[0] = 9000;  // Since we only have two axes we don't need more parameters.
+.fi
+T}
+.TE
+
+.SH REMARKS
+This is the direction where the force comes from, instead of the direction in which the force is exerted.
+
+Cardinal directions of the haptic device are relative to the positioning of the device. North is considered to be away from the user. South is toward the user. East is right, and West is left of the user.
+
+The following diagram represents the cardinal directions:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+               .--.
+               |__| .-------.
+               |=.| |.-----.|
+               |--| ||     ||
+               |  | |'-----'|
+               |__|~')_____('
+                [ COMPUTER ]
+
+
+                 North (0,-1)
+                      ^
+                      |
+                      |
+(-1,0) West <----[ HAPTIC ]----> East (1,0)
+                      |
+                      |
+                      v
+                 South (0,1)
+
+
+                 [ USER ]
+                   \|||/
+                   (o o)
+             ---ooO-(_)-Ooo---
+.fi
+T}
+.TE
+
+.PP
+Directions can be specified by:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_HAPTIC_POLAR:T{
+Specified by polar coordinates
+T}
+SDL_HAPTIC_CARTESIAN:T{
+Specified by cartesian coordinates
+T}
+SDL_HAPTIC_SPHERICAL:T{
+Specified by spherical coordinates
+T}
+.TE
+
+.PP
+If \fBtype\fR is \fBSDL_HAPTIC_POLAR\fR, direction is encoded by hundredths of a degree starting north and turning clockwise. \fBSDL_HAPTIC_POLAR\fR only uses the first \fBdir\fR parameter. The cardinal directions would be:
+
+.TS
+tab(:) allbox;
+a l.
+North:T{
+0 (0 degrees)
+T}
+East:T{
+9000 (90 degrees)
+T}
+South:T{
+18000 (180 degrees)
+T}
+West:T{
+27000 (270 degrees)
+T}
+.TE
+
+.PP
+If \fBtype\fR is \fBSDL_HAPTIC_CARTESIAN\fR, direction is encoded by three positions (X axis, Y axis, and Z axis (with 3 axes)).
+.br
+\fSDL_HAPTIC_CARTESIAN\fR uses the first three \fBdir\fR parameters. The cardinal directions would be:
+
+.TS
+tab(:) allbox;
+a l.
+North:0,-1, 0
+East:1, 0, 0
+South:0, 1, 0
+West:-1, 0, 0
+.TE
+
+.IP
+The Z axis represents the height of the effect if supported, otherwise it's unused. In cartesian encoding (1,2) would be the same as (2,4), you can use any multiple you want, only the direction matters.
+.PP
+
+If \fBtype\fR is \fBSDL_HAPTIC_SPHERICAL\fR, direction is encoded by two rotations. The first two \fBdir\fR parameters are used. The \fBdir\fR parameters are as follows (all values are in hundredths of degrees):
+
+.TS
+tab(:) allbox;
+a.
+Degrees from (1,0) rotated towards (0,1)
+Degrees towards (0, 0, 1) (device needs at least 3 axes)
+.TE
+
+.SH RELATED STRUCTURES
+\fISDL_HapticPeriodic
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticNumAxes
