@@ -1,0 +1,49 @@
+.TH SDL_JoyBallEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoyBallEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains joystick trackball motion event information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+\fBSDL_JOYBALLMOTION\fR
+T}
+Uint32:timestamp:T{
+timestamp of the event
+T}
+\fBSDL_JoystickID\fR:which:T{
+the instance id of the joystick that reported the event
+T}
+Uint8:ball:T{
+the index of the trackball that changed
+T}
+Sint16:xrel:T{
+the relative motion in the X direction
+T}
+Sint16:yrel:T{
+the relative motion in the Y direction
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_JoyBallEvent\fR is a member of the \fBSDL_Event\fR union and is used when an event of type \fBSDL_JOYBALLMOTION\fR is reported. You would access it through the event's \fIjball\fR field.
+
+An \fBSDL_JOYBALLMOTION\fR event occurs when a user moves a trackball on the joystick.
+
+Trackballs only return relative motion. This is the change in position of the ball since it was last polled (last cycle of the event loop).
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
+.br
+\fISDL_JoyAxisEvent
+.br
+\fISDL_JoyButtonEvent
+.br
+\ISDL_JoyHatEvent

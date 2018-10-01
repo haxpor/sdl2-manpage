@@ -113,14 +113,14 @@ Chcked items are covered by this project.
 * [x] `SDL_HapticCustom`
 * [x] `SDL_HapticDirection`
 * [x] `SDL_HapticEffect`
-* [ ] `SDL_HapticLeftRight`
-* [ ] `SDL_HapticPeriodic`
-* [ ] `SDL_HapticRamp`
-* [ ] `SDL_JoyAxisEvent`
-* [ ] `SDL_JoyBallEvent`
-* [ ] `SDL_JoyButtonEvent`
-* [ ] `SDL_JoyDeviceEvent`
-* [ ] `SDL_JoyHatEvent`
+* [x] `SDL_HapticLeftRight`
+* [x] `SDL_HapticPeriodic`
+* [x] `SDL_HapticRamp`
+* [x] `SDL_JoyAxisEvent`
+* [x] `SDL_JoyBallEvent`
+* [x] `SDL_JoyButtonEvent`
+* [x] `SDL_JoyDeviceEvent`
+* [x] `SDL_JoyHatEvent`
 * [ ] `SDL_KeyboardEvent`
 * [ ] `SDL_Keysym`
 * [ ] `SDL_MessageBoxButtonData`

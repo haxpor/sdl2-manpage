@@ -1,0 +1,48 @@
+.TH SDL_HapticLeftRight 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticLeftRight\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains a template for a left/right effect.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+c s s.
+Header
+.T&
+a lb l.
+Uint16:type:T{
+SDL_HAPTIC_LEFTRIGHT
+T}
+.T&
+c s s.
+Replay
+.T&
+a lb l.
+Uint32:length:T{
+duration of the effect
+T}
+.T&
+c s s.
+Rumble
+.T&
+a lb l.
+Uint16:large_magnitude:T{
+control of the large controller motor
+T}
+Uint16:small_magnitude:T{
+control of the small controller motor
+T}
+.TE
+
+.SH REMARKS
+The struct is exclusively for the \fBSDL_HAPTIC_LEFTRIGHT\fR effect.
+
+The left/right effect is used to explicitly control the large and small motors, commonly found in modern game controller. One motor is high frequency, the other is low frequency.
+
+.SH RELATED STRUCTURES
+\fISDL_HapticEffect
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticNewEffect

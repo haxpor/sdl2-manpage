@@ -1,0 +1,163 @@
+.TH SDL_HapticPeriodic 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticPeriodic\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+c s s.
+Header
+.T&
+a lb l.
+Uint16:type:T{
+the shape of the waves; see \fIRemarks\fR for details
+T}
+\fBSDL_HapticDirection\fR:direction:T{
+direction of the effect (relative to the user)
+T}
+.T&
+c s s.
+Replay
+.T&
+a lb l.
+Uint32:length:T{
+duration of the effect
+T}
+Uint16:delay:T{
+delay before starting the effect
+T}
+.T&
+c s s.
+Trigger
+.T&
+a lb l.
+Uint16:button:T{
+button that triggers the effect
+T}
+Uint16:interval:T{
+how soon it can be triggered again after \fBbutton\fR
+T}
+.T&
+c s s.
+Periodic
+.T&
+a lb l.
+Uint16:period:T{
+period of the wave
+T}
+Sint16:magnitude:T{
+peak value; if negative, equivalent to 180 degrees extra phase shift
+T}
+Sint16:offset:T{
+mean value of the wave
+T}
+Uint16:phase:T{
+positive phase shift given by hundredth of a degree; see \fIRemarks\fR for details
+T}
+.T&
+c s s.
+Envelope
+.T&
+a lb l.
+Uint16:attack_length:T{
+duration of the attack
+T}
+Uint16:attack_level:T{
+level at the start of the attack
+T}
+Uint16:fade_length:T{
+duration of the fade
+T}
+Uint16:fade_level:T{
+level at the end of the fade
+T}
+.TE
+
+.SH REMARKS
+A periodic effect consists of a wave-shaped effect that repeats itself over time. The type determines the shape of the wave and the other parameters determine the dimensions of the wave.
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+button         period
+press          |     |
+  ||      __    __    __    __    __    _
+  ||     |  |  |  |  |  |  |  |  |  |   magnitude
+  \(rs/     |  |__|  |__|  |__|  |__|  |   _
+    -----
+      |            offset?
+    delay          phase?
+
+-------------------------------------
+              length
+===================================================
+                      interval
+.fi
+T}
+.TE
+
+.PP
+\fBtype\fR may be one of the following:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_HAPTIC_SINE:T{
+.nf
+  __      __      __      __
+ /  \(rs    /  \(rs    /  \(rs    /
+/    \(rs__/    \(rs__/    \(rs__/
+.fi
+T}
+SDL_HAPTIC_TRIANGLE:T{
+.nf
+  /\(rs    /\(rs    /\(rs    /\(rs    /\(rs
+ /  \(rs  /  \(rs  /  \(rs  /  \(rs  /
+/    \(rs/    \(rs/    \(rs/    \(rs/
+.fi
+T}
+SDL_HAPTIC_SAWTOOTHUP:T{
+  /|  /|  /|  /|  /|  /|  /|
+ / | / | / | / | / | / | / |
+/  |/  |/  |/  |/  |/  |/  |
+T}
+SDL_HAPTIC_SAWTOOTHDOWN:T{
+\(rs  |\(rs  |\(rs  |\(rs  |\(rs  |\(rs  |\(rs  |
+ \(rs | \(rs | \(rs | \(rs | \(rs | \(rs | \(rs |
+  \(rs|  \(rs|  \(rs|  \(rs|  \(rs|  \(rs|  \(rs| 
+T}
+.TE
+
+.PP
+\fBphase\fR is given by hundredths of a degree, meaning that giving the phase a value of 9000 will displace it 25% of its period. Here are sample values:
+
+.TS
+tab(:) allbox;
+a l.
+0:T{
+No phase displacement
+T}
+9000:T{
+Displaced 25% of its period
+T}
+18000:T{
+Displaced 50% of its period
+T}
+27000:T{
+Displaced 76% of its period
+T}
+36000:T{
+Displaced 100% of its period, same as 0, but 0 is preferred
+T}
+.TE
+
+.SH RELATED STRUCTURES
+\fISDL_HapticDirection
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticNewEffect

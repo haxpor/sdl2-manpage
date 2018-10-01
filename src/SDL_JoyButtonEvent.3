@@ -1,0 +1,49 @@
+.TH SDL_JoyButtonEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoyButtonEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains joystick button event information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+the event type \fBSDL_JOYBUTTONDOWN\fR or \fBSDL_JOYBUTTONUP\fR
+T}
+Uint32:timestamp:T{
+timestamp of the event
+T}
+\fBSDL_JoystickID\fR:which:T{
+the instance id of the joystick that reported the event
+T}
+Uint8:button:T{
+the index of the button that changed
+T}
+Uint8:state:T{
+the state of the button; \fBSDL_PRESSED\fR or \fBSDL_RELEASED\fR
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_JoyButtonEvent\fR is a member of the \fBSDL_Event\fR union and is used when an event of type \fBSDL_JOYBUTTONDOWN\fR or \fBSDL_JOYBUTTONUP\fR is reported. You would access it through the event's \fIjbutton\fR field.
+
+An \fBSDL_JOYBUTTONDOWN\fR or \fBSDL_JOYBUTTONUP\fR event occurs whenever a user presses or releases a button on a joystick.
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
+.br
+\fISDL_JoyAxisEvent
+.br
+\fISDL_JoyBallEvent
+.br
+\fISDL_JoyHatEvent
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickEventState
+.br
+\fISDL_JoystickGetButton
