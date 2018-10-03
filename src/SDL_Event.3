@@ -158,15 +158,15 @@ tab(:) allbox;
 a.
 T{
 .nf
-    printf("We got a motion event.\n");
+    printf("We got a motion event.\(rsn");
     printf("Current mouse position is: (%d, %d)\n", test_event.motion.x, test_event.motion.y);
     break;
   default:
-    printf("Unhandled Event!\n");
+    printf("Unhandled Event!\(rsn");
     break;
   }
 }
-printf("Event queue empty.\n");
+printf("Event queue empty.\(rsn");
 .fi
 T}
 .TE
