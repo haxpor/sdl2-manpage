@@ -1,0 +1,37 @@
+.TH SDL_Palette 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Palette\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains palette information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+int:ncolors:T{
+the number of colors in the palette
+T}
+\fBSDL_Color*\fR:colors:T{
+an array of \fBSDL_Color\fR structures representing the palette
+T}
+Uint32:version:T{
+incrementally tracks changes to the palette (internal use)
+T}
+int:refcount:T{
+reference count (internal use)
+T}
+.TE
+
+.SH REMARKS
+Each pixel in an 8-bit surface is an index into the \fBcolors\fR field of the \fBSDL_Palette\fR structure stored in \fBSDL_PixelFormat\fR. An \fBSDL_Palette\fR should never need to be created manually. It is automatically created when SDL allocates an \fBSDL_PixelFormat\fR for a surface. The \fBcolors\fR values of an \fBSDL_Surface\fR's palette can be set with \fBSDL_SetPaletteColors()\fR.
+
+.SH RELATED STRUCTURES
+\fISDL_PixelFormat
+
+.SH RELATED FUNCTIONS
+\fISDL_AllocPalette
+.br
+\fISDL_FreePalette
+.br
+\fISetPaletteColors

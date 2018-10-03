@@ -1,0 +1,46 @@
+.TH SDL_KeyboardEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_KeyboardEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains keyboard button event information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+the event type; \fBSDL_KEYDOWN\fR or \fBSDL_KEYUP\fR
+T}
+Uint32:timestamp:T{
+timestamp of the event
+T}
+Uint32:windowID:T{
+the window with keyboard focus, if any
+T}
+Uint8:state:T{
+the state of the key; \fBSDL_PRESSED_\fR or \fBSDL_RELEASED\fR
+T}
+Uint8:repeat:T{
+non-zero if this is a key repeat
+T}
+\fBSDL_Keysym\fR:keysym:T{
+the \fBSDL_Keysym\fR representing the key that was pressed or released
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_KeyboardEvent\fR is a member of the \fBSDL_Event\fR union and is used when an event of type \fBSDL_KEYDOWN\fR or \fBSDL_KEYUP\fR is reported. You would access it through the event's \fIkey\fR field.
+
+An \fBSDL_KEYDOWN\fR or \fBSDL_KEYUP\fR event occurs whenever a user presses or releases a button on a keyboard. The information on what key was pressed or released is in the \fBkeysym\fR member.
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
+
+.SH RELATED FUNCTIONS
+\fISDL_GetKeyboardState
+.br
+\fISDL_GetModState

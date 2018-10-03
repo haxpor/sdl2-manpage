@@ -1,0 +1,47 @@
+.TH SDL_MessageBoxData 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_MessageBoxData\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains title, text, window and other data for a message box.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:flags:T{
+an \fBSDL_MessageBoxFlags\fR
+T}
+\fBSDL_Window*\fR:window:T{
+an paraent window, can be NULL
+T}
+const char*:title:T{
+an UTF-8 title
+T}
+const char*:message:T{
+an UTF-8 message text
+T}
+int:numbuttons:T{
+the number of buttons
+T}
+const \fBSDL_MessageBoxButtonData*\fR:buttons:T{
+an array of \fBSDL_MessageBoxButtonData\fR with length of \fBnumbuttons\fR
+T}
+const \fBSDL_MessageBoxColorSchemes*\fR:colorScheme:T{
+an \fBSDL_MessageBoxColorScheme\fR, can be NULL to use system settings
+T}
+.TE
+
+.SH REMARKS
+See \fBSDL_ShowMessageBox()\fR for a complete code example.
+
+.SH RELATED ENUMERATIONS
+\fISDL_MessageBoxFlags
+
+.SH RELATED STRUCTURES
+\fISDL_MessageBoxButtonData
+.br
+\fISDL_MessageBoxColorScheme
+
+.SH RELATED FUNCTIONS
+\fISDL_ShowMessageBox

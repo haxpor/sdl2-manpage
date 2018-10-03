@@ -1,0 +1,30 @@
+.TH SDL_MessageBoxButtonData 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_MessageBoxButtonData\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains individual button data for a message box.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:flags:T{
+one of the values from \fBSDL_MessageBoxButtonFlags\fR
+T}
+int:buttonid:T{
+user defined button id (value returned via \fBSDL_ShowMessageBox()\fR)
+T}
+const char*:text:T{
+the UTF-8 button text
+T}
+.TE
+
+.SH RELATED ENUMERATIONS
+\fISDL_MessageBoxButtonFlags
+
+.SH RELATED STRUCTURES
+\fISDL_MessageBoxData
+
+.SH RELATED FUNCTIONS
+\fISDL_ShowMessageBox

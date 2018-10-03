@@ -121,17 +121,17 @@ Chcked items are covered by this project.
 * [x] `SDL_JoyButtonEvent`
 * [x] `SDL_JoyDeviceEvent`
 * [x] `SDL_JoyHatEvent`
-* [ ] `SDL_KeyboardEvent`
-* [ ] `SDL_Keysym`
-* [ ] `SDL_MessageBoxButtonData`
-* [ ] `SDL_MessageBoxColor`
-* [ ] `SDL_MessageBoxColorScheme`
-* [ ] `SDL_MessageBoxData`
-* [ ] `SDL_MouseButtonEvent`
-* [ ] `SDL_MouselMotionEvent`
-* [ ] `SDL_MouseWheelEvent`
-* [ ] `SDL_MultiGestureEvent`
-* [ ] `SDL_Palette`
+* [x] `SDL_KeyboardEvent`
+* [x] `SDL_Keysym`
+* [x] `SDL_MessageBoxButtonData`
+* [x] `SDL_MessageBoxColor`
+* [x] `SDL_MessageBoxColorScheme`
+* [x] `SDL_MessageBoxData`
+* [x] `SDL_MouseButtonEvent`
+* [x] `SDL_MouselMotionEvent`
+* [x] `SDL_MouseWheelEvent`
+* [x] `SDL_MultiGestureEvent`
+* [x] `SDL_Palette`
 * [ ] `SDL_PixelFormat`
 * [ ] `SDL_Point`
 * [ ] `SDL_QuitEvent`

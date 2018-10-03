@@ -1,0 +1,34 @@
+.TH SDL_Keysym 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Keysym\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains key information used in key events.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+\fBSDL_Scancode\fR:scancode:T{
+SDL physical key code; see \fISDL_Scancode\fR for details
+T}
+\fBSDL_Keycode\fR:sym:T{
+SDL virtual key code; see \fISDL_Keycode\fR for details
+T}
+Uint16:mod:T{
+current key modifiers; see \fISDL_Keymod\fR for details
+T}
+Uint32:unused:
+.TE
+
+.SH RELATED ENUMERATIONS
+\fISDL_Keycode
+.br
+\fISDL_Keymod
+.br
+\fISDL_Scancode
+
+.SH RELATED STRUCTURES
+\fISDL_KeyboardEvent
+.br
+\fISDL_TextInputEvent

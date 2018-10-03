@@ -1,0 +1,49 @@
+.TH SDL_MultiGestureEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_MultiGestureEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains multiple finger gesture event information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+\fBSDL_MULTIGESTURE\fR
+T}
+Uint32:timestamp:T{
+timestamp of the event
+T}
+\fBSDL_TouchID\fR:touchId:T{
+the touch device id
+T}
+float:dTheta:T{
+the amount that the fingers rotated during this motion
+T}
+float:dDist:T{
+the amount that the fingers pinched during this motion
+T}
+float:x:T{
+the normalized center of gesture
+T}
+float:y:T{
+the normalized center of gesture
+T}
+Uint16:numFingers:T{
+the number of fingers used in the gesture
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_MultiGestureEvent\fR is a member of the \fBSDL_Event\fR union and is used when an event of type \fBSDL_MULTIGESTURE\fR is reported. You would access it through the event's \fImgesture\fR field.
+
+For more information, see: \fIREADME-gesture.md\fR (\fIhttps://hg.libsdl.org/SDL/file/default/docs/README-gesture.md\fR)
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_DollarGestureEvent
+.br
+\fISDL_Event
