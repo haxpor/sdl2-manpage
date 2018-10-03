@@ -132,8 +132,8 @@ Chcked items are covered by this project.
 * [x] `SDL_MouseWheelEvent`
 * [x] `SDL_MultiGestureEvent`
 * [x] `SDL_Palette`
-* [ ] `SDL_PixelFormat`
-* [ ] `SDL_Point`
+* [x] `SDL_PixelFormat`
+* [x] `SDL_Point`
 * [ ] `SDL_QuitEvent`
 * [ ] `SDL_RWOps`
 * [ ] `SDL_Rect`

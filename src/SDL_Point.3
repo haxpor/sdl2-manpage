@@ -1,0 +1,83 @@
+.TH SDL_Point 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Point\fR -- Structure
+
+.SH SYNOPSIS
+A structure that defines a two dimensional point.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+int:x:T{
+the x coordinate of the point
+T}
+int:y:T{
+the y coordinate of the point
+T}
+.TE
+
+.SH CODE EXAMPLES
+
+.nf
+// Example program:
+// Using SDL_Point in some places of your code
+
+#include "SDL.h"
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+  SDL_Window *window;
+
+  SDL_Point window_position = {      // Position of window
+    SDL_WINDOWPOS_CENTERED,
+    SDL_WINDOWPOS_CENTERED
+  };
+  SDL_Point window_size = { 640, 480 };    // Ssize of window
+
+  SDL_Point mouse_position;                // Mouse position coords
+  
+  SDL_Init(SDL_INIT_VIDEO);                // Initialize SDL2
+
+  // Create an application window with the following settings:
+  window = SDL_CreateWindow(
+    "SDL_Point usage",    // window title
+    window_position.x,    // initial x position
+    window_position.y,    // initial y position
+    window_size.x,        // width, in pixels
+    window_size.y,        // height, in pixels
+    SDL_WINDOW_OPENGL     // flags - see below
+  );
+
+  // Check that the window was successfully made
+  if (window == NULL) {
+    SDL_Log("Could not create window: %s", SDL_GetError());
+    return 1;
+  }
+
+  SDL_GetMouseState(
+    &mouse_position.x,      // Sets mouse_position to...
+    &mouse_position.y       // ... mouse arrow coords on window
+  );
+
+  SDL_Log("Mouse position: x=%i y=%i",    // Print mouse position
+    mouse_position.x, mouse_position.y
+  );
+
+  // Close and destroy the window
+  SDL_DestroyWindow(window);
+
+  // Clean up
+  SDL_Quit();
+  return 0;
+}
+.fi
+
+.SH REMARKS
+An \fBSDL_Point\fR defines single two dimensional point. It can be used not only for points, but also for size. \fBSDL_Point\fR is used by \fBSDL_EnclosePoints()\fR to check if array of points is inside rectangle (\fBSDL_Rect\fR). You can also make your own functions using \fBSDL_Point\fR to simplify your code. It's very helful.
+
+.SH RELATED STRUCTURES
+\fISDL_Rect
+
+.SH RELATED FUNCTIONS
+\fISDL_EnclosePoints
