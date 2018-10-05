@@ -1,0 +1,127 @@
+.TH SDL_Surface 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Surface\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains a collection of pixels used in software blitting.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:flags:T{
+(internal use)
+T}
+\fBSDL_PixelFormat*\fR:format:T{
+the format of the pixels stored in the surface; see \fBSDL_PixelFormat\fR for details (read-only)
+T}
+int:w, h:T{
+the width and height in pixels (read-only)
+T}
+int:pitch:T{
+the length of a row of pixels in bytes (read-only)
+T}
+void*:pixels:T{
+the pointer to the actual pixel data; see \fIRemarks\fR for details (read-write)
+T}
+void*:userdata:T{
+an arbitrary pointer you can set (read-write)
+T}
+int:locked:T{
+used for surfaces that require locking (internal use)
+T}
+void*:lock_data:T{
+used for surface that require locking (internal use)
+T}
+\fBSDL_Rect\fR:clip_rect:T{
+an \fBSDL_Rect\fR structure used to clip blits to the surface which can be set by \fSDL_SetClipRect()\fR (read-only)
+T}
+\fBSDL_BlitMap*\fR:map:T{
+info for fast blit mapping to other surfaces (internal use)
+T}
+int:refcount:T{
+reference count that can be incremented by the application
+T}
+.TE
+
+.SH CODE EXAMPLES
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+/* This is meant to show how to edit a surface's pixels on the CPU,
+but normally you should use SDL_FillRect() to wipe a surface's contents. */
+void WipeSurface(SDL_Surface *surface)
+{
+  /* This is fast for surfaces that don't require locking. */
+  /* Once locked, surface->pixels is safe to process. */
+  SDL_LockSurface(surface);
+
+  /* This assumes that color value zero is black. Use
+     SDL_MapRGBA() for more robust surface color mapping! */
+  /* height times pitch is the size of the surface's whole buffer. */
+  SDL_memset(surface->pixels, 0, surface->h * surface->pitch);
+
+  SDL_UnlockSurface(surface);
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+With most surfaces you can access the pixels directly. Surfaces that have been optimized with \fBSDL_SetSurfaceRLE()\fR should be locked with \fBSDL_LockSurface()\fR before accesing \fBpixels\fR. When you are doen you should call \fBSDL_UnlockSurface()\fR before blitting.
+
+.SH RELATED FUNCTIONS
+\fISDL_BlitSurface
+.br
+\fISDL_ConvertSurface
+.br
+\fISDL_CreateRGBSurface
+.br
+\fISDL_CreateRGBSurfaceFrom
+.br
+\fISDL_FillRect
+.br
+\fISDL_FillRects
+.br
+\fISDL_FreeSurface
+.br
+\fISDL_GetClipRect
+.br
+\fISDL_GetColorKey
+.br
+\fISDL_GetSurfaceAlphaMod
+.br
+\fISDL_GetSurfaceBlendMode
+.br
+\fISDL_GetSurfaceColorMod
+.br
+\fISDL_LoadBMP_RW
+.br
+\fISDL_LockSurface
+.br
+\fISDL_LowerBlit
+.br
+\fISDL_MUSTLOCK
+.br
+\fISDL_SaveBMP_RW
+.br
+\fISDL_SetClipRect
+.br
+\fISDL_SetColorKey
+.br
+\fISDL_SetSurfaceAlphaMod
+.br
+\fISDL_SetSurfaceBlendMode
+.br
+\fISDL_SetSurfaceColorMod
+.br
+\fISDL_SetSurfacePalette
+.br
+\fISDL_SetSurfaceRLE
+.br
+\fISDL_SoftStretch
+.br
+\fISDL_UnlockSurface

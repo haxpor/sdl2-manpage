@@ -134,12 +134,12 @@ Chcked items are covered by this project.
 * [x] `SDL_Palette`
 * [x] `SDL_PixelFormat`
 * [x] `SDL_Point`
-* [ ] `SDL_QuitEvent`
-* [ ] `SDL_RWOps`
-* [ ] `SDL_Rect`
-* [ ] `SDL_Renderer`
-* [ ] `SDL_RendererInfo`
-* [ ] `SDL_Surface`
+* [x] `SDL_QuitEvent`
+* [x] `SDL_RWOps`
+* [x] `SDL_Rect`
+* [x] `SDL_Renderer`
+* [x] `SDL_RendererInfo`
+* [x] `SDL_Surface`
 * [ ] `SDL_SysWMEvent`
 * [ ] `SDL_SysWMInfo`
 * [ ] `SDL_SysWMmsg`

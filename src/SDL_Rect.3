@@ -1,0 +1,76 @@
+.TH SDL_Rect 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Rect\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains the definition of a rectangle, with the origin at the upper left.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+int:x:T{
+the x location of the rectangle's upper left corner
+T}
+int:y:T{
+the y location of the rectangle's upper left corner
+T}
+int:w:T{
+the width of the rectangle
+T}
+int:h:T{
+the height of the rectangle
+T}
+.TE
+
+.SH CODE EXAMPLES
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Rect srcrect;
+SDL_Rect dstrect;
+
+srcrect.x = 0;
+srcrect.y = 0;
+srcrect.w = 32;
+srcrect.h = 32;
+dstrect.x = 640/2;
+dstrect.y = 480/2;
+dstrect.w = 32;
+dstrect.h = 32;
+
+SDL_BlitSurface(src, &srcrect, dst, &dstrect);
+.fi
+T}
+.TE
+
+.SH REMARKS
+An \fBSDL_Rect\fR defines a rectangular area of the screen. It is used by \fBSDL_BlitSurface()\fR to define blitting regions and by several other video functions.
+
+.SH RELATED FUNCTIONS
+\fISDL_BlitSurface
+.br
+\fISDL_EnclosePoints
+.br
+\fISDL_GetDisplayBounds
+.br
+\fISDL_HashIntersection
+.br
+\fISDL_IntersectRect
+.br
+\fISDL_LockTexture
+.br
+\fISDL_RenderCopy
+.br
+\fISDL_RenderDrawRect
+.br
+\fISDL_RenderDrawRects
+.br
+\fISDL_RenderReadPixels
+.br
+\fISDL_UnionRect
+.br
+\fISDL_UpdateTexture

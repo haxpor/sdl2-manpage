@@ -1,0 +1,173 @@
+.TH SDL_RendererInfo 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RendererInfo\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains information on the capabilities of a render driver or the current render context.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+cosnt char*:name:T{
+the name of the renderer
+T}
+Uint32:flags:T{
+a mask of supported renderer flags; see \fIRemarks\fR for details
+T}
+Uint32:num_texture_formats:T{
+the number of available texture formats
+T}
+Uint32[16]:texture_formats:T{
+the available texture formats; see \fIRemarks\fR for details
+T}
+int:max_texture_width:T{
+the maximum texture width
+T}
+int:max_texture_height:T{
+the maximum texture height
+T}
+.TE
+
+.SH REMARKS
+\fBflags\fR may be 0 or a mask of any of the following \fBSDL_RendererFlags\fR values OR'd together:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_RENDERER_SOFTWARE:T{
+the renderer is a software fallback
+T}
+SDL_RENDERER_ACCELERATED:T{
+the renderer uses hardware acceleration
+T}
+SDL_RENDERER_PRESENTVSYNC:T{
+present is synchronized with the refresh rate
+T}
+SDL_RENDERER_TARGETTEXTURE:T{
+the renderer supports rendering to texture
+T}
+.TE
+
+.PP
+Note that providing no flags gives priority to available \fBSDL_RENDERER_ACCELERATED\fR renderers.
+
+\fBtexture_formats\fR is an array of \fBSDL_PixelFormatEnum\fR values representing the available texture formats for the renderer.
+
+.SS Pixel Format Macros
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_PIXELTYPE(format):T{
+the type of the pixel format; see \fIRemarks\fI for details
+T}
+SDL_PIXELORDER(format):T{
+the ordering of channels or bits in the pixel format; see \fIRemarks\fR for details
+T}
+SDL_PIXELLAYOUT(format):T{
+the channel bit pattern of the pixel format; see \fIRemarks\fI for details
+T}
+SDL_BITSPERPIXEL(format):T{
+the number of bits of color information in the pixel format
+T}
+SDL_BYTESPERPIXEL(format):T{
+the number of bytes used to represent a pixel
+T}
+SDL_ISPIXELFORMAT_INDEXES(format):T{
+true for pixel formats that have a palette
+T}
+SDL_ISPIXELFORAMT_ALPHA(format):T{
+true for pixel formats that have an alpha channel
+T}
+SDL_ISPIXELFORMAT_FOURCC(format):T{
+true for pixel formats represnting unique formats, for example YUV formats
+T}
+.TE
+
+.SS Pixel Format Values
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_PIXELFORMAT_UNKNOWN:
+SDL_PIXELFORMAT_INDEX1LSB:
+SDL_PIXELFORMAT_INDEX1MSB:
+SDL_PIXELFORMAT_INDEX4LSB:
+SDL_PIXELFORMAT_INDEX4MSB:
+SDL_PIXELFORMAT_INDEX8:
+SDL_PIXELFORMAT_RGB332:
+SDL_PIXELFORMAT_RGB444:
+SDL_PIXELFORMAT_RGB555:
+SDL_PIXELFORMAT_BGR555:
+SDL_PIXELFORMAT_ARGB4444:
+SDL_PIXELFORMAT_RGBA4444:
+SDL_PIXELFORMAT_ABGR4444:
+SDL_PIXELFORMAT_BGRA4444:
+SDL_PIXELFORMAT_ARGB1555:
+SDL_PIXELFORMAT_RGBA5551:
+SDL_PIXELFORMAT_ABGR1555:
+SDL_PIXELFORMAT_BGRA5551:
+SDL_PIXELFORMAT_RGB565:
+SDL_PIXELFORMAT_BGR565:
+SDL_PIXELFORMAT_RGB24:
+SDL_PIXELFORMAT_BGR24:
+SDL_PIXELFORMAT_RGB888:
+SDL_PIXELFORMAT_RGBX8888:
+SDL_PIXELFORMAT_BGR888:
+SDL_PIXELFORMAT_BGRX8888:
+SDL_PIXELFORMAT_ARGB8888:
+SDL_PIXELFORMAT_RGBA8888:
+SDL_PIXELFORMAT_ABGR8888:
+SDL_PIXELFORMAT_BGRA8888:
+SDL_PIXELFORMAT_ARGB2101010:
+SDL_PIXELFORMAT_RGBA32:T{
+alias for RGBA byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_ARGB32:T{
+alias for ARGB byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_BGRA32:T{
+alias for BGRA byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_ABGR32:T{
+alias for ABGR byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_YV12:T{
+planar mode: Y + V + U (3 planes)
+T}
+SDL_PIXELFORMAT_IYUV:T{
+planar mode: Y + U + V (3 planes)
+T}
+SDL_PIXELFORMAT_YUY2:T{
+packed mode: Y0+U0+Y1+V0 (1 plane)
+T}
+SDL_PIXELFORMAT_UYVY:T{
+packed mode: U0+Y0+V0+Y1 (1 plane)
+T}
+SDL_PIXELFORMAT_YVYU:T{
+packed mode: Y0+V0+Y1+U0 (1 plane)
+T}
+SDL_PIXELFORMAT_NV12:T{
+planar mode: Y + U/V interleaved (2 planes) (>= SDL 2.0.4)
+T}
+SDL_PIXELFORMAT_NV21:T{
+planar mode: Y + V/U interleaved (2 planes) (>= SDL 2.0.4)
+T}
+.TE
+
+.SH RELATED ENUMERATIONS
+\fISDL_BlendMode
+.br
+\fISDL_PixelFormatEnum
+.br
+\fISDL_RendererFlags
+.br
+\fISDL_TextureModulate
+
+.SH RELATED FUNCTIONS
+\fISDL_GetRenderDriverInfo
+.br
+\fISDL_GetRendererInfo
+.br
+\fISDL_RenderCopy

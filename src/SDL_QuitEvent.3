@@ -1,0 +1,40 @@
+.TH SDL_QuitEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_QuitEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains the "quit requested" event.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:\fBSDL_QUIT\fR
+Uint32:timestamp:T{
+timestamp of the event
+T}
+.TE
+
+.SH CODE EXAMPLES
+
+.nf
+SDL_Event e;
+for (;;) {
+  SDL_PollEvent(&e);
+  if (e.type == SDL_QUIT) {
+    SDL_Log("Program quit after %i ticks", e.quit.timestamp);
+    break;
+  }
+}
+.fi
+
+.SH REMARKS
+\fBSDL_QuitEvent\fR is s member of the \fBSDL_Event\fR union and is used when an event of type \fBSDL_QUIT\fR is reported. You would access it through the event's \fIquit\fR field.
+
+Please refer to \fIthe discussion of SDL_QUIT\fR (see \fBSDL_QUIT\fR section in \fIRemarks\fR by executing \fBman SDL_QUIT\fR) for more details.
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
