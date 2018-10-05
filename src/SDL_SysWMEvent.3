@@ -1,0 +1,45 @@
+.TH SDL_SysWMEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SysWMEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains a video driver dependent system event.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+\fBSDL_SYSWMEVENT\fR
+T}
+Uint32:timestamp:T{
+timestamp of the event
+T}
+\fBSDL_SysWMEvent*\fR:msg:T{
+driver dependent data, defined in SDL_syswm.h
+T}
+.TE
+
+.SH REMARKS
+This event is disabled by default. You can enable it with \fBSDL_EventState()\fR. You are encouraged to avoid this if you can find a less platform-specific way to accomplish your goals.
+
+If you want to use this event you should include SDL_syswm.h and have access to the appropriate system headers.
+
+\fBSDL_SysWMEvent\fR is a member of the \fBSDL_Event\fR union and is used when an event of type \fBSDL_SYSWMEVENT\fR is reported. You would access it through the event's \fIsyswm\fR field.
+
+If you want to obtain system-specific information about the window manager you can fill in the \fIversion\fR member of an \fBSDL_SysWMinfo\fR structure using the \fBSDL_VERSION()\fR macro found in SDL_version.h, and pass it to the function \fBSDL_GetWindowWMInfo()\fR.
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
+.br
+\fISDL_SysWMinfo
+.br
+\fISDL_SysWMmsg
+
+.SH RELATED FUNCTIONS
+\fISDL_EventState
+.br
+\fISDL_GetWindowWMInfo

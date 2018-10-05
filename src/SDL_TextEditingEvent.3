@@ -1,0 +1,48 @@
+.TH SDL_TextEditingEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_TextEditingEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains keyboard text editing event information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+\fBSDL_TEXTEDITING\fR
+T}
+Uint32:timestamp:T{
+timestamp of the event
+T}
+Uint32:windowID:T{
+the window with keyboard focus, if any
+T}
+char[32]:text:T{
+the null-terminated editing text in UTF-8 encoding
+T}
+Sint32:start:T{
+the location to begin editing from
+T}
+Sint32:length:T{
+the number of characters to edit from the start point
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_TextEditingEvent\fR is a member of the \fBSDL_Event\fR union and is used when an event of type SDL_TEXTEDITING is reported. You would access it through the event's \fIedit\fR field.
+
+There is a \fItutorial\fR (see \fIhttps://wiki.libsdl.org/Tutorials/TextInput\fR).
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
+.br
+\fISDL_TextInputEvent
+
+.SH RELATED FUNCTIONS
+\fISDL_StarTextInput
+.br
+\fISDL_StopTextInput

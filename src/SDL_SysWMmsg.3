@@ -1,0 +1,129 @@
+.TH SDL_SysWMmsg 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SysWMmsg\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains system-dependent window manager messages.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+c s s.
+All Subsystems
+.T&
+a lb l.
+\fbSDL_version\fB:version:T{
+an \fBSDL_version\fR structure that contains the current SDL version
+T}
+\fBSDL_SYSWM_TYPE\fR:subsystem:T{
+the windowing system type; see \fIRemarks\fI for details
+T}
+int:dummy:T{
+unused (to help compilers when no specific system is available)
+T}
+.T&
+c s s.
+SDL_SYSWM_WINDOWS
+.T&
+a lb l.
+HWND:win.window:T{
+the window for the message
+T}
+UINT:win.msg:T{
+the type of message
+T}
+WPARAM:win.wParam:T{
+WORD message parameter
+T}
+LPARAM:win.lParam:T{
+LONG message parameter
+T}
+.T&
+c s s.
+SDL_SYSWM_X11
+.T&
+a lb l.
+XEvent:x11.event:T{
+the native x11 event structure
+T}
+.T&
+c s s.
+SDL_SYSWM_DIRECTFB
+.T&
+a lb l.
+DFBEvent:dfb.event:T{
+the DirectFB event
+T}
+.T&
+c s s.
+SDL_SYSWM_COCOA
+.T&
+a lb l.
+int:cocoa.dummy:T{
+unused (>= SDL 2.0.4)
+T}
+.T&
+c s s.
+SDL_SYSWM_UIKIT
+.T&
+a lb l.
+int:uikit.dummy:T{
+unused (>= SDL 2.0.4)
+T}
+.T&
+c s s.
+SDL_SYSWM_VIVANTE
+.T&
+a lb l.
+int:vivante.dummy:T{
+unused (>= SDL 2.0.5)
+T}
+.TE
+
+.SH REMARKS
+
+\fBsubsystem\fR may be one of the following:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_SYSWM_UNKNOWN:
+SDL_SYSWM_WINDOWS:T{
+Microsoft Windows
+T}
+SDL_SYSWM_X11:T{
+X Window System
+T}
+SDL_SYSWM_DIRECTFB:T{
+DirectFB (see \fIhttp://www.directfb.net/\fR)
+T}
+SDL_SYSWM_COCOA:T{
+Apple macOS
+T}
+SDL_SYSWM_UIKIT:T{
+Apple iOS
+T}
+SDL_SYSWM_WAYLAND:T{
+Wayland (>= SDL 2.0.2)
+T}
+SDL_SYSWM_MIR:T{
+Mir (>= SDL 2.0.2)
+T}
+SDL_SYSWM_WINRT:T{
+WinRT (>= SDL 2.0.3)
+T}
+SDL_SYSWM_ANDROID:T{
+Android (>= SDL 2.0.4)
+T}
+SDL_SYSWM_VIVANTE:T{
+Vivante (>= SDL 2.0.5)
+T}
+.TE
+
+There are currently no Cocoa or UIKit window events.
+
+.SH RELATED ENUMERATIONS
+\fISDL_SYSWM_TYPE
+
+.SH RELATED STRUCTURES
+\fISDL_version

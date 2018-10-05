@@ -1,0 +1,51 @@
+.TH SDL_TouchFingerEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_TouchFingerEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains finger touch event information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+\fBSDL_FINGERMOTION\fR, \fBSDL_FINGERDOWN\fR, or \fBSDL_FINGERUP\fR
+T}
+Uint32:timestamp:T{
+timestamp of the event
+T}
+\fBSDL_TouchID\fR:touchId:T{
+the touch device id
+T}
+\fBSDL_FingerID\fR:fingerId:T{
+the finger id
+T}
+float:x:T{
+the x-axis location of the touch event, normalized (0...1)
+T}
+float:y:T{
+the y-axis location of the touch event, normalized (0...1)
+T}
+float:dx:T{
+the distance moved in the x-axis, normalized (-1...1)
+T}
+float:dy:T{
+the distance moved in the y-axis, normalized (-1...1)
+T}
+float:pressure:T{
+the quantity of pressure applied, normalized (0...1)
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_TouchFingerEvent\fR is a member of the \fBSDL_Event\fR union and is used when an event of type \fBSDL_FINGERMOTION\fR, \fBSDL_FINGERDOWN\fR, or \fBSDL_FINGERUP\fR is reported. You would access it through the event's \fItfinger\fR field.
+
+.SH VERSION
+This structure is available since SDL 2.0.0.
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event

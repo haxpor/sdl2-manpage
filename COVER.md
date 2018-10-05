@@ -140,18 +140,18 @@ Chcked items are covered by this project.
 * [x] `SDL_Renderer`
 * [x] `SDL_RendererInfo`
 * [x] `SDL_Surface`
-* [ ] `SDL_SysWMEvent`
-* [ ] `SDL_SysWMInfo`
-* [ ] `SDL_SysWMmsg`
-* [ ] `SDL_TextEditingEvent`
-* [ ] `SDL_TextInputEvent`
-* [ ] `SDL_Texture`
-* [ ] `SDL_TouchFingerEvent`
-* [ ] `SDL_UserEvent`
-* [ ] `SDL_WindowEvent`
-* [ ] `SDL_assert_data`
-* [ ] `SDL_atomic_t`
-* [ ] `SDL_version`
+* [x] `SDL_SysWMEvent`
+* [x] `SDL_SysWMInfo`
+* [x] `SDL_SysWMmsg`
+* [x] `SDL_TextEditingEvent`
+* [x] `SDL_TextInputEvent`
+* [x] `SDL_Texture`
+* [x] `SDL_TouchFingerEvent`
+* [x] `SDL_UserEvent`
+* [x] `SDL_WindowEvent`
+* [x] `SDL_assert_data`
+* [x] `SDL_atomic_t`
+* [x] `SDL_version`
 
 
 ## Functions

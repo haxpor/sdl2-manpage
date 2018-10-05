@@ -1,0 +1,193 @@
+.TH SDL_SysWMinfo 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SysWMinfo\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains system-dependent information about a window.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+c s s.
+All Subsystems
+.T&
+a lb l.
+\fbSDL_version\fB:version:T{
+an \fBSDL_version\fR structure that contains the current SDL version
+T}
+\fBSDL_SYSWM_TYPE\fR:subsystem:T{
+the windowing system type; see \fIRemarks\fI for details
+T}
+int:dummy:T{
+unused (to help compilers when no specific system is available)
+T}
+.T&
+c s s.
+SDL_SYSWM_WINDOWS
+.T&
+a lb l.
+HWND:win.window:T{
+the window handle
+T}
+HDC:win.hdc:T{
+the window device context (>= SDL 2.0.4)
+T}
+HINSTANCE:win.hinstance:T{
+the window hinstance (>= SDL 2.0.6)
+T}
+.T&
+c s s.
+SDL_SYSWM_WINRT (>= SDL 2.0.3)
+.T&
+a lb l.
+IInspectable*:winrt.window:T{
+the WinRT CoreWindow
+T}
+.T&
+c s s.
+SDL_SYSWM_X11
+.T&
+a lb l.
+Display*:x11.display:T{
+the X11 display
+T}
+Window:x11.window:T{
+the X11 window
+T}
+.T&
+c s s.
+SDL_SYSWM_DIRECTFB
+.T&
+a lb l.
+IDirectFB*:dfb.dfb:T{
+the DirectFB main interface
+T}
+IDirectFBWindow*:dfb.window:T{
+the DirectFB window handle
+T}
+IDirectFBSurface*:dfb.surface:T{
+the DirectFB client surface
+T}
+.T&
+c s s.
+SDL_SYSWM_COCOA
+.T&
+a lb l.
+NSWindow*:cocoa.window:T{
+the Cocoa window
+T}
+.T&
+c s s.
+SDL_SYSWM_UIKIT
+.T&
+a lb l.
+UIWindow*:uikit.window:T{
+the UIKit window
+T}
+GLuint:uikit.framebuffer:T{
+the GL view's Framebuffer Object; it must be bound when rendering to the screen using GL (>= SDL 2.0.4)
+T}
+GLuint:uikit.colorbuffer:T{
+the GL view's color Renderbuffer Object; it must be bound when \fBSDL_GL_SwapWindow()\fR is called (>= SDL 2.0.4)
+T}
+GLuint:uikit.resolveFramebuffer:T{
+the Framebuffer Object which holds the resolve color Renderbuffer, when MSAA is used (>= SDL 2.0.4)
+T}
+.T&
+c s s.
+SDL_SYSWM_WAYLAND (>= SDL 2.0.2)
+.T&
+a lb l.
+wl_display*:wl.display:T{
+the Wayland display
+T}
+wl_surface*:wl.surface:T{
+the Wayland surface
+T}
+wl_shell_surface*:wl.shell_surface:T{
+the Wayland shell_surface (window manager handle)
+T}
+.T&
+c s s.
+SDL_SYSWM_MIR (>= SDL 2.0.2)
+.T&
+a lb l.
+MirConnection*:mir.connection:T{
+the Mir display server connection
+T}
+MirSurface*:mir.surface:T{
+the Mir surface
+T}
+.T&
+c s s.
+SDL_SYSWM_ANDROID (>= SDL 2.0.4)
+.T&
+a lb l.
+ANativeWindow*:android.window:T{
+the Android native window
+T}
+EGLSurface:android.surface:T{
+the Android EGL surface
+T}
+.T&
+c s s.
+SDL_SYSWM_VIVANTE (>= SDL 2.0.5)
+.T&
+a lb l.
+EGLNativeDisplayType:vivante.display:T{
+the Vivante EGL display type
+T}
+EGLNativeWindowType:vivante.window:T{
+theh Vivante EGL window type
+T}
+.TE
+
+.SH REMARKS
+This structure is filled in by \fBSDL_GetWindowWMInfo()\fR.
+
+This structure holds love level information about the window and \fBsubsystem\fR is set to the windowing system in use, one of:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_SYSWM_UNKNOWN:
+SDL_SYSWM_WINDOWS:T{
+Microsoft Windows
+T}
+SDL_SYSWM_X11:T{
+X Window System
+T}
+SDL_SYSWM_DIRECTFB:T{
+DirectFB (see \fIhttp://www.directfb.net/\fR)
+T}
+SDL_SYSWM_COCOA:T{
+Apple macOS
+T}
+SDL_SYSWM_UIKIT:T{
+Apple iOS
+T}
+SDL_SYSWM_WAYLAND:T{
+Wayland (>= SDL 2.0.2)
+T}
+SDL_SYSWM_MIR:T{
+Mir (>= SDL 2.0.2)
+T}
+SDL_SYSWM_WINRT:T{
+WinRT (>= SDL 2.0.3)
+T}
+SDL_SYSWM_ANDROID:T{
+Android (>= SDL 2.0.4)
+T}
+SDL_SYSWM_VIVANTE:T{
+Vivante (>= SDL 2.0.5)
+T}
+.TE
+
+.SH RELATED ENUMERATIONS
+\fISDL_SYSWM_TYPE
+
+.SH RELATED STRUCTURES
+\fISDL_version
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowWMInfo

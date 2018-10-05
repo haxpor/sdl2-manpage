@@ -1,0 +1,72 @@
+.TH SDL_TextInputEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_TextInputEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains keyboard text input event information.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+\fBSDL_TEXTINPUT\fR
+T}
+Uint32:timestamp:T{
+timestamp of the event
+T}
+Uint32:windowID:T{
+the window with keyboard focus, if any
+T}
+char[32]:text:T{
+the null-terminated input text in UTF-8 encoding
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_TextInputEvent\fR is a member of the \fBSDL_Event\fR union and is used when an event of type \fBSDL_TEXTINPUT\fR is reported. You would access it through the event's \fItext\fR field.
+
+There is a \fItutorial\fR (see \fIhttps://wiki.libsdl.org/Tutorials/TextInput\fR).
+
+\fBDetailed explanation\fR (from \fISDL mailing list\fR (see \fIhttp://lists.libsdl.org/pipermail/sdl-libsdl.org/2013-August/090073.html\fR by Jiang Jiang <gzjjgod at gmail.com>)
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+In a typical GUI application, the OS will be responsible for telling
+you the candidate text (via SDL_TEXTEDITING), you can choose how (and
+where) to show it in your UI.
+Let's say with an input method I typed "abc" and got unicode character
+"X", the SDL application will first receive three SDL_TEXTEDITING
+events with 'a', 'ab' and 'abc', then finally receive SDL_TEXTINPUT
+event with unicode character 'X'.
+During this text compositing process, user can press any arbitrary
+keys such as Function, backspace, both the SDL application and OS
+input method will receive it and decide whether to deal with these
+keys or not. For instance when user press backspace, most input
+methods will delete the last candidate character typed and SDL app
+will receive a new SDL_TEXTEDITING event (let's say user typed a, b,
+backspace, c, then the application will receive 4 events containing
+'a', 'ab', 'a', 'ac' each).
+
+[[SDL_SetTextInputRect]]() gives the OS a hint for where to show the
+candidate text list, since the OS doesn't know where you want to draw
+the text you received via SDL_TEXTEDITING event.
+.fi
+T}
+.TE
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED STRUCTURES
+\fISDL_Event
+.br
+\fISDL_TextEditingEvent
+
+.SH RELATED FUNCTIONS
+\fISDL_StartTextInput
+.br
+\fISDL_StopTextInput

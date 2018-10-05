@@ -1,0 +1,71 @@
+.TH SDL_version 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_version\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains information about the version of SDL in use.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint8:major:T{
+major version
+T}
+Uint8:minor:T{
+minor version
+T}
+Uint8:patch:T{
+update version (patchlevel)
+T}
+.TE
+
+.SH CODE EXAMPLES
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_version compiled;
+SDL_version linked;
+
+SDL_VERSION(&compiled);
+SDL_GetVersion(&linked);
+printf("We compiled against SDL version %d.%d.%d ...\n",
+  compiled.major, compiled.minor, compiled.patch);
+printf("But we are linking against SDL version %d.%d.%d.\n",
+  linked.major, linked.minor, linked.patch);
+.fi
+T}
+.TE
+
+.SH REMARKS
+Represents the library's version as three levels:
+
+.TP 5
+.BI "major revision"
+(increments with massive changes, additions, and enhancements)
+
+.TP
+.BI "minor revision"
+(increments with backwards-compatible changes to the major revision), and
+
+.TP
+.BI "patchlevel"
+(increments with fixes to the minor revision)
+
+.PP
+The macro \fBSDL_VERSION\fR can be used to populate this structure with information.
+
+.SH RELATED MACROS
+\fISDL_COMPILEDVERSION
+.br
+\fISDL_VERSION
+.br
+\fISDL_VERSIONNUM
+.br
+\fISDL_VERSION_ATLEAST
+
+.SH RELATED FUNCTIONS
+\fISDL_GetVersion

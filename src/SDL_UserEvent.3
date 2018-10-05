@@ -1,0 +1,62 @@
+.TH SDL_UserEvent 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_UserEvent\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains an application-defined event type.
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+Uint32:type:T{
+value obtained from \fBSDL_RegisterEvents()\fR
+T}
+Uint32:timestamp:T{
+timestamp of the event
+T}
+Uint32:windowID:T{
+the associated window, if any
+T}
+Sint32:code:T{
+user defined event code
+T}
+void*:data1:T{
+user defined data pointer
+T}
+void*:data2:T{
+user defined data pointer
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 myEventType = SDL_RegisterEvents(1);
+if (myEventType != ((Uint32)-1)) {
+  SDL_Event event;
+  SDL_memset(&event, 0, sizeof(event));  /* or SDL_zero(event) */
+  event.type = myEventType;
+  event.user.code = my_event_code;
+  event.user.data1 = significant_data;
+  event.user.data2 = 0;
+  SDL_PushEvent(&event);
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+
+\fBSDL_UserEvent\fR is in the \fBuser\fR member of the \fBSDL_Event\fR union. This event is unique; it is never created by SDL but only by the application. The event can be pushed onto the event queue using \fBSDL_PushEvent()\fR. The contents of the structure members are completely up to the programmer; the only requirement is that \fBtype\fR is a value obtained from \fBSDL_RegisterEvents()\fR.
+
+.SH RELATED ENUMERATIONS
+\fISDL_EventType
+
+.SH RELATED FUNCTIONS
+\fISDL_PushEvent
+.br
+\fISDL_RegisterEvents

@@ -1,0 +1,45 @@
+.TH SDL_assert_data 3 "2018.09.27" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_assert_data\fR -- Structure
+
+.SH SYNOPSIS
+A structure that contains information about an assertion
+
+.SH DATA FIELDS
+.TS
+tab(:) allbox;
+a lb l.
+int:always_ignore:T{
+1 if set, 0 otherwise
+T}
+unsigned int:trigger_count:T{
+number of times this assertion was triggered
+T}
+const char*:condition:T{
+the assertion condition to check
+T}
+const char*:filename:T{
+theh file containing the assertion
+T}
+int:linenum:T{
+the location of the assertion in the file
+T}
+const char*:function:T{
+the function containing the assertion
+T}
+const struct SDL_assert_data*:next:T{
+Pointer to next triggered assertion's info
+T}
+.TE
+
+.SH REMARKS
+This structure is filled in with information about the assertion and is used by the assertion handler then added to the assertion report. This is returned as a linked list from \fBSDL_GetAssertionReport()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_assert
+.br
+\fISDL_assert_paranoid
+.br
+\fISDL_assert_release
+.br
+\fISDL_GetAssertionReport
