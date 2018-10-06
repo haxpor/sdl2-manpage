@@ -1,0 +1,107 @@
+.TH SDL_AllocFormat 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AllocFormat\fR -- Structure
+
+.SH SYNOPSIS
+Use this function to create an \fBSDL_PixelFormat\fR structure corresponding to a pixel format.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_PixelFormat* SDL_AllocFormat(Uint32 pixel_format)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+pixel_format:T{
+one of the \fBSDL_PixelFormatEnum\fR values; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the new \fBSDL_PixelFormat\fR structure or NULL on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+\fBpixel_format\fR may be one of the following:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_PIXELFORMAT_UNKNOWN:
+SDL_PIXELFORMAT_INDEX1LSB:
+SDL_PIXELFORMAT_INDEX1MSB:
+SDL_PIXELFORMAT_INDEX4LSB:
+SDL_PIXELFORMAT_INDEX4MSB:
+SDL_PIXELFORMAT_INDEX8:
+SDL_PIXELFORMAT_RGB332:
+SDL_PIXELFORMAT_RGB444:
+SDL_PIXELFORMAT_RGB555:
+SDL_PIXELFORMAT_BGR555:
+SDL_PIXELFORMAT_ARGB4444:
+SDL_PIXELFORMAT_RGBA4444:
+SDL_PIXELFORMAT_ABGR4444:
+SDL_PIXELFORMAT_BGRA4444:
+SDL_PIXELFORMAT_ARGB1555:
+SDL_PIXELFORMAT_RGBA5551:
+SDL_PIXELFORMAT_ABGR1555:
+SDL_PIXELFORMAT_BGRA5551:
+SDL_PIXELFORMAT_RGB565:
+SDL_PIXELFORMAT_BGR565:
+SDL_PIXELFORMAT_RGB24:
+SDL_PIXELFORMAT_BGR24:
+SDL_PIXELFORMAT_RGB888:
+SDL_PIXELFORMAT_RGBX8888:
+SDL_PIXELFORMAT_BGR888:
+SDL_PIXELFORMAT_BGRX8888:
+SDL_PIXELFORMAT_ARGB8888:
+SDL_PIXELFORMAT_RGBA8888:
+SDL_PIXELFORMAT_ABGR8888:
+SDL_PIXELFORMAT_BGRA8888:
+SDL_PIXELFORMAT_ARGB2101010:
+SDL_PIXELFORMAT_RGBA32:T{
+alias for RGBA byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_ARGB32:T{
+alias for ARGB byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_BGRA32:T{
+alias for BGRA byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_ABGR32:T{
+alias for ABGR byte array of color data, for the current platform (>= SDL 2.0.5)
+T}
+SDL_PIXELFORMAT_YV12:T{
+planar mode: Y + V + U (3 planes)
+T}
+SDL_PIXELFORMAT_IYUV:T{
+planar mode: Y + U + V (3 planes)
+T}
+SDL_PIXELFORMAT_YUY2:T{
+packet mode: Y0 + U0 + Y1 + V0 (1 plane)
+T}
+SDL_PIXELFORMAT_UYVY:T{
+packed mode: U0 + Y0 + V0 + Y1 (1 plane)
+T}
+SDL_PIXELFORMAT_YVYU:T{
+packed mode: Y0 + V0 + Y1 + U0 (1 plane)
+T}
+SDL_PIXELFORMAT_NV12:T{
+planar mode: Y + U/V interleaved (2 planes) (>= SDL 2.0.4)
+T}
+SDL_PIXELFORMAT_NV21:T{
+planar mode: Y + V/U interleaved (2 planes) (>= SDL 2.0.4)
+T}
+.TE
+
+.PP
+Returned structure may come from a shared global cache (i.e. not newly allocated), and hence should not be modified, especially the palette. Weird errors such as \fIBlit combination not supported\fR may occur.
+
+.SH RELATED FUNCTIONS
+\fISDL_FreeFormat

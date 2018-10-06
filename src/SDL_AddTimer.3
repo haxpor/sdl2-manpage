@@ -1,0 +1,97 @@
+.TH SDL_AddTimer 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AddTimer\fR -- Structure
+
+.SH SYNOPSIS
+Use this function to set up a callback function to be run on a separate thread after the specified number of milliseconds has elapsed.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_TimerID SDL_AddTimer(Uint32            interval,
+                         SDL_TimerCallback callback,
+                         void*             param)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+interval:T{
+the timer delay (ms) passed to \fBcallback\fR
+T}
+callback:T{
+the function to call when the specified \fBinterval\fR elapses; see \fIRemarks\fR for details
+T}
+param:T{
+a pointer that is passed to \fBcallback\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a timer ID or 0 if an error occurs; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+
+.nf
+/* Start the timer; the callback below will be executed after the delay */
+
+Uint32 delay = (33 / 10) * 10;	/* To round it down to the nearest 10 ms */
+SDL_TimerID my_timer_id = SDL_AddTimer(delay, my_callbackfunc, my_callback_param);
+
+...
+
+Uint32 my_callbackfunc(Uint32 interval, void *param)
+{
+  SDL_Event event;
+  SDL_UserEvent userevent;
+
+  /* In this example, our callback pushes an SDL_USEREVENT event
+  into the queue, and causes our callback to be called again at the
+  same interval: */
+
+  userevent.type = SDL_USEREVENT;
+  userevent.code = 0;
+  userevent.data1 = NULL;
+  userevent.data2 = NULL;
+
+  event.type = SDL_USEREVENT;
+  event.user = userevent;
+
+  SDL_PushEvent(&event);
+  return interval;
+}
+.fi
+
+.SH REMARKS
+The function prototype for \fBcallback\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_YourCallbackHere(...)
+.fi
+T}
+.TE
+
+where its parameters are:
+
+.TS
+tab(:) allbox;
+a l.
+name:T{
+first
+T}
+.TE
+
+.SH REMARKS
+The function ...
+
+.SH RELATED FUNCTIONS

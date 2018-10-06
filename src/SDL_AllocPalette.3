@@ -1,0 +1,35 @@
+.TH SDL_AllocPalette 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AllocPalette\fR -- Structure
+
+.SH SYNOPSIS
+Use this function to create a palette structure with the specified number of color entries.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Palette* SDL_AllocPalette(int ncolors)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+ncolors:T{
+represents the number of color entries in the color palette
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a new \fBSDL_Palette\fR structure on success or NULL on failure (e.g. if there wasn't enough memory); call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+The palette entries are initialized to white.
+
+.SH RELATED FUNCTIONS
+\fISDL_FreePalette

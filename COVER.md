@@ -156,13 +156,13 @@ Chcked items are covered by this project.
 
 ## Functions
 
-* [ ] `SDL_AddEventWatch`
-* [ ] `SDL_AddHintCallback`
-* [ ] `SDL_AddTimer`
-* [ ] `SDL_AllocFormat`
-* [ ] `SDL_AllocPalette`
-* [ ] `SDL_AllowRW`
-* [ ] `SDL_AndroidGetActivity`
+* [x] `SDL_AddEventWatch`
+* [x] `SDL_AddHintCallback`
+* [x] `SDL_AddTimer`
+* [x] `SDL_AllocFormat`
+* [x] `SDL_AllocPalette`
+* [x] `SDL_AllowRW`
+* [x] `SDL_AndroidGetActivity`
 * [ ] `SDL_AndroidGetExternalStoragePath`
 * [ ] `SDL_AndroidGetExternalStorageState`
 * [ ] `SDL_AndroidGetInternalStoragePath`

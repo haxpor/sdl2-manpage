@@ -1,0 +1,76 @@
+.TH SDL_AddHintCallback 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AddHintCallback\fR -- Structure
+
+.SH SYNOPSIS
+Use this function to add a function to watch a particular hint.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_AddHintCallback(const char*       name,
+                         SDL_HintCallback  callback,
+                         void*             userdata)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+name:T{
+the hint to watch
+T}
+callback:T{
+the function to call when the hint value changes
+T}
+userdata:T{
+a pointer to pass to the callback function
+T}
+.TE
+
+.SH REMARKS
+The function prototype for \fBcallback\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_HintCallback(void*        userdata,
+                      const char*  name,
+                      const char*  oldValue,
+                      const char*  newValue)
+.fi
+T}
+.TE
+
+.PP
+where its parameters are:
+
+.TS
+tab(:) allbox;
+a l.
+userdata:T{
+what was passed as \fBuserdata\fR to \fBSDL_AddHintCallback()\fR
+T}
+name:T{
+what was passed as \fBname\fR to \fBSDL_AddHintCallback()\fR
+T}
+oldValue:T{
+the old value
+T}
+newValue:T{
+the new value
+T}
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_DelHintCallback

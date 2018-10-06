@@ -1,0 +1,52 @@
+.TH SDL_FunctionTemplate 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_FunctionTemplate\fR -- Structure
+
+.SH SYNOPSIS
+Use this function ...
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_AddEventWatch(...)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+name:description
+.TE
+
+.SH CODE EXAMPLES
+...
+
+.SH REMARKS
+The function prototype for \fBcallback\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_YourCallbackHere(...)
+.fi
+T}
+.TE
+
+where its parameters are:
+
+.TS
+tab(:) allbox;
+a l.
+name:T{
+first
+T}
+.TE
+
+.SH RELATED FUNCTIONS
