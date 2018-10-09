@@ -163,10 +163,10 @@ Chcked items are covered by this project.
 * [x] `SDL_AllocPalette`
 * [x] `SDL_AllowRW`
 * [x] `SDL_AndroidGetActivity`
-* [ ] `SDL_AndroidGetExternalStoragePath`
-* [ ] `SDL_AndroidGetExternalStorageState`
-* [ ] `SDL_AndroidGetInternalStoragePath`
-* [ ] `SDL_AndroidGetJNIEnv`
+* [x] `SDL_AndroidGetExternalStoragePath`
+* [x] `SDL_AndroidGetExternalStorageState`
+* [x] `SDL_AndroidGetInternalStoragePath`
+* [x] `SDL_AndroidGetJNIEnv`
 * [ ] `SDL_AtomicAdd`
 * [ ] `SDL_AtomicCAS`
 * [ ] `SDL_AtomicCASPtr`

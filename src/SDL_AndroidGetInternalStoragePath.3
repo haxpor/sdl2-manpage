@@ -1,0 +1,31 @@
+.TH SDL_AndroidGetInternalStoragePath 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AndroidGetInternalStoragePath\fR -- Structure
+
+.SH SYNOPSIS
+Use this function to get the path used for internal storage for this application.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_AndroidGetInternalStoragePath()
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the path used for internal storage or NULL on failure; call \fISDL_GetError()\fR for more information.
+
+.SH REMARKS
+This path is unique to your application and cannot be written to by other applications.
+
+Your internal storage path is typically: /data/data/your.app.package/files.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_AndroidGetExternalStorageState

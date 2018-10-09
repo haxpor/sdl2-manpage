@@ -1,0 +1,28 @@
+.TH SDL_AndroidGetExternalStoragePath 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AndroidGetExternalStoragePath\fR -- Structure
+
+.SH SYNOPSIS
+Use this function to get the path used for external storage for this application.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_AndroidGetExternalStoragePath()
+.fi
+T}
+.TE
+
+.SH REMARKS
+This path is unique to your application, but is public and can be written to by other applications.
+
+Your external storage path is typically: /storage/sdcard0/Android/data/your.app.package/files.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_AndroidGetExternalStorageState

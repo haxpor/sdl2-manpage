@@ -1,0 +1,33 @@
+.TH SDL_AndroidGetExternalStorageState 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AndroidGetExternalStorageState\fR -- Structure
+
+.SH SYNOPSIS
+Use this function to get the current state of external storage.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_AndroidGetExternalStorageState()
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the current state of external storage on success or 0 on failure; call \fISDL_GetError()\fR for more information.
+
+.SH REMARKS
+The current state of external storage, a bitmask of these values:
+
+\fBSDL_ANDROID_EXTERNAL_STORAGE_READ\fR, \fBSDL_ANDROID_EXTERNAL_STORAGE_WRITE\fR
+
+If external storage is currently unavailable, this will return 0.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_AndroidGetExternalStoragePath

@@ -1,0 +1,73 @@
+.TH SDL_AndroidGetJNIEnv 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AndroidGetJNIEnv\fR -- Structure
+
+.SH SYNOPSIS
+Use this function to retrieve the Java native interface object (JNIEnv) of the current thread on Android builds.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void* SDL_AndroidGetJNIEnv()
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a pointer to Java native interface object (JNIEnv) to which the current thread is attached, or 0 on error.
+
+.SH CODE EXAMPLES
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include "SDL.h"
+#include <jni.h>
+
+// This example requires C++ and a custom Java method named "void showHome()"
+
+// Calls the void showHome() method of the Java instance of the activity.
+void showHome(void)
+{
+  // retrieve the JNI environment
+  JNIEnv* env = (JNIEnv*)SDL_AndroidGetJNIEnv();
+
+  // retrieve the Java instance of the SDLActivity
+  jobject activity = (jobject)SDL_AndroidGetActivity();
+
+  // find the Java class of the activity. It should be SDLActivity or a subclass of it.
+  jclass clazz(env->GetObjectClass(activity));
+
+  // find the identifier of the method to call
+  jmethodID method_id = env->GetMethodID(clazz, "showHome", "()V");
+
+  // effectively call the Java method
+  env->CallVoidMethod(activity, method_id);
+
+  // clean up the local references
+  env->DeleteLocalRef(activity);
+  env->DeleteLocalRef(clazz);
+
+  // Warning (and discussion of implementation details of SDL for Android):
+  // Local references are automatically deleted if a native function called
+  // from Java side returns. For SDL, this native function is main() itself.
+  // Therefore references need to be manually deleted because otherwise the
+  // references will first be cleaned if main() returns (application exit).
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+The prototype of the function in SDL's code actually declare a void* return type, even if the implementation returns a pointer to a JNIEnv. The rationale being that it allows not to include jni.h in the headers of the SDL.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_AndroidGetActivity
