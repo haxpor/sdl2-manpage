@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# parameter <target-name> : if exist, then only such <target-name> will be installed, otherwise if not exist then it will install all
-#
+# - parameter <target-name> : if exist, then only such <target-name> will be installed, otherwise if not exist then it will install all
+# Note: be careful that input string should be case-sensitively matched with actual file, currently we don't have internal checking for case-sensitive filename.
 
 # don't use ls, it's broken and will return unexpected number of files than we need
 FILES=($(find ./src -type f -name '*.3' -exec basename {} \;))
