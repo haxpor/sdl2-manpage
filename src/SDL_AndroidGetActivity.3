@@ -23,6 +23,51 @@ The jobject returned by the function is a local reference and must be released b
 
 .SH CODE EXAMPLES
 
+The first example uses C to work with JNI.
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+// This example uses C and a custom Java method name "void showHome()"
+
+// Calls the void showHome() method of the Java instance of the activity.
+void showHome(void)
+{
+  // retrieve the JNI environment
+  JNIEnv* env = (JNIEnv*)SDL_AndroidGetJNIEnv();
+
+  // retrieve the Java instance of the SDLActivity
+  jobject activity = (jobject)SDL_AndroidGetActivity();
+
+  // find the Java class of the activity. It should be SDLActivity or a subclass of it.
+  jclass clazz = (*env)->GetObjectClass(env, activity);
+
+  // find the identifier of the method to call
+  // testMethod() will print "Print from testMethod() from Java code" in console
+  jmethodID method_id (*env)->GetMethodID(env, clazz, "testMethod", "()V");
+
+  // effectively call the Java method
+  (*env)->CallVoidMethod(env, activity, method_id);
+
+  // clean up the local references
+  (*env)->DeleteLocalRef(env, activity);
+  (*env)->DeleteLocalRef(env, clazz);
+
+  // Warning (and discussion of implmentation details of SDL for Android):
+  // Local references are automatically deleted if a native function called
+  // from Java side returns. For SDL this native function is main() itself.
+  // Therefore references need to be manually deleted because otherwise the
+  // references will first be cleaned if main() returns (application exit).
+}
+.fi
+T}
+.TE
+
+.PP
+The second example requires C++ to work with JNI.
+
 .TS
 tab(:) allbox;
 a.
