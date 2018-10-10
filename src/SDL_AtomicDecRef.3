@@ -1,0 +1,34 @@
+.TH SDL_AtomicDecRef 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AtomicDecRef\fR -- Function
+
+.SH SYNOPSIS
+Use this function to decrement an atomic variable used as a reference count.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_AtomicDecRef(SDL_atomic_t* a)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+a:T{
+a pointer to an \fBSDL_atomic_t\fR variable to be modified
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if the variable reached zero after decrementing, \fBSDL_FALSE\fR otherwise.
+
+.SH RELATED FUNCTIONS
+\fISDL_AtomicAdd
+.br
+\fISDL_AtomicIncRef

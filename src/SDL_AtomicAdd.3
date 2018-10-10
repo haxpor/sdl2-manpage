@@ -1,0 +1,41 @@
+.TH SDL_AtomicAdd 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AtomicAdd\fR -- Function
+
+.SH SYNOPSIS
+Use this function to add to an atomic variable.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_AtomicAdd(SDL_atomic_t* a,
+                  int           v)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+a:T{
+a pointer to an \fBSDL_atomic_t\fR variable to be modified
+T}
+v:T{
+the desired value to add
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the previous value of the atomic variable.
+
+.SH REMARKS
+This function also acts as a full memory barrier.
+
+.SH RELATED FUNCTIONS
+\fISDL_AtomicDecRef
+.br
+\fISDL_AtomicIncRef

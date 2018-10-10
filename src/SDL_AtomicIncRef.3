@@ -1,0 +1,31 @@
+.TH SDL_AtomicIncRef 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AtomicIncRef\fR -- Function
+
+.SH SYNOPSIS
+Use this function to increment an atomic variable used as a reference count.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_AtomicIncRef(SDL_atomic_t* a)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+a:T{
+a pointer to an \fBSDL_atomic_t\fR variable to be modified
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_AtomicAdd
+.br
+\fISDL_AtomicDecRef

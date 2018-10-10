@@ -1,0 +1,37 @@
+.TH SDL_AtomicUnlock 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AtomicUnlock\fR -- Function
+
+.SH SYNOPSIS
+Use this function to unlock a spin lock by setting it to 0.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_AtomicUnlock(SDL_SpinLock* lock)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+lock:T{
+a pointer to a lock variable
+T}
+.TE
+
+.SH REMARKS
+Always return immediately.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_AtomicLock
+.br
+\fISDL_AtomicTryLock

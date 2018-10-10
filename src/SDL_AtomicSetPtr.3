@@ -1,0 +1,38 @@
+.TH SDL_AtomicSetPtr 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AtomicSetPtr\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set a pointer to a value atomically.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void* SDL_AtomicSetPtr(void** a,
+                       void* v)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+a:T{
+a pointer to a pointer
+T}
+v:T{
+the desired pointer value
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the previous value of the pointer.
+
+.SH RELATED FUNCTIONS
+\fISDL_AtomicCASPtr
+.br
+\fISDL_AtomicGetPtr

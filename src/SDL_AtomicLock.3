@@ -1,0 +1,36 @@
+.TH SDL_AtomicLock 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AtomicLock\fR -- Function
+
+.SH SYNOPSIS
+Use this function to lock a spin lock by setting it to a non-zero value.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_AtomicLock(SDL_SpinLock* lock)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+lock:T{
+a pointer to a lock variable
+T}
+.TE
+
+.SH REMARKS
+The atomic locks are efficient spinlocks using CPU instructions, but are vulnerable to starvation and can spin forever if a thread holding a lock has been terminated. For this reason you should minimize the code executed inside an atomic lock and never do expensive things like API or system calls while holding them.
+
+The atomic locks are not safe to lock recursively.
+
+.SH RELATED FUNCTIONS
+\fISDL_AtomicTryLock
+.br
+\fISDL_AtomicUnlock

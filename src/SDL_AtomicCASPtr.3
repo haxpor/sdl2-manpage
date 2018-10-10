@@ -1,0 +1,50 @@
+.TH SDL_AtomicCASPtr 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AtomicCASPtr\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set a pointer to a new value if it is currently an old value.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_AtomicCASPtr(void** a,
+                          void* oldval,
+                          void* newval)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+a:T{
+a pointer to a pointer
+T}
+oldval:T{
+the old pointer value
+T}
+newval:T{
+the new pointer value
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if the pointer was set, \fBSDL_FALSE\fR otherwise.
+
+.SH REMARKS
+\fBNote\fR: If you don't know what this function is for, you shouldn't use it!
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_AtomicCAS
+.br
+\fISDL_AtomicGetPtr
+.br
+\fISDL_AtomicSetPtr

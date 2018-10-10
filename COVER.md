@@ -161,24 +161,24 @@ Chcked items are covered by this project.
 * [x] `SDL_AddTimer`
 * [x] `SDL_AllocFormat`
 * [x] `SDL_AllocPalette`
-* [x] `SDL_AllowRW`
+* [x] `SDL_AllocRW`
 * [x] `SDL_AndroidGetActivity`
 * [x] `SDL_AndroidGetExternalStoragePath`
 * [x] `SDL_AndroidGetExternalStorageState`
 * [x] `SDL_AndroidGetInternalStoragePath`
 * [x] `SDL_AndroidGetJNIEnv`
-* [ ] `SDL_AtomicAdd`
-* [ ] `SDL_AtomicCAS`
-* [ ] `SDL_AtomicCASPtr`
-* [ ] `SDL_AtomicDecRef`
-* [ ] `SDL_AtomicGet`
-* [ ] `SDL_AtomicGetPtr`
-* [ ] `SDL_AtomicIncRef`
-* [ ] `SDL_AtomicLock`
-* [ ] `SDL_AtomicSet`
-* [ ] `SDL_AtomicSetPtr`
-* [ ] `SDL_AtomicTryLock`
-* [ ] `SDL_AtomicUnlock`
+* [x] `SDL_AtomicAdd`
+* [x] `SDL_AtomicCAS`
+* [x] `SDL_AtomicCASPtr`
+* [x] `SDL_AtomicDecRef`
+* [x] `SDL_AtomicGet`
+* [x] `SDL_AtomicGetPtr`
+* [x] `SDL_AtomicIncRef`
+* [x] `SDL_AtomicLock`
+* [x] `SDL_AtomicSet`
+* [x] `SDL_AtomicSetPtr`
+* [x] `SDL_AtomicTryLock`
+* [x] `SDL_AtomicUnlock`
 * [ ] `SDL_AudioInit`
 * [ ] `SDL_AudioQuit`
 * [ ] `SDL_BlitScaled`

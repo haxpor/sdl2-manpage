@@ -1,0 +1,32 @@
+.TH SDL_AtomicGet 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AtomicGet\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the value of an atomic variable.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_AtomicGet(SDL_atomic_t* a)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+a:T{
+a pointer to an \fBSDL_atomic_t\fR varible
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the current value of an atomic variable.
+
+.SH RELATED FUNCTIONS
+\fISDL_AtomicSet

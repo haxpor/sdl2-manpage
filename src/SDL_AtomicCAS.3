@@ -1,0 +1,50 @@
+.TH SDL_AtomicCAS 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AtomicCAS\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set an atomic variable to a new value if it is currently an old value.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_AtomicCAS(SDL_atomic_t*  a,
+                       int            oldval,
+                       int            newval)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+a:T{
+a pointer to an \fBSDL_atomic_t\fR variable to be modified
+T}
+oldval:T{
+the old value
+T}
+newval:T{
+the new value
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if the atomic variable was set, \fBSDL_FALSE\fR otherwise.
+
+.SH REMARKS
+\fBNote\fR: If you don't know what this function is for, you shouldn't use it!
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_AtomicCASPtr
+.br
+\fISDL_AtomicGet
+.br
+\fISDL_AtomicSet
