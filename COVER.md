@@ -179,14 +179,14 @@ Chcked items are covered by this project.
 * [x] `SDL_AtomicSetPtr`
 * [x] `SDL_AtomicTryLock`
 * [x] `SDL_AtomicUnlock`
-* [ ] `SDL_AudioInit`
-* [ ] `SDL_AudioQuit`
-* [ ] `SDL_BlitScaled`
-* [ ] `SDL_BlitSurface`
-* [ ] `SDL_BuildAudioCVT`
-* [ ] `SDL_COMPILEDVERSION`
-* [ ] `SDL_CalculateGammaRamp`
-* [ ] `SDL_CaptureMouse`
+* [x] `SDL_AudioInit`
+* [x] `SDL_AudioQuit`
+* [x] `SDL_BlitScaled`
+* [x] `SDL_BlitSurface`
+* [x] `SDL_BuildAudioCVT`
+* [x] `SDL_COMPILEDVERSION`
+* [x] `SDL_CalculateGammaRamp`
+* [x] `SDL_CaptureMouse`
 * [ ] `SDL_ClearError`
 * [ ] `SDL_ClearHints`
 * [ ] `SDL_ClearQueueAudio`

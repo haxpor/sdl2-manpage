@@ -1,0 +1,49 @@
+.TH SDL_BlitScaled 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_BlitScaled\fR -- Function
+
+.SH SYNOPSIS
+Use this function to perform a scaled surface copy to a destination surface.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_BlitScaled(SDL_Surface*    src,
+                   const SDL_Rect* srcrect,
+                   SDL_Surface*    dst,
+                   SDL_Rect*       dstrect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+src:T{
+the \fBSDL_Surface\fR structure to be copied from
+T}
+srcrect:T{
+the \fBSDL_Rect\fR structure representing the rectangle to be copied, or NULL to copy the entire surface
+T}
+dst:T{
+the \fBSDL_Surface\fR structure that is the blit target
+T}
+dstrect:T{
+the \fBSDL_Rect\fR structure representing the rectangle that is copied into, or NULL to copy into the entire surface
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This is the public scaled blit funciton. This function calls \fBSDL_LowerBlitScaled()\fR internally.
+
+.SH RELATED FUNCTIONS
+\fISDL_BlitSurface
+.br
+\fISDL_LowerBlitScaled

@@ -1,0 +1,57 @@
+.TH SDL_AudioInit 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_AudioInit\fR -- Function
+
+.SH SYNOPSIS
+Use this function to initialize a particular audio driver.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_AudionInit(const char* driver_name)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+driver_name:T{
+the name of the desired audio driver
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int i;
+
+for (i = 0; i < SDL_GetNumAudioDrivers(); ++i) {
+  const char* driver_name = SDL_GetAudioDriver(i);
+  if (SDL_AudioInit(driver_name)) {
+    printf("Audio driver failed to initialize: %s\n", driver_name);
+    continue;
+  }
+  SDL_AudioQuit();
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function is used internally, and should not be used unless you have a specific need to designate the audio driver you want to use.
+You should normally use \fBSDL_Init()\fR or \fBSDL_InitSubSystem()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_AudioQuit\fR

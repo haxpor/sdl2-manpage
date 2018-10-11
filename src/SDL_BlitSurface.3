@@ -1,0 +1,127 @@
+.TH SDL_BlitSurface 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_BlitSurface\fR -- Function
+
+.SH SYNOPSIS
+Use this function to perform a fast surface copy to a destination surface.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_BlitSurface(SDL_Surface*    src,
+                    const SDL_Rect* srcrect,
+                    SDL_Surface*    dst,
+                    SDL_Rect*       dstrect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+src:T{
+the \fBSDL_Surface\fR structure to be copied from
+T}
+srcrect:T{
+the \fBSDL_Rect\fR structure representing the rectangle to be copied, or NULL to copy the entire surface
+T}
+dst:T{
+the \fBSDL_Surface\fR structure that is the blit target
+T}
+dstrect:T{
+the \fBSDL_Rect\fR structure representing the rectangle that is copied into, or NULL to copy into the entire surface
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 if the blit is successful or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_BlitSurface(surface, &source_rect, temp_surface, NULL)
+.fi
+T}
+.TE
+
+.SH REMARKS
+You should call \fBSDL_BlitSurface()\fR unless you know exactly how SDL blitting works internally and how to use the other blit functions.
+
+This is the public blit function, and it performs rectangle validation and clipping before passing it to \fBSDL_LowerBlit()\fR.
+
+The blit function should not be called on a locked surface.
+
+The width and height in \fBsrcrect\fR determine the size of the copied rectangle. Only the position is used in the \fBdstrect\fR (the width and height are ignored). Blits with negative \fBdstrect\fR coordinates will be clipped properly.
+
+If \fBsrcrect\fR is NULL, the entire surface is copied. If \fBdstrect\fR is NULL, then the destination position (upper left corner) is (0, 0).
+
+The final blit rectangle is saved in \fBdstrect\fR after all clipping is performed (\fBsrcrect\fR is not modified).
+
+The blit semantics for surfaces with and without blending and colorkey are defined as follows.
+
+.SS RGBA->RGB:
+Source surface blend mode set to \fBSDL_BLENDMODE_BLEND\fR:
+.IP
+alpha-blend (using the source alpha-channel and per-surface alpha) \fBSDL_SRCCOLORKEY\fR ignored.
+.PP
+
+Source surface blend mode set to \fBSDL_BLENDMODE_NONE\fR:
+.IP
+copy RGB. if \fBSDL_SRCCOLORKEY\fR set, only copy the pixels matching the RGB values of the source color key, ignoring alpha in the comparison.
+.PP
+
+.SS RGB->RGBA:
+Source surface blend mode set to \fBSDL_BLENDMODE_BLEND\fR:
+.IP
+alpha-blend (using the source per-surface alpha)
+.PP
+
+Source surface blend mode set to \fBSDL_BLENDMODE_NONE\fR:
+.IP
+copy RGB, set destination alpha to source per-surface alpha value.
+.PP
+
+both:
+.IP
+if \fBSDL_SRCCOLORKEY\fR set, only copy the pixels matching the source color key.
+.PP
+
+.SS RGBA->RGBA:
+Source surface blend mode set to \fBSDL_BLENDMODE_BLEND\fR:
+.IP
+alpha-blend (using the source alpha-channel and per-surface alpha) \fBSDL_SRCCOLORKEY\fR ignroed.
+.PP
+
+Source surface blend mode set to \fBSDL_BLENDMODE_NONE\fR:
+.IP
+copy all of RGBA to the destination. If \fBSDL_SRCCOLORKEY\fR set, only copy the pixels matching the RGB values of the source color key, ignoring alpha in the comparison.
+.PP
+
+.SS RGB->RGB:
+Source surface blend mode set to \fBSDL_BLENDMODE_BLEND\fR:
+.IP
+alpha-blend (using the source per-surface alpha)
+.PP
+
+Source surface blend mode set to \fBSDL_BLENDMODE_NONE\fR:
+.IP
+copy RGB.
+.PP
+
+both:
+.IP
+if \fBSDL_SRCCOLORKEY\fR set, only copy the pixels matching the source color key.
+.PP
+
+.SH RELATED FUNCTIONS
+\fISDL_BlitScaled
+.br
+\fISDL_LowerBlit

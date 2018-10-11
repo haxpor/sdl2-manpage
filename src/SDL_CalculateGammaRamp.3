@@ -1,0 +1,33 @@
+.TH SDL_CalculateGammaRamp 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CalculateGammaRamp\fR -- Function
+
+.SH SYNOPSIS
+Use this function to calculate a 256 entry gamma ramp for a gamma value.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_CalculateGammaRamp(float   gamma,
+                            Uint16* ramp)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+gamma:T{
+a gamma value where 0.0 is black and 1.0 is identity
+T}
+ramp:T{
+an array of 256 values filled in with the gamma ramp
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_SetWindowGammaRamp
