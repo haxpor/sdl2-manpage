@@ -1,0 +1,45 @@
+.TH SDL_ClearQueuedAudio 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ClearQueuedAudio\fR -- Function
+
+.SH SYNOPSIS
+Use this function to drop any queued audio data waiting to be sent to the hardware.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_ClearQueuedAudio(SDL_AudioDeviceID dev)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+dev:T{
+the device ID of which to clear the audio queue
+T}
+.TE
+
+.SH REMARKS
+Immediately after this call, \fBSDL_GetQueuedAudioSize()\fR will return 0 and the hardware will start playing silence if more audio isn't queued.
+
+This will not prevent playback of queued audio that's already been sent to the hardware, as we cannot undo that, so expect there to be some fraction of a second of audio that might still be heard. This can be useful if you want to, say, drop any pending music during a level change in your game.
+
+You may not queue audio on a device that is using an application-supplied callback; calling this function on such a device is always a no-op. You have to use the audio callback or queue audio with \fBSDL_QueueAudio()\fR, but not both.
+
+You should not call \fBSDL_LockAudio()\fR on the device before clearing the queue; SDL handles locking internally for this function.
+
+This function always succeeds and thus returns void.
+
+.SH VERSION
+This function is available since SDL 2.0.4.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetQueuedAudioSize
+.br
+\fISDL_QueueAudio

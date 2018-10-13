@@ -1,0 +1,51 @@
+.TH SDL_CloseAudio 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CloseAudio\fR -- Function
+
+.SH SYNOPSIS
+This function is a legacy means of closing the audio device. New programs might want to use \fBSDL_CloseAudioDevice()\fR instead.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_CloseAudio(void)
+.fi
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+extern SDL_AudioSpec want;
+if (SDL_OpenAudio(&want, NULL) == 0) {
+  SDL_PauseAudio(0);
+  SDL_Delay(5000);  // let audio callback run for 5 seconds.
+  SDL_CloseAudio();
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function is equivalent to calling
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_CloseAudioDevice(1);
+.fi
+T}
+.TE
+
+and is only useful if you used the legacy \fBSDL_OpenAudio()\fR function.
+
+.SH RELATED FUNCTIONS
+\fISDL_OpenAudio

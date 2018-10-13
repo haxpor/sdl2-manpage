@@ -1,0 +1,38 @@
+.TH SDL_ClearError 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ClearError\fR -- Function
+
+.SH SYNOPSIS
+Use this function to clear any previous error message.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_ClearError(void)
+.fi
+T}
+.TE
+
+.SH CODE EXAMPLES
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char *error = SDL_GetError();
+if (*error) {
+  SDL_Log("SDL error: %s", error);
+  SDL_ClearError();
+}
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GetError
+.br
+\fISDL_SetError

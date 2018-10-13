@@ -187,10 +187,10 @@ Chcked items are covered by this project.
 * [x] `SDL_COMPILEDVERSION`
 * [x] `SDL_CalculateGammaRamp`
 * [x] `SDL_CaptureMouse`
-* [ ] `SDL_ClearError`
-* [ ] `SDL_ClearHints`
-* [ ] `SDL_ClearQueueAudio`
-* [ ] `SDL_CloseAudio`
+* [x] `SDL_ClearError`
+* [x] `SDL_ClearHints`
+* [x] `SDL_ClearQueueAudio`
+* [x] `SDL_CloseAudio`
 * [ ] `SDL_CloseAudioDevice`
 * [ ] `SDL_CompilerBarrier`
 * [ ] `SDL_ComposeCustomBlendMode`
