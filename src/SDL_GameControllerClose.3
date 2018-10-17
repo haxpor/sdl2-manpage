@@ -1,0 +1,55 @@
+.TH SDL_GameControllerClose 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerClose\fR -- Function
+
+.SH SYNOPSIS
+Use this function to close a game controller previously opened with \fBSDL_GameControllerOpen()\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_GameControllerClose(SDL_GameController* gamecontroller)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+gamecontroller:T{
+a game controller identifier previously returned by \fBSDL_GameControllerOpen()\fR
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+/* Attempt to open every controller. */
+for (int i=0; i<SDL_NumJoysticks(); ++i)
+{
+  if (SDL_IsGameController(i))
+  {
+    SDL_GameController *controller = SDL_GameControllerOpen(i);
+    if (controller)
+    {
+      SDL_GameControllerClose(controller);
+    }
+    else
+    {
+      fprintf(stderr, "Could not open gamecontroller %i: %s\n", i, SDL_GetError());
+    }
+  }
+}
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerOpen

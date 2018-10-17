@@ -1,0 +1,79 @@
+.TH SDL_JoystickOpen 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickOpen\fR -- Function
+
+.SH SYNOPSIS
+Use this function to open a joystick for use.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Joystick* SDL_JoystickOpen(int device_index)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+device_index:T{
+the index of the joystick to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a joystick identifier or NULL if an error occurred; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Joystick *joy;
+
+// Initialize the joystick subsystem
+SDL_InitSubSystem(SDL_INIT_JOYSTICK);
+
+// Check for joystick
+if (SDL_NumJoysticks() > 0)
+{
+  // Open joystick
+  joy = SDL_JoystickOpen(0);
+
+  if (joy)
+  {
+    printf("Opened Joystick 0\n");
+    printf("Name: %s\n", SDL_JoystickNameForIndex(joy));
+    printf("Number of Axes: %d\n", SDL_JoystickNumAxes(joy));
+    printf("Number of Buttons: %d\n", SDL_JoystickNumButtons(joy));
+    printf("Number of Balls: %d\n", SDL_JoystickNumBalls(joy));
+  }
+  else
+  {
+    printf("Couldn't open Joystick 0\n");
+  }
+
+  // Close if opened
+  if (SDL_JoystickGetAttached(joy))
+  {
+    SDL_JoystickClose(joy);
+  }
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+The device_index passed as an argument refers to the N'th joystick presently recognized by SDL on the system. It is \fBNOT\fR the same as the instance ID used to identify the joystick in future events. See \fBSDL_JoystickInstanceID()\fR for more details about instance IDs.
+
+The joystick subsystem must be initialized befeore a joystick can be opened for use.
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickClose
+.br
+\fISDL_JoystickInstanceID

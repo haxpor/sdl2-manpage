@@ -269,7 +269,7 @@ Chcked items are covered by this project.
 * [ ] `SDL_GameControllerAddMapping`
 * [ ] `SDL_GameControllerAddMappingsFromFile`
 * [ ] `SDL_GameControllerAddMappingsFromRW`
-* [ ] `SDL_GameControllerClose`
+* [x] `SDL_GameControllerClose`
 * [ ] `SDL_GameControllerEventState`
 * [ ] `SDL_GameControllerFromInstanceID`
 * [ ] `SDL_GameControllerGetAttached`
@@ -286,7 +286,7 @@ Chcked items are covered by this project.
 * [ ] `SDL_GameControllerMappingForGUID`
 * [ ] `SDL_GameControllerName`
 * [ ] `SDL_GameControllerNameForIndex`
-* [ ] `SDL_GameControllerOpen`
+* [x] `SDL_GameControllerOpen`
 * [ ] `SDL_GameControllerUpdate`
 * [ ] `SDL_GetAssertionHandler`
 * [ ] `SDL_GetAssertionReport`
@@ -444,7 +444,7 @@ Chcked items are covered by this project.
 * [ ] `SDL_IsScreenKeyboardShown`
 * [ ] `SDL_IsScreenSaverEnabled`
 * [ ] `SDL_IsTextInputActive`
-* [ ] `SDL_JoystickClose`
+* [x] `SDL_JoystickClose`
 * [ ] `SDL_JoystickCurrentPowerLevel`
 * [ ] `SDL_JoystickEventState`
 * [ ] `SDL_JoystickFromInstanceID`
@@ -457,7 +457,7 @@ Chcked items are covered by this project.
 * [ ] `SDL_JoystickGetGUIDFromString`
 * [ ] `SDL_JoystickGetGUIDString`
 * [ ] `SDL_JoystickGetHat`
-* [ ] `SDL_JoystickInstanceID`
+* [x] `SDL_JoystickInstanceID`
 * [ ] `SDL_JoystickIsHaptic`
 * [ ] `SDL_JoystickName`
 * [ ] `SDL_JoystickNameFromIndex`
@@ -465,7 +465,7 @@ Chcked items are covered by this project.
 * [ ] `SDL_JoystickNumBalls`
 * [ ] `SDL_JoystickNumButtons`
 * [ ] `SDL_JoystickNumHats`
-* [ ] `SDL_JoystickOpen`
+* [x] `SDL_JoystickOpen`
 * [ ] `SDL_JoystickUpdate`
 * [ ] `SDL_LoadBMP`
 * [ ] `SDL_LoadBMP_RW`
@@ -507,7 +507,7 @@ Chcked items are covered by this project.
 * [ ] `SDL_MostSignificantBitIndex32`
 * [ ] `SDL_MouseIsHaptic`
 * [ ] `SDL_NumHaptics`
-* [ ] `SDL_NumJoysticks`
+* [x] `SDL_NumJoysticks`
 * [ ] `SDL_OpenAudio`
 * [ ] `SDL_OpenAudioDevice`
 * [ ] `SDL_PauseAudio`

@@ -1,0 +1,71 @@
+.TH SDL_GameControllerOpen 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerOpen\fR -- Function
+
+.SH SYNOPSIS
+Use this function to open a gamecontroller for use.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_GameController* SDL_GameControllerOpen(int joystick_index)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+joystick_index:T{
+the device_index of a device, up to \fBSDL_NumJoysticks()\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a gamecontroller identifier or NULL if an error occurred; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+/* Open the first available controller. */
+SDL_GameController *controller = NULL;
+for (int i=0; i < SDL_NumJoysticks(); ++i)
+{
+  if (SDL_IsGameController(i))
+  {
+    controller = SDL_GameControllerOpen(i);
+    if (controller)
+    {
+       break;
+    }
+    else
+    {
+      fprintf(stderr, "Could not open gamecontroller %i: %s\(rsn", i, SDL_GetError());
+    }
+  }
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+\fBjoystick_index\fR is the same as the \fIdevice_index\fR passed to \fBSDL_JoystickOpen()\fR.
+
+The index passes as an argument refers to the N'th game controller on the system. This index is not the value which will identify this controller in future controller events. The joystick's instance id (\fBSDL_JoystickID\fR) will be used there instead.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerClose
+.br
+\fISDL_GameControllerNameForIndex
+.br
+\fISDL_IsGameController
