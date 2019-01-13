@@ -1,0 +1,27 @@
+.TH SDL_CompilerBarrier 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CompilerBarrier\fR -- Function
+
+.SH SYNOPSIS
+Use this function to prevent the compiler from reordering reads and writes to globally visible variable across the call.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_CompilerBarrier(void)
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function only prevents the compiler from reodering reads and writes, it does not prevent the CPU from reordering reads and writes. However, all of the atomic operations that modify memory. However, all of the atomic operations that modify memory are full memory barriers.
+
+This function is used in \fBSDL_AtomicGet()\fR and \fBSDL_AtomicGetPtr()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_AtomicGet
+.br
+\fISDL_AtomicGetPtr

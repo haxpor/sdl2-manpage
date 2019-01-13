@@ -1,0 +1,85 @@
+.TH SDL_CondBroadcast 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CondBroadcast\fR -- Function
+
+.SH SYNOPSIS
+Use this function to restarst all threads that are waiting on the condition variable.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_CondBroadcast(SDL_cond* cond)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+cond:the condition variable to signal
+.TE
+
+.SH RETURN VALUE
+
+Return 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+
+.TS
+allbox;
+a.
+T{
+.nf
+SDL_bool condition = SDL_False;
+SDL_mutex* lock;
+SDL_cond* cond;
+
+lock = SDL_CreateMutex();
+cond = SDL_CreateCond();
+.
+.
+Thread A:
+  SDL_LockMutex(lock);
+  while (!condition)
+  {
+    SDL_CondWait(cond, lock);
+  }
+  SDL_UnlockMutex(lock);
+
+Thread B:
+  SDL_LockMutex(lock);
+  while (!condition)
+  {
+    SDL_CondWait(cond, lock);
+  }
+  SDL_UnlockMutex(lock);
+
+Thread C:
+  SDL_LockMutex(lock);
+  ...
+  condition = SDL_TRUE;
+  ...
+  SDL_CondBroadcast(cond);
+  SDL_UnlockMutex(lock);
+.
+.
+SDL_DestroyCond(cond);
+SDL_DestroyMutex(lock);
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_CondSignal
+.br
+\fISDL_CondWait
+.br
+\fISDL_CondWaitTimeout
+.br
+\fISDL_CreateCond
+.br
+\fISDL_DestroyCond

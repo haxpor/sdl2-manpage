@@ -1,0 +1,91 @@
+.TH SDL_ComposeCustomBlendMode 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ComposeCustomBlendMode\fR -- Function
+
+.SH SYNOPSIS
+Use this function to compose a custom blend mode for renderers.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_BlendMode SDL_ComposeCustomBlendMode(SDL_BlendFactor srcColorFactor, SDL_BlendFactor dstColorFactor, SDL_BlendOperation colorOperation, SDL_BlendFactor srcAlphaFactor, SDL_BlendFactor dstAlphaFactor, SDL_BlendOperation alphaOperation)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+srcColorFactor:the \fBSDL_BlendFactor\fR applied to the red, green and blue components of the source pixels
+dstColorFactor:the \fBSDL_BlendFactor\fR appli3d to the red, green, and blue components of the destination pixels
+colorOperation:the \fSDL_BlendOperation\fR used to combined the red, green, and blue components of the source and destination pixels
+srcAlphaFactor:the \fSDL_BlendFactor\fR applied to the alpha component of the source pixels
+dstAlphaFactor:the \fBSDL_BlendFactor\fR applied to the alpha component of the destination pixels
+alphaOperation: the \fBSDL_BlendOperation\fR used to combine the alpha component of the source and destination pixels
+.TE
+
+.SH RETURN VALUE
+
+Returns and \fBSDL_BlendMode\fR tha represents the chosen factors and operations.
+
+.SH REMARKS
+The functions \fBSDL_SetRenderDrawBlendMode\fR and \fBSDL_SetTextureBlendMode\fR accept the \fBSDL_BlendMode\fR returned by this function if the renderer supports it.
+
+A blend mode controls how the pixels from a drawing operation (source) get combined with the pixels from the render target (destination). First, the components of the source and destination pixerls get multiplied with their blend factor. Then, the blend operation takes the two products and calcuates the result that will get stored in the render target.
+
+Expressed in pseudocode, it would look like this:
+
+.TS
+allbox;
+a.
+T{
+.nf
+dstRGB = colorOperation(srcRGB * srcColorFactor, dstRGB * dstColorFactor)
+dstA = alphaOperation(srcA * srcAlphaFactor, dstA * dstAlphaFactor)
+.fi
+T}
+.TE
+
+.PP
+
+Where the functions colorOperations(src, dst) and alphaOperation(src, dst) can return on of the following: src + dst, src - dst, dst - src, min(src, dst), max(src, dst).
+
+The red, green, and blue components are always multiplied with the first, second, and theird components of the \fBSDL_BlendFactor\fR, respectively. The fourth component is not used.
+
+The alpha component is always multiplied with the fourth component of the \fBSDL_BlendFactor\fR. The other components are not usd in the alhpa calculation.
+
+Support for these blend modes varies for each renderer. To check if a specific \fBSDL_BlendMode\fR is supported, create a renderer and pass it to either \fBSDL_SetRenderDrawBlendMode\fR or \fBSDL_SetTextureBlendMode\fR. They will return with an error if the blend mode is not supported.
+
+This list describes the support of the custom blend modes for each renderer in SDL2.0.6. All renderers support the four blend modes listed in the \fBSDL_BlendMode\fR enumeration.
+
+.TS
+tab(:) allbox;
+ab l.
+direct3d: Supports \fBSDL_BLENDOPERATION_ADD\fR with all factors.
+direct3d11: Supports all operations with all factors. However, some factors produce unexpected results with \fBSDL_BLENDOPERATION_MINIMUM\fR and \fBSDL_BLENDOPERATION_MAXIMUM\fR.
+opengl: Supports the \fBSDL_BLENDOPERATION_ADD\fR operation with all factors. OpenGL versions 1.1, 1.2, and 1.3 do not work correctly with SDL2.0.6.
+opengles: Supports the \fBSDL_BLENDOPERATION_ADD\fR operation with all factors. Color and alpha factors need to be the same. OpenGL ES 1 implementaiton specific: May also support \fBSDL_BLENDOPERATION_SUBTRACT\fR and \fBSDL_BLEND_OPERATION_REV_SUBTRACT\fR. May support color and alpha operations being different from each other. May support color and alpha factors being different from each other.
+opengles2: Supports the \fBSDL_BLENDOPERATION_ADD\fR, \fBSDL_BLENDOPERATION_SUBTRACT\fR, \fBSDL_BLENDOPERATION_REV_SUBTRACT\fR operations with all factors.
+psp: No custom blend mode support
+software: No custom blend mode support
+.TE
+
+.PP
+Some renderers do not provide an alpha component for the default render target. The \fBSDL_BLENDFACTOR_DST_ALPHA\fR and \fBSDL_BLENDFACTOR_ONE_MINUS_DST_ALPHA\fR factors do not have an effect in this case.
+
+.SH VERSION
+
+This function is available in SDL2.0.6.
+
+.SH RELATED FUNCTIONS
+\fISDL_SetRenderDrawBlendMode
+.br
+\fISDL_GetRenderDrawBlendMode
+.br
+\fISDL_SetTextureBlendMode
+.br
+\fISDL_GetTextureBlendMode

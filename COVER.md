@@ -191,11 +191,11 @@ Chcked items are covered by this project.
 * [x] `SDL_ClearHints`
 * [x] `SDL_ClearQueueAudio`
 * [x] `SDL_CloseAudio`
-* [ ] `SDL_CloseAudioDevice`
-* [ ] `SDL_CompilerBarrier`
-* [ ] `SDL_ComposeCustomBlendMode`
-* [ ] `SDL_CondBroadcast`
-* [ ] `SDL_CondSignal`
+* [x] `SDL_CloseAudioDevice`
+* [x] `SDL_CompilerBarrier`
+* [x] `SDL_ComposeCustomBlendMode`
+* [x] `SDL_CondBroadcast`
+* [x] `SDL_CondSignal`
 * [ ] `SDL_CondWait`
 * [ ] `SDL_CondWaitTimeout`
 * [ ] `SDL_ConvertAudio`

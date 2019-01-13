@@ -1,0 +1,51 @@
+.TH SDL_CloseAudioDevice 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CloseAudioDevice\fR -- Function
+
+.SH SYNOPSIS
+Use this function to shutdown audio processing and close the audio device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_CloseAudioDevice(SDL_AudioDeviceID dev)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+dev:an audio device previously opened with \fBSDL_OpenAudioDevice()\fR
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+extern SDL_AudioSpec want;
+SDL_AudioDeviceID devid = SDL_OpenAudioDevice(NULL, 0, &want, NULL, 0);
+if (devid > 0)
+{
+  SDL_PauseAudioDevice(devid, 0);
+  SDL_Delay(5000);  // let audio callback run for 5 seconds
+  SDL_CloseAudioDevice(devid);
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+The application should close open audio devices once they are no longer needed. Calling this function will wait until the device's audio callback is not running, release the audio hardware and then clean up internal state. No further audio will play from this device once this function returns.
+
+The device ID is invalid as soon as the device is closed, and is eligible for reuse in a new \fBSDL_OpenAudioDevice()\fR call immediately.
+
+.SH RELATED FUNCTIONS
+\fISDL_OpenAudioDevice
+.br
