@@ -196,8 +196,8 @@ Chcked items are covered by this project.
 * [x] `SDL_ComposeCustomBlendMode`
 * [x] `SDL_CondBroadcast`
 * [x] `SDL_CondSignal`
-* [ ] `SDL_CondWait`
-* [ ] `SDL_CondWaitTimeout`
+* [x] `SDL_CondWait`
+* [x] `SDL_CondWaitTimeout`
 * [ ] `SDL_ConvertAudio`
 * [ ] `SDL_ConvertPixels`
 * [ ] `SDL_ConvertSurface`
