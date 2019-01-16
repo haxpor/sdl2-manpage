@@ -1,0 +1,39 @@
+.TH SDL_ConvertSurface 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ConvertSurface\fR -- Function
+
+.SH SYNOPSIS
+Use this function to copy an existing surface into a new one that is optimized for blitting to a surface of a specified pixel format.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Surface SDL_ConvertSurface(SDL_Surface*   src,
+                               const          SDL_PixelFormat* fmt,
+                               Uint32         flags)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+src:the existing \fBSDL_Surface\fR structure to convert
+fmt:the \fBSDL_PixelFormat\fR structure that the new surface is optimized for
+flags:the flags are unused and should be set to 0; this is a leftover from SDL 1.2's API
+.TE
+
+.SH RETURN VALUE
+Returns the new \fBSDL_Surface\fR structure that is created or NULL if it fails; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This function is used to optimize images for faster repeat blitting. This is accomplished by converting the original and storing the result as a new surface. The new, optimized surface can then be used as the source for future blits, making them faster.
+
+.SH RELATED FUNCTIONS
+\fISDL_ConvertSurfaceFormat
+.br
+\fISDL_CreateRGBSurface

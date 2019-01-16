@@ -1,0 +1,174 @@
+.TH SDL_CreateCursor 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CreateCursor\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create a cursor using the specified bitmap data and mask (in MSB format).
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Cursor* SDL_CreateCursor(const Uint8*     data,
+                             const Uint8*     mask,
+                             int              w,
+                             int              h,
+                             int              hot_x,
+                             int              hot_y)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+data:T{
+the color value for each pixel of the cursor; see \fBRemarks\fR for details
+T}
+mask:T{
+the mask value for each pixel of the cursor; see \fBRemarks\fR for details
+T}
+w:T{
+the width of the cursor; see \fBRemarks\fR for details
+T}
+h:T{
+the height of the cursor (same restrictions as w?)
+T}
+hot_x:T{
+the X-axis location of the upper left corner of the cursor relative to the actual mouse position
+T}
+hot_y:T{
+the Y-axis location of the upper left corner of the cursor relative to the actual mouse position
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a new cursor with the specified parameters on success or NULL on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+/* Stolen from the mailing list */
+/* Creates a new mouse cursor from an XPM */
+
+/* XPM */
+static const char *arrow[] = {
+  /* width height num_colors chars_per_pixel */
+  "    32    32        3            1",
+  /* colors */
+  "X c #000000",
+  ". c #ffffff",
+  "  c None",
+  /* pixels */
+  "X                               ",
+  "XX                              ",
+  "X.X                             ",
+  "X..X                            ",
+  "X...X                           ",
+  "X....X                          ",
+  "X.....X                         ",
+  "X......X                        ",
+  "X.......X                       ",
+  "X........X                      ",
+  "X.....XXXXX                     ",
+  "X..X..X                         ",
+  "X.X X..X                        ",
+  "XX  X..X                        ",
+  "X    X..X                       ",
+  "     X..X                       ",
+  "      X..X                      ",
+  "      X..X                      ",
+  "       XX                       ",
+  "                                ",
+  "                                ",
+  "                                ",
+  "                                ",
+  "                                ",
+  "                                ",
+  "                                ",
+  "                                ",
+  "                                ",
+  "                                ",
+  "                                ",
+  "                                ",
+  "                                ",
+  "0,0"
+};
+
+static SDL_Cursor *init_system_cursor(const char *image[])
+{
+  int i, row, col;
+  Uint8 data[4*32];
+  Uint8 mask[4*32];
+  int hot_x, hot_y;
+
+  i = -1;
+  for (row=0; row<32; ++row) {
+    for (col=0; col<32; ++col) {
+      if (col % 8) {
+        data[i] <<= 1;
+        mask[i] <<= 1;
+      } else {
+        ++i;
+        data[i] = mask[i] = 0;
+      }
+      switch (image[4+row][col]) {
+        case 'X':
+          data[i] |= 0x01;
+          mask[i] |= 0x01;
+          break;
+        case '.':
+          mask[i] |= 0x01;
+          break;
+        case ' ':
+          break;
+      }
+    }
+  }
+  sscanf(image[4+row], "%d,%d", &hot_x, &hot_y);
+  return SDL_CreateCursor(data, mask, 32, 32, hot_x, hot_y);
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+\fBmask\fR has to be in MSB (Most Significant Bit) format.
+
+The cursor width (w) must be a multiple of 8 bits.
+
+The cursor is created in black and white according to the following:
+
+.TS
+tab(:) allbox;
+ab ab l.
+data:mask:Resulting Pixel on Screen
+.T&
+a a l.
+0:1:White
+1:1:Black
+0:0:Transparent
+1:0:Inverted color if possible, black if not
+.TE
+
+Cursors created with this function must be freed with \fBSDL_FreeCursor()\fR.
+
+If you want to have a color cursor, then this function is not for you; instead you must hide the normal system cursor using \fBSDL_ShowCursor()\fR and in your main loop, when you draw graphics, also draw a \fBSDL_Surface\fR at the location of the mouse cursor.
+
+Or use \fBSDL_CreateColorCursor()\fR.
+
+Note that, since SDL 2.0.0, \fBSDL_CreateSystemCursor()\fR is available, which provides twelve readily available system cursors to pick from.
+
+.SH RELATED FUNCTIONS
+\fISDL_FreeCursor
+.br
+\fISDL_SetCursor
+.br
+\fISDL_ShowCursor

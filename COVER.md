@@ -198,14 +198,14 @@ Chcked items are covered by this project.
 * [x] `SDL_CondSignal`
 * [x] `SDL_CondWait`
 * [x] `SDL_CondWaitTimeout`
-* [ ] `SDL_ConvertAudio`
-* [ ] `SDL_ConvertPixels`
-* [ ] `SDL_ConvertSurface`
-* [ ] `SDL_ConvertSurfaceFormat`
-* [ ] `SDL_CreateColorCursor`
-* [ ] `SDL_CreateCond`
-* [ ] `SDL_CreateCursor`
-* [ ] `SDL_CreateMutex`
+* [x] `SDL_ConvertAudio`
+* [x] `SDL_ConvertPixels`
+* [x] `SDL_ConvertSurface`
+* [x] `SDL_ConvertSurfaceFormat`
+* [x] `SDL_CreateColorCursor`
+* [x] `SDL_CreateCond`
+* [x] `SDL_CreateCursor`
+* [x] `SDL_CreateMutex`
 * [ ] `SDL_CreateRGBSurface`
 * [ ] `SDL_CreateRGBSurfaceFrom`
 * [ ] `SDL_CreateRGBSurfaceWithFormat`

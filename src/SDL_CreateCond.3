@@ -1,0 +1,69 @@
+.TH SDL_CreateCond 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CreateCond\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create a condition varible.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_cond* SDL_CreateCond(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a new condition variable or NULL on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+Typical use of condition variables.
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool condition = SDL_FALSE;
+SDL_mutex* lock;
+SDL_cond *cond;
+
+lock = SDL_CreateMutex();
+cond = SDL_CreateCond();
+.
+.
+Thread A:
+  SDL_LockMutex(lock);
+  while (!condition) {
+    SDL_CondWait(cond, lock);
+  }
+  SDL_UnlockMutex(lock);
+
+Thread B:
+  SDL_LockMutex(lock);
+  ...
+  condition = SDL_TRUE;
+  ...
+  SDL_CondSignal(cond);
+  SDL_UnlockMutex(lock);
+.
+.
+SDL_DestroyCond(cond);
+SDL_DestroyMutex(lock);
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_CondBroadcast
+.br
+\fISDL_CondSignal
+.br
+\fISDL_CondWait
+.br
+\fISDL_CondWaitTimeout
+.br
+\fISDL_DestroyCond

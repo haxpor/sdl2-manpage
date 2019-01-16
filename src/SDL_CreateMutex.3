@@ -1,0 +1,61 @@
+.TH SDL_CreateMutex 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CreateMutex\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create a new mutex.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_mutex* SDL_CreateMutex(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the initialized and unlocked mutex or NULL on failture; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_mutex* mutex;
+
+mutex = SDL_CreateMutex();
+if (!mutex) {
+  fprintf(stderr, "Couldn't create mutex\n");
+  return;
+}
+
+if (SDL_LockMutex(mutex) == 0) {
+  /* Do stuff while mutex is locked */
+  SDL_UnlockMutex(mutex);
+} else {
+  fprintf(stderr, "Couldn't lock mutex\n");
+}
+
+SDL_DestroyMutex(mutex);
+.fi
+T}
+.TE
+
+.SH REMARKS
+Calls to \fBSDL_LockMutex()\fR will not return while the mutex is locked by another thread. See \fBSDL_TryLockMutex()\fR to attempt to lock without blocking.
+
+SDL mutexes are reentrant.
+
+.SH RELATED FUNCTIONS
+\fISDL_DestoryMutex
+.br
+\fISDL_LockMutex
+.br
+\fISDL_TryLockMutex
+.br
+\fISDL_UnlockMutex
