@@ -206,11 +206,11 @@ Chcked items are covered by this project.
 * [x] `SDL_CreateCond`
 * [x] `SDL_CreateCursor`
 * [x] `SDL_CreateMutex`
-* [ ] `SDL_CreateRGBSurface`
-* [ ] `SDL_CreateRGBSurfaceFrom`
-* [ ] `SDL_CreateRGBSurfaceWithFormat`
-* [ ] `SDL_CreateRGBSurfaceWithFormatFrom`
-* [ ] `SDL_CreateRenderer`
+* [x] `SDL_CreateRGBSurface`
+* [x] `SDL_CreateRGBSurfaceFrom`
+* [x] `SDL_CreateRGBSurfaceWithFormat`
+* [x] `SDL_CreateRGBSurfaceWithFormatFrom`
+* [x] `SDL_CreateRenderer`
 * [ ] `SDL_CreateSemaphore`
 * [ ] `SDL_CreateSoftwareRenderer`
 * [ ] `SDL_CreateSystemCursor`

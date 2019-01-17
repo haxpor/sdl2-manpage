@@ -1,0 +1,102 @@
+.TH SDL_CreateRGBSurfaceWithFormatFrom 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CreateRGBSurfaceWithFormatFrom\fR -- Function
+
+.SH SYNOPSIS
+Use this function to allocate an RGB surface from provided pixel data.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Surface* SDL_CreateRGBSurfaceWithFormatFrom(void*     pixels,
+                                                int       width,
+                                                int       height,
+                                                int       depth,
+                                                int       pitch,
+                                                Uint32    format)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+pixels:the pixel data to create the surface from
+width:the width in pixels of the surface to create
+height:the height in pixels of the surface to create
+depth:the depth in bits of the surface to create
+pitch:the length of a row of pixels in bytes
+format:the pixel format of the surface to create
+.TE
+
+.SH RETURN VALUE
+Returns a new \fBSDL_Surface\fR on success or NULL on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+// This example shows how to create a SDL_Surface* with the data loaded from an image
+// file with the stb_image.h library (https://github.com/nothings/stb/)
+
+// the color format you request stb_image to output,
+// use STBI_rgb if you don't want/need the alpha channel
+int req_format = STBI_rgb_alpha;
+int width, height, orig_format;
+unsigned char* data = stbi_load("./test.png", &width, &height, &orig_format, req_format);
+if(data == NULL) {
+  SDL_Log("Loading image failed: %s", stbi_failure_reason());
+  exit(1);
+}
+
+int depth, pitch;
+Uint32 pixel_format;
+if (req_format == STBI_rgb) {
+  depth = 24;
+  pitch = 3*width; // 3 bytes per pixel * pixels per row
+  pixel_format = SDL_PIXELFORMAT_RGB24;
+} else { // STBI_rgb_alpha (RGBA)
+  depth = 32;
+  pitch = 4*width;
+  piexel_format = SDL_PIXELFORMAT_RGBA32;
+}
+
+SDL_Surface* surf = SDL_CreateRGBSurfaceWithFormatFrom((void*)data, width, height, depth, pitch, pixel_format);
+
+if (surf == NULL) {
+  SDL_Log("Creating surface failed: %s", SDL_GetError());
+  stbi_image_free(data);
+  exit(1);
+}
+
+// ... do something useful with the surface ...
+// ...
+
+// when you don't need the surface anymore, free it..
+SDL_FreeSurface(surf);
+// .. *and* the data used by the surface!
+stbi_image_free(data);
+.fi
+T}
+.TE
+
+.SH REMARKS
+If the function runs out of memory, it will return NULL.
+
+No copy is made of the pixel data. Pixel data is not managed automatically; you must free the surface before you free the pixel data.
+
+.SH VERSION
+This function is available since SDL 2.0.5.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateRGBSurfaceFrom
+.br
+\fISDL_CreateRGBSurfaceWithFormat
+.br
+\fISDL_FreeSurface

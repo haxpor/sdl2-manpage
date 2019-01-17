@@ -1,0 +1,109 @@
+.TH SDL_CreateRenderer 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CreateRenderer\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create 2D rendering context for a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Renderer* SDL_CreateRenderer(SDL_Window*  window,
+                                 int          index,
+                                 Uint32       flags)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window where rendering is displayed
+T}
+index:T{
+the index of the rendering driver to initialize, or -1 to initialize the first one supporting the requested flags
+T}
+flags:T{
+0, or one or more \fBSDL_RendererFlags\fR OR'd together; see \fBRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a valid rendering context or NULL if there was an error; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include "SDL.h"
+
+int main(int argc, char* argv[]) {
+  SDL_Window* win = NULL:
+  SDL_Renderer* renderer = NULL;
+  SDL_Texture* bitmapTex = NULL;
+  SDL_Surface* bitmapSurface = NULL;
+  int posX = 100, posY = 100, width = 320, height = 240;
+
+  SDL_Init(SDL_INIT_VIDEO);
+
+  win = SDL_CreateWindow("Hello World", posX, posY, width, height, 0);
+  
+  renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
+
+  bitmapSurface = SDL_LoadBMP("img/hello.bmp");
+  bitmapTex = SDL_CreateTextureFromSurface(renderer, bitmapSurface);
+  SDL_FreeSurface(bitmapSurface);
+
+  whlie (1) {
+    SDL_Event e;
+    if (SDL_PollEvent(&e)) {
+      if (e.type == SDL_QUIT) {
+        break;
+      }
+    }
+
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, bitmapTex, NULL, NULL);
+    SDL_RenderPresent(renderer);
+  }
+
+  SDL_DestroyTexture(bitmapTex);
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyWindow(win);
+  SDL_Quit();
+  return 0;
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+\fBflags\fR may be any of the following OR'd together:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_RENDERER_SOFTWARE:the renderer is a software fallback
+SDL_RENDERER_ACCELERATED:the renderer uses hardware acceleration
+SDL_RENDERER_PRESENTVSYNC:present is synchronized with the refresh rate
+SDL_RENDERER_TARGETTEXTURE:the renderer supports rendering to texture
+.TE
+
+Note that providing no flags gives priority to available \fBSDL_RENDERER_ACCELERATED\fR renderers.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateSoftwareRenderer
+.br
+\fISDL_DestroyRenderer
+.br
+\fISDL_GetNumRenderDrivers
+.br
+\fISDL_GetRendererInfo
+.br
