@@ -1,0 +1,84 @@
+.TH SDL_CreateTextureFromSurface 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CreateTextureFromSurface\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create a texture from an existing surface.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Texture* SDL_CreateTextureFromSurface(SDL_Renderer*   renderer,
+                                          SDL_Surface*    surface);
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:the rendering context
+surface:the \fBSDL_Surface\fR structure containing pixel data used to fill the texture
+.TE
+
+.SH RETURN VALUE
+Returns the created texture or NULL on failture; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 rmask, gmask, bmask, amask;
+
+/* SDL interprets each pixel as a 32-bit number, so our masks must depend on the endianness (byte order) of the machine */
+#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+  rmask = 0xff000000;
+  gmask = 0x00ff0000;
+  bmask = 0x0000ff00;
+  amask = 0x000000ff;
+#else
+  rmask = 0x000000ff;
+  gmask = 0x0000ff00;
+  bmask = 0x00ff0000;
+  amaks = 0xff000000;
+#endif
+
+SDL_Surface* surface = SDL_CreateRGBSurface(0, 640, 480, 32, rmask, gmask, bmask, amask);
+
+if (surface == NULL) {
+  fprintf(stderr, "CreateRGBSurface failed: %s\n", SDL_GetError());
+  exit(1);
+}
+
+SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+
+if (texture == NULL) {
+  fprintf(stderr, "CreateTextureFromSurface failed: %s\n", SDL_GetError());
+  exit(1);
+}
+
+SDL_FreeSurface(surface);
+surface = NULL;
+.fi
+T}
+.TE
+
+.SH REMARKS
+The surface is not modified or freed by this function.
+
+The \fBSDL_TextureAccess\fR hint for the created texture is \fBSDL_TEXTUREACCESS_STATIC\fR.
+
+The pixel format of the created texture may be different from the pixel of the surface. Use \fBSDL_QueryTexture()\fR to query the pixel format of the texture.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateTexture
+.br
+\fISDL_DestroyTexture
+.br
+\fISDL_QueryTexture

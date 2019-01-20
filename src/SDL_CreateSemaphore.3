@@ -1,0 +1,79 @@
+.TH SDL_CreateSemaphore 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CreateSemaphore\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create a semaphore.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_sem* SDL_CreateSemaphore(Uint32 initial_value)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+initial_value:the starting value of the semaphore
+.TE
+
+.SH RETURN VALUE
+Returns a new semaphore or NULL on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_atomic_t done;
+SDL_sem* sem;
+
+SDL_AtomicSet(&done, 0);
+sem = SDL_CreateSemaphore(0);
+.
+.
+Thread A:
+  while (!SDL_AtomicGet(&done)) {
+    add_data_to_queue();
+    SDL_SemPost(sem);
+  }
+
+Thread B:
+  whlie (!SDL_AtomicGet(&done)) {
+    SDL_SemWait(sem);
+    if (data_available()) {
+      get_data_from_queue();
+    }
+  }
+.
+.
+SDL_AtomicSet(&done, 1);
+SDL_SemPost(sem);
+wait_for_threads();
+SDL_DestroySemaphore(sem);
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function creates a new semaphore and initializes it with the value \fBinital_value\fR. Each wait operation on the semaphore will atomically decrement the semaphore value and potentially block if the semaphore value is 0. Each post operation will automatically increment the semaphore value and wake waiting threads and allow them to retry the wait operation.
+
+.SH RELATED FUNCTIONS
+\fISDL_DestroySemaphore
+.br
+\fISDL_SemPost
+.br
+\fISDL_SemTryWait
+.br
+\fISDL_SemValue
+.br
+\fISDL_SemWait
+.br
+\fISDL_SemWaitTimeout

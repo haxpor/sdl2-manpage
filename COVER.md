@@ -211,11 +211,11 @@ Chcked items are covered by this project.
 * [x] `SDL_CreateRGBSurfaceWithFormat`
 * [x] `SDL_CreateRGBSurfaceWithFormatFrom`
 * [x] `SDL_CreateRenderer`
-* [ ] `SDL_CreateSemaphore`
-* [ ] `SDL_CreateSoftwareRenderer`
-* [ ] `SDL_CreateSystemCursor`
-* [ ] `SDL_CreateTexture`
-* [ ] `SDL_CreateTextureFromSurface`
+* [x] `SDL_CreateSemaphore`
+* [x] `SDL_CreateSoftwareRenderer`
+* [x] `SDL_CreateSystemCursor`
+* [x] `SDL_CreateTexture`
+* [x] `SDL_CreateTextureFromSurface`
 * [ ] `SDL_CreateThread`
 * [ ] `SDL_CreateWindow`
 * [ ] `SDL_CreateWindowAndRenderer`
