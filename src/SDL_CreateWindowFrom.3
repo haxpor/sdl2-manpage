@@ -1,0 +1,37 @@
+.TH SDL_CreateWindowFrom 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CreateWindowFrom\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create an SDL window from an existing native window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Window* SDL_CreateWindowFrom(const void* data)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+data:T{
+a pointer to driver-dependent window creation data, typically your native window cast to a void*
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the window that was created or NULL on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+In some cases (e.g. OpenGL) and on some platforms (e.g. Microsoft Windows) the hint \fBSDL_HITN_VIDEO_WINDOW_SHARE_PIXEL_FORMAT\fR needs to be configured before using \fBSDL_CreateWindowFrom()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateWindow
+.br
+\fISDL_DestroyWindow

@@ -1,0 +1,39 @@
+.TH SDL_DXGIGetOutputInfo 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DXGIGetOutputInfo\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the DXGI Adapter and Output indices for the specified display index.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_DXGIGetOutputInfo(int    displayIndex,
+                               int*   adapterIndex,
+                               int*   outputIndex)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+displayIndex:the display index for which to get both indices
+adapterIndex:a pointer to be filled in with the adapter index
+outputIndex:a pointer to be filled in with the output index
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR on success or \fBSDL_FALSE\fR; call \fBSDL_GetError\fR for more information.
+
+.SH REMARKS
+The DXGI Adapter and Output indices can be passed to EnumAdapters and EnumOutputs respectively to get the objects required to create a DX10 or DX11 device and swap chain.
+
+Before SDL 2.0.4 this function did not return a value. Since SDL 2.0.4 it returns and \fBSDL_bool\fR.
+
+.SH VERSION
+This function is available since SDL 2.0.2.

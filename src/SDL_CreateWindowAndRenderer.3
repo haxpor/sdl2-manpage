@@ -1,0 +1,107 @@
+.TH SDL_CreateWindowAndRenderer 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CreateWindowAndRenderer\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create a window and default renderer.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_CreateWindowAndRenderer(int             width,  
+                                int             height,
+                                Uint32          window_flags,
+                                SDL_Window**    window,
+                                SDL_Renderer**  renderer)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+width:the width of the window
+height:the height of the window
+window_flags:the flags used to create this window (see \fBSDL_CreateWindow()\fR)
+window:a pointer filled with the window, or NULL on error
+renderer:a pointer filled with the renderer, or NULL on error
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success, or -1 on error; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include "SDL.h"
+
+int main(int argc, char* argv[])
+{
+  SDL_Window* window;
+  SDL_Renderer* renderer;
+  SDL_Surface* surface;
+  SDL_Texture* texture;
+  SDL_Event* event;
+
+  if (SDL_Init(SDL_INIT_VIDEO) < 0)
+  {
+    SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't initialize SDL: %s", SDL_GetError());
+    return 3;
+  }
+
+  if (SDL_CreateWindowAndRenderer(320, 240, SDL_WINDOW_RESIZABLE, &window, &renderer))
+  {
+    SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't create window and renderer: %s", SDL_GetError());
+    return 3;
+  }
+
+  surface = SDL_LoadBMP("sample.bmp");
+  if (!surface)
+  {
+    SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't create surface from image: %s", SDL_GetError());
+    return 3;
+  }
+  texture = SDL_CreateTextureFromSurface(renderer, surface);
+  if (!texture)
+  {
+    SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't create texture from surface: %s", SDL_GetError());
+    return 3;
+  }
+
+  SDL_FreeSurface(surface);
+  
+  while (1)
+  {
+    SDL_PollEvent(&event);
+    if (event.type == SDL_QUIT)
+    {
+      break;
+    }
+    SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_RenderPresent(renderer);
+  }
+
+  SDL_DestroyTexture(texture);
+  SDL_DestoryRenderer(renderer);
+  SDL_DestroyWindow(window);
+
+  SDL_Quit();
+  return 0;
+}
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateRenderer
+.br
+\fISDL_CreateWindow

@@ -1,0 +1,136 @@
+.TH SDL_CreateThread 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CreateThread\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create a new thread.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Thread* SDL_CreateThread(SDL_ThreadFunction   fn,
+                             const char*          name,
+                             void*                data)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+fn:the function to call in the new thread; see \fBRemarks\fR for details
+name:the name of the thread; see \fBRemarks\fR for details
+data:a pointer that is passed to \fBfn\fR
+.TE
+
+.SH RETURN VALUE
+Returns an opaque pointer to the new thread object on success, NULL if the new thread could not be created; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include <stdio.h>
+#include "SDL.h"
+
+/* Very simple thread - counts 0 to 9 delaying 50ms between increments */
+static int TestThread(void* ptr)
+{
+  int cnt;
+  
+  for (cnt=0; cnt<10; ++cnt)
+  {
+    printf("Thread counter: %d\n", cnt);
+    SDL_Delay(50);
+  }
+
+  return cnt;
+}
+
+int main(int argc, char* argv[])
+{
+  SDL_Thread *thread;
+  int threadReturnValue;
+  
+  printf("Simple SDL_CreateThread test\n");
+  
+  /* Simple create a thread */
+  thread = SDL_CreateThread(TestThread, "TestThread", NULL);
+
+  if (thread == NULL)
+  {
+    printf("SDL_Thread failed: %s\n", SDL_GetError());
+  }
+  else
+  {
+    SDL_WaitThread(thread, &threadReturnValue);
+    printf("Thread returned value: %d\n", threadReturnValue);
+  }
+
+  return 0;
+}
+.fi
+T}
+.TE
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Output:
+Simple SDL_CreateThread test:
+Thread counter: 0
+Thread counter: 1
+Thread counter: 2
+Thread counter: 3
+Thread counter: 4
+Thread counter: 5
+Thread counter: 6
+Thread counter: 7
+Thread counter: 8
+Thread counter: 9
+Thread returned value: 10
+.fi
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_CreateThread()\fR creates a new thread of execution that shares all of its parent's global memory, signal handlers, file descriptors, etc and runs the function \fBfn\fR, passing it the void pointer \fBdata\fR. The thread quits when \fBfn\fR returns.
+
+The function prototype for \fBfn\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_ThreadFunction(void* data);
+.fi
+T}
+.TE
+
+where its parameter is:
+
+.TS
+tab(:) allbox;
+a l.
+data:T{
+what was passed as \fBdata\fR to \fBSDL_CreateThread()\fR
+T}
+.TE
+
+There are no requirements for thread naming conventions, so long ass the string is null-terminated UTF-8, but these guidelines are helpful in choosing a name:
+
+\fIhttp://stackoverflow.com/questions/149932/naming-conventions-for-threads\fR
+
+If a system imposes requirements, SDL will try to munge the string for it (truncate, etc), but the original string contents will be available from \fBSDL_GetThreadName()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_WaitThread

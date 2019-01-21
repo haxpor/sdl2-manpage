@@ -216,11 +216,11 @@ Chcked items are covered by this project.
 * [x] `SDL_CreateSystemCursor`
 * [x] `SDL_CreateTexture`
 * [x] `SDL_CreateTextureFromSurface`
-* [ ] `SDL_CreateThread`
-* [ ] `SDL_CreateWindow`
-* [ ] `SDL_CreateWindowAndRenderer`
-* [ ] `SDL_CreateWindowFrom`
-* [ ] `SDL_DXGIGetOutputInfo`
+* [x] `SDL_CreateThread`
+* [x] `SDL_CreateWindow`
+* [x] `SDL_CreateWindowAndRenderer`
+* [x] `SDL_CreateWindowFrom`
+* [x] `SDL_DXGIGetOutputInfo`
 * [ ] `SDL_DelEventWatch`
 * [ ] `SDL_DelHintCallback`
 * [ ] `SDL_Delay`

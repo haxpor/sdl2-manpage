@@ -1,0 +1,156 @@
+.TH SDL_CreateWindow 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_CreateWindow\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create a window with the specified position, dimensions, and flags.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Window* SDL_CreateWindow(const char*    title,
+                             int            x,
+                             int            y,
+                             int            w,
+                             int            h,
+                             Uint32         flags)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+title:T{
+the title of the window, in UTF-8 encoding
+T}
+x:T{
+the x position of the window, \fBSDL_WINDOWPOS_CENTERED\fR, or \fBSDL_WINDOWPOS_UNDEFINED\fR
+T}
+y:T{
+the y position of the window, \fBSDL_WINDOWPOS_CENTERED\fR, or \fBSDL_WINDOWPOS_UNDEFINED\fR
+T}
+w:T{
+the width of the window, in screen coordinates
+T}
+h:T{
+the height of the window, in screen coordinates
+T}
+flags:T{
+0, or none or more \fBSDL_WindowFlags\fR OR'd together; see \fBRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the window that was created or NULL on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+// Example program
+// Using SDL2 to create an application window
+
+#include "SDL.h"
+#include <stdio.h>
+
+int main(int argc, char* argv[])
+{
+  SDL_Window* window;         // declare a pointer
+  SDL_Init(SDL_INIT_VIDEO);   // initialize SDL2
+  
+  // create an application window with the following settings:
+  window = SDL_CreateWindow(
+    "An SDL2 window",         // window title
+    SDL_WINDOWPOS_UNDEFINED,  // initial x position
+    SDL_WINDOWPOS_UNDEFINED,  // initial y position
+    640,                      // width, in pixels
+    480,                      // height, in pixels
+    SDL_WINDOW_OPENGL         // flags - see below
+  );
+
+  // check that the window was successfully created
+  if (window == NULL)
+  {
+    // in the case that the window could not be made
+    printf("Could not create window: %s\n", SDL_GetError());
+    return 1;
+  }
+
+  // The window is open: could enter program loop here (see SDL_PollEvent())
+
+  SDL_Delay(3000);    // Pause execution for 3000 milliseconds, for example
+
+  // close and destroy the window
+  SDL_DestroyWindow(window);
+
+  // clean up
+  SDL_Quit();
+  return 0;
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+\fBflags\fR may be any of the following OR'd together:
+
+.TS
+tab(:) allbox;
+a l.
+SDL_WINDOW_FULLSCREEN:T{
+fullscreen window
+T}
+SDL_WINDOW_FULLSCREEN_DESKTOP:T{
+fullscreen window at the current desktop resolution
+T}
+SDL_WINDOW_OPENGL:T{
+window usable with OpenGL context
+T}
+SDL_WINDOW_VULKAN:T{
+window usable with a Vulkan instance
+T}
+SDL_WINDOW_HIDDEN:T{
+window is not visible
+T}
+SDL_WINDOW_BORDERLESS:T{
+no window decoration
+T}
+SDL_WINDOW_RESIZABLE:T{
+window can be resized
+T}
+SDL_WINDOW_MINIMIZED:T{
+window is minimized
+T}
+SDL_WINDOW_MAXIMIZED:T{
+window is maximized
+T}
+SDL_WINDOW_INPUT_GRABBED:T{
+window has grabbed input focus
+T}
+SDL_WINDOW_ALLOW_HIGHDPI:T{
+window should be created in high-DPI mode if supported (>= SDL 2.0.1)
+T}
+.TE
+
+\fBSDL_WINDOW_SHOWN\fR is ignored by \fBSDL_CreateWindow()\fR. The \fBSDL_Window\fR is implicitly shown if \fBSDL_WINDOW_HIDDEN\fR is not set. \fBSDL_WINDOW_SHOWN\fR may be queried later using \fBSDL_GetWindowFlags()\fR.
+
+On Apple's macOS you \fBmust\fR set the NSHighResolutionCapable Info.plist property to YES, otherwise you will not receive a High DPI OpenGL canvas.
+
+If the window is created with the \fBSDL_WINDOW_ALLOW_HIGHDPI\fR flag, its sizes in pixels may differ from its size in screen coordinate on platforms with high-DPI support (e.g. iOS and macOS). Use \fBSDL_GetWindowSize()\fR to query the client area's size in screen coordinates, and \fBSDL_GetDrawableSize()\fR or \fBSDL_GetRendererOutputSize()\fR to query the drawable size in pixels.
+
+If the window is set fullscreen, the width and height parameters \fBw\fR and \fBh\fR will not be used. However, invalid size parameters (e.g. too large) may still fail. Window size is actually limited to 16384 x 16384 for all platforms at window creation.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateWindowFrom
+.br
+\fISDL_DestroyWindow
