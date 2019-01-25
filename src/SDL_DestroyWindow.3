@@ -1,0 +1,32 @@
+.TH SDL_DestroyWindow 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DestroyWindow\fR -- Function
+
+.SH SYNOPSIS
+Use this function to destroy a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_DestroyWindow(SDL_Window* window)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:the window to destroy
+.TE
+
+.SH REMARKS
+If \fBwindow\fR is NULL, this function will return immediatley after setting the SDL error message to "Invalid window". See \fBSDL_GetError()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateWindow
+.br
+\fISDL_CreateWindowFrom

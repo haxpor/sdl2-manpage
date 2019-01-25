@@ -221,16 +221,16 @@ Chcked items are covered by this project.
 * [x] `SDL_CreateWindowAndRenderer`
 * [x] `SDL_CreateWindowFrom`
 * [x] `SDL_DXGIGetOutputInfo`
-* [ ] `SDL_DelEventWatch`
-* [ ] `SDL_DelHintCallback`
-* [ ] `SDL_Delay`
-* [ ] `SDL_DequeueAudio`
-* [ ] `SDL_DestroyCond`
-* [ ] `SDL_DestroyMutex`
-* [ ] `SDL_DestroyRenderer`
-* [ ] `SDL_DestroySemaphore`
-* [ ] `SDL_DestroyTexture`
-* [ ] `SDL_DestoryWindow`
+* [x] `SDL_DelEventWatch`
+* [x] `SDL_DelHintCallback`
+* [x] `SDL_Delay`
+* [x] `SDL_DequeueAudio`
+* [x] `SDL_DestroyCond`
+* [x] `SDL_DestroyMutex`
+* [x] `SDL_DestroyRenderer`
+* [x] `SDL_DestroySemaphore`
+* [x] `SDL_DestroyTexture`
+* [ ] `SDL_DestroyWindow`
 * [ ] `SDL_DetachThread`
 * [ ] `SDL_Direct3D9GetAdapterIndex`
 * [ ] `SDL_DisableScreenSaver`

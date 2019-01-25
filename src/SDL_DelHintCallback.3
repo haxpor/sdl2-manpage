@@ -1,0 +1,69 @@
+.TH SDL_DelHintCallback 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DelHintCallback\fR -- Function
+
+.SH SYNOPSIS
+Use this function to remove a function watching a particular hint.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_DelHintCallback(const char*        name,
+                         SDL_HintCallback   callback,
+                         void*              userdata)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+name:the hint being watched
+callback:T{
+the function being called when the hint value changes
+T}
+userdata:T{
+the pointer being passed to the callback function
+T}
+.TE
+
+.SH REMARKS
+The function prototype for \fBcallback\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_HintCallback(void*         userdata,
+                      const char*   name,
+                      const char*   oldValue,
+                      const char*   newValue)
+.fi
+T}
+.TE
+
+where its parameters are:
+
+.TS
+tab(:) allbox;
+a l.
+userdata:T{
+what was passed as \fBuserdata\fR to \fBSDL_DelHintCallback()\fR
+T}
+name:T{
+what was passed as \fBname\fR to \fBSDL_DelHintCallback()\fR
+T}
+oldValue:the old value
+newValue:the new value
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_AddHintCallback

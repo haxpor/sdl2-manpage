@@ -1,0 +1,62 @@
+.TH SDL_DestroyMutex 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DestroyMutex\fR -- Function
+
+.SH SYNOPSIS
+Use this function to destroy a mutex created with \fBSDL_CreateMutex()\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_DestroyMutex(SDL_mutex* mutex)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+mutex:the mutex to destroy
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_mutex* mutex;
+
+mutex = SDL_CreateMutex();
+if (!mutex) {
+  fprintf(stderr, "Couldn't create mutex\n");
+  return;
+}
+
+if (SDL_LockMutex(mutex) == 0) {
+  /* Do stuff while mutex is locked */
+  SDL_UnlockMutex(mutex);
+} else {
+  fprintf(stderr, "Couldn't lock mutex\n");
+}
+
+SDL_DestroyMutex(mutex);
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function must be called on any mutex that is no longer needed. Failure to destory a mutex will result in a system memory or resource leak. While it is safe to destroy a mutex that is UNLOCKED, it is not safe to attempt to destroy a locked mutex and may result in undefined behavior depending on the platform.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateMutex
+.br
+\fISDL_LockMutex
+.br
+\fISDL_TryLockMutex
+.br
+\fISDL_UnlockMutex

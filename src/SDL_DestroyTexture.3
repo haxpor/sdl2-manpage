@@ -1,0 +1,32 @@
+.TH SDL_DestroyTexture 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DestroyTexture\fR -- Function
+
+.SH SYNOPSIS
+Use this function to destroy the specified texture.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_DestroyTexture(SDL_Texture* texture)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+texture:the texture to destroy
+.TE
+
+.SH REMARKS
+Passing NULL or an otherwise invalid texture will set the SDL error message to "Invalid texture".
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateTexture
+.br
+\fISDL_CreateTextureFromSurface

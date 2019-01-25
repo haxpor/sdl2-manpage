@@ -1,0 +1,27 @@
+.TH SDL_Delay 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Delay\fR -- Function
+
+.SH SYNOPSIS
+Use this function to wait a specified number of milliseconds before returning.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_Delay(Uint32 ms)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+ms:the number of milliseconds to delay
+.TE
+
+.SH REMARKS
+This function waits a specified number of milliseconds before returning. It waits at least the specified time, but possibly longer due to OS scheduling.

@@ -1,0 +1,36 @@
+.TH SDL_DelEventWatch 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DelEventWatch\fR -- Function
+
+.SH SYNOPSIS
+Use this function to remove an event watch callback added with \fBSDL_AddEventWatch()\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_DelEventWatch(SDL_EventFilter  filter,
+                       void*            userdata)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+filter:T{
+the function originally passed to \fBSDL_AddEventWatch()\fR; see \fBRemarks\fR for details
+T}
+userdata:T{
+the pointer originally passed to \fBSDL_AddEventWatch()\fR
+T}
+.TE
+
+.SH REMARKS
+This function takes the same input as \fBSDL_AddEventWatch()\fR to identify and delete the corresonding callback.
+
+.SH RELATED FUNCTIONS
+\fISDL_AddEventWatch

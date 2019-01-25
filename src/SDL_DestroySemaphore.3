@@ -1,0 +1,76 @@
+.TH SDL_DestroySemaphore 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DestroySemaphore\fR -- Function
+
+.SH SYNOPSIS
+Use this function to destroy a semaphore.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_DestroySemaphore(SDL_sem* sem)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+sem:the semaphore to destroy
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_atomic_t done;
+SDL_sem* sem;
+
+SDL_AtomicSet(&done, 0);
+sem = SDL_CreateSemaphore(0);
+.
+.
+Thread A:
+  while (!SDL_AtomicGet(&done)) {
+    add_data_to_queue();
+    SDL_SemPost(sem);
+  }
+
+Thread B:
+  while (!SDL_AtomicGet(&done)) {
+    SDL_SemWait(sem);
+    if (dta_available()) {
+      get_data_from_queue();
+    }
+  }
+.
+.
+SDL_AtomicSet(&done, 1);
+SDL_SemPost(sem);
+wait_for_threads();
+SDL_DestroySemaphore(sem);
+.fi
+T}
+.TE
+
+.SH REMARKS
+It is not safe to destroy a semaphore if there are threads currently waiting on it.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateSemaphore
+.br
+\fISDL_SemPost
+.br
+\fISDL_SemTryWait
+.br
+\fISDL_SemValue
+.br
+\fISDL_SemWait
+.br
+\fISDL_SemWaitTimeout
