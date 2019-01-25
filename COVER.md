@@ -230,7 +230,7 @@ Chcked items are covered by this project.
 * [x] `SDL_DestroyRenderer`
 * [x] `SDL_DestroySemaphore`
 * [x] `SDL_DestroyTexture`
-* [ ] `SDL_DestroyWindow`
+* [x] `SDL_DestroyWindow`
 * [ ] `SDL_DetachThread`
 * [ ] `SDL_Direct3D9GetAdapterIndex`
 * [ ] `SDL_DisableScreenSaver`
