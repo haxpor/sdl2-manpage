@@ -240,8 +240,8 @@ Chcked items are covered by this project.
 * [x] `SDL_FillRect`
 * [x] `SDL_FillRects`
 * [x] `SDL_FilterEvents`
-* [ ] `SDL_FlushEvent`
-* [ ] `SDL_FlushEvents`
+* [x] `SDL_FlushEvent`
+* [x] `SDL_FlushEvents`
 * [ ] `SDL_FreeCursor`
 * [ ] `SDL_FreeFormat`
 * [ ] `SDL_FreePalette`
