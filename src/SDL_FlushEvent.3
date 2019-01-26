@@ -1,0 +1,36 @@
+.TH SDL_FlushEvent 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_FlushEvent\fR -- Function
+
+.SH SYNOPSIS
+Use this function to clear events from the event queue.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_FlushEvent(Uint32 type)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+type:T{
+the type of event to be cleared; see \fBSDL_EventType\fR for details
+T}
+.TE
+
+.SH REMARKS
+This will unconditionally remove any events from the queue that match \fBtype\fR. If you need to remove a range of event types, use \fBSDL_FlushEvents()\fR instead.
+
+It's also normal to just ignore events you don't care about in your event loop without calling this function.
+
+This function only affects currently queued events. If you want to make sure that all pending OS events are flushed, you can call \fBSDL_PumpEvents()\fR on the main thread immediately before the flush call.
+
+.SH RELATED FUNCTIONS
+\fISDL_FlushEvents

@@ -1,0 +1,60 @@
+.TH SDL_DetachThread 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DetachThread\fR -- Function
+
+.SH SYNOPSIS
+Use this function to let a thread clean up on exit without intervention.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_DetachThread(SDL_Thread* thread)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+thread:T{
+the \fBSDL_Thread\fR pointer that was returned from the \fBSDL_CreateThread()\fR call that started this thrad
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+extern int TestThread(void* ptr);
+SDL_Thread* thread = SDL_CreateThread(TestThread, "TestThread", (void*)NULL);
+SDL_DetachThread(thread);   /* will go away on its own up completion. */
+.fi
+T}
+.TE
+
+.SH REMARKS
+A thread may be "detached" to signify that it should not remain until another thread has called \fBSDL_WaitThread()\fR on it. Detaching a thread is useful for long-running threads that nothing needs to synchronize with or further manage. When a detached thread is done, it simply goes away.
+
+Three is no way to recover the return code of a detached thread. If you need this, don't detach the thread and instead use \fBSDL_WaitThread()\fR.
+
+Once a thread is detached, you should usually assume the \fBSDL_Thread\fR isn't safe to reference again, as it will become invalid immediately upon the detached thread's exit, instead of remaining until someone has called \fBSDL_WaitThread()\fR to finally clean it up. As such, don't detach the same thread more than once.
+
+If a thread has already exited when passed to \fBSDL_DetachThread()\fR, it will stop waiting for a call to \fBSDL_WaitThread()\fR and clean up immediately. It is not safe to detach a thread that might be used with \fBSDL_WaitThread()\fR.
+
+You may not call \fBSDL_WaitThread()\fR on a thread that has been detached. Use either that function or this one, but not both, or behavior is undefined.
+
+It is safe to pass NULL to this function; it is a no-op.
+
+.SH VERSION
+This function is available since SDL 2.0.2.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateThread
+.br
+\fISDL_WaitThread

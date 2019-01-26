@@ -1,0 +1,28 @@
+.TH SDL_DisableScreenSaver 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_DisableScreenSaver\fR -- Function
+
+.SH SYNOPSIS
+Use this function to prevent the screen from being blanked by a screen saver.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_DisableScreenSaver(void)
+.fi
+T}
+.TE
+
+.SH REMARKS
+If you disable the screensaver, it is automatically re-enabled when SDL quits.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_EnableScreenSaver
+.br
+\fISDL_IsScreenSaverEnabled

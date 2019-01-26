@@ -1,0 +1,64 @@
+.TH SDL_FilterEvents 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_FilterEvents\fR -- Function
+
+.SH SYNOPSIS
+Use this function to run a specific filter function on the current event queue, removing any events for which the filter returns 0.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_FilterEvents(SDL_EventFilter   filter,
+                      void*             userdata)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+filter:T{
+the function to call when an event happens; see \fIRemarks\fR for details
+T}
+userdata:T{
+a pointe that is passed to \fBfilter\fR
+T}
+.TE
+
+.SH REMARKS
+The function prototype for \fBfilter\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_EventFilter(void*         userdata,
+                    SDL_Event*    event)
+.fi
+T}
+.TE
+
+where its parameters are:
+
+.TS
+tab(:) allbox;
+a l.
+userdata:T{
+what was passed as \fBuserdata\fR to \fBSDL_FilterEvents()\fR
+T}
+event:T{
+the desired event to pull from the queue
+T}
+.TE
+
+See \fBSDL_SetEventFilter()\fR for more information. Unlike \fBSDL_SetEventFilter()\fR, this function does not change the filter permanently, it only uses the supplied filter until this function returns.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetEventFilter
+.br
+\fISDL_SetEventFilter

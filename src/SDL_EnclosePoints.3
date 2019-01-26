@@ -1,0 +1,44 @@
+.TH SDL_EnclosePoints 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_EnclosePoints\fR -- Function
+
+.SH SYNOPSIS
+Use this function to calculate a minimal rectangle enclosing a set of points.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_EnclosePoints(const SDL_Point*   points,
+                           int                count,
+                           const SDL_Rect*    clip,
+                           SDL_Rect*          result)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+points:T{
+an array of \fBSDL_Point\f structures representing points to be enclosed
+T}
+count:T{
+the number of structures in the \fBpoints\fR array
+T}
+clip:T{
+an \fBSDL_Rect\fR structure used for clipping or NULL to enclose all points; see \fIRemarks\fR for details
+T}
+result:T{
+an \fBSDL_Rect\fR structure filled in with the minimal enclosing rectangle
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if any points were enclosed or \fBSDL_FALSE\fR if all the points were outside of the clipping rectangle.
+
+.SH REMARKS
+If \fBclip\fR is not NULL then only points inside of the clipping rectangle are considered.

@@ -231,15 +231,15 @@ Chcked items are covered by this project.
 * [x] `SDL_DestroySemaphore`
 * [x] `SDL_DestroyTexture`
 * [x] `SDL_DestroyWindow`
-* [ ] `SDL_DetachThread`
-* [ ] `SDL_Direct3D9GetAdapterIndex`
-* [ ] `SDL_DisableScreenSaver`
-* [ ] `SDL_EnableScreenSaver`
-* [ ] `SDL_EnclosePoints`
-* [ ] `SDL_EventState`
-* [ ] `SDL_FillRect`
-* [ ] `SDL_FillRects`
-* [ ] `SDL_FilterEvents`
+* [x] `SDL_DetachThread`
+* [x] `SDL_Direct3D9GetAdapterIndex`
+* [x] `SDL_DisableScreenSaver`
+* [x] `SDL_EnableScreenSaver`
+* [x] `SDL_EnclosePoints`
+* [x] `SDL_EventState`
+* [x] `SDL_FillRect`
+* [x] `SDL_FillRects`
+* [x] `SDL_FilterEvents`
 * [ ] `SDL_FlushEvent`
 * [ ] `SDL_FlushEvents`
 * [ ] `SDL_FreeCursor`

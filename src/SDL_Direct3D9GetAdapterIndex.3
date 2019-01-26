@@ -1,0 +1,35 @@
+.TH SDL_Direct3D9GetAdapterIndex 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Direct3D9GetAdapterIndex\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the D3D9 adapter index that matches the specified display index.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_Direct3D9GetAdapterIndex(int displayIndex)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+displayIndex:T{
+the display index for which to get the D3D0 adapter index
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the D3D0 adapter index on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+The returned adapter index can be passed to \fBIDirect3D9::CreateDevice\fR and controls on which monitor a full screen application will appear.
+
+.SH VERSION
+This function is available since SDL 2.0.1.

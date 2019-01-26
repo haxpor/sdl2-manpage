@@ -1,0 +1,53 @@
+.TH SDL_EventState 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_EventState\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the state of processing events by type.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint8 SDL_EventState(Uint32   type,
+                     int      state)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+type:T{
+the type of event; see \fBSDL_EventType\fR for details
+T}
+state:T{
+how to process the event; see \fBRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_DISABLE\fR or \fBSDL_ENABLE\fR, representing the processing state of the event before this function makes any changes to it.
+
+.SH REMARKS
+\fBstate\fR may be any of the following:
+
+.TS
+tab(:) allbox;
+a ab l.
+-1:SDL_QUERY:T{
+returns the current processing state of the specified event
+T}
+0:SDL_IGNORE \fR(aka \fBSDL_DISABLE\fR):T{
+the event will automatically be dropped from the event queue and will not be filtered
+T}
+1:SDL_ENABLE:T{
+the event will be processed normally
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GetEventState
