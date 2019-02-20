@@ -128,7 +128,7 @@ Chcked items are covered by this project.
 * [x] `SDL_MessageBoxColorScheme`
 * [x] `SDL_MessageBoxData`
 * [x] `SDL_MouseButtonEvent`
-* [x] `SDL_MouselMotionEvent`
+* [x] `SDL_MouseMotionEvent`
 * [x] `SDL_MouseWheelEvent`
 * [x] `SDL_MultiGestureEvent`
 * [x] `SDL_Palette`
