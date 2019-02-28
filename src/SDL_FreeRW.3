@@ -1,0 +1,51 @@
+.TH SDL_FreeRW 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_FreeRW\fR -- Function
+
+.SH SYNOPSIS
+Use this function to free an \fBSDL_RWops\fR structure allocated by \fBSDL_AllocRW()\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_FreeRW(SDL_RWops* area)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+area:the \fBSDL_RWops\fR structure to be freed
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+/* this would be your SDL_RWops implementation's "close" method. */
+void close_my_rwops(SDL_RWops *rw)
+{
+  if (rw != NULL)
+  {
+    /* close any other resources */
+    SDL_FreeRW(rw);
+  }
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+Applications do not need to use this function unless they are providing their own \fBSDL_RWops\fR implementation. If you just need a \fBSDL_RWops\fR to read/write a common data source, you should use the built-in implementation in SDL, like \fBSDL_RWFromFile()\fR or \fBSDL_RWFromMem()\fR, etc, and call the \fBclose\fR method on those \fBSDL_RWops\fR pointers when you are done with them.
+
+Only use \fBSDL_FreeRW()\fR on pointers returned by \fBSDL_AllocRW()\fR. The pointer is invalid as soon as this function returns. Any extra memory allocated during creation of the \fBSDL_RWops\fR is not freed by \fBSDL_FreeRW()\fR; the programmer must be responsible for managing that memory in their \fBclose\fR method.
+
+.SH RELATED FUNCTIONS
+\fISDL_AllocRW

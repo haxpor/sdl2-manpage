@@ -242,11 +242,11 @@ Chcked items are covered by this project.
 * [x] `SDL_FilterEvents`
 * [x] `SDL_FlushEvent`
 * [x] `SDL_FlushEvents`
-* [ ] `SDL_FreeCursor`
-* [ ] `SDL_FreeFormat`
-* [ ] `SDL_FreePalette`
-* [ ] `SDL_FreeRW`
-* [ ] `SDL_FreeSurface`
+* [x] `SDL_FreeCursor`
+* [x] `SDL_FreeFormat`
+* [x] `SDL_FreePalette`
+* [x] `SDL_FreeRW`
+* [x] `SDL_FreeSurface`
 * [ ] `SDL_FreeWAV`
 * [ ] `SDL_GL_BindTexture`
 * [ ] `SDL_GL_CreateContext`

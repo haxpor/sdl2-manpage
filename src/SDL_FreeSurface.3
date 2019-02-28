@@ -1,0 +1,38 @@
+.TH SDL_FreeSurface 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_FreeSurface\fR -- Function
+
+.SH SYNOPSIS
+Use this function to free an RGB surface.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_FreeSurface(SDL_Surface* surface)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+surface:the \fBSDL_Surface\fR structure to free
+.TE
+
+.SH REMARKS
+If the surface was created using \fBSDL_CreateRGBSurfaceFrom()\fR then the pixel data is not freed.
+
+It is safe to pass NULL to this function.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateRGBSurface
+.br
+\fISDL_CreateRGBSurfaceFrom
+.br
+\fISDL_LoadBMP
+.br
+\fISDL_LoadBMP_RW

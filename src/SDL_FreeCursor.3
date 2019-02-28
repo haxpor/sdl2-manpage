@@ -1,0 +1,31 @@
+.TH SDL_FreeCursor 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_FreeCursor\fR -- Function
+
+.SH SYNOPSIS
+Use this function to free a cursor created with \fBSDL_CreateCursor()\fR, \fBSDL_CreateColorCursor()\fR, or \fBSDL_CreateSystemCursor()\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_FreeCursor(SDL_Cursor* cursor)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+cursor:the cursor to free
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateColorCursor
+.br
+\fISDL_CreateCursor
+.br
+\fISDL_CreateSystemCursor
