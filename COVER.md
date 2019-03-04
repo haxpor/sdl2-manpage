@@ -247,11 +247,11 @@ Chcked items are covered by this project.
 * [x] `SDL_FreePalette`
 * [x] `SDL_FreeRW`
 * [x] `SDL_FreeSurface`
-* [ ] `SDL_FreeWAV`
-* [ ] `SDL_GL_BindTexture`
-* [ ] `SDL_GL_CreateContext`
-* [ ] `SDL_GL_DeleteContext`
-* [ ] `SDL_GL_ExtensionSupported`
+* [x] `SDL_FreeWAV`
+* [x] `SDL_GL_BindTexture`
+* [x] `SDL_GL_CreateContext`
+* [x] `SDL_GL_DeleteContext`
+* [x] `SDL_GL_ExtensionSupported`
 * [ ] `SDL_GL_GetAttribute`
 * [ ] `SDL_GL_GetCurrentContext`
 * [ ] `SDL_GL_GetCurrentWindow`

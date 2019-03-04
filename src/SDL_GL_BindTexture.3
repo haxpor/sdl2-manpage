@@ -1,0 +1,52 @@
+.TH SDL_GL_BindTexture 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GL_BindTexture\fR -- Function
+
+.SH SYNOPSIS
+Use this function to bind an OpenGL/ES/ES2 texture to the current context for use with OpengGL instructions when rendering OpenGL primitives directly.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GL_BindTexture(SDL_Texture* texture,
+                       float*       texw,
+                       float*       texh)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+texture:T{
+the texture to bind to the current OpenGL/ES/ES2 context
+T}
+texw:T{
+a pointer to a float value which will be filled with the texture width or NULL if you don't need that value
+T}
+texh:T{
+a pointer to a float value which will be filled with the texture height or NULL if you don't need that value
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success, or -1 if the operation is not supported; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+If provided, \fBtexw\fR and \fBtexh\fR will be filled with the width and height values sutiable for the provided texture. In most cases, both will be 1.0, however, on systems that support the GL_ARB_TEXTURE_rectangle extension, these values will actually be the pixel width and height used to created the texture, so this factor needs to be taken into account when providing texture coordinates to OpenGL.
+
+You need a renderer to create a \fBSDL_Texture\fR, therefore you can only use this function with an implicit OpenGL context from \fBSDL_CreateRenderer()\fR, not with your own OpenGL. If you need control over your OpenGL context, you need to write your own texture-loading methods.
+
+Also note that SDL may upload RGB textures as BGR (or vice-versa), and re-order the color channels in the shaders phase, so the uploaded texture may have swapped color channels.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GL_MakeCurrent
+.br
+\fISDL_GL_UnbindTexture

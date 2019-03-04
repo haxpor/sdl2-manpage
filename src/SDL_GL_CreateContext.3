@@ -1,0 +1,63 @@
+.TH SDL_GL_CreateContext 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GL_CreateContext\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create an OpenGL context for use with an OpenGL window, and make it current.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_GLContext SDL_GL_CreateContext(SDL_Window* window)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:the window to associate with the context
+.TE
+
+.SH RETURN VALUE
+Returns the OpenGL context associated with \fBwindow\fR or NULL on error; call \fBSDL_GetError()\fR for more details.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+// Window mode MUST include SDL_WINDOW_OPENGL for use with OpenGL.
+SDL_Window* window = SDL_CreateWindow(
+  "SDL2/OpenGL Demo", 0, 0, 640, 480,
+  SDL_WINDOW_OPENGL|SDL_WINDOW_RESIZABLE);
+
+// Create and OpenGL context associated with the window
+SDL_GLContext glcontext = SDL_GL_CreateContext(window);
+
+// now you can make GL calls
+glClearColor(0,0,0,1);
+glClear(GL_COLOR_BUFFER_BIT);
+SDL_GL_SwapWindow(window);
+
+// Once finished with OpenGL functions, the SDL_GLContext can be deleted
+SDL_GL_DeleteContext(glcontext);
+.fi
+T}
+.TE
+
+
+.SH REMARKS
+Windows users new to OpenGL should not that, for historical reasons, GL functions added after OpenGL version 1.1 are not available by default. Those functions must be loaded at run-time, either with an OpenGL extension-handling library or with \fBSDL_GL_GetProcAddress()\fR and its related functions.
+
+\fBSDL_GLContext\fR is an alias for \fBvoid*\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_GL_DeleteContext
+.br
+\fISDL_GL_MakeCurrent
