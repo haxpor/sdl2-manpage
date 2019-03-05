@@ -252,11 +252,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GL_CreateContext`
 * [x] `SDL_GL_DeleteContext`
 * [x] `SDL_GL_ExtensionSupported`
-* [ ] `SDL_GL_GetAttribute`
-* [ ] `SDL_GL_GetCurrentContext`
-* [ ] `SDL_GL_GetCurrentWindow`
-* [ ] `SDL_GL_GetDrawableSize`
-* [ ] `SDL_GL_GetProcAddress`
+* [x] `SDL_GL_GetAttribute`
+* [x] `SDL_GL_GetCurrentContext`
+* [x] `SDL_GL_GetCurrentWindow`
+* [x] `SDL_GL_GetDrawableSize`
+* [x] `SDL_GL_GetProcAddress`
 * [ ] `SDL_GL_GetSwapInterval`
 * [ ] `SDL_GL_LoadLibrary`
 * [ ] `SDL_GL_MakeCurrent`

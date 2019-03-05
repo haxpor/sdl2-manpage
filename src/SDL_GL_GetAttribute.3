@@ -1,0 +1,119 @@
+.TH SDL_GL_GetAttribute 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GL_GetAttribute\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the actual value for an attribute from the current context.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GL_GetAttribute(SDL_GLattr  atr,
+                        int*        value)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+attr:the \fBSDL_GLattr\fR structure to query
+value:T{
+a pointer filled in with the current value of \fBattr\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+\fBattr\fR may be one of the following:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_GL_RED_SIZE:T{
+the minimum number of bits for the red channel of the color buffer; defaults to 3
+T}
+SDL_GL_GREEN_SIZE:T{
+the minimum number of bits for the green channel of the color buffer; defaults to 3
+T}
+SDL_GL_BLUE_SIZE:T{
+the minimum number of bits for the blue channel of the color buffer; defaults to 2
+T}
+SDL_GL_ALPHA_SIZE:T{
+the minimum number of bits for the alpha channel of the color buffer; defaults to 0
+T}
+SDL_GL_BUFFER_SIZE:T{
+the minimum number of bits for frame buffer size; defaults to 0
+T}
+SDL_GL_DOUBLEBUFFER:T{
+whether the output is single or double buffered; defaults to double buffering on
+T}
+SDL_GL_DEPTH_SIZE:T{
+the minimum number of bits in th depth buffer; defaults to 16
+T}
+SDL_GL_STENCIL_SIZE:T{
+the minimum number of bits in the stencil buffer; defaults to 0
+T}
+SDL_GL_ACCUM_RED_SIZE:T{
+the minimum number of bits for the red channel of the accumulation buffer; defautls to 0
+T}
+SDL_GL_ACCUM_GREEN_SIZE:T{
+the minimum number of bits for the green channel of the accumulation buffer; defaults to 0
+T}
+SDL_GL_ACCUM_BLUE_SIZE:T{
+the minimum number of bits for the blue channel of the accumulation buffer; defaults to 0
+T}
+SDL_GL_ACCUM_ALPHA_SIZE:T{
+the minimum number of bits for the alpha channel of the accumulation buffer; defaults to 0
+T}
+SDL_GL_STEREO:T{
+whether the output is stereo 3D; defaules to off
+T}
+SDL_GL_MULTISAMPLEBUFFERS:T{
+the number of buffers used for multisample anti-aliasing; defaults to 0; see \fIRemarks\fR (\fIhttps://wiki.libsdl.org/SDL_GLattr#multisample\fR) for details
+T}
+SDL_GL_MULTISAMPLESAMPLES:T{
+the number of samples used around the current pixel used for multisample anti-aliasing; defaults to 0; see \fIRemarks\fR (\fIhttps://wiki.libsdl.org/SDL_GLattr#multisample\fR) for details
+T}
+SDL_GL_ACCELERATED_VISUAL:T{
+set to 1 to require hardware acceleration, set to 0 to force software rendering; defaults to allow either
+T}
+SDL_GL_RETAINED_BACKING:T{
+not used (deprecated)
+T}
+SDL_GL_CONTEXT_MAJOR_VERSION:T{
+OpenGL context major version; see \fIRemarks\fR (\fIhttps://wiki.libsdl.org/SDL_GLattr#multisample\fR) for details
+T}
+SDL_GL_CONTEXT_MINOR_VERSION:T{
+OpenGL context minor version; see \fIRemarks\fR (\fIhttps://wiki.libsdl.org/SDL_GLattr#multisample\fR) for details
+T}
+SDL_GL_CONTEXT_FLAGS:T{
+some combination of 0 or more of elements of the \fBSDL_GLcontextFlag\fR enumeration; defaults to 0
+T}
+SDL_GL_CONTEXT_PROFILE_MASK:T{
+type of GL context (Core, Compatibility, ES). See \fBSDL_GLprofile\fR; default value depends on platform
+T}
+SDL_GL_SHARE_WITH_CURRENT_CONTEXT:T{
+OpenGL context sharing; defaults to 0
+T}
+SDL_GL_FRAMEBUFFER_SRGB_CAPABLE:T{
+requests sRGB capable visual; defaults to 0 (>= SDL 2.0.1)
+T}
+SDL_GL_CONTEXT_RELEASE_BEHAVIOR:T{
+sets context the release behavior; defaults to 1 (>= SDL 2.0.4)
+T}
+SDL_GL_CONTEXT_EGL:T{
+not used (deprecated)
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GL_ResetAttributes
+.br
+\fISDL_GL_SetAttribute
