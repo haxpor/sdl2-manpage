@@ -1,0 +1,39 @@
+.TH SDL_GL_LoadLibrary 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GL_LoadLibrary\fR -- Function
+
+.SH SYNOPSIS
+Use this function to dynamically load an OpenGL library.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GL_LoadLibrary(const char* path)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+path:T{
+the platform dependent OpenGL library name, or NULL to open the default OpenGL library
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This should be done after initializing the video driver, but before creating any OpenGL windows. If no OpenGL library is loaded, the default library will be loaded upon creation of the first OpenGL window.
+
+If you do this, you need to retrieve all of the GL functions used in your program from the dynamic library using \fBSDL_GL_GetProcAddress()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_GL_GetProcAddress
+.br
+\fISDL_GL_UnloadLibrary

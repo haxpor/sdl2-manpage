@@ -257,11 +257,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GL_GetCurrentWindow`
 * [x] `SDL_GL_GetDrawableSize`
 * [x] `SDL_GL_GetProcAddress`
-* [ ] `SDL_GL_GetSwapInterval`
-* [ ] `SDL_GL_LoadLibrary`
-* [ ] `SDL_GL_MakeCurrent`
-* [ ] `SDL_GL_ResetAttributes`
-* [ ] `SDL_GL_SetAttribute`
+* [x] `SDL_GL_GetSwapInterval`
+* [x] `SDL_GL_LoadLibrary`
+* [x] `SDL_GL_MakeCurrent`
+* [x] `SDL_GL_ResetAttributes`
+* [x] `SDL_GL_SetAttribute`
 * [ ] `SDL_GL_SetSwapInterval`
 * [ ] `SDL_GL_SwapWindow`
 * [ ] `SDL_GL_UnbindTexture`

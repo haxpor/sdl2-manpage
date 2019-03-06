@@ -1,0 +1,158 @@
+.TH SDL_GL_SetAttribute 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GL_SetAttribute\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set an OpenGL window attribute before window creation.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_GL_SetAttribute(SDL_GLattr     attr,
+                         int            value)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+attr:T{
+the OpenGL attribute to set; see \fIRemarks\fR for details
+T}
+value:T{
+the desired value for the attribute
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Window* window;
+SDL_GLContext context;
+
+SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 5);
+SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 5);
+SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 5);
+SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
+SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
+window = SDL_CreateWindow("OpenGL Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
+if (!window) {
+  fprintf(stderr, "Couldn't create window: %s\n", SDL_GetError());
+  return;
+}
+
+context = SDL_GL_CreateContext(window);
+if (!context) {
+  fprintf(stderr, "Couldn't create context: %s\n", SDL_GetError());
+  return;
+}
+
+int r, g, b;
+SDL_GL_GetAttribute(SDL_GL_RED_SIZE, &r);
+SDL_GL_GetAttribute(SDL_GL_GREEN_SIZE, &g);
+SDL_GL_GetAttribute(SDL_GL_BLUE_SIZE, &b);
+
+printf("Red size: %d, Green size: %d, Blue size: %d\n", r, g, b);
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function sets the OpenGL attribute \fBattr\fR to \fBvalue\fR. The requested attributes should be set before creating an OpenGL window. You should use \fBSDL_GL_GetAttribute()\fR to check the values after creating the OpenGL context, since the values obtained can differ from the requested ones.
+
+.TS
+tab(:) allbox;
+ab a.
+SDL_GL_RED_SIZE:T{
+the minimum number of bits for the red channel of the color buffer; \fIdefaults\fR to 3
+T}
+SDL_GL_GREEN_SIZE:T{
+the minimum number of bits for the green channel of the color buffer; \fIdefaults\fR to 3
+T}
+SDL_GL_BLUE_SIZE:T{
+the minimum number of bits for the blue channel of the color buffer; \fIdefaults\fR to 2
+T}
+SDL_GL_ALPHA_SIZE:T{
+the minimum number of bits for the alpha channel of the color buffer; \fdefaults\fR to 0
+T}
+SDL_GL_BUFFER_SIZE:T{
+the minimum number of bits for frame buffer size; \fIdefaults\fR to 0
+T}
+SDL_GL_DOUBLEBUFFER:T{
+whether the output is single or double buffered; \fIdefaults\fR to double buffering on
+T}
+SDL_GL_DEPTH_SIZE:T{
+the minimum number of bits in the depth buffer; \fIdefaults\fR to 16
+T}
+SDL_GL_STENCIL_SIZE:T{
+the minimum number of bits in the stencil buffer; \fIdefaults\fR to 0
+T}
+SDL_GL_ACCUM_RED_SIZE:T{
+the minimum number of bits for the red channel of the accumulation buffer; \fIdefaults\fR to 0
+T}
+SDL_GL_ACCUM_GREEN_SIZE:T{
+the minimum number of bits for the green channel of the accumulation buffer; \fIdefaults\fR to 0
+T}
+SDL_GL_ACCUM_BLUE_SIZE:T{
+the minimum number of bits for the blue channel of the accumulation buffer; \fIdefaults\fR to 0
+T}
+SDL_GL_ACCUM_ALPHA_SIZE:T{
+the minimum number of bits for the alpha channel of the accumulation buffer; \fIdefaults\fR to 0
+T}
+SDL_GL_STEREO:T{
+whether the output is stereo 3D; \fIdefaults\fR to off
+T}
+SDL_GL_MULTISAMPLEBUFFERS:T{
+the number of buffers used for multisample anti\-aliasing; \fIdefaults\fR to 0; see \fIRemarks\fR for details
+T}
+SDL_GL_MULTISAMPLESAMPLES:T{
+the number of samples used around the current pixel used for multisample anti\-aliasing; \fIdefaults\fR to 0; see \fIRemarks\fR for details
+T}
+SDL_GL_ACCELERATED_VISUAL:T{
+set to 1 to require hardware acceleration, set to 0 to force software rendering; \fIdefaults\fR to allow either
+T}
+SDL_GL_RETAINED_BACKING:T{
+not used (deprecated)
+T}
+SDL_GL_CONTEXT_MAJOR_VERSION:T{
+OpenGL context major version; see \fIRemarks\fR for details
+T}
+SDL_GL_CONTEXT_MINOR_VERSION:T{
+OpenGL context minor version; see \fIRemarks\fR for details
+T}
+SDL_GL_CONTEXT_FLAGS:T{
+some combination of 0 or more of elements of the \fBSDL_GLContextFlag\fR enumeration; \fIdefaults\fR to 0
+T}
+SDL_GL_CONTEXT_PROFILE_MASK:T{
+type of GL context (Core, Compatibility, ES). See \fBSDL_GLprofile\fR; \fIdefaults\fR value depends on platform
+T}
+SDL_GL_SHARE_WITH_CURRENT_CONTEXT:T{
+OpenGL context sharing; \fIdefaults\fR to 0
+T}
+SDL_GL_FRAMEBUFFER_SRGB_CAPABLE:T{
+requests sRGB capable visual; \fIdefaults\fR to 0 (>= SDL 2.0.1)
+T}
+SDL_GL_CONTEXT_RELEASE_BEHAVIOR:T{
+sets context the release behavior; \fIdefaults\fR to 1 (>= SDL 2.0.4)
+T}
+SDL_GL_CONTEXT_EGL:T{
+not used (deprecated)
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GL_GetAttribute
+.br
+\fISDL_GL_ResetAttributes

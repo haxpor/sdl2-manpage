@@ -1,0 +1,36 @@
+.TH SDL_GL_MakeCurrent 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GL_MakeCurrent\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set up an OpenGL context for rendering into an OpenGL window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GL_MakeCurrent(SDL_Window*    window,
+                       SDL_GLContext  context)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to associate with the context
+T}
+context:T{
+the OpenGL context to associate with the window
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failture; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_GL_CreateContext
