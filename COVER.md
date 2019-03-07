@@ -262,11 +262,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GL_MakeCurrent`
 * [x] `SDL_GL_ResetAttributes`
 * [x] `SDL_GL_SetAttribute`
-* [ ] `SDL_GL_SetSwapInterval`
-* [ ] `SDL_GL_SwapWindow`
-* [ ] `SDL_GL_UnbindTexture`
-* [ ] `SDL_GL_UnloadLibrary`
-* [ ] `SDL_GameControllerAddMapping`
+* [x] `SDL_GL_SetSwapInterval`
+* [x] `SDL_GL_SwapWindow`
+* [x] `SDL_GL_UnbindTexture`
+* [x] `SDL_GL_UnloadLibrary`
+* [x] `SDL_GameControllerAddMapping`
 * [ ] `SDL_GameControllerAddMappingsFromFile`
 * [ ] `SDL_GameControllerAddMappingsFromRW`
 * [x] `SDL_GameControllerClose`

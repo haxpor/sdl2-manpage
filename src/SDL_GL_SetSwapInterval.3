@@ -1,0 +1,41 @@
+.TH SDL_GL_SetSwapInterval 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GL_SetSwapInterval\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the swap interval for the current OpenGL context.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GL_SetSwapInterval(int interval)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+interval:T{
+0 for immediate updates, 1 for updates synchronized with the vertical retrace, -1 for adaptive vsync; see \fIRemarks\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or -1 if setting the swap interval is not supported; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+Some systems allow specifying -1 for the interval, to enable adaptive vsync. Adaptive vsync works the same as vsync, but if you're already missed the vertical retrace for a given frame, it swaps bufers immediately, which might be less jarring for the user during occasional framerate drops. If application requests adaptive vsync and the system does not support it, this function will fail and return -1. In such a case, you should probably retry the call with 1 for the interval.
+
+Adaptive vsync is implemented for some glX drivers with \fIGLX_EXT_swap_control_tear\fR (\fIhttps://www.khronos.org/registry/OpenGL/extensions/EXT/GLX_EXT_swap_control_tear.txt\fR) and for some Windows drivers with \fIWGL_EXT_swap_control_tear\fR (\fIhttps://www.khronos.org/registry/OpenGL/extensions/EXT/WGL_EXT_swap_control_tear.txt\fR). Read more on the \fIKhronos wiki\fR (\fIhttps://www.khronos.org/opengl/wiki/Swap_Interval#Adaptive_Vsync\fR).
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GL_GetSwapInterval
+
