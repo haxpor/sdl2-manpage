@@ -1,0 +1,34 @@
+.TH SDL_GameControllerGetAttached 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerGetAttached\fR -- Function
+
+.SH SYNOPSIS
+Use this function to check if a controller has been opened and is currently connected.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_GameControllerGetAttached(SDL_GameController* gamecontroller)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+gamecontroller:T{
+a game controller identifier previously returned by \fBSDL_GameControllerOpen()\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if the controller has been opened and currently connected, or \fBSDL_FALSE\fR if it has not.
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerClose
+.br
+\fISDL_GameControllerOpen

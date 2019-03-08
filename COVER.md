@@ -267,12 +267,12 @@ Chcked items are covered by this project.
 * [x] `SDL_GL_UnbindTexture`
 * [x] `SDL_GL_UnloadLibrary`
 * [x] `SDL_GameControllerAddMapping`
-* [ ] `SDL_GameControllerAddMappingsFromFile`
-* [ ] `SDL_GameControllerAddMappingsFromRW`
+* [x] `SDL_GameControllerAddMappingsFromFile`
+* [x] `SDL_GameControllerAddMappingsFromRW`
 * [x] `SDL_GameControllerClose`
-* [ ] `SDL_GameControllerEventState`
-* [ ] `SDL_GameControllerFromInstanceID`
-* [ ] `SDL_GameControllerGetAttached`
+* [x] `SDL_GameControllerEventState`
+* [x] `SDL_GameControllerFromInstanceID`
+* [x] `SDL_GameControllerGetAttached`
 * [ ] `SDL_GameControllerGetAxis`
 * [ ] `SDL_GameControllerGetAxisFromString`
 * [ ] `SDL_GameControllerGetBindForAxis`

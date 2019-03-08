@@ -1,0 +1,59 @@
+.TH SDL_GameControllerAddMappingsFromFile 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerAddMappingsFromFile\fR -- Function
+
+.SH SYNOPSIS
+Use this function to load a set of \fIGame Controller\fR (\fIhttps://wiki.libsdl.org/CategoryGameController\fR) mappings from a file, filtered by the current \fBSDL_GetPlatform()\fR. A community sourced database of controllers is available \fIhere\fR (\fIhttps://raw.githubusercontent.com/gabomdq/SDL_GameControllerDB/master/gamecontrollerdb.txt\fR on Github).
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GameControllerAddMappingsFromFile(const char* filename)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+filename:T{
+the name of the database you want to load
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the number of mappings added or -1 on error; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_GameControllerAddMappingsFromFile("gamecontrollerdb.txt");
+.fi
+T}
+.TE
+
+.SH REMARKS
+You can call this function several times if needed to load different database files.
+
+If a new mapping is loaded for an already known controller GUID, the later version will overwrite the one currently loaded.
+
+Mappings not beloinging to the current platform or with no platform field specified will be ignored (i.e. mappings for Linux will be ignored in Windows, etc).
+
+This function will load the text database entirely in memory before processing it, so take this into consideration if you are in a memory constrained environment.
+
+.SH VERSION
+This function is available since SDL 2.0.2.
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerAddMaping
+.br
+\fISDL_GameControllerAddMappingsFromRW
+.br
+\fISDL_GameControllerMappingForGUID

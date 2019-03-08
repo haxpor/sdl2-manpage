@@ -1,0 +1,55 @@
+.TH SDL_GameControllerEventState 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerEventState\fR -- Function
+
+.SH SYNOPSIS
+Use this function to find the current state of, enable, or disable events dealing with Game Controllers. This will not disable Joystick events, which can also be fired by a controller (see \fBSDL_JoystickEventState()\fR).
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GameControllerEventState(int state)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+state:T{
+can be one of \fBSDL_QUERY\fR, \fBSDL_IGNORE\fR, or \fBSDL_ENABLE\fR
+T}
+.TE
+
+Note: You may use -1, 0, or 1 in place of \fBSDL_QUERY\fR, \fBSDL_IGNORE\fR, or \fBSDL_ENABLE\fR respectively.
+
+.SH RETURN VALUE
+Returns the same value passed to the function, with exception to -1 (\fBSDL_QUERY\fR), which will return the current state.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+printf("%i\n", SDL_GameControllerEventState(SDL_QUERY));   /* prints 1 */
+printf("%i\n", SDL_GameControllerEventState(SDL_IGNORE));  /* prints 0 */
+printf("%i\n", SDL_GameControllerEventState(SDL_QUERY));   /* prints 0 */
+.fi
+T}
+.TE
+
+.SH REMARKS
+If controller events are disabled, you must call \fBSDL_GameControllerUpdate()\fR yourself and check the state of the controller when you want controller information.
+
+Any number can be passed to \fBSDL_GameControllerEventState()\fR, but only -1, 0, and 1 will have any effect. Other numbers will just be returned.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickEventState
