@@ -1,0 +1,42 @@
+.TH SDL_GameControllerGetButton 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerGetButton\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current state of a button on a game controller.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint8 SDL_GameControllerGetButton(SDL_GameController*       gamecontroller,
+                                  SDL_GameControllerButton  button)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+gamecontroller:T{
+a game controller
+T}
+button:T{
+a button index (one of the \fBSDL_GameControllerButton\fR values)
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 1 for pressed state or 0 for not pressed state or error; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+The button indices start at index 0.
+
+.SH VERSION
+This function is available since SDL 2.0.0
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerGetAxis

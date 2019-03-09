@@ -1,0 +1,35 @@
+.TH SDL_GameControllerGetAxisFromString 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerGetAxisFromString\fR -- Function
+
+.SH SYNOPSIS
+Use this function to convert a string into an enum representation for an \fBSDL_GameControllerAxis\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_GameControllerAxis SDL_GameControllerGetAxisFromString(const char* pchString)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+pchString:T{
+string representing a \fBSDL_GameController\fR axis
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the \fBSDL_GameControllerAxis\fR enum corresponding to the input string, or \fBSDL_CONTROLLER_AXIS_INVALID\fR if no match was found.
+
+.SH REMARKS
+This function is called internally to translate \fBSDL_GameController\fR mapping strings for the underlying joystick device into the consistent \fBSDL_GameController\fR mapping. You do not normally need to call this function unless you are parsing \fBSDL_GameController\fR mappings in your own code.
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerGetStringForAxis

@@ -1,0 +1,40 @@
+.TH SDL_GameControllerGetBindForAxis 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerGetBindForAxis\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the SDL joystick layer binding for a controller axis mapping.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_GameControllerButtonBind SDL_GameControllerGetBindForAxis(SDL_GameController*     gamecontroller,
+                                                              SDL_GameControllerAxis* axis)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+gamecontroller:T{
+a game controller
+T}
+axis:T{
+an axis enum value (one of the \fBSDL_GameControllerAxis\fR values)
+T}
+.TE
+
+.SH REMARKS
+Returns a \fBSDL_GameControllerButtonBind\fR describing the bind.
+On failure (like the given Controller axis doesn't exist on the device), its \fB.bindType\fR will be \fBSDL_CONTROLLER_BINDTYPE_NONE.
+
+.SH RELATED STRUCTURES
+\fISDL_GameControllerButtonBind
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerGetBindForButton

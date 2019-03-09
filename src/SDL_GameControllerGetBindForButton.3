@@ -1,0 +1,40 @@
+.TH SDL_GameControllerGetBindForButton 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerGetBindForButton\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the SDL joystick layer binding for this controller button mapping.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_GameControllerButtonBind SDL_GameControllerGetBindForButton(SDL_GameController*       gamecontroller,
+                                                                SDL_GameControllerButton  button)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+gamecontroller:T{
+a game controller
+T}
+button:T{
+a button enum value (one of the \fBSDL_GameControllerButton\fR values)
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a \fBSDL_GameControllerButtonBind\fR describing the bind.
+On failure (like the given Controller doesn't exist on the device), its \fI.bindType\fR will be \fISDL_CONTROLLER_BINDTYPE_NONE\fR.
+
+.SH RELATED STRUCTURES
+\fISDL_GameControllerButtonBind
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerGetBindForAxis

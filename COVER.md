@@ -273,11 +273,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GameControllerEventState`
 * [x] `SDL_GameControllerFromInstanceID`
 * [x] `SDL_GameControllerGetAttached`
-* [ ] `SDL_GameControllerGetAxis`
-* [ ] `SDL_GameControllerGetAxisFromString`
-* [ ] `SDL_GameControllerGetBindForAxis`
-* [ ] `SDL_GameControllerGetBindForButton`
-* [ ] `SDL_GameControllerGetButton`
+* [x] `SDL_GameControllerGetAxis`
+* [x] `SDL_GameControllerGetAxisFromString`
+* [x] `SDL_GameControllerGetBindForAxis`
+* [x] `SDL_GameControllerGetBindForButton`
+* [x] `SDL_GameControllerGetButton`
 * [ ] `SDL_GameControllerGetButtonFromString`
 * [ ] `SDL_GameControllerGetJoystick`
 * [ ] `SDL_GameControllerGetStringForAxis`

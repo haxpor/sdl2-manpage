@@ -1,0 +1,44 @@
+.TH SDL_GameControllerGetAxis 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerGetAxis\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current state of an axis control on a game controller.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Sint16 SDL_GameControllerGetAxis(SDL_GameController*    gamecontroller,
+                                 SDL_GameControllerAxis axis)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+gamecontroller:T{
+a game controller
+T}
+axis:T{
+an axis index (one of the \fBSDL_GameController\fR values)
+T}
+.TE
+
+.SH RETURN VALUE
+Returns axis state (including 0) on success or 0 (also) on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+The axis indices start at index 0.
+
+The state is a value ranging from -32768 to 32768. Triggers, however, range from 0 to 32767 (they never return a negative value).
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerGetButton
