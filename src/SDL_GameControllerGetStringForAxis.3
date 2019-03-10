@@ -1,0 +1,32 @@
+.TH SDL_GameControllerGetStringForAxis 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerGetStringForAxis\fR -- Function
+
+.SH SYNOPSIS
+Use this function to convert from an axis enum to string.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GameControllerGetStringForAxis(SDL_GameControllerAxis axis)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+axis:T{
+an enum value for a given \fBSDL_GameControllerAxis\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a string for the given axis, or NULL if an invalid axis is specified. The string returned is of the format used by \fBSDL_GameController\fR mapping strings.
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerGetAxisFromString

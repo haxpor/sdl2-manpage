@@ -1,0 +1,77 @@
+.TH SDL_GameControllerMapping 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerMapping\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current mapping of a Game Controller.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+char* SDL_GameControllerMapping(SDL_GameController* gamecontroller)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+gamecontroller:T{
+the game controller you want to get the current mapping for
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a string that has the controller's mapping or NULL if no mapping is available; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include "SDL.h"
+
+/* ... */
+
+SDL_GameController* ctrl;
+int i;
+
+SDL_Init(SDL_INIT_GAMECONTROLLER);
+
+for (i=0; i<SDL_NumJoysticks(); ++i)
+{
+  if (SDL_IsGameController(i))
+  {
+    char *mapping;
+    SDL_Log("Index \'%i\' is a compatible controller, named \'%s\'", i, SDL_GameControllerNameForIndex(i));
+    ctrl = SDL_GameControllerOpen(i);
+    mapping = SDL_GameControllerMapping(ctrl);
+    SDL_Log("Controller %i is mapped as \"%s\".", i, mapping);
+    SDL_Free(mapping);
+  }
+  else
+  {
+    SDL_Log("Index \'%i\' is not a compatible controller.", i);
+  }
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+The returned string must be freed with \fBSDL_free()\fR.
+
+More information about the mapping can be found on the page for \fBSDL_GameControllerAddMapping()\fR.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerAddMapping
+.br
+\fISDL_GameControllerMappingForGUID

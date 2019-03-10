@@ -278,11 +278,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GameControllerGetBindForAxis`
 * [x] `SDL_GameControllerGetBindForButton`
 * [x] `SDL_GameControllerGetButton`
-* [ ] `SDL_GameControllerGetButtonFromString`
-* [ ] `SDL_GameControllerGetJoystick`
-* [ ] `SDL_GameControllerGetStringForAxis`
-* [ ] `SDL_GameControllerGetStringForButton`
-* [ ] `SDL_GameControllerMapping`
+* [x] `SDL_GameControllerGetButtonFromString`
+* [x] `SDL_GameControllerGetJoystick`
+* [x] `SDL_GameControllerGetStringForAxis`
+* [x] `SDL_GameControllerGetStringForButton`
+* [x] `SDL_GameControllerMapping`
 * [ ] `SDL_GameControllerMappingForGUID`
 * [ ] `SDL_GameControllerName`
 * [ ] `SDL_GameControllerNameForIndex`
