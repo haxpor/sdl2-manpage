@@ -1,0 +1,66 @@
+.TH SDL_GameControllerNameForIndex 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerNameForIndex\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the implementation dependent name for the game controller.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GameControllerNameForIndex(int joystick_index)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+joystick_index:T{
+the device_index of a device, up to \fBSDL_NumJoysticks()\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the implementation dependent name for the game controller, or NULL if there is no name or the index is invalid.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+for (int i=0; i<SDL_NumJoysticks(); ++i)
+{
+  const char* name = SDL_GameControllerNameForIndex(i);
+  if (name)
+  {
+    printf("Joystick %i has game controller name '%s'\n", i, name);
+  }
+  else
+  {
+    printf("Joystick %i has no game controller name.\n", i);
+  }
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function can be called before any controllers are opened.
+
+\fBjoystick_index\fR is the same as the device_index passed to \fBSDL_JoystickOpen()\fR.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerName
+.br
+\fISDL_GameControllerOpen
+.br
+\fISDL_IsGameController

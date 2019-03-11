@@ -283,12 +283,12 @@ Chcked items are covered by this project.
 * [x] `SDL_GameControllerGetStringForAxis`
 * [x] `SDL_GameControllerGetStringForButton`
 * [x] `SDL_GameControllerMapping`
-* [ ] `SDL_GameControllerMappingForGUID`
-* [ ] `SDL_GameControllerName`
-* [ ] `SDL_GameControllerNameForIndex`
+* [x] `SDL_GameControllerMappingForGUID`
+* [x] `SDL_GameControllerName`
+* [x] `SDL_GameControllerNameForIndex`
 * [x] `SDL_GameControllerOpen`
-* [ ] `SDL_GameControllerUpdate`
-* [ ] `SDL_GetAssertionHandler`
+* [x] `SDL_GameControllerUpdate`
+* [x] `SDL_GetAssertionHandler`
 * [ ] `SDL_GetAssertionReport`
 * [ ] `SDL_GetAudioDeviceName`
 * [ ] `SDL_GetAudioDeviceStatus`

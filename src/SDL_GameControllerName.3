@@ -1,0 +1,64 @@
+.TH SDL_GameControllerName 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GameControllerName\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the implementation depenent name for an opened game controller.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GameControllerName(SDL_GameController* gamecontroller)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+gamecontroller:T{
+a game controller identifier previously returned by \fBSDL_GameControllerOpen()\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the implementation dependent name for the game controller, or NULL if there is no name or the identifier passed is invalid.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_GameController* controller = NULL;
+for (int i=0; i<SDL_NumJoysticks(); ++i)
+{
+  controller = SDL_GameControllerOpen(i);
+  if (controller)
+  {
+    break;
+  }
+}
+
+if (controller)
+{
+  printf("Found a valid controller, named: %s\n", SDL_GameControllerName(controller));
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This is the same name as returned by \fBSDL_GameControllerNameForIndex()\fR, but it takes a controller identifier instead of the (unstable) device index.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GameControllerNameForIndex
+.br
+\fISDL_GameControllerOpen
