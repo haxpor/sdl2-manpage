@@ -1,0 +1,34 @@
+.TH SDL_GetCPUCount 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetCPUCount\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the number of CPU cores available.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetCPUCount(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the total number of logical CPU cores. On CPUs that include technologies such as hyperthreading, the number of logical cores may be more than the number of physical cores.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Log("Number of logical CPU cores: %d", SDL_GetCPUCount());
+.fi
+T}
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.0.

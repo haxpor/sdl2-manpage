@@ -1,0 +1,26 @@
+.TH SDL_GetCPUCacheLineSize 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetCPUCacheLineSize\fR -- Function
+
+.SH SYNOPSIS
+Use this function to determine the L1 cache line size of the CPU.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetCPUCacheLineSize(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the L1 cache line size of the CPU, in bytes.
+
+.SH REMARKS
+This is useful for determining multi-threaded structure padding or SIMD prefetch sizes.
+
+.SH VERSION
+This function is available since SDL 2.0.0.

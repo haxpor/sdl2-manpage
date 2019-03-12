@@ -294,11 +294,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetAudioDeviceStatus`
 * [x] `SDL_GetAudioDriver`
 * [x] `SDL_GetAudioStatus`
-* [ ] `SDL_GetBasePath`
-* [ ] `SDL_GetCPUCacheLineSize`
-* [ ] `SDL_GetCPUCount`
-* [ ] `SDL_GetClipRect`
-* [ ] `SDL_GetClipboardText`
+* [x] `SDL_GetBasePath`
+* [x] `SDL_GetCPUCacheLineSize`
+* [x] `SDL_GetCPUCount`
+* [x] `SDL_GetClipRect`
+* [x] `SDL_GetClipboardText`
 * [ ] `SDL_GetClosestDisplayMode`
 * [ ] `SDL_GetColorKey`
 * [ ] `SDL_GetCurrentAudioDriver`

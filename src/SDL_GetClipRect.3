@@ -1,0 +1,38 @@
+.TH SDL_GetClipRect 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetClipRect\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the clipping rectangle for a surface.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_GetClipRect(SDL_Surface*   surface,
+                     SDL_Rect*      rect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+surface:T{
+the \fBSDL_Surface\fR structure representing the surface to be clipped
+T}
+rect:T{
+an \fBSDL_Rect\fR structure filled in with the clipping rectangle for the surface; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH REMARKS
+When \fBsurface\fR is the destination of a blit, only the area within the clip rectangle is drawn into.
+
+.SH RELATED FUNCTIONS
+\fISDL_BlitSurface
+.br
+\fISDL_SetClipRect

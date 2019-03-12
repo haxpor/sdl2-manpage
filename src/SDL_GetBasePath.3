@@ -1,0 +1,83 @@
+.TH SDL_GetBasePath 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetBasePath\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the directory where the application was run from. This is where the application data directory is.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+char* SDL_GetBasePath(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns an absolute path in UTF-8 encoding to the application data directory. NULL will be returned on error or when the platform doesn't implement this functionality, call \fBSDL_GetError()\fR for more information.
+
+The return path will be guaranteed to end with a path separator ('\' on Windows, '/' on most other platforms).
+
+The pointer returned is owned by you. Please call \fBSDL_free()\fR on the pointer when you are done with it.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+char *data_path = NULL;
+
+void InitializeDataPath()
+{
+  char *base_path = SDL_GetBasePath();
+  if (base_path)
+  {
+    data_path = base_path;
+  }
+  else
+  {
+    data_path = SDL_strdup("./");
+  }
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This is not necessarily a fast call, though so you should call this once near startup and save the string if you need it.
+
+\fBmacOS and iOS Specific Functionality\fR: If the application is in a ".app" bundle, this function returns the Resource directory (e.g. MyApp.app/Contents/Resources/). This behavior can be overriden by adding a property to the Info.plist file. Adding a string key with the name \fBSDL_FILESYSTEM_BASE_DIR_TYPE\fR with a supported value will change the behavior.
+
+Supported values for the \fBSDL_FILESYSTEM_BASE_DIR_TYPE\fR property (Given an application in /Applications/SDLApp/MyApp.app):
+
+.TS
+tab(:) allbox;
+c c c
+ab l l.
+Value:Description:Example returned path
+resource:T{
+the bundle resource directory (the default)
+T}:T{
+/Applications/SDLApp/MyApp.app/Contents/Resources
+T}
+bundle:T{
+the Bundle directory
+T}:T{
+/Applications/SDLApp/MyApp.app/
+T}
+parent:T{
+the containing directory of the bundle
+T}:T{
+/Applications/SDLApp/
+T}
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.1.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetPrefPath
