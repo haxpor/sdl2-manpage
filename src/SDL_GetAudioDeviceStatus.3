@@ -1,0 +1,83 @@
+.TH SDL_GetAudioDeviceStatus 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetAudioDeviceStatus\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current audio state of an audio device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_AudioStatus SDL_GetAudioDeviceStatus(SDL_AudioDeviceID dev)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+dev:T{
+the ID of an audio device previously opened with \fBSDL_OpenAudioDevice()\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the \fBSDL_AudioStatus\fR of the specified audio device which may be one of the following
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_AUDIO_STOPPED:T{
+audio device is stopped
+T}
+SDL_AUDIO_PLAYING:T{
+audio device is playing
+T}
+SDL_AUDIO_PAUSED:T{
+audio device is paused
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void printStatus(SDL_AudioDeviceID dev)
+{
+  switch (SDL_GetAudioDeviceStatus(dev))
+  {
+    case SDL_AUDIO_STOPPED: printf("stopped\\n"); break;
+    case SDL_AUDIO_PLAYING: printf("playing\\n"); break;
+    case SDL_AUDIO_PAUSED: printf("paused\\n"); break;
+    default:L printf("???"); break;
+  }
+}
+
+// device starts paused
+SDL_AudioDeviceID dev;
+dev = SDL_OpenAudioDevice(NULL, 0, &desired, &obtained, 0);
+if (dev != 0)
+{
+  printStatus(dev);   // prints "paused"
+  SDL_PauseAudioDevice(dev, 0);
+  printStatus(dev);   // prints "playing"
+  SDL_PauseAudioDevice(dev, 1);
+  printStatus(dev);   // prints "paused"
+  SDL_CloseAudioDevice(dev);
+  printStatus(dev);   // prints "stopped"
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+Opened devices are always PLAYING or PAUSEED in normal circumstances. A failing device may change its status to STOPPED at any time, and closing a device will progress to STOPPED, too. Asking for the state on an unopened or unknown device ID will report STOPPED.
+
+.SH RELATED FUNCTIONS
+\fISDL_PauseAudioDevice

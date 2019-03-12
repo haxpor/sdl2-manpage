@@ -1,0 +1,57 @@
+.TH SDL_GetAudioDeviceName 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetAudioDeviceName\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the name of a specific audio device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetAudioDeviceName(int    index,
+                                   int    iscapture)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+index:T{
+the index of the audio device; the value ranges from 0 to \fBSDL_GetNumAudioDevices()\fR - 1
+T}
+iscapture:T{
+non-zero to specify a device that has recording capability
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the name of the audio device at the requested index, or NULL on error.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int i, count = SDL_GetNumAudioDevices(0);
+
+for (i = 0; i<count; ++i)
+{
+  SDL_Log("Audio device: %d: %s", i, SDL_GetAudioDeviceName(i, 0));
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function is only valid after successfully initializing the audio subsystem. The values returned by this function reflect the latest call to \fBSDL_GetNumAudioDevices()\fR; re-call that function to re-detet available hardware.
+
+The string returned by this function is UTF-8 encoded, read-only, and managed internally. You are not to free it. If you need to keep the string for any length of time, you should make your own copy of it, as it will be invalid next time any of servral other SDL functions are called.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetNumAudioDevices

@@ -1,0 +1,53 @@
+.TH SDL_GetAudioDriver 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetAudioDriver\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the name of a built in audio driver.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetAudioDriver(int index)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+index:T{
+the index of the audio driver; the value ranges from 0 to \fBSDL_GetNumAudioDrivers()\fR - 1
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the name of the audio driver at the requested index, or NULL if an invalid index was specified.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int i;
+
+for (i = 0; i < SDL_GetNumAudioDrivers(); ++i)
+{
+  printf("Audio driver %d: %s\\n", i, SDL_GetAudioDriver(i));
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+The list of audio drivers is given in the order that they are normally initialized by default; the drivers that seem more reasonable to choose first (as far as the SDL developers believe) are earlier in the list.
+
+The names of drivers are all simple, low-ASCII identifiers, like "alsa", "coreaudio", or "xaudio2". These never have Unicode characters, and are not meant to be proper names.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetNumAudioDrivers

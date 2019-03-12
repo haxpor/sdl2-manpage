@@ -289,11 +289,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GameControllerOpen`
 * [x] `SDL_GameControllerUpdate`
 * [x] `SDL_GetAssertionHandler`
-* [ ] `SDL_GetAssertionReport`
-* [ ] `SDL_GetAudioDeviceName`
-* [ ] `SDL_GetAudioDeviceStatus`
-* [ ] `SDL_GetAudioDriver`
-* [ ] `SDL_GetAudioStatus`
+* [x] `SDL_GetAssertionReport`
+* [x] `SDL_GetAudioDeviceName`
+* [x] `SDL_GetAudioDeviceStatus`
+* [x] `SDL_GetAudioDriver`
+* [x] `SDL_GetAudioStatus`
 * [ ] `SDL_GetBasePath`
 * [ ] `SDL_GetCPUCacheLineSize`
 * [ ] `SDL_GetCPUCount`

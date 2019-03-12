@@ -1,0 +1,47 @@
+.TH SDL_GetAssertionReport 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetAssertionReport\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get a list of all assertion failures.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+cosnt SDL_AssertData* SDL_GetAssertionReport(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a list of all failed assertions or NULL if the list is empty. This memory should not be modified or freed by the application.
+
+.SH CODE EXAMPLES
+
+The proper way to examine this data looks something like this
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const SDL_AssertData *item = SDL_GetAssertionReport();
+while (item) {
+  printf("'%s', %s (%s:%d), triggered %u times, always ignore: %s.\n",
+    item->condition, item->function, item->filename,
+    item->linenum, item->trigger_count,
+    item->always_ignore ? "yes" : "no");
+  item = item->next;
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function gets all assertions triggered since the last call to \fBSDL_ResetAssertionReport()\fR, or the start of the program.
+
+.SH RELATED FUNCTIONS
+\fISDL_ResetAssertionReport
