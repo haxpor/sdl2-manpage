@@ -299,11 +299,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetCPUCount`
 * [x] `SDL_GetClipRect`
 * [x] `SDL_GetClipboardText`
-* [ ] `SDL_GetClosestDisplayMode`
-* [ ] `SDL_GetColorKey`
-* [ ] `SDL_GetCurrentAudioDriver`
-* [ ] `SDL_GetCurrentDisplayMode`
-* [ ] `SDL_GetCurrentVideoDriver`
+* [x] `SDL_GetClosestDisplayMode`
+* [x] `SDL_GetColorKey`
+* [x] `SDL_GetCurrentAudioDriver`
+* [x] `SDL_GetCurrentDisplayMode`
+* [x] `SDL_GetCurrentVideoDriver`
 * [ ] `SDL_GetCursor`
 * [ ] `SDL_GetDefaultAssertionHandler`
 * [ ] `SDL_GetDefaultCursor`

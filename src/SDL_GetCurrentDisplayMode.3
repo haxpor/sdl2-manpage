@@ -1,0 +1,89 @@
+.TH SDL_GetCurrentDisplayMode 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetCurrentDisplayMode\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get information about the current display mode.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetCurrentDisplayMode(int               displayIndex,
+                              SDL_DisplayMode*  mode)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+displayIndex:T{
+the index of the display to query
+T}
+mode:T{
+an \fBSDL_DisplayMode\fR structure filled in with the current display mode
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+// Using SDL2's SDL_GetCurrentDisplayMode()
+
+#include "SDL.h"
+
+int main(int argc, char* argv[])
+{
+  int i;
+  
+  // Declare display mode structure to be filled in.
+  SDL_DisplayMode current;
+  
+  SDL_Init(SDL_INIT_VIDEO);
+  
+  // Get current display mode of all displays.
+  for (i=0; i<SDL_GetNumVideoDisplays(); ++i)
+  {
+    int should_be_zero = SDL_GetCurrentDisplayMode(i, &current);
+    
+    if (should_be_zero != 0)
+    {
+      // In case of error...
+      SDL_Log("Could not get display mode for video display #%d: %s", i, SDL_GetError());
+    }
+    else
+    {
+      // On success, print the current display mode.
+      SDL_Log("Display #%d: current display mode is %dx%dpx @ %dhz.", i, current.w, current.h, current.refresh_rate);
+    }
+  }
+
+  // Clean up and exit the program
+  SDL_Quit();
+  return 0;
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+There's a difference between this function and \fBSDL_GetDesktopDisplayMode()\fR when SDL runs fullscreen and has changed the resolution. In that case this function will return the current display mode, and not the previous native display mode.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetDesktopDisplayMode
+.br
+\fISDL_GetDisplayMode
+.br
+\fISDL_GetNumVideoDisplays
+.br
+\fISDL_SetWindowDisplayMode

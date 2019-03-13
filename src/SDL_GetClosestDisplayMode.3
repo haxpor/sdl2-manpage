@@ -1,0 +1,89 @@
+.TH SDL_GetClosestDisplayMode 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetClosestDisplayMode\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the closest match to the requested display mode.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_DisplayMode* SDL_GetClosestDisplayMode(int                      displayIndex,
+                                           const SDL_DisplayMode*   mode,
+                                           SDL_DisplayMode*         closest)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+displayIndex:T{
+the index of the display to query
+T}
+mode:T{
+an \fBSDL_DisplayMode\fR structure containing the desired display mode
+T}
+closest:T{
+an \fBSDL_DisplayMode\fR structure filled in with the closest match of the available display modes
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the passed in value \fBclosest\fR or NULL if no matching video mode was available; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+// Using SDL2' SDL_GetClosestDisplayMode()
+
+#include "SDL.h"
+#include <stdio.h>
+
+int main(int argc, char* argv[])
+{
+  // Declare structures to be filled in.
+  SDL_DisplayMode target, closest;
+
+  SDL_Init(SDL_INIT_VIDEO);
+
+  // Set the desired resolution, etc.
+  target.w = 600;
+  target.h = 500;
+  target.format = 0;  // don't care
+  target.refresh_rate = 0;  // don't care
+  target.driverdata = 0;    // initialize to 0
+  printf("Requesting: \\t%dx%dpx @ %dhz \\n", target.w, target.h, target.refresh_rate);
+
+  // Pass the display mode structures by reference to SDL_GetClosestDisplay
+  // and check whether the result is a null pointer.
+  if (SDL_GetClosestDisplayMode(0, &target, &closest) == NULL)
+    // if the returned pointer is null, no match was found.
+    printf("\\nNo suitable display mode was found!\\n\\n");
+  else
+    // Otherwise, a display mode close to the target is available.
+    // Access the SDL_DisplayMode structure to see what was received.
+    printf("  Received: \\t%dx%dpx @ %dhz \\n", closest.w, closest.h, closest.refresh_rate);
+
+  // Clean up and exit the program.
+  SDL_Quit();
+  return 0;
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+The available display modes are scanned and \fBclosest\fR is filled in with the closest mode matching the requested mode and returned. The mode format and refresh rate default to the desktop mode if they are set to 0. The modes are scanned with size being first priority, format being second priority, and finally checking the refresh rate. If all the available modes are too small, then NULL is returned.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetDisplayMode
+.br
+\fISDL_GetNumDisplayModes

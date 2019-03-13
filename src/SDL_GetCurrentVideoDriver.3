@@ -1,0 +1,28 @@
+.TH SDL_GetCurrentVideoDriver 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetCurrentVideoDriver\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the name of the currently initialized video driver.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetCurrentVideoDriver(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the name of the current video driver or NULL if no driver has been initialized.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetNumVideoDrivers
+.br
+\fISDL_GetVideoDriver
