@@ -1,0 +1,29 @@
+.TH SDL_GetDefaultAssertionHandler 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetDefaultAssertionHandler\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the default assertion handler.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_AssertionHandler SDL_GetDefaultAssertionHandler(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the default \fBSDL_AssertionHandler\fR that is called when an assert triggers.
+
+.SH REMARKS
+This returns the function pointer that is called by default when an assertion is triggered. This is an internal function provided by SDL, that is used for assertions when \fBSDL_SetAssertionHandler()\fR hasn't been used to provide a different function.
+
+.SH VERSION
+This function is available since SDL 2.0.2.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetAssertionHandler

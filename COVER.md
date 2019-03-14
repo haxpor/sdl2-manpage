@@ -304,11 +304,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetCurrentAudioDriver`
 * [x] `SDL_GetCurrentDisplayMode`
 * [x] `SDL_GetCurrentVideoDriver`
-* [ ] `SDL_GetCursor`
-* [ ] `SDL_GetDefaultAssertionHandler`
-* [ ] `SDL_GetDefaultCursor`
-* [ ] `SDL_GetDesktopDisplayMode`
-* [ ] `SDL_GetDisplayBounds`
+* [x] `SDL_GetCursor`
+* [x] `SDL_GetDefaultAssertionHandler`
+* [x] `SDL_GetDefaultCursor`
+* [x] `SDL_GetDesktopDisplayMode`
+* [x] `SDL_GetDisplayBounds`
 * [ ] `SDL_GetDisplayDPI`
 * [ ] `SDL_GetDisplayMode`
 * [ ] `SDL_GetDisplayName`

@@ -1,0 +1,26 @@
+.TH SDL_GetCursor 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetCursor\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the active cursor.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Cursor* SDL_GetCursor(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the active cursor or NULL if there is no mouse.
+
+.SH REMARKS
+This function returns a pointer to the current cursor which is owned by the library. It is not necessary to free the cursor with \fBSDL_FreeCursor()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_SetCursor

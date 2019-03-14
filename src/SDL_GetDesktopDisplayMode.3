@@ -1,0 +1,59 @@
+.TH SDL_GetDesktopDisplayMode 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetDesktopDisplayMode\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get information about the desktop display mode.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetDesktopDisplayMode(int                 displayIndex,
+                              SDL_DisplayMode*    mode)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+displayIndex:T{
+the index of the display to query
+T}
+mode:T{
+an \fBSDL_DisplayMode\fR structure filled in with the current display mode
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_DisplayMode dm;
+if (SDL_GetDesktopDisplayMode(0, &dm) != 0)
+{
+  SDL_Log("SDL_GetDesktopDisplayMode failed: %s", SDL_GetError());
+  return 1;
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+There's a difference between this function and \fBSDL_GetCurrentDisplayMode()\fR when SDL runs fullscreen and has changed the resolution. In that case this function will return the previous native display mode, and not the current display mode.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetCurrentDisplayMode
+.br
+\fISDL_GetDisplayMode
+.br
+\fISDL_SetWindowDisplayMode
