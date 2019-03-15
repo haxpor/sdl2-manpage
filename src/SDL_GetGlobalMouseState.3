@@ -1,0 +1,44 @@
+.TH SDL_GetGlobalMouseState 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetGlobalMouseState\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current state of the mouse in relation to the desktop.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 SDL_GetGlobalMouseState(int*   x,
+                               int*   y)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+x:T{
+filled in with the current X coord relative to the desktop; call be NULL
+T}
+y:T{
+filled in with the current Y coord relative to the desktop; can be NULL
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the current button state as a bitmask which can be tested using the \fBSDL_BUTTON(X)\fR macros.
+
+.SH REMARKS
+This works just like \fBSDL_GetMouseState()\fR, but the coordinates will be reported relative to the top-left of the desktop. This can be useful if you need to track the mouse outside of a specific window and \fBSDL_CaptureMouse()\fR doesn't fit your needs. For example, it could be useful if you need to track the mouse while dragging a window, where coordinates relative to a window might not be in sync at all times.
+
+Note: \fBSDL_GetMouseState()\fR returns the mouse position as SDL understands it from the last pump of the event queue. This function however, queries the OS for the current mouse position, and as such, might be a slightly less efficient function. Unless you know what you're doing and hae a good reason to use this function, you probably want \fBSDL_GetMouseState()\fR instead.
+
+.SH VERSION
+This function is available since SDL 2.0.4.
+
+.SH RELATED FUNCTIONS
+\fISDL_CaptureMouse

@@ -1,0 +1,39 @@
+.TH SDL_GetEventFilter 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetEventFilter\fR -- Function
+
+.SH SYNOPSIS
+Use this function to query the current event filter.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_GetEventFilter(SDL_EventFilter*    filter,
+                            void**              userdata)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+filter:T{
+the current callback function will be stored here; see \fIRemarks\fR for details
+T}
+userdata:T{
+the pointer that is passed to the current event filter will be stored here
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR on success or \fBSDL_FALSE\fR if there is no event filter set.
+
+.SH REMARKS
+This function ca be used to "chain" filters, by saving the existing filter before replacing it with a function that will call that saved filter.
+
+.SH RELATED FUNCTIONS
+\fISDL_SetEventFilter

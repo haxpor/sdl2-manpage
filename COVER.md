@@ -314,11 +314,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetDisplayName`
 * [x] `SDL_GetDisplayUsableBounds`
 * [x] `SDL_GetError`
-* [ ] `SDL_GetEventFilter`
-* [ ] `SDL_GetEventState`
-* [ ] `SDL_GetGlobalMouseState`
-* [ ] `SDL_GetGrabbedWindow`
-* [ ] `SDL_GetHint`
+* [x] `SDL_GetEventFilter`
+* [x] `SDL_GetEventState`
+* [x] `SDL_GetGlobalMouseState`
+* [x] `SDL_GetGrabbedWindow`
+* [x] `SDL_GetHint`
 * [ ] `SDL_GetHintBoolean`
 * [ ] `SDL_GetKeyFromName`
 * [ ] `SDL_GetKeyFromScancode`

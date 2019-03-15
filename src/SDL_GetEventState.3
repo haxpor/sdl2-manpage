@@ -1,0 +1,32 @@
+.TH SDL_GetEventState 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetEventState\fR -- Function
+
+.SH SYNOPSIS
+Use this macro to query the current processing state of a specified \fBSDL_EventType\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint8 SDL_GetEventState(Uint32 type)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+type:T{
+the \fBSDL_EventType\fR to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_DISABLE\fR or \fBSDL_ENABLE\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_EventState

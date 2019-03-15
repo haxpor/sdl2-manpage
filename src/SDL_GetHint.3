@@ -1,0 +1,34 @@
+.TH SDL_GetHint 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetHint\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the value of a hint.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetHint(const char* name)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+name:T{
+the hint to query; see the list of hints on \fICategoryHints\fR(\fRIhttps://wiki.libsdl.org/CategoryHints#Hints\fR) for details.
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the string value of a hint or NULL if the hint isn't set.
+
+.SH RELATED FUNCTIONS
+\fISDL_SetHint
+.br
+\fISDL_SetHintWithPriority
