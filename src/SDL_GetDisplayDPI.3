@@ -1,0 +1,52 @@
+.TH SDL_GetDisplayDPI 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetDisplayDPI\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get dots/pixels-per-inch for a display.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetDisplayDPI(int     displayIndex,
+                      float*  ddpi,
+                      float*  hdpi,
+                      float*  vdpi)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+displayIndex:T{
+the index of the display from which DPI information should be queried
+T}
+ddpi:T{
+a pinter filled in with the diagonal DPI of the display; may be NULL
+T}
+hdpi:T{
+a pointer filled in with the horizontal DPI of the display; may be NULL
+T}
+vdpi:T{
+a pointer filled in with the vertical DPI of the display; may be NULL
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+Diagonal, horizontal and vertical DPI can all be optionally returned if the parameter is non-NULL.
+
+A failure of this function usually means that either no DPI information is available or the \fBdisplayIndex\fR is out of range.
+
+.SH VERSION
+This funtion is available since SDL 2.0.4.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetNumVideoDisplays

@@ -1,0 +1,35 @@
+.TH SDL_GetDisplayName 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetDisplayName\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the name of a display in UTF-8 encoding.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetDisplayName(int displayIndex)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+displayIndex:T{
+the index of display from which the name should be queried
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the name of a display or NULL for an invalid display index or failure; call \fBSDL_GetError()\fR for more information.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetNumVideoDisplays

@@ -1,0 +1,50 @@
+.TH SDL_GetDisplayUsableBounds 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetDisplayUsableBounds\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the usable desktop area reprsented by a display, with the primary display located at 0,0.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetDisplayUsableBounds(int          displayIndex,
+                               SDL_Rect*    rect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+displayIndex:T{
+the index of the display to query the usable bounds from
+T}
+rect:T{
+the \fBSDL_Rect\fR structure filled in with the display bounds
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This is the same area as \fBSDL_GetDisplayBounds()\fR reports, but with portions reserved by the system removed. For example, on Apple macOS, this subtracts the area occupied by the menu bar and dock.
+
+Setting a window to be fullscreen generally bypasses these unusable areas, so these are good guidelines for the maximum space available to a non-fullscreen window.
+
+The parameter \fBrect\fR is ignored if it is NULL.
+
+This function also returns -1 if the parameter \fBdisplayIndex\fR is out of range.
+
+.SH VERSION
+This function is available since SDL 2.0.5.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetDisplayBounds
+.br
+\fISDL_GetNumVideoDisplays

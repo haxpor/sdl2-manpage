@@ -309,11 +309,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetDefaultCursor`
 * [x] `SDL_GetDesktopDisplayMode`
 * [x] `SDL_GetDisplayBounds`
-* [ ] `SDL_GetDisplayDPI`
-* [ ] `SDL_GetDisplayMode`
-* [ ] `SDL_GetDisplayName`
-* [ ] `SDL_GetDisplayUsableBounds`
-* [ ] `SDL_GetError`
+* [x] `SDL_GetDisplayDPI`
+* [x] `SDL_GetDisplayMode`
+* [x] `SDL_GetDisplayName`
+* [x] `SDL_GetDisplayUsableBounds`
+* [x] `SDL_GetError`
 * [ ] `SDL_GetEventFilter`
 * [ ] `SDL_GetEventState`
 * [ ] `SDL_GetGlobalMouseState`

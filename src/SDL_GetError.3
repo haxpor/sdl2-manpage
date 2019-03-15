@@ -1,0 +1,47 @@
+.TH SDL_GetError 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetError\fR -- Function
+
+.SH SYNOPSIS
+Use this function to retrieve a message about the last error that occurred.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetError(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a message with information about the specific error that occurred, or an empty string if there hasn't been an error message set since the last call to \fBSDL_ClearError()\fR. The message is only applicable when an SDL function has signaled an error. You must check the return values of SDL function calls to determine when to appropriate call \fBSDL_GetError()\fR.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+{
+  // Unrecoverable error, exit here.
+  printf("SDL_Init failed: %s\\n", SDL_GetError());
+}
+.fi
+T}
+.TE
+
+Note: Although this example uses \fBSDL_Init()\fR, \fBSDL_GetError()\fR provides an error message for an failed SDL operation which supports error reporting, see the wiki page for each particular SDL function.
+
+.SH REMARKS
+It is possible for multiple errors to occcur before calling \fBSDL_GetError()\fR. Only the last error is returned.
+
+The returned string is statically allocated and must not be freed by the application.
+
+.SH RELATED FUNCTIONS
+\fISDL_ClearError
+.br
+\fISDL_SetError

@@ -1,0 +1,79 @@
+.TH SDL_GetDisplayMode 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetDisplayMode\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get information about a specific display mode.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetDisplayMode(int                displayIndex,
+                      int                 modeIndex,
+                      SDL_DisplayMode*    mode)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+displayIndex:T{
+the index of the display to query
+T}
+modeIndex:T{
+the index of the display mode to query
+T}
+mode:T{
+an \fBSDL_DisplayMode\fR structure filled in with the mode at \fBmodeIndex\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int display_count = 0, display_index = 0, mode_index = 0;
+SDL_DisplayMode mode = { SDL_PIXELFORMAT_UNKNOWN, 0, 0, 0, 0 };
+
+if ((display_count = SDL_GetNumVideoDisplays()) < 1 )
+{
+  SDL_Log("SDL_GetNumVideoDisplays returned: %i", display_count);
+  return 1;
+}
+
+if (SDL_GetDisplayMode(display_index, mode_index, &mode) != 0)
+{
+  SDL_Log("SDL_GetDisplayMode failed: %s", SDL_GetError());
+  return 1;
+}
+
+SDL_Log("SDL_GetDisplayMode(0, 0, &mode):\\t\\t%i bpp\\t%i x %i", SDL_BITSPERPIXEL(mode.format), mode.w, mode.h);
+.fi
+T}
+.TE
+
+.SH REMARKS
+The display modes are sorted in this priority:
+
+- width -> largest to smallest
+.br
+- height -> largest to smallest
+.br
+- bits per pixel -> more colors to fewer colors
+.br
+- packed pixel layout -> largest to smallest
+.br
+- refresh rate -> highest to lowest
+
+.SH RELATED FUNCTIONS
+\fISDL_GetNumDisplayModes
