@@ -1,0 +1,36 @@
+.TH SDL_GetKeyFromName 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetKeyFromName\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get a key code from a human-readable name.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Keycode SDL_GetKeyFromName(const char* name)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+name:T{
+the human-readable key name
+T}
+.TE
+
+.SH RETURN VALUE
+Returns key code, or \fBSDLK_UNKNOWN\fR if the name wasn't recognized; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetKeyFromScancode
+.br
+\fISDL_GetKeyName
+.br
+\fISDL_GetScancodeFromName

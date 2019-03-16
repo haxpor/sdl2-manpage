@@ -319,11 +319,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetGlobalMouseState`
 * [x] `SDL_GetGrabbedWindow`
 * [x] `SDL_GetHint`
-* [ ] `SDL_GetHintBoolean`
-* [ ] `SDL_GetKeyFromName`
-* [ ] `SDL_GetKeyFromScancode`
-* [ ] `SDL_GetKeyName`
-* [ ] `SDL_GetKeyboardFocus`
+* [x] `SDL_GetHintBoolean`
+* [x] `SDL_GetKeyFromName`
+* [x] `SDL_GetKeyFromScancode`
+* [x] `SDL_GetKeyName`
+* [x] `SDL_GetKeyboardFocus`
 * [ ] `SDL_GetKeyboardState`
 * [ ] `SDL_GetModState`
 * [ ] `SDL_GetMouseFocus`

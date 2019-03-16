@@ -1,0 +1,39 @@
+.TH SDL_GetKeyName 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetKeyName\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get a human-readable name for a key.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetKeyName(SDL_Keycode key)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+key:T{
+the desired \fBSDL_Keycode\fR to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a pointer to a UTF-8 string that stays valid at least until the next call to this function. If you need it around any longer, you must copy it. If the key doesn't have a name, this function returns an empty string ("").
+
+.SH REMARKS
+See \fBSDL_Scancode\fR and \fBSDL_Keycode\fR for details.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetKeyFromName
+.br
+\fISDL_GetKeyFromScancode
+.br
+\fISDL_GetScancodeFromKey

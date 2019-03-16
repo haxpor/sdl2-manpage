@@ -1,0 +1,37 @@
+.TH SDL_GetKeyFromScancode 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetKeyFromScancode\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the key code corresponding to the given scancode according to the current keyboard layout.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Keycode SDL_GetKeyFromScancode(SDL_Scancode scancode)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+scancode:T{
+the desired \fBSDL_Scancode\fR to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the \fBSDL_Keycode\fR that corresponds to the given \fBSDL_Scancode\fR
+
+.SH REMARKS
+See \fBSDL_Keycode\fR for details.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetKeyName
+.br
+\fISDL_GetScancodeFromKey

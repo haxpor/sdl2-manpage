@@ -1,0 +1,41 @@
+.TH SDL_GetHintBoolean 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetHintBoolean\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the boolean value of a hint variable.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_GetHintBoolean(const char*   name,
+                            SDL_bool      default_value)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+name:T{
+the name of the hint to get the boolean value from
+T}
+default_value:T{
+the value to return if the hint does not exist
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the boolean value of a hint or the provided default value if the hint does not exist.
+
+.SH VERSION
+This function is available since SDL 2.0.5.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetHint
+.br
+\fISDL_SetHint
