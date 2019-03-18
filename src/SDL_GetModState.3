@@ -1,0 +1,25 @@
+.TH SDL_GetModState 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetModState\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current key modifier state for the keyboard.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Keymod SDL_GetModState(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns an OR'd combination of the modifier keys for the keyboard. See \fBSDL_Keymod\fR for details.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetKeyboardState
+.br
+\fISDL_SetModState

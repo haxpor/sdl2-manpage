@@ -324,11 +324,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetKeyFromScancode`
 * [x] `SDL_GetKeyName`
 * [x] `SDL_GetKeyboardFocus`
-* [ ] `SDL_GetKeyboardState`
-* [ ] `SDL_GetModState`
-* [ ] `SDL_GetMouseFocus`
-* [ ] `SDL_GetMouseState`
-* [ ] `SDL_GetNumAudioDevices`
+* [x] `SDL_GetKeyboardState`
+* [x] `SDL_GetModState`
+* [x] `SDL_GetMouseFocus`
+* [x] `SDL_GetMouseState`
+* [x] `SDL_GetNumAudioDevices`
 * [ ] `SDL_GetNumAudioDrivers`
 * [ ] `SDL_GetNumDisplayModes`
 * [ ] `SDL_GetNumRenderDrivers`
