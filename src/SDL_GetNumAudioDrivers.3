@@ -1,0 +1,46 @@
+.TH SDL_GetNumAudioDrivers 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetNumAudioDrivers\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the number of built-in audio drivers.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetNumAudioDrivers(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the number of built-in audio drivers.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int i;
+for (int i=0; i<SDL_GetNumAudioDrivers(); ++i)
+{
+  printf("Audio driver %d: %s\\n", i, SDL_GetAudioDriver(i));
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function returns a hardcoded number. This never returns a negative value; if there are no drivers compiled into this build of SDL, this function returns zero. The presence of a driver in this list dose not mean it will function, it just means SDL is capable of interacting with that interface. For example, a build of SDL might have esound support, but if there's no esound server available, SDL's esound driver would fail if used.
+
+By default, SDL tries all drivers, in its preferred order, until one is found to be usable.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetAudioDriver

@@ -1,0 +1,33 @@
+.TH SDL_GetNumRenderDrivers 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetNumRenderDrivers\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the number of 2D rendering drivers available for the current display.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetNumRenderDrivers(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a number >= 0 on success or a negative error code on failure; call \fRSDL_GetError()\fR for more information.
+
+.SH REMARKS
+A render driver is a set of code that handles rendering and texture management on a particular display. Normally there is only one, but some drivers may have several available with different capabilities.
+
+There may be none if SDL was compiled without render support.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateRenderer
+.br
+\fISDL_GetRenderDriverInfo

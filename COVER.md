@@ -329,11 +329,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetMouseFocus`
 * [x] `SDL_GetMouseState`
 * [x] `SDL_GetNumAudioDevices`
-* [ ] `SDL_GetNumAudioDrivers`
-* [ ] `SDL_GetNumDisplayModes`
-* [ ] `SDL_GetNumRenderDrivers`
-* [ ] `SDL_GetNumTouchDevices`
-* [ ] `SDL_GetNumTouchFingers`
+* [x] `SDL_GetNumAudioDrivers`
+* [x] `SDL_GetNumDisplayModes`
+* [x] `SDL_GetNumRenderDrivers`
+* [x] `SDL_GetNumTouchDevices`
+* [x] `SDL_GetNumTouchFingers`
 * [ ] `SDL_GetNumVideoDisplays`
 * [ ] `SDL_GetNumVideoDrivers`
 * [ ] `SDL_GetPerformanceCounter`
