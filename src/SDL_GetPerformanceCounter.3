@@ -1,0 +1,25 @@
+.TH SDL_GetPerformanceCounter 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetPerformanceCounter\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current value of the high resolution counter.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint64 SDL_GetPerformanceCounter(void)
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function is typically used for polling.
+
+The counter values are only meaningful relative to each other. Differences between values can be converted to times by using \fBSDL_GetPerformanceFrequency()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetPerformanceFrequency

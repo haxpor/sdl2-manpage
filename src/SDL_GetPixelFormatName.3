@@ -1,0 +1,48 @@
+.TH SDL_GetPixelFormatName 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetPixelFormatName\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the human readable name of a pixel format.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetPixelFormatName(Uint32 format)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+format:T{
+the pixel format to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the human readable name of the specified pixel format or "SDL_PIXELFORMAT_UNKNOWN" if the format isn't recognized.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Surface* surface = ...;   // a valid surface from wherever.
+SDL_PixelFormat* pixelFormat = surface->format;
+Uint32 pixelFormatEnum = pixelFormat->format;
+const char* surfacePixelFormatName = SDL_GetPixelFormatName(pixelFormatEnum);
+SDL_Log("The surface's pixelformat is %s", surfacePixelFormatName);
+// prints something like "The surface's pixelformat is SDL_PIXELFORMAT_ARGB8888"
+.fi
+T}
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.0.

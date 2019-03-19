@@ -334,11 +334,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetNumRenderDrivers`
 * [x] `SDL_GetNumTouchDevices`
 * [x] `SDL_GetNumTouchFingers`
-* [ ] `SDL_GetNumVideoDisplays`
-* [ ] `SDL_GetNumVideoDrivers`
-* [ ] `SDL_GetPerformanceCounter`
-* [ ] `SDL_GetPerformanceFrequency`
-* [ ] `SDL_GetPixelFormatName`
+* [x] `SDL_GetNumVideoDisplays`
+* [x] `SDL_GetNumVideoDrivers`
+* [x] `SDL_GetPerformanceCounter`
+* [x] `SDL_GetPerformanceFrequency`
+* [x] `SDL_GetPixelFormatName`
 * [ ] `SDL_GetPlatform`
 * [ ] `SDL_GetPowerInfo`
 * [ ] `SDL_GetPrefPath`

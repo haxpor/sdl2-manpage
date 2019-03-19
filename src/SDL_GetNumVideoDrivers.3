@@ -1,0 +1,23 @@
+.TH SDL_GetNumVideoDrivers 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetNumVideoDrivers\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the number of video drivers compiled into SDL.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetNumVideoDrivers(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a number >= 1 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetVideoDriver
