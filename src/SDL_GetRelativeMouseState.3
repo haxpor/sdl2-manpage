@@ -1,0 +1,39 @@
+.TH SDL_GetRelativeMouseState 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetRelativeMouseState\fR -- Function
+
+.SH SYNOPSIS
+Use this function to retrieve the relative state of the mouse.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 SDL_GetRelativeMouseState(int*   x,
+                                 int*   y)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+x:T{
+a pointer filled with the last recorded x coordinate of the mouse
+T}
+y:T{
+a poitner filled with the last recorded y coordinate of the mouse
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a 32-bit button bitmask of the relative button state.
+
+.SH REMARKS
+The current button state is returned as a button bitmask, which can be tested using the \fBSDL_BUTTON(X)\fR macros (where X is generally 1 for the left, 2 for middle, 3 for the right button), and \fBx\fR and \fBy\fR are set to the mouse deltas since the last call to \fBSDL_GetRelativeMouseState()\fR or since event initialization. You can pass NULL for either \fBx\fR or \fBy\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetMouseState

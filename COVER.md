@@ -344,11 +344,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetPrefPath`
 * [x] `SDL_GetQueuedAudioSize`
 * [x] `SDL_GetRGB`
-* [ ] `SDL_GetRGBA`
-* [ ] `SDL_GetRelativeMouseMode`
-* [ ] `SDL_GetRelativeMosueState`
-* [ ] `SDL_GetRenderDrawBlendMode`
-* [ ] `SDL_GetRenderDrawColor`
+* [x] `SDL_GetRGBA`
+* [x] `SDL_GetRelativeMouseMode`
+* [x] `SDL_GetRelativeMouseState`
+* [x] `SDL_GetRenderDrawBlendMode`
+* [x] `SDL_GetRenderDrawColor`
 * [ ] `SDL_GetRenderDriverInfo`
 * [ ] `SDL_GetRenderTarget`
 * [ ] `SDL_GetRenderer`

@@ -1,0 +1,73 @@
+.TH SDL_GetRenderDrawBlendMode 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetRenderDrawBlendMode\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the blend mode used for drawing operations.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetRenderDrawBlendMode(SDL_Renderer*    renderer,
+                               SDL_BlendMode*   blendMode)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the rendering context
+T}
+blendMode:T{
+a pointer filled in with the current \fBSDL_BlendMode\fR; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+\fBblendMode\fR will be filled in with one of the following:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_BLENDMODE_NONE:T{
+no blending
+T}
+:T{
+dstRGBA = srcRGBA
+T}
+SDL_BLENDMODE_BLEND:T{
+alpha blending
+T}
+:T{
+dstRGB = (srcRGB * srcA) + (dstRGB * (1 - srcA))
+T}
+:T{
+dstA = srcA + (dstA * (1 - srcA))
+T}
+SDL_BLENDMODE_ADD:T{
+additive blending
+T}
+:T{
+dstRGB = (srcRGB * srcA) + dstRGB
+dstA = dstA
+T}
+SDL_BLENDMODE_MOD:T{
+color modulate
+T}
+:T{
+dstRGB = srcRGB * dstRGB
+dstA = dstA
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_SetRenderDrawBlendMode

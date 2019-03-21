@@ -1,0 +1,48 @@
+.TH SDL_GetRenderDrawColor 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetRenderDrawColor\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the color used for drawing operations (Rect, Line and Clear).
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetRenderDrawColor(SDL_Renderer*    renderer,
+                           Uint8*           r,
+                           Uint8*           g,
+                           Uint8*           b,
+                           Uint8*           a)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the rendering context
+T}
+r:T{
+a pointer filled in with the red value used to draw on the rendering target
+T}
+g:T{
+a pointer filled in with the green value used to draw on the rendering target
+T}
+b:T{
+a pointer filled in with the blue value used to draw on the rendering target
+T}
+a:T{
+a pointer filled in with the alpha value used to draw on the rendering target; usually \fBSDL_ALPHA_OPAQUE\fR (255)
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on succcess or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_SetRenderDrawColor
