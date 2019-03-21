@@ -1,0 +1,52 @@
+.TH SDL_GetRGB 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetRGB\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get RGB values from a pixel in the specified format.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_GetRGB(Uint32                    pixel,
+                const SDL_PixelFormat*    format,
+                Uint8*                    r,
+                Uint8*                    g,
+                Uint8*                    b)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+pixel:T{
+a pixel value
+T}
+format:T{
+an \fBSDL_PixelFormat\fR structure describing the format of the pixel
+T}
+r:T{
+a pointer filled in with the red component
+T}
+g:T{
+a pointer filled in with the green component
+T}
+b:T{
+a pointer filled in with the blue component
+T}
+.TE
+
+.SH REMARKS
+This function uses the entire 8-bit [0..255] range when converting color components from pixel formats with less than 8-bits per RGB component (e.g., a completely white pixel in 16-bit RGB565 format would return [0xff, 0xff, 0xff] not [0xf8, 0xfc, 0xf8]).
+
+.SH RELATED FUNCTIONS
+\fISDL_GetRGBA
+.br
+\fISDL_MapRGB
+.br
+\fISDL_MapRGBA

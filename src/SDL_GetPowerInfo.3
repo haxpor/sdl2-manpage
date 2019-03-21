@@ -1,0 +1,96 @@
+.TH SDL_GetPowerInfo 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetPowerInfo\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current power supply details.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_PowerState SDL_GetPowerInfo(int*  secs,
+                                int*  pct)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+secs:T{
+seconds of battery life left, you can pass a NULL here if you don't care, will return -1 if we can't determine a value, or we're not running on a battery
+T}
+pct:T{
+percentage of battery life left, between 0 and 100, you can pass a NULL here if you don't care, will return -1 if we can't determine a value, or we're not runnong on a battery
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the state of the battery, if any. Return values may be any of the following:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_POWERSTATE_UNKNOWN:T{
+cannot determine power status
+T}
+SDL_POWERSTATE_ON_BATTERY:T{
+not plugged in, runnong on the battery
+T}
+SDL_POWERSTATE_NO_BATTERY:T{
+plugged in, no battery available
+T}
+SDL_POWERSTATE_CHARGING:T{
+plugged in, charging battery
+T}
+SDL_POWERSTATE_CHARGED:T{
+plugged in, battery charged
+T}
+.TE
+
+.br
+See \fBSDL_PowerState\fR for more info.
+
+Both parameters will return -1 if a value can't be determined, or if not running on a battery.
+
+.SH CODE EXAMPLES
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int secs, pct;
+if (SDL_GetPowerInfo(&secs, &pct) == SDL_POWERSTATE_ON_BATTERY)
+{
+  printf("Battery is draining: ");
+  if (secs == -1)
+  {
+    printf("(unknown time left)\\n");
+  }
+  else
+  {
+    printf("(%d seconds left)\\n", secs);
+  }
+
+  if (pct == -1)
+  {
+    printf("(unknown percentage left)\\n");
+  }
+  else
+  {
+    printf("(%d percent left)\\n", pct);
+  }
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+You should never take a battery status as absolute truth. Batteries (especially failing batteries) are delicate hardware, adn the values reported here are best estimates based on what that hardware reports. It's not uncommmon for older batteries to lose stored power much faster than it reports, or completely drain when reporting it has 20 percent left, etc.
+
+Battery status can change at any time; if you are concerned with power state, you should call this function frequently, and perhaps ignore changes until they seem to be stable for a few seconds.

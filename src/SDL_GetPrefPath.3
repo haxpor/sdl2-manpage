@@ -1,0 +1,81 @@
+.TH SDL_GetPrefPath 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetPrefPath\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the "pref dir". This is meant to be where the application can write personal files (Preferences and save games, etc.) that are specific to the application. This directory is unique per user and per application.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+char* SDL_GetPrefPath(const char*   org,
+                      const char*   app)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+org:T{
+the name of your organization
+T}
+app:T{
+the name of your application
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a UTF-8 string of the user directory in platform-dependent notation. NULL if there's a problem (creating directory failed, etc.).
+
+The return path will be guaranteed to end with a path separator ('\' on Windows, '/' on most other platforms).
+
+The pointer returned is owned by you. Please call \fBSDL_free()\fR on the pointer when you are done with it.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+char* pref_path = NULL;
+
+void InitializePrefPath()
+{
+  char* base_path = SDL_GetPrefPath("My Company", "My Awesome SDL 2 Game");
+  if (base_path)
+  {
+    pref_path = base_path;
+  }
+  else
+  {
+    /* Do something to disable writing in-game */
+  }
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+You should assume the path returned by this function is the only safe place to write files (and that \fBSDL_GetBasePath()\fR, while it might be writable, or even the parent of the returned path, aren't where you should be writing things)(.
+
+Both the org and app strings may become part of a directory name, so please follow these rules:
+
+- Try to use the same org string (including case-sensitivity) for all your applications that use this function
+.br
+- Always use a unique app string for each one, and make sure it never changes for an app once you've decide on it
+.br
+- Unicode characters are legal, as long as it's UTF-8 encoded, but...
+.br
+- ...only use letters, numbers, and spaces. Avoid punctuation like "Game Name 2: Bad Guys' Revenge!" ... "Game Name 2" is sufficient.
+
+.SH VERSION
+
+This function is available since SDL 2.0.1.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetBasePath

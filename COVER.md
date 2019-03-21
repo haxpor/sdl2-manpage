@@ -339,11 +339,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetPerformanceCounter`
 * [x] `SDL_GetPerformanceFrequency`
 * [x] `SDL_GetPixelFormatName`
-* [ ] `SDL_GetPlatform`
-* [ ] `SDL_GetPowerInfo`
-* [ ] `SDL_GetPrefPath`
-* [ ] `SDL_GetQueuedAudioSize`
-* [ ] `SDL_GetRGB`
+* [x] `SDL_GetPlatform`
+* [x] `SDL_GetPowerInfo`
+* [x] `SDL_GetPrefPath`
+* [x] `SDL_GetQueuedAudioSize`
+* [x] `SDL_GetRGB`
 * [ ] `SDL_GetRGBA`
 * [ ] `SDL_GetRelativeMouseMode`
 * [ ] `SDL_GetRelativeMosueState`

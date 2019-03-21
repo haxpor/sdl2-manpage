@@ -1,0 +1,33 @@
+.TH SDL_GetPlatform 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetPlatform\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the name of the platform.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetPlatform(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the name of the platform. If the correct platform name is not available, returns a string beginning with the text "Unknown".
+
+.SH REMARKS
+Here are the names returned for some supported platforms:
+
+- Windows
+.br
+- macOS
+.br
+- Linux
+.br
+- iOS
+.br
+- Android
