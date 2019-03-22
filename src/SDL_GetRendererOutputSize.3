@@ -1,0 +1,40 @@
+.TH SDL_GetRendererOutputSize 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetRendererOutputSize\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the output size in pixels of a rendering context.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetRendererOutputSize(SDL_Renderer*   renderer,
+                              int*            w,
+                              int*            h)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the rendering context
+T}
+x:T{
+an int filled with the width
+T}
+h:T{
+an int filled with the height
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetRenderer

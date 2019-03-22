@@ -349,11 +349,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetRelativeMouseState`
 * [x] `SDL_GetRenderDrawBlendMode`
 * [x] `SDL_GetRenderDrawColor`
-* [ ] `SDL_GetRenderDriverInfo`
-* [ ] `SDL_GetRenderTarget`
-* [ ] `SDL_GetRenderer`
-* [ ] `SDL_GetRendererInfo`
-* [ ] `SDL_GetRendererOutputSize`
+* [x] `SDL_GetRenderDriverInfo`
+* [x] `SDL_GetRenderTarget`
+* [x] `SDL_GetRenderer`
+* [x] `SDL_GetRendererInfo`
+* [x] `SDL_GetRendererOutputSize`
 * [ ] `SDL_GetRevision`
 * [ ] `SDL_GetRevisionNumber`
 * [ ] `SDL_GetScancodeFromKey`

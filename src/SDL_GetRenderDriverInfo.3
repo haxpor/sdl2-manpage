@@ -1,0 +1,38 @@
+.TH SDL_GetRenderDriverInfo 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetRenderDriverInfo\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get information about a specific 2D rendering driver for the current display.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetRenderDriverInfo(int                 index,
+                            SDL_RendererInfo*   info)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+index:T{
+the index of the driver to query information about
+T}
+info:T{
+an \fBSDL_RendererInfo\fR structure to be filled with information on the rendering driver
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateRenderer
+.br
+\fISDL_GetNumRenderDrivers
