@@ -1,0 +1,42 @@
+.TH SDL_GetScancodeName 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetScancodeName\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get a human-readable name for a scancode.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetScancodeName(SDL_Scancode scancode)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+scancode:T{
+the desired \fBSDL_Scancode\fR to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a pointer to the name for the scancode. If the scancode doesn't have a name, this function returns an empty string ("").
+
+.SH REMARKS
+See \fBSDL_Scancode\fR for details.
+
+Warning: The returned name is by design not stable across platforms, e.g. the name for \fBSDL_SCANCODE_LGUI\fR is "Left GUI" under Linux but "Left Windows" under Windows, and some scancode like \fBSDL_SCANCODE_NONUSBACKSLASH\fR don't have any name at all. There are even scancodes that share names, e.g. \fBSDL_SCANCODE_RETURN\fR and \fBSDL_SCANCODE_RETURN2\fR (both called "Return"). This function is therefore unsuitable for creating a stable cross-platform two-way mapping between strings and scancodes.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetScancodeFromKey
+.br
+\fISDL_GetScancodeFromName

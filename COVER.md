@@ -354,11 +354,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetRenderer`
 * [x] `SDL_GetRendererInfo`
 * [x] `SDL_GetRendererOutputSize`
-* [ ] `SDL_GetRevision`
-* [ ] `SDL_GetRevisionNumber`
-* [ ] `SDL_GetScancodeFromKey`
-* [ ] `SDL_GetScancodeFromName`
-* [ ] `SDL_GetScancodeName`
+* [x] `SDL_GetRevision`
+* [x] `SDL_GetRevisionNumber`
+* [x] `SDL_GetScancodeFromKey`
+* [x] `SDL_GetScancodeFromName`
+* [x] `SDL_GetScancodeName`
 * [ ] `SDL_GetSurfaceAlphaMod`
 * [ ] `SDL_GetSurfaceBlendMode`
 * [ ] `SDL_GetSurfaceColorMod`

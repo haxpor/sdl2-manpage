@@ -1,0 +1,26 @@
+.TH SDL_GetRevisionNumber 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetRevisionNumber\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the revision number of SDL that is linked against your program.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetRevisionNumber(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a number uniquely identifying the exact revision of the SDL library in use.
+
+.SH REMARKS
+This is an incrementing number based on commits to hg.libsdl.org.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetRevision

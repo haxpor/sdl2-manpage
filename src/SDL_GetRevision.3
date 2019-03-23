@@ -1,0 +1,30 @@
+.TH SDL_GetRevision 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetRevision\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the code revision of SDL that is linked against your program.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetRevision(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns an arbitrary string, uniquely identifying the exact revision of the SDL library in use.
+
+.SH REMARKS
+The revision is a string including sequential revision number that is incremented with each commit, and a hash of the last code change.
+
+.BI Example: hg-5344:94189aa89b54
+
+This value is the revision of the code you are linked with and may be different from the code you are compiling with, which is found in the constant \fBSDL_REVISION\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetVersion

@@ -1,0 +1,39 @@
+.TH SDL_GetScancodeFromName 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetScancodeFromName\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get a scancode from a human-readable name.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Scancode SDL_GetScancodeFromName(const char* name)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+name:T{
+the human-readable scancode name
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the \fBSDL_Scancode\fR, or \fBSDL_SCANCODE_UNKNOWN\fR if the name wasn't recognized; call \fBSDL_GetError()\fR for more information.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetKeyFromName
+.br
+\fISDL_GetScancodeFromKey
+.br
+\fISDL_GetScancodeName
