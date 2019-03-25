@@ -359,11 +359,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetScancodeFromKey`
 * [x] `SDL_GetScancodeFromName`
 * [x] `SDL_GetScancodeName`
-* [ ] `SDL_GetSurfaceAlphaMod`
-* [ ] `SDL_GetSurfaceBlendMode`
-* [ ] `SDL_GetSurfaceColorMod`
-* [ ] `SDL_GetSystemRAM`
-* [ ] `SDL_GetTextureAlphaMod`
+* [x] `SDL_GetSurfaceAlphaMod`
+* [x] `SDL_GetSurfaceBlendMode`
+* [x] `SDL_GetSurfaceColorMod`
+* [x] `SDL_GetSystemRAM`
+* [x] `SDL_GetTextureAlphaMod`
 * [ ] `SDL_GetTextureBlendMode`
 * [ ] `SDL_GetTextureColorMod`
 * [ ] `SDL_GetThreadID`

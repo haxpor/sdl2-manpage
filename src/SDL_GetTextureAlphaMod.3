@@ -1,0 +1,35 @@
+.TH SDL_GetTextureAlphaMod 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetTextureAlphaMod\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the additional alpha value multiplied into render copy operations.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetTextureAlphaMod(SDL_Texture*   texture,
+                           Uint8*         alpha)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+texture:T{
+the texture to query
+T}
+alpha:T{
+a pointer filled in with the current alpha value
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GetTextureColorMod
+.br
+\fISDL_SetTextureAlphaMod

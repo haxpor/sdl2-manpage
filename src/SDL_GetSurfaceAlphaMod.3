@@ -1,0 +1,38 @@
+.TH SDL_GetSurfaceAlphaMod 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetSurfaceAlphaMod\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the additional alpha value used in blit operations.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetSurfaceAlphaMod(SDL_Surface*   surface,
+                           Uint8*         alpha)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+surface:T{
+the \fBSDL_Surface\fR structure to query
+T}
+alha:T{
+a pointer filled in with the current alpha value
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetSurfaceColorMod
+.br
+\fISDL_SetSurfaceAlphaMod

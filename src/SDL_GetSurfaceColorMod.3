@@ -1,0 +1,46 @@
+.TH SDL_GetSurfaceColorMod 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetSurfaceColorMod\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the additional color value multiplied into blit operations.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetSurfaceColorMod(SDL_Surface*   surface,
+                           Uint8*         r,
+                           Uint8*         g,
+                           Uint8*         b)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+surface:T{
+the \fBSDL_Surface\fR structure to query
+T}
+r:T{
+a pointer filled in with the current red color value
+T}
+g:T{
+a pointer filled in with the current green color value
+T}
+b:T{
+a pointer filled in with the current blue color value
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetSurfaceAlphaMod
+.br
+\fISDL_SetSurfaceColorMod
