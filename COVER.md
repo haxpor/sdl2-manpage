@@ -364,11 +364,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetSurfaceColorMod`
 * [x] `SDL_GetSystemRAM`
 * [x] `SDL_GetTextureAlphaMod`
-* [ ] `SDL_GetTextureBlendMode`
-* [ ] `SDL_GetTextureColorMod`
-* [ ] `SDL_GetThreadID`
-* [ ] `SDL_GetThreadName`
-* [ ] `SDL_GetTicks`
+* [x] `SDL_GetTextureBlendMode`
+* [x] `SDL_GetTextureColorMod`
+* [x] `SDL_GetThreadID`
+* [x] `SDL_GetThreadName`
+* [x] `SDL_GetTicks`
 * [ ] `SDL_GetTouchDevice`
 * [ ] `SDL_GetTouchFinger`
 * [ ] `SDL_GetVersion`

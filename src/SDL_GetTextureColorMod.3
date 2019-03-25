@@ -1,0 +1,46 @@
+.TH SDL_GetTextureColorMod 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetTextureColorMod\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the additional color value multiplied into render copy operations.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetTextureColorMod(SDL_Texture*   texture,
+                           Uint8*         r,
+                           Uint8*         g,
+                           Uint8*         b)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+texture:T{
+the texture to query
+T}
+r:T{
+a pointer filled in with the current red color value
+T}
+g:T{
+a pointer filled in with the current green color value
+T}
+b:T{
+a pointer filled in with the current blue color value
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()f\R for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetTextureAlphaMod
+.br
+\fISDL_SetTextureColorMod

@@ -1,0 +1,35 @@
+.TH SDL_GetThreadName 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetThreadName\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the thread name as it was specified in \fBSDL_CreateThread()\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetThreadName(SDL_Thread*   thread)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+thread:T{
+the thread to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a pointer to a UTF-8 string that names the specified thread, or NULL if it doesn't have a name.
+
+.SH REMARKS
+This is internal memory, not to be freed by the caller, and remains valid until the specified thread is cleaned up by \fBSDL_WaitThread()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateThread
