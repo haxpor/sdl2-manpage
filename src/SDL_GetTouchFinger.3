@@ -1,0 +1,39 @@
+.TH SDL_GetTouchFinger 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetTouchFinger\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the finger object for specified touch device ID and finger index.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Finger* SDL_GetTouchFinger(SDL_TouchID    touchID,
+                               int            index)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+touchID:T{
+the ID of the requested touch device
+T}
+index:T{
+the index of the requested finger
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a pointer to the \fBSDL_Finger\fR object or NULL if no object at the given ID and index could be found.
+
+.SH REMARKS
+The returned resource is owned by SDL and should not be deallocated.
+
+.SH RELATED FUNCTIONS
+\fISDL_RecordGesture\fR

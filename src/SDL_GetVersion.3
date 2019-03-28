@@ -1,0 +1,54 @@
+.TH SDL_GetVersion 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetVersion\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the version of SDL that is linked against your program.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_GetVersion(SDL_version*    ver)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+ver:T{
+the \fBSDL_version\fR structure that contains the version information
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_version compiled;
+SDL_version linked;
+
+SDL_VERSION(&compiled);
+SDL_GetVersion(&linked);
+printf("We compiled against SDL version %d.%d.%d ...\\n", compiled.major, compiled.minor, compiled.patch);
+printf("But we are linking against SDL version %d.%d.%d.\\n", linked.major, linked.minor, linked.patch);
+.fi
+T}
+.TE
+
+.SH REMARKS
+If you are linking to SDL dynamically, then it is possible that the current version will be different than the version you compiled against. This function returns the current version, while \fBSDL_VERSION()\fR is a macro that tells you what version you compiled with.
+
+This function may be called safely at any time, even before \fBSDL_Init()\fR.
+
+.SH RELATED MACROS
+\fISDL_VERSION\fR
+
+.SH RELATED FUNCTIONS
+\fISDL_GetRevision\fR

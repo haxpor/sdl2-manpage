@@ -369,11 +369,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetThreadID`
 * [x] `SDL_GetThreadName`
 * [x] `SDL_GetTicks`
-* [ ] `SDL_GetTouchDevice`
-* [ ] `SDL_GetTouchFinger`
-* [ ] `SDL_GetVersion`
-* [ ] `SDL_GetVideoDriver`
-* [ ] `SDL_GetWindowBorderSize`
+* [x] `SDL_GetTouchDevice`
+* [x] `SDL_GetTouchFinger`
+* [x] `SDL_GetVersion`
+* [x] `SDL_GetVideoDriver`
+* [x] `SDL_GetWindowBordersSize`
 * [ ] `SDL_GetWindowBrightness`
 * [ ] `SDL_GetWindowData`
 * [ ] `SDL_GetWindowDisplayIndex`

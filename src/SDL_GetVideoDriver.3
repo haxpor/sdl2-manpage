@@ -1,0 +1,35 @@
+.TH SDL_GetVideoDriver 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetVideoDriver\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the name of a built-in video driver.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetVideoDriver(int index)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+index:T{
+the index of a video driver
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the name of the video driver with the given \fBindex\fR.
+
+.SH REMARKS
+The video drivers are presented in the order in which they are normally checked during initialization.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetNumVideoDrivers\fR
