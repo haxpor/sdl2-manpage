@@ -374,11 +374,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetVersion`
 * [x] `SDL_GetVideoDriver`
 * [x] `SDL_GetWindowBordersSize`
-* [ ] `SDL_GetWindowBrightness`
-* [ ] `SDL_GetWindowData`
-* [ ] `SDL_GetWindowDisplayIndex`
-* [ ] `SDL_GetWindowDisplayMode`
-* [ ] `SDL_GetWindowFlags`
+* [x] `SDL_GetWindowBrightness`
+* [x] `SDL_GetWindowData`
+* [x] `SDL_GetWindowDisplayIndex`
+* [x] `SDL_GetWindowDisplayMode`
+* [x] `SDL_GetWindowFlags`
 * [ ] `SDL_GetWindowFromID`
 * [ ] `SDL_GetWindowGammaRamp`
 * [ ] `SDL_GetWindowGrab`

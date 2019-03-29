@@ -1,0 +1,112 @@
+.TH SDL_GetWindowFlags 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetWindowFlags\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the window flags.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 SDL_GetWindowFlags(SDL_Window*   window)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a mask of the \fBSDL_WindowFlags\fR associated with \fBwindow\fR; see \fIRemarks\fR for details.
+
+.SH REMARKS
+The flags may be any of the following OR'd together:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_WINDOW_FULLSCREEN:T{
+fullscreen window
+T}
+SDL_WINDOW_FULLSCREEN_DESKTOP:T{
+fullscreen window at the current desktop resolution
+T}
+SDL_WINDOW_OPENGL:T{
+window usable with OpenGL context
+T}
+SDL_WINDOW_SHOWN:T{
+window is visible
+T}
+SDL_WINDOW_HIDDEN:T{
+window is not visible
+T}
+SDL_WINDOW_BORDERLESS:T{
+no window decoration
+T}
+SDL_WINDOW_RESIZABLE:T{
+window can be resized
+T}
+SDL_WINDOW_MINIMIZED:T{
+window is minimized
+T}
+SDL_WINDOW_MAXIMIZED:T{
+window is maximized
+T}
+SDL_WINDOW_INPUT_GRABBED:T{
+window has grabbed input focus
+T}
+SDL_WINDOW_INPUT_FOCUS:T{
+window has input focus
+T}
+SDL_WINDOW_MOUSE_FOCUS:T{
+window has mouse focus
+T}
+SDL_WINDOW_FOREIGN:T{
+window not created by SDL
+T}
+SDL_WINDOW_ALLOW_HIGHDPI:T{
+window should be created in high-DPI mode if supported (>= SDL 2.0.1)
+T}
+SDL_WINDOW_MOUSE_CAPTURE:T{
+window has mouse captured (unrelated to INPUT_GRABBED, >= SDL 2.0.4)
+T}
+SDL_WINDOW_ALWAYS_ON_TOP:T{
+window should always be above others (X11 only, >= SDL 2.0.5)
+T}
+SDL_WINDOW_SKIP_TASKBAR:T{
+window should not be added to the taskbar (X11 only, >= SLD 2.0.5)
+T}
+SDL_WINDOW_UTILITY:T{
+window should be treated as a utility window (X11 only, >= SDL 2.0.5)
+T}
+SDL_WINDOW_TOOLTIP:T{
+window should be treated as a tooltip (X11 only, >= SDL 2.0.5)
+T}
+SDL_WINDOW_POPUP_MENU:T{
+window should be treated as a popup menu (X11 only, >= SDL 2.0.5)
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateWindow\fR
+.br
+\fISDL_HideWindow\fR
+.br
+\fISDL_MaximizeWindow\fR
+.br
+\fISDL_MinimizeWindow\fR
+.br
+\fISDL_SetWindowFullScreen\fR
+.br
+\fISDL_SetWindowGrab\fR
+.br
+\fISDL_ShowWindow\fR
