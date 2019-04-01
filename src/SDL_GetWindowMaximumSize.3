@@ -1,0 +1,39 @@
+.TH SDL_GetWindowMaximumSize 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetWindowMaximumSize\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the maximum size of a window's client area.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_GetWindowMaximumSize(SDL_Window*   window,
+                              int*          w,  
+                              int*          h)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to query
+T}
+w:T{
+a pointer filled in with the maximum width of the window, may be NULL
+T}
+h:T{
+a pointer filled in with the maximum height of the window, may be NULL
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowMinimumSize\fR
+.br
+\fISDL_SetWindowMaximumSize\fR

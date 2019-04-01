@@ -379,12 +379,12 @@ Chcked items are covered by this project.
 * [x] `SDL_GetWindowDisplayIndex`
 * [x] `SDL_GetWindowDisplayMode`
 * [x] `SDL_GetWindowFlags`
-* [ ] `SDL_GetWindowFromID`
-* [ ] `SDL_GetWindowGammaRamp`
-* [ ] `SDL_GetWindowGrab`
-* [ ] `SDL_GetWindowID`
-* [ ] `SDL_GetWindowMaximumSize`
-* [ ] `SDL_GetWindowMinimumSize`
+* [x] `SDL_GetWindowFromID`
+* [x] `SDL_GetWindowGammaRamp`
+* [x] `SDL_GetWindowGrab`
+* [x] `SDL_GetWindowID`
+* [x] `SDL_GetWindowMaximumSize`
+* [x] `SDL_GetWindowMinimumSize`
 * [ ] `SDL_GetWindowOpacity`
 * [ ] `SDL_GetWindowPixelFormat`
 * [ ] `SDL_GetWindowPosition`

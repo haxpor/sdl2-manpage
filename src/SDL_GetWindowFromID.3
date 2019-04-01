@@ -1,0 +1,35 @@
+.TH SDL_GetWindowFromID 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetWindowFromID\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the numeric ID of a window, for logging purposes.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 SDL_GetWindowFromID(SDL_Window*    window)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the ID of the window on success or 0 on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowFromID\fR

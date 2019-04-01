@@ -1,0 +1,32 @@
+.TH SDL_GetWindowGrab 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetWindowGrab\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get a window's input grab mode.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_GetWindowGrab(SDL_Window*    window)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if input is grabbed, \fBSDL_FALSE\fR otherwise.
+
+.SH RELATED FUNCTIONS
+\fISDL_SetWindowGrab\fR
