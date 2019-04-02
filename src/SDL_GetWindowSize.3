@@ -1,0 +1,44 @@
+.TH SDL_GetWindowSize 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetWindowSize\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the size of a window's client area.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_GetWindowSize(SDL_Window*    window,
+                       int*           w,
+                       int*           h)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to query the width and height from
+T}
+w:T{
+a pointer filled in with the width of the window, in screen coordinates, may be NULL
+T}
+h:T{
+a pointer filled in withthe height of the window, in screen coordinates, may be NULL
+T}
+.TE
+
+.SH REMARKS
+NULL can safely be passed as the \fBw\fR or \fBh\fR parameter if the width or height value is not desired.
+
+The window size in screen coordinates may differ from the size in pixels, if the window was created with \fBSDL_WINDOW_ALLOW_HIGHDPI\fR on a platform with high-dpi support (e.g. iOS or macOS). Use \fBSDL_GetDrawableSize()\fR or \fBSDL_GetRendererOutputSize()\fR to get the real client area size in pixels.
+
+.SH RELATED FUNCTIONS
+\fISDL_GL_GetDrawableSize\fR
+.br
+\fISDL_SetWindowSize\fR

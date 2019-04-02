@@ -385,11 +385,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetWindowID`
 * [x] `SDL_GetWindowMaximumSize`
 * [x] `SDL_GetWindowMinimumSize`
-* [ ] `SDL_GetWindowOpacity`
-* [ ] `SDL_GetWindowPixelFormat`
-* [ ] `SDL_GetWindowPosition`
-* [ ] `SDL_GetWindowSize`
-* [ ] `SDL_GetWindowSurface`
+* [x] `SDL_GetWindowOpacity`
+* [x] `SDL_GetWindowPixelFormat`
+* [x] `SDL_GetWindowPosition`
+* [x] `SDL_GetWindowSize`
+* [x] `SDL_GetWindowSurface`
 * [ ] `SDL_GetWindowTitle`
 * [ ] `SDL_GetWindowWMInfo`
 * [ ] `SDL_HapticClose`

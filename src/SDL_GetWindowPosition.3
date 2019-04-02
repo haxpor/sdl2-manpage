@@ -1,0 +1,40 @@
+.TH SDL_GetWindowPosition 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetWindowPosition\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the position of a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_GetWindowPosition(SDL_Window*    window,
+                           int*           x,
+                           int*           y)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to query
+T}
+x:T{
+a pointer filled in with the x position of the window, in screen coordinates, may be NULL
+T}
+y:T{
+a pointer filled in with the y position of the window, in screen coordinates, may be NULL
+T}
+.TE
+
+.SH REMARKS
+If you do not need the value for one of the positions a NULL may be passed in the \fBx\fR or \fBy\fR parameter.
+
+.SH RELATED FUNCTIONS
+\fISDL_SetWindowPosition\fR

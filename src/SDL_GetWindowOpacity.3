@@ -1,0 +1,48 @@
+.TH SDL_GetWindowOpacity 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetWindowOpacity\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the opacity of a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_GetWindowOpacity(SDL_Window*    window,
+                         float*         opacity)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to get the current opacity value from
+T}
+opacity:T{
+the float filled in (0.0f is transparent, 1.0f is opaque)
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+If transparency isn't supported on this platform, opacity will be reported as 1.0f without error.
+
+The parameter \fBopacity\fR is ignored if it is NULL.
+
+This function also returns -1 if an invalid window was provided.
+
+This function is only supported on DirectFB, X11, Cocoa (Apple macOS) and Microsoft Windows.
+
+.SH VERSION
+This function is available since SDL 2.0.5.
+
+.SH RELATED FUNCTIONS
+\fISDL_SetWindowOpacity\fR

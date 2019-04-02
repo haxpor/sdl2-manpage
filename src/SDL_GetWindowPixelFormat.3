@@ -1,0 +1,29 @@
+.TH SDL_GetWindowPixelFormat 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetWindowPixelFormat\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the pixel format associated with the window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 SDL_GetWindowPixelFormat(SDL_Window*   window)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the pixel format of the window on success or \fBSDL_PIXELFORMAT_UNKNOWN\fR on failure; call \fBSDL_GetError()\fR fore more information.
