@@ -390,11 +390,11 @@ Chcked items are covered by this project.
 * [x] `SDL_GetWindowPosition`
 * [x] `SDL_GetWindowSize`
 * [x] `SDL_GetWindowSurface`
-* [ ] `SDL_GetWindowTitle`
-* [ ] `SDL_GetWindowWMInfo`
-* [ ] `SDL_HapticClose`
-* [ ] `SDL_HapticDestroyEffect`
-* [ ] `SDL_HapticEffectSupported`
+* [x] `SDL_GetWindowTitle`
+* [x] `SDL_GetWindowWMInfo`
+* [x] `SDL_HapticClose`
+* [x] `SDL_HapticDestroyEffect`
+* [x] `SDL_HapticEffectSupported`
 * [ ] `SDL_HapticGetEffectStatus`
 * [ ] `SDL_HapticIndex`
 * [ ] `SDL_HapticName`

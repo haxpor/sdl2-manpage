@@ -1,0 +1,38 @@
+.TH SDL_HapticEffectSupported 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticEffectSupported\fR -- Function
+
+.SH SYNOPSIS
+Use this function to check to see if an effect is supported by a haptic device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticEffectSupported(SDL_Haptic*         haptic,
+                              SDL_HapticEffect*   effect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device to check on
+T}
+effect:T{
+the desired effect to check to see if it is supported
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if effect is supported, \fBSDL_FALSE\fR if it isn't, or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticNewEffect\fR
+.br
+\fISDL_HapticQuery\fR

@@ -1,0 +1,32 @@
+.TH SDL_GetWindowTitle 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetWindowTitle\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the title of a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_GetWindowTitle(SDL_Window*    window)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the title of the window in UTF-8 format or "" if there is no title.
+
+.SH RELATED FUNCTIONS
+\fISDL_SetWindowTitle\fR

@@ -1,0 +1,110 @@
+.TH SDL_GetWindowWMInfo 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_GetWindowWMInfo\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get driver specific information about a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_GetWindowWMInfo(SDL_Window*      window,
+                             SDL_SysWMinfo*   info)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window about which information is being requested
+T}
+info:T{
+an \fBSDL_SysWMinfo\fR structure filled in with window information; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if the function is implemented and the version member of the \fBinfo\fR struct is valid, or \fBSDL_FALSE\fR if the information could not be retrieved; call \fBSDL_GetError()\fR fore more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include "SDL.h"
+#include "SDL_syswm.h"
+
+int main(int argc, char* argv[])
+{
+  SDL_Window* window;
+  SDL_SysWMinfo info;
+
+  SDL_Init(0);
+
+  window = SDL_CreateWindow("", 0, 0, 0, 0, SDL_WINDOW_HIDDEN);
+
+  SDL_VERSION(&info.version); /* initialize info structure with SDL version info */
+
+  if (SDL_GetWindowWMInfo(window, &info)) /* the call returns true on succes */
+  {
+    /* success */
+    const char* subsystem = "an unknown system!";
+    switch (info.subsystem)
+    {
+      case SDL_SYSWM_UNKNOWN:                                         break;
+      case SDL_SYSWM_WINDOWS:   subsystem = "Microsoft Windows(TM)";  break;
+      case SDL_SYSWM_X11:       subsystem = "X Window System";        break;
+#if SDL_VERSION_ATLEAST(2, 0, 3)
+      case SDL_SYSWM_WINRT:     subsystem = "WinRT";                  break;
+#endif
+      case SDL_SYSWM_DIRECTFB:  subsystem = "DirectFB";               break;
+      case SDL_SYSWM_COCOA:     subsystem = "Apple macOS";            break;
+      case SDL_SYSWM_UIKIT:     subsystem = "UIKit";                  break;
+#if SDL_VERSION_ATLEAST(2, 0, 2)
+      case SDL_SYSWM_WAYLAND:   subsystem = "Wayland";                break;
+      case SDL_SYSWM_MIR:       subsystem = "Mir";                    break;
+#endif
+#if SDL_VERSION_ATLEAST(2, 0, 4)
+      case SDL_SYSWM_ANDROID:   subsystem = "Android";                break;
+#endif
+#if SDL_VERSION_ATLEAST(2, 0, 5)
+      case SDL_SYSWM_VIVANTE:   subsystem = "Vivante";                break;
+#endif
+    }
+
+    SDL_Log("This program is running SDL version %d.%d.%d on %s",
+            (int)info.version.major,
+            (int)info.version.minor,
+            (int)info.version.patch,
+            subsystem);
+  }
+  else
+  {
+    /* call failed */
+    SDL_LogError(SDL_LOG_CATEGORY_ERROR, "Couldn't get window information: %s",
+                 SDL_GetError());
+  }
+
+  SDL_DestroyWindow(window);
+  SDL_Quit();
+  
+  return 0;
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+You must include \fBSDL_syswm.h\fR for the declaration of \fBSDL_SysWMinfo\fR.
+
+The \fBinfo\fR structure must be initialized with the SDL version, and is then filled in with information about the given window, as shown in the \fICode Example\fR.
+
+.SH VERSION
+This function is available since SDL 2.0.0.

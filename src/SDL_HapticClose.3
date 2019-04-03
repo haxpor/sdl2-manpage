@@ -1,0 +1,29 @@
+.TH SDL_HapticClose 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticClose\fR -- Function
+
+.SH SYNOPSIS
+Use this function to close a haptic device previously opened with \fBSDL_HapticOpen()\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_HapticClose(SDL_Haptic*    haptic)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device to close
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticOpen\fR

@@ -1,0 +1,36 @@
+.TH SDL_HapticDestroyEffect 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticDestroyEffect\fR -- Function
+
+.SH SYNOPSIS
+Use this function to destroy a haptic effect on the device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_HapticDestroyEffect(SDL_Haptic*    haptic,
+                             int            effect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device to destroy the effect on
+T}
+effect:T{
+identifier of the haptic effect to destroy
+T}
+.TE
+
+.SH REMARKS
+This will stop the effect if it's running. Effects are automatically destroyed when the device is closed.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticNewEffect\fR
