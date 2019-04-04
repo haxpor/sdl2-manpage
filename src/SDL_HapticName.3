@@ -1,0 +1,38 @@
+.TH SDL_HapticName 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticName\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the implementation dependent name of a haptic device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_HapticName(int    device_index)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+device_index:T{
+index of the device to gets its name
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the name of the device or NULL on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This can be called before any joysticks are opened. If no name can be found, this function returns NULL.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_NumHaptics\fR

@@ -1,0 +1,41 @@
+.TH SDL_HapticGetEffectStatus 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticGetEffectStatus\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the status of the current effect on the specified haptic device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticGetEffectStatus(SDL_Haptic*   haptic,
+                              int           effect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device to query for the effect status on
+T}
+effect:T{
+the identifier of the haptic effect to query its status
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 if it isn't playing, 1 if it is playing, or a negative error code on failure; call \fBSDL_GetError()f\R for more information.
+
+.SH REMARKS
+Device must support the \fBSDL_HAPTIC_STATUS\fR feature.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticRunEffect\fR
+.br
+\fISDL_HapticStopEffect\fR

@@ -395,11 +395,11 @@ Chcked items are covered by this project.
 * [x] `SDL_HapticClose`
 * [x] `SDL_HapticDestroyEffect`
 * [x] `SDL_HapticEffectSupported`
-* [ ] `SDL_HapticGetEffectStatus`
-* [ ] `SDL_HapticIndex`
-* [ ] `SDL_HapticName`
-* [ ] `SDL_HapticNewEffect`
-* [ ] `SDL_HapticNumAxes`
+* [x] `SDL_HapticGetEffectStatus`
+* [x] `SDL_HapticIndex`
+* [x] `SDL_HapticName`
+* [x] `SDL_HapticNewEffect`
+* [x] `SDL_HapticNumAxes`
 * [ ] `SDL_HapticNumEffects`
 * [ ] `SDL_HapticNumEffectsPlaying`
 * [ ] `SDL_HapticOpen`

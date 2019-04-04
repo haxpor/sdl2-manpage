@@ -1,0 +1,37 @@
+.TH SDL_HapticIndex 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticIndex\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the index of a haptic device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticIndex(SDL_Haptic*   haptic)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device to get the index of
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the index of the specified haptic device or a negative error code on failure; call \fBSDL_GetError()f\R for more information.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticOpen\fR
+.br
+\fISDL_HapticOpened\fR
