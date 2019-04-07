@@ -1,0 +1,40 @@
+.TH SDL_HapticNumEffectsPlaying 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticNumEffectsPlaying\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the number of effects a haptic device can play at the same time.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticNumEffectsPlaying(SDL_Haptic*   haptic)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device to query maximum playing effects
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the number of effects the haptic device can play at the same time or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This is not supported on all platforms, but will always return a value. Added here for the sake of completeness.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticNumEffects\fR
+.br
+\fISDL_HapticQuery\fR

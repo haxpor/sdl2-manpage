@@ -400,11 +400,11 @@ Chcked items are covered by this project.
 * [x] `SDL_HapticName`
 * [x] `SDL_HapticNewEffect`
 * [x] `SDL_HapticNumAxes`
-* [ ] `SDL_HapticNumEffects`
-* [ ] `SDL_HapticNumEffectsPlaying`
-* [ ] `SDL_HapticOpen`
-* [ ] `SDL_HapticOpenFromJoystick`
-* [ ] `SDL_HapticOpenFromMouse`
+* [x] `SDL_HapticNumEffects`
+* [x] `SDL_HapticNumEffectsPlaying`
+* [x] `SDL_HapticOpen`
+* [x] `SDL_HapticOpenFromJoystick`
+* [x] `SDL_HapticOpenFromMouse`
 * [ ] `SDL_HapticOpened`
 * [ ] `SDL_HapticPause`
 * [ ] `SDL_HapticQuery`
