@@ -1,0 +1,37 @@
+.TH SDL_HapticOpened 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticOpened\fR -- Function
+
+.SH SYNOPSIS
+Use this function to check if the haptic device at the designated index has been opened.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticOpened(int    device_index)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+device_index:T{
+the index to check to see if it has been opened
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 1 if it has been opened, 0 if it hasn't or on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticIndex\fR
+.br
+\fISDL_HapticOpen\fR

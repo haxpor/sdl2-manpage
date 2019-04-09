@@ -1,0 +1,52 @@
+.TH SDL_HapticQuery 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticQuery\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the haptic device's supported features in bitwise manner.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+unsigned int SDL_HapticQuery(SDL_Haptic*    haptic)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a list of supported haptic features in bitwise manner (OR'd), or 0 on failure; call \fBSDL_GetError()\fR fore more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+ab.
+T{
+.nf
+extern SDL_Haptic* haptic;
+if (SDL_HapticQuery(haptic) & SDL_HAPTIC_CONSTANT)
+{
+  SDL_Log("We have constant haptic effect!");
+}
+.fi
+T}
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticEffectSupported\fR
+.br
+\fISDL_HapticNumEffects\fR

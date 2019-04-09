@@ -1,0 +1,44 @@
+.TH SDL_HapticRumblePlay 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticRumblePlay\fR -- Function
+
+.SH SYNOPSIS
+Use this function to run a simple rumble effect on a haptic device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticRumblePlay(SDL_Haptic*    haptic,
+                         float          strength,
+                         Uint32         length)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the haptic device to play the rumble effect on
+T}
+strength:T{
+strength of the rumble to play as 0-1 float value
+T}
+length:T{
+length of the rumble to play in milliseconds
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR fore more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticRumbleInit\fR
+.br
+\fISDL_HapticRumbleStop\fR
+.br
+\fISDL_HapticRumbleSupported\fR

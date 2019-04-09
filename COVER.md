@@ -405,11 +405,11 @@ Chcked items are covered by this project.
 * [x] `SDL_HapticOpen`
 * [x] `SDL_HapticOpenFromJoystick`
 * [x] `SDL_HapticOpenFromMouse`
-* [ ] `SDL_HapticOpened`
-* [ ] `SDL_HapticPause`
-* [ ] `SDL_HapticQuery`
-* [ ] `SDL_HapticRumbleInit`
-* [ ] `SDL_HapticRumblePlay`
+* [x] `SDL_HapticOpened`
+* [x] `SDL_HapticPause`
+* [x] `SDL_HapticQuery`
+* [x] `SDL_HapticRumbleInit`
+* [x] `SDL_HapticRumblePlay`
 * [ ] `SDL_HapticRumbleStop`
 * [ ] `SDL_HapticRumbleSupported`
 * [ ] `SDL_HapticRunEffect`
