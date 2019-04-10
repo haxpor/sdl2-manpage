@@ -410,11 +410,11 @@ Chcked items are covered by this project.
 * [x] `SDL_HapticQuery`
 * [x] `SDL_HapticRumbleInit`
 * [x] `SDL_HapticRumblePlay`
-* [ ] `SDL_HapticRumbleStop`
-* [ ] `SDL_HapticRumbleSupported`
-* [ ] `SDL_HapticRunEffect`
-* [ ] `SDL_HapticSetAutocenter`
-* [ ] `SDL_HapticSetGain`
+* [x] `SDL_HapticRumbleStop`
+* [x] `SDL_HapticRumbleSupported`
+* [x] `SDL_HapticRunEffect`
+* [x] `SDL_HapticSetAutocenter`
+* [x] `SDL_HapticSetGain`
 * [ ] `SDL_HapticStopAll`
 * [ ] `SDL_HapticStopEffect`
 * [ ] `SDL_HapticUnpause`

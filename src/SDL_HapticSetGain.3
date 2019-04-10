@@ -1,0 +1,44 @@
+.TH SDL_HapticSetGain 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticSetGain\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the global gain of the specified haptic device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticSetGain(SDL_Haptic*   haptic,
+                      int           gain)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device to set the gain on
+T}
+gain:T{
+value to set the gain to, should be between 0 and 100 (0-100)
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+Device must support the \fBSDL_HAPTIC_GAIN\fR feature.
+
+The user may specify the maximum gain by setting the environment variable \fBSDL_HAPTIC_GAIN_MAX\fR which should be between 0 and 100. All calls to \fBSDL_HapticSetGain()\fR will scale linearly using \fBSDL_HAPTIC_GAIN_MAX\fR as the maximum.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticQuery\fR

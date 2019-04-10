@@ -1,0 +1,52 @@
+.TH SDL_HapticRumbleSupported 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticRumbleSupported\fR -- Function
+
+.SH SYNOPSIS
+Use this function to check whether rumble is supported on a haptic device
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticRumbleSupported(SDL_Haptic*   haptic)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+haptic device to check for rumble support
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if effect is supported, \fBSDL_FALSE\fR if it isn't, or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+ab.
+T{
+.nf
+extern SDL_Haptic* dev;
+if (SDL_HapticRumbleSupported(dev)) {
+  SDL_HapticRumbleInit(dev);
+  SDL_HapticRumblePlay(dev, 1.0f, 3000);
+  SDL_Delay(3000);
+}
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticRumbleInit\fR
+.br
+\fISDL_HapticRumblePlay\fR
+.br
+\fISDL_HapticRumbleStop\fR

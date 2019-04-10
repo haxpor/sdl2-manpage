@@ -1,0 +1,36 @@
+.TH SDL_HapticRumbleStop 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticRumbleStop\fR -- Function
+
+.SH SYNOPSIS
+Use this function to stop the simple rumble on a haptic device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticRumbleStop(SDL_Haptic* haptic)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the haptic device to stop the runble effect on
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more informatin.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticRumbleInit\fR
+.br
+\fISDL_HapticRumblePlay\fR
+.br
+\fISDL_HapticRumbleSupported\fR

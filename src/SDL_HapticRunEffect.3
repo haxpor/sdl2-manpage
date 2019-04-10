@@ -1,0 +1,50 @@
+.TH SDL_HapticRunEffect 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticRunEffect\fR -- Function
+
+.SH SYNOPSIS
+Use this function to run the haptic effect on its associated haptic device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticRunEffect(SDL_Haptic*   haptic,
+                        int           effect,
+                        Uint32        iterations)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device to run the effect on
+T}
+effect:T{
+the identifier of the haptic effect to run
+T}
+iterations:T{
+the number of iterations to run the effect; use \fBSDL_HAPTIC_INFINITY\fR for infinity
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure call; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+If \fBiterations\fR are \fBSDL_HAPTIC_INFINITY\fR, it'll run the effect over and over repeating the envelope (attack and fade) every time. If you only want the effect to last forever, set \fBSDL_HAPTIC_INFINITY\fR in the effect's length parameter.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticDestroyEffect\fR
+.br
+\fISDL_HapticGetEffectStatus\fR
+.br
+\fISDL_HapticStopEffect\fR

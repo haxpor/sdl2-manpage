@@ -1,0 +1,39 @@
+.TH SDL_HapticSetAutocenter 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticSetAutocenter\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the global autocenter of the device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticSetAutocenter(SDL_Haptic*   haptic,
+                            int           autocenter)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device to set autocentering on
+T}
+autocenter:T{
+value to set autocenter to (0-100), 0 disables autocentering; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+Autocenter should be between 0 and 100. Setting it to 0 will disable autocentering.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticQuery\fR
