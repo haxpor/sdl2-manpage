@@ -1,0 +1,50 @@
+.TH SDL_HapticUpdateEffect 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticUpdateEffect\fR -- Function
+
+.SH SYNOPSIS
+Use this function to update the properties of an effect.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticUpdateEffect(SDL_Haptic*          haptic,
+                           int                  effect,
+                           SDL_HapticEffect*    data)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device that has the effect
+T}
+effect:T{
+the identifier of the effect to update
+T}
+data:T{
+an \fBSDL_HapticEffect\fR structure containing the new effect to properties to use
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+Can be used dynamically, although behavior when dynamically changing direction may be strange. Specifically the effect may re-upload itself and start playing from the start. You also cannot change the type either when running \fBSDL_HapticUpdateEffect()\fR.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticDestroyEffect\fR
+.br
+\fISDL_HapticNewEffect\fR
+.br
+\fISDL_HapticRunEffect\fR

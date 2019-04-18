@@ -415,10 +415,10 @@ Chcked items are covered by this project.
 * [x] `SDL_HapticRunEffect`
 * [x] `SDL_HapticSetAutocenter`
 * [x] `SDL_HapticSetGain`
-* [ ] `SDL_HapticStopAll`
-* [ ] `SDL_HapticStopEffect`
-* [ ] `SDL_HapticUnpause`
-* [ ] `SDL_HapticUpdateEffect`
+* [x] `SDL_HapticStopAll`
+* [x] `SDL_HapticStopEffect`
+* [x] `SDL_HapticUnpause`
+* [x] `SDL_HapticUpdateEffect`
 * [ ] `SDL_Has3DNow`
 * [ ] `SDL_HasAVX`
 * [ ] `SDL_HasAVX2`

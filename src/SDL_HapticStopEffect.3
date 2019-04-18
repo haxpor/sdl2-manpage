@@ -1,0 +1,38 @@
+.TH SDL_HapticStopEffect 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HapticStopEffect\fR -- Function
+
+.SH SYNOPSIS
+Use this function to stop the haptic effect on its associated haptic device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_HapticStopEffect(SDL_Haptic*    haptic,
+                         int            effect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+haptic:T{
+the \fBSDL_Haptic\fR device to stop the effect on
+T}
+effect:T{
+the identifier of the haptic effect to stop
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticDestroyEffect\fR
+.br
+\fISDL_HapticRunEffect\fR
