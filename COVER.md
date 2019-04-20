@@ -419,12 +419,12 @@ Chcked items are covered by this project.
 * [x] `SDL_HapticStopEffect`
 * [x] `SDL_HapticUnpause`
 * [x] `SDL_HapticUpdateEffect`
-* [ ] `SDL_Has3DNow`
-* [ ] `SDL_HasAVX`
-* [ ] `SDL_HasAVX2`
-* [ ] `SDL_HasAltiVec`
-* [ ] `SDL_HasClipboardText`
-* [ ] `SDL_HasEvent`
+* [x] `SDL_Has3DNow`
+* [x] `SDL_HasAVX`
+* [x] `SDL_HasAVX2`
+* [x] `SDL_HasAltiVec`
+* [x] `SDL_HasClipboardText`
+* [x] `SDL_HasEvent`
 * [ ] `SDL_HasEvents`
 * [ ] `SDL_HasIntersection`
 * [ ] `SDL_HasMMX`
