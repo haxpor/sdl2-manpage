@@ -425,11 +425,11 @@ Chcked items are covered by this project.
 * [x] `SDL_HasAltiVec`
 * [x] `SDL_HasClipboardText`
 * [x] `SDL_HasEvent`
-* [ ] `SDL_HasEvents`
-* [ ] `SDL_HasIntersection`
-* [ ] `SDL_HasMMX`
-* [ ] `SDL_HasRDTSC`
-* [ ] `SDL_HasSSE`
+* [x] `SDL_HasEvents`
+* [x] `SDL_HasIntersection`
+* [x] `SDL_HasMMX`
+* [x] `SDL_HasRDTSC`
+* [x] `SDL_HasSSE`
 * [ ] `SDL_HasSSE2`
 * [ ] `SDL_HasSSE3`
 * [ ] `SDL_HasSSE41`

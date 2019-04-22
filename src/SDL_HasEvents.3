@@ -1,0 +1,39 @@
+.TH SDL_HasEvents 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HasEvents\fR -- Function
+
+.SH SYNOPSIS
+Use this function to check for the existence of a range of event types in the event queue.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_HasEvents(Uint32   minType,
+                       Uint3    maxType)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+minType:T{
+the minimum type of event to be queried; see \fBSDL_EventType\fR for details
+T}
+maxType:T{
+the maximum type of event to be queried; see \fBSDL_EventType\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if events with types in the range between \fBminType\fR and \fBmaxType\fR are present, \fBSDL_FALSE\fR if not.
+
+.SH REMARKS
+If you need to check for a single event type, you can use \fBSDL_HasEvent()\fR instead.
+
+.SH RELATED FUNCTIONS
+\fISDL_HasEvent\fR

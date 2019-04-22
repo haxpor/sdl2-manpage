@@ -1,0 +1,42 @@
+.TH SDL_HasIntersection 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HasIntersection\fR -- Function
+
+.SH SYNOPSIS
+Use this function to determine whether two rectangles intersect.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_HasIntersection(const SDL_Rect*    A,
+                             const SDL_Rect*    B)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+A:T{
+an \fBSDL_Rect\fR structure representing the first rectangle
+T}
+B:T{
+an \fBSDL_Rect\fR structure representing the second rectangle
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if there is an intersection, \fBSDL_FALSE\fR otherwise.
+
+.SH REMARKS
+If either pointer is NULL the function will return \fBSDL_FALSE\fR.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_IntersectRect\fR
