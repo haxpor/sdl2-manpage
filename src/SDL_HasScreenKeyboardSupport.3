@@ -1,0 +1,26 @@
+.TH SDL_HasScreenKeyboardSupport 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_HasScreenKeyboardSupport\fR -- Function
+
+.SH SYNOPSIS
+Use this function to check whether the platform has some screen keyboard support.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_HasScreenKeyboardSupport(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if the platform has some screen keyboard support or \fBSDL_FALSE\fR if not.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_StartTextInput\fR

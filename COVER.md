@@ -430,11 +430,11 @@ Chcked items are covered by this project.
 * [x] `SDL_HasMMX`
 * [x] `SDL_HasRDTSC`
 * [x] `SDL_HasSSE`
-* [ ] `SDL_HasSSE2`
-* [ ] `SDL_HasSSE3`
-* [ ] `SDL_HasSSE41`
-* [ ] `SDL_HasSSE42`
-* [ ] `SDL_HasScreenKeyboardSupport`
+* [x] `SDL_HasSSE2`
+* [x] `SDL_HasSSE3`
+* [x] `SDL_HasSSE41`
+* [x] `SDL_HasSSE42`
+* [x] `SDL_HasScreenKeyboardSupport`
 * [ ] `SDL_HideWindow`
 * [x] `SDL_Init`
 * [ ] `SDL_InitSubSystem`
