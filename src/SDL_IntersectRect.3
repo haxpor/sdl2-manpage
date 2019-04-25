@@ -1,0 +1,46 @@
+.TH SDL_IntersectRect 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_IntersectRect\fR -- Function
+
+.SH SYNOPSIS
+Use this function to calculate the intersection of two rectangles.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_IntersectRect(const SDL_Rect*    A,
+                           const SDL_Rect*    B,
+                           SDL_Rect*          result)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+A:T{
+an \fBSDL_Rect\fR structure representing the first rectangle
+T}
+B:T{
+an \fBSDL_Rect\fR structure representing the second rectangle
+T}
+C:T{
+an \fBSDL_Rect\fR structure filled in with the intersection of rectangles \fBA\fR and \fBB\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if there is an intersection, \fBSDL_FALSE\fR otherwise.
+
+.SH REMARKS
+If \fBresult\fR is NULL then this function will return \fBSDL_FALSE\fR.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_HasIntersection\fR

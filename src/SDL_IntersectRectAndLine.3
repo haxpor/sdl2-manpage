@@ -1,0 +1,48 @@
+.TH SDL_IntersectRectAndLine 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_IntersectRectAndLine\fR -- Function
+
+.SH SYNOPSIS
+Use this function to calculate the intersection of a rectangle and line segment.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_IntersectRectAndLine(const SDL_Rect*   rect,
+                                  int*              X1,
+                                  int*              Y1,
+                                  int*              X2,
+                                  int*              Y2)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+rect:T{
+an \fBSDL_Rect\fR structure representing the rectangle to intersect
+T}
+X1:T{
+a pointer to the starting X-coordinate of the line
+T}
+Y1:T{
+a pointer to the starting Y-coordinate of the line
+T}
+X2:T{
+a pointer to the ending X-coordinate of the line
+T}
+Y2:T{
+a pointer to the ending Y-coordinate of the line
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if there is an intersection, \fBSDL_FALSE\fR otherwise.
+
+.SH REMARKS
+This function is used to clip a line segment to a rectangle. A line segment contained entirely within the rectangle or that does not intersect will remain unchanged. A line segment that crosses the rectangle at either or both ends will be clipped to the boundary of the rectangle and the new coordinates saved in \fBX1\fR, \fBY1\fR, \fBX2\fR, and/or \fBY2\fR as necessary.

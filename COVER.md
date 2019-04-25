@@ -435,12 +435,12 @@ Chcked items are covered by this project.
 * [x] `SDL_HasSSE41`
 * [x] `SDL_HasSSE42`
 * [x] `SDL_HasScreenKeyboardSupport`
-* [ ] `SDL_HideWindow`
+* [x] `SDL_HideWindow`
 * [x] `SDL_Init`
-* [ ] `SDL_InitSubSystem`
-* [ ] `SDL_IntersectRect`
-* [ ] `SDL_IntersectRectAndLine`
-* [ ] `SDL_IsGameController`
+* [x] `SDL_InitSubSystem`
+* [x] `SDL_IntersectRect`
+* [x] `SDL_IntersectRectAndLine`
+* [x] `SDL_IsGameController`
 * [ ] `SDL_IsScreenKeyboardShown`
 * [ ] `SDL_IsScreenSaverEnabled`
 * [ ] `SDL_IsTextInputActive`
