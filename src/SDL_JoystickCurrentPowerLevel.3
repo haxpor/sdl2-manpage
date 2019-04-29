@@ -1,0 +1,30 @@
+.TH SDL_JoystickCurrentPowerLevel 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickCurrentPowerLevel\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the battery level of a joystick as \fBSDL_JoystickPowerLevel\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_JoystickPowerLevel SDL_JoystickCurrentPowerLevel(SDL_Joystick*    joystick)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+joystick:the \fBSDL_Joystick\fR to query
+.TE
+
+.SH RETURN VALUE
+Returns the current library level as \fBSDL_JoystickPowerLevel\fR on success or \fBSDL_JOYSTICK_POWER_UNKONOWN\fR if it is unknown; call \fBSDL_GetError()\fR for more information.
+
+.SH VERSION
+This function is available since SDL 2.0.4.

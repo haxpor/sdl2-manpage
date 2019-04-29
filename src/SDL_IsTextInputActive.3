@@ -1,0 +1,29 @@
+.TH SDL_IsTextInputActive 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_IsTextInputActive\fR -- Function
+
+.SH SYNOPSIS
+Use this function to check whether or not Unicode text input events are enabled.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_IsTextInputActive(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if text input events are enabled else \fBSDL_FALSE\fR.
+
+.SH REMARKS
+There is a \fItutorial\fR (\fIhttps://wiki.libsdl.org/Tutorials/TextInput\fR).
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_StartTextInput\fR

@@ -1,0 +1,58 @@
+.TH SDL_JoystickEventState 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickEventState\fR -- Function
+
+.SH SYNOPSIS
+Use this function to enable/disable joystick event polling.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_JoystickEventState(int    state)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+state:T{
+can be one of \fBSDL_QUERY\fR, \fBSDL_IGNORE\fR, or \fBSDL_ENABLE\fR
+T}
+.TE
+
+.br
+Note: You may use -1, 0, or 1 in place of \fBSDL_QUERY\fR, \fBSDL_IGNORE\fR, or \fBSDL_ENABLE\fR respectively.
+
+.SH RETURN VALUE
+Returns 1 if enabled, 0 if disabled, or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+If \fBstate\fR is \fBSDL_QUERY\fR then the current state is returned, otherwise the new processing state is returned.
+
+.SH CODE EXAMPLE
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+printf("%i\\n", SDL_JoystickEventState(SDL_QUERY)); /* prints 1 */
+printf("%i\\n", SDL_JoystickEventState(SDL_IGNORE));  /*  prints 0 */
+printf("%i\\n", SDL_JoystickEventState(SDL_QUERY)); /* prints 0 */
+.fi
+T}
+.TE
+
+.SH REMARKS
+If joystick events are disabled, you must call \fBSDL_JoystickUpdate()\fR yourself and manually check the state of the joystick when you want joystick information.
+
+Note: It is recommended that you leave joystick event handling enabled.
+
+WARNING: Calling this function may delete all events currently in SDL's event queue.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetControllerEventState\fR

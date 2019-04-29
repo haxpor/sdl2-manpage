@@ -441,12 +441,12 @@ Chcked items are covered by this project.
 * [x] `SDL_IntersectRect`
 * [x] `SDL_IntersectRectAndLine`
 * [x] `SDL_IsGameController`
-* [ ] `SDL_IsScreenKeyboardShown`
-* [ ] `SDL_IsScreenSaverEnabled`
-* [ ] `SDL_IsTextInputActive`
+* [x] `SDL_IsScreenKeyboardShown`
+* [x] `SDL_IsScreenSaverEnabled`
+* [x] `SDL_IsTextInputActive`
 * [x] `SDL_JoystickClose`
-* [ ] `SDL_JoystickCurrentPowerLevel`
-* [ ] `SDL_JoystickEventState`
+* [x] `SDL_JoystickCurrentPowerLevel`
+* [x] `SDL_JoystickEventState`
 * [ ] `SDL_JoystickFromInstanceID`
 * [ ] `SDL_JoystickGetAttached`
 * [ ] `SDL_JoystickGetAxis`
