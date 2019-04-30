@@ -1,0 +1,58 @@
+.TH SDL_JoystickGetAxis 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickGetAxis\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current state of an axis control on a joystick.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Sint16 SDL_JoystickGetAxis(SDL_Joystick*    joystick,
+                           int              axis)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+joystick:T{
+an \fBSDL_Joystick\fR structure containing joystick information
+T}
+axis:T{
+the axis to query; the axis indices start at index 0; see \fIRemarks\fI for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a 16-bit signed integer representing the current position of the axis or 0 on failure; call \fBSDL_GetError()\fR for more information.
+
+The state is a value ranging from -32768 to 32767.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+extern SDL_Joystick*  joy1;
+Sint16  x_move, y_move;
+
+x_move = SDL_JoystickGetAxis(joy1, 0);
+y_move = SDL_JoystickGetAxis(joy1, 1);
+.fi
+T}
+.TE
+
+.SH REMARKS
+On most modern joysticks the X axis is usually represented by \fBaxis\fR 0 and the Y axis by \fBaxis\fR 1. The value returned by \fBSDL_JoystickGetAxis()\fR is a signed integer (-32768 to 32767) representing the current position of the axis. It may be necessary to impose certain tolerances on these values to account for jitter.
+
+Some joysticks use axes 2 and 3 for extra buttons.
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickNumAxes\fR

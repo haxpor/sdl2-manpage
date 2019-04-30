@@ -1,0 +1,68 @@
+.TH SDL_JoystickGetBall 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickGetBall\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the ball axis change since the last poll.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_JoystickGetBall(SDL_Joystick*   joystick,
+                        int             ball,
+                        int*            dx,
+                        int*            dy)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+joystick:T{
+the \fBSDL_Joystick\fR to query
+T}
+ball:T{
+the ball index to query; ball indices start at index 0
+T}
+dx:T{
+the difference in the x axis position since the last poll
+T}
+dy:T{
+the difference in the y axis position since the last poll
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR fore more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int delta_x, delta_y;
+SDL_Joystick* joy;
+.
+.
+.
+SDL_JoystickUpdate();
+if (SDL_JoystickGetBall(joy, 0, &delta_x, &delta_y) == -1)
+{
+  printf("TrackBall Read Error!\\n");
+}
+printf("TrackBall Delta X:%d, Y:%d\\n", delta_x, delta_y);
+.fi
+T}
+.TE
+
+.SH REMARKS
+Trackballs can only return relative motion since the last call to \fBSDL_JoystickGetBall()\fR, these motion deltas are placed into \fBdx\fR and \fBdy\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickNumBalls\fR

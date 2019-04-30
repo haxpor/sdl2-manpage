@@ -447,10 +447,10 @@ Chcked items are covered by this project.
 * [x] `SDL_JoystickClose`
 * [x] `SDL_JoystickCurrentPowerLevel`
 * [x] `SDL_JoystickEventState`
-* [ ] `SDL_JoystickFromInstanceID`
-* [ ] `SDL_JoystickGetAttached`
-* [ ] `SDL_JoystickGetAxis`
-* [ ] `SDL_JoystickGetBall`
+* [x] `SDL_JoystickFromInstanceID`
+* [x] `SDL_JoystickGetAttached`
+* [x] `SDL_JoystickGetAxis`
+* [x] `SDL_JoystickGetBall`
 * [ ] `SDL_JoystickGetButton`
 * [ ] `SDL_JoystickGetDeviceGUID`
 * [ ] `SDL_JoystickGetGUID`
