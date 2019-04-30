@@ -1,0 +1,36 @@
+.TH SDL_JoystickGetButton 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickGetButton\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current state of a button on a joystick.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint8 SDL_JoystickGetButton(SDL_Joystick*   joystick,
+                            int             button)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+joystick:T{
+an \fBSDL_Joystick\fR structure containing joystick information
+T}
+button:T{
+the button index to get the state from; indices start at index 0
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 1 if the specified button is pressed, 0 otherwise.
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickNumButtons\fR

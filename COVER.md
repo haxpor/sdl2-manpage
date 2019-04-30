@@ -451,7 +451,7 @@ Chcked items are covered by this project.
 * [x] `SDL_JoystickGetAttached`
 * [x] `SDL_JoystickGetAxis`
 * [x] `SDL_JoystickGetBall`
-* [ ] `SDL_JoystickGetButton`
+* [x] `SDL_JoystickGetButton`
 * [ ] `SDL_JoystickGetDeviceGUID`
 * [ ] `SDL_JoystickGetGUID`
 * [ ] `SDL_JoystickGetGUIDFromString`
