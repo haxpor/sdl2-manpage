@@ -1,0 +1,58 @@
+.TH SDL_JoystickGetHat 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickGetHat\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current state of a POV hat on a joystick.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint8 SDL_JoystickGetHat(SDL_Joystick*    joystick,
+                         int              hat)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+joystick:T{
+an \fBSDL_Joystick\fR structure containing joystick information
+T}
+hat:T{
+the hat index to get the state from; hat indices start at index 0
+T}
+.TE
+
+.SH RETURN VALUE
+Returns one of the following positions:
+
+.TS
+tab(:) allbox;
+ab.
+SDL_HAT_CENTERED
+SDL_HAT_UP
+SDL_HAT_RIGHT
+SDL_HAT_DOWN
+SDL_HAT_LEFT
+SDL_HAT_RIGHTUP
+SDL_HAT_RIGHTDOWN
+SDL_HAT_LEFTUP
+SDL_HAT_LEFTDOWN
+.TE
+
+.TS
+tab(:) allbox;
+ab ab ab.
+SDL_HAT_LEFTUP:SDL_HAT_UP:SDL_HAT_RIGHTUP
+SDL_HAT_LEFT:SDL_HAT_CENTERED:SDL_HAT_RIGHT
+SDL_HAT_LEFTDOWN:SDL_HAT_DOWN:SDL_HAT_RIGHTDOWN
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickNumHats\fR

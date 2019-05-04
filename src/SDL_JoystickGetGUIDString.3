@@ -1,0 +1,44 @@
+.TH SDL_JoystickGetGUIDString 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickGetGUIDString\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get an ASCII string representation for a given \fBSDL_JoystickGUID\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_JoystickGetGUIDString(SDL_JoystickGUID   guid,
+                               char*              pszGUID,
+                               int                cbGUID)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+guid:T{
+the \fBSDL_JoystickGUID\fR you wish to convert to string
+T}
+pszGUID:T{
+buffer in which to write the ASCII string
+T}
+cbGUID:T{
+the size of pszGUID
+T}
+.TE
+
+.SH REMARKS
+You should supply at least 33 bytes for pszGUID.
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickGetDeviceGUID\fR
+.br
+\fISDL_JoystickGetGUID\fR
+.br
+\fISDL_JoystickGetGUIDFromString\fR

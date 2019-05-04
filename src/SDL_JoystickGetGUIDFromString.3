@@ -1,0 +1,35 @@
+.TH SDL_JoystickGetGUIDFromString 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickGetGUIDFromString\fR -- Function
+
+.SH SYNOPSIS
+Use this function to convert a GUID string into a \fBSDL_JoystickGUID\fR structure.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_JoystickGUID SDL_JoystickGetGUIDFromString(const char*    pchGUID)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+pchGUID:T{
+string containing an ASCII representation of a GUID
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a \fBSDL_JoystickGUID\fR structure.
+
+.SH REMARKS
+Performs no error checking. If this function is given a string containing an invalid GUID, the function will silently succeed, but the GUID generated will not be useful.
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickGetGUIDString\fR

@@ -1,0 +1,37 @@
+.TH SDL_JoystickGetGUID 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickGetGUID\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the implementation-dependent GUID for the joystick.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Joystick SDL_JoystickGetGUID(SDL_Joystick*    joystick)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+joystick:T{
+an open joystick
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the GUID of the given joystick. If called on an invalid index, this function returns a zero GUID; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This function requires an open joystick.
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickGetDeviceID\fR
+.br
+\fISDL_JoystickGetGUIDString\fR
