@@ -3,17 +3,17 @@ Man-pages generated for SDL2. It covers APIs as listed [here](https://github.com
 
 # Installation
 
-Execute `./install.sh` to install SDL2's man pages to your system.
-
-> It does its work by copying its own copy to your user's home directory at `~/.sdl2-manpage/` then making symlinks to all files with target at `/usr/local/share/man/man3/`.
+* Clone this repository to somewhere on your computer with `git clone https://github.com/haxpor/sdl2-manpage.git`
+* Execute `sudo ./install.sh` to install to your system.
 
 # Note on Upgrading or Removing
 
-Just remove this repository, those man-page files at `/usr/local/share/man/man3/` will be dead link, and you cannot man such relevant section anymore.
+Just remove this repository, those man-page files at `/usr/local/share/man/man3/` will become dead links, and you cannot man such relevant section anymore. It's safe.
 
 This project decides to do just this as multiple version of man-page for a library seems to be tedious to manage on users' system.
 The same man-page file can potential link to different version of library if you upgrade, or such relevant section is removed in older version of library.
-So to be safe, we just deal with out own copy not man-page files on the system.
+
+So to be safe, we just do sym-link to actual files on this cloned repository on your system.
 
 # License
 
