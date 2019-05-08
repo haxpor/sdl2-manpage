@@ -1,0 +1,35 @@
+.TH SDL_JoystickNumBalls 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickNumBalls\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the number of trackballs on a joystick.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_JoystickNumBalls(SDL_Joystick*    joystick)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+joystick:T{
+an \fBSDL_Joystick\fR structure containing joystick information
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the number of trackballs on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+Joystick trackballs have only relative motion events associated with them and their state cannot be polled.
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickGetBall\fR

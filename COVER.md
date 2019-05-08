@@ -458,11 +458,11 @@ Chcked items are covered by this project.
 * [x] `SDL_JoystickGetGUIDString`
 * [x] `SDL_JoystickGetHat`
 * [x] `SDL_JoystickInstanceID`
-* [ ] `SDL_JoystickIsHaptic`
-* [ ] `SDL_JoystickName`
-* [ ] `SDL_JoystickNameFromIndex`
-* [ ] `SDL_JoystickNumAxes`
-* [ ] `SDL_JoystickNumBalls`
+* [x] `SDL_JoystickIsHaptic`
+* [x] `SDL_JoystickName`
+* [x] `SDL_JoystickNameForIndex`
+* [x] `SDL_JoystickNumAxes`
+* [x] `SDL_JoystickNumBalls`
 * [ ] `SDL_JoystickNumButtons`
 * [ ] `SDL_JoystickNumHats`
 * [x] `SDL_JoystickOpen`

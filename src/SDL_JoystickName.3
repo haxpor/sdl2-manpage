@@ -1,0 +1,56 @@
+.TH SDL_JoystickName 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickName\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the implementation dependent name of a joystick.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const char* SDL_JoystickName(SDL_Joystick*    joystick)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+joystick:T{
+the \fBSDL_Joystick\fR obtained from \fBSDL_JoystickOpen()\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the name of the selected joystick. If no name can be found, this function returns NULL; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+ab.
+T{
+.nf
+/* Print the names of all attached joysticks */
+int num_joy, i;
+num_joy = SDL_NumJoysticks();
+printf("%d joysticks found\\n", num_joy);
+for (i = 0; i < num_joy; ++i)
+{
+  SDL_Joystick *joystick = SDL_JoystickOpen(i);
+  printf("%s\\n", SDL_JoystickName(joystick));
+}
+.fi
+T}
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickNameForIndex\fR
+.br
+\fISDL_JoystickOpen\fR
