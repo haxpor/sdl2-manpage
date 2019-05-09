@@ -463,12 +463,12 @@ Chcked items are covered by this project.
 * [x] `SDL_JoystickNameForIndex`
 * [x] `SDL_JoystickNumAxes`
 * [x] `SDL_JoystickNumBalls`
-* [ ] `SDL_JoystickNumButtons`
-* [ ] `SDL_JoystickNumHats`
+* [x] `SDL_JoystickNumButtons`
+* [x] `SDL_JoystickNumHats`
 * [x] `SDL_JoystickOpen`
-* [ ] `SDL_JoystickUpdate`
-* [ ] `SDL_LoadBMP`
-* [ ] `SDL_LoadBMP_RW`
+* [x] `SDL_JoystickUpdate`
+* [x] `SDL_LoadBMP`
+* [x] `SDL_LoadBMP_RW`
 * [ ] `SDL_LoadDollarTemplates`
 * [ ] `SDL_LoadFunction`
 * [ ] `SDL_LoadObject`

@@ -1,0 +1,23 @@
+.TH SDL_JoystickUpdate 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_JoystickUpdate\fR -- Function
+
+.SH SYNOPSIS
+Use this function to update the current state of the open joysticks.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_JoystickUpdate(void)
+.fi
+T}
+.TE
+
+.SH REMARKS
+This is called automatically by the event loop if any joystick events are enabled.
+
+.SH RELATED FUNCTIONS
+\fISDL_JoystickEventState\fR

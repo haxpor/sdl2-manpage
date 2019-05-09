@@ -1,0 +1,39 @@
+.TH SDL_LoadBMP 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_LoadBMP\fR -- Function
+
+.SH SYNOPSIS
+Use this function to load a surface from a BMP file.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_Surface* SDL_LoadBMP(const char*    file)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+file:T{
+the file containing a BMP image
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a pointer to a new \fBSDL_Surface\fR structure or NULL if there was an error; call \fBSDL_GetError\fR for more information.
+
+.SH REMARKS
+The new surface should be freed with \fBSDL_FreeSurface()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_FreeSurface\fR
+.br
+\fISDL_LoadBMP_RW\fR
+.br
+\fISDL_SaveBMP\fR
