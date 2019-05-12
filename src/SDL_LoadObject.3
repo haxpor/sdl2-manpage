@@ -1,0 +1,48 @@
+.TH SDL_LoadObject 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_LoadObject\fR -- Function
+
+.SH SYNOPSIS
+Use this function to dynamically load a shared object and return a pointer to the object handle.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void* SDL_LoadObject(const char*    sofile)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+sofil:T{
+a system dependent name of the object file
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a pointer to the object handle or NULL if there was an error; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include "SDL.h"
+
+/* Dynamically load mylib.so */
+SDL_LoadObject("mylib.so");
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_LoadFunction\fR
+.br
+\fISDL_UnloadObject\fR

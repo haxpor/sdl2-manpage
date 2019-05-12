@@ -1,0 +1,38 @@
+.TH SDL_LoadDollarTemplates 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_LoadDollarTemplates\fR -- Function
+
+.SH SYNOPSIS
+Use this function to load Dollar Gesture templates from a file.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_LoadDollarTemplate(SDL_TouchID    touchId,
+                           SDL_RWops*     src)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+touchId:T{
+a touch id
+T}
+src:T{
+a \fBSDL_RWops\fR to load from
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the number of loaded templates on success or a negative error code (or 0) on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_SaveAllDollarTemplates\fR
+.br
+\fISDL_SaveDollarTemplate\fR

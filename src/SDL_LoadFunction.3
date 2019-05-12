@@ -1,0 +1,80 @@
+.TH SDL_LoadFunction 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_LoadFunction\fR -- Function
+
+.SH SYNOPSIS
+Use this function to look up the address of the named function in the shared object and return it.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void* SDL_LoadFunction(void*          handle,
+                       const char*    name)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+handle:T{
+a valid shared object handle returned by \fBSDL_LoadObject()\fR
+T}
+name:T{
+the name of the function to look up
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a pointer to the function or NULL if there was an error; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include "SDL.h"
+
+/* Variable declrations */
+void* myHandle = NULL;
+char* myFunctionName = "myFancyFunction";
+void (*myFancyFunction)(int anInt);
+
+/* Dyanmically load mylib.so */
+myHandle = SDL_LoadObject("mylib.so");
+
+/* Load the exported function from mylib.so
+ * The expoerted function has following prorotype
+ * void myFancyFunction(int anInt);
+ */
+myFancyFunction = (void(*)(int))SDL_LoadFunction(myHandle, myFunctionName);
+
+/* Call myFancyFunction with a random integer. */
+if (myFancyFunction != NULL)
+{
+  myFancyFunction(15);
+}
+else
+{
+  /* Error handling here */
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function pointer is no longer valid after calling \fBSDL_UnloadObject()\fR.
+
+This function can only look up C function names. Other languages may have name mangling and intrinsic language support that varies from compiler to compiler.
+
+Make sure you declare your function pointers with the same calling convention as the actual library function. Your code will crash mysteriously if you do not do this.
+
+.SH RELATED FUNCTIONS
+\fISDL_LoadObject\fR
+.br
+\fISDL_UnloadObject\fR

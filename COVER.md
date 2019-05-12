@@ -469,11 +469,11 @@ Chcked items are covered by this project.
 * [x] `SDL_JoystickUpdate`
 * [x] `SDL_LoadBMP`
 * [x] `SDL_LoadBMP_RW`
-* [ ] `SDL_LoadDollarTemplates`
-* [ ] `SDL_LoadFunction`
-* [ ] `SDL_LoadObject`
-* [ ] `SDL_LoadWAV`
-* [ ] `SDL_LoadWAV_RW`
+* [x] `SDL_LoadDollarTemplates`
+* [x] `SDL_LoadFunction`
+* [x] `SDL_LoadObject`
+* [x] `SDL_LoadWAV`
+* [x] `SDL_LoadWAV_RW`
 * [ ] `SDL_LockAudio`
 * [ ] `SDL_LockAudioDevice`
 * [ ] `SDL_LockMutex`

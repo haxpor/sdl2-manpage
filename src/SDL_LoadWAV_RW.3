@@ -1,0 +1,84 @@
+.TH SDL_LoadWAV_RW 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_LoadWAV_RW\fR -- Function
+
+.SH SYNOPSIS
+Use this function to load a WAVE from the data source, automatically freeing that source if \fBfreesrc\fR is non-zero.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_AudioSpec* SDL_LoadWAV_RW(SDL_RWops*        src,
+                              int               freesrc,
+                              SDL_AudioSpec*    spec,
+                              Uint8**           audio_buf,
+                              Uint32*           audio_len)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+src:T{
+the data source for the wave file; see \fIthe RWOPS interface()\fR(\fIhttps://wiki.libsdl.org/CategoryIO\fR) for more info
+T}
+freesrc:T{
+non-zero to automatically free the data source
+T}
+spec:T{
+an \fBSDL_AudioSpec\fR structure that will be filled in with the wave file's format details
+T}
+audio_buf:T{
+the audio buffer
+T}
+audio_len:T{
+the length of the audio buffer in bytes
+T}
+.TE
+
+.SH RETURN VALUE
+This function, if successfully called, returns a pointer to an \fBSDL_AudioSpec\fR structure filled with the audio data format of the wave source data. \fBaudio_buf\fR is filled with a pointer to an allocated buffer containing the audio data, and \fBaudio_len\fR is filled with the length of that audio buffer in bytes.
+
+This function returns NULL if the wave file cannot be opened, uses an unknown data format, or is corrupt; call \fBSDL_GetError()\fR for more information.
+
+When the application is done with the data returned in \fBaudio_buf\fR, it should call \fBSDL_FreeWAV()\fR to dispose it.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+extern SDL_RWops* myRWops;
+SDL_AudioSpec wav_spec;
+Uint32 wav_length;
+Uint8* wav_buffer;
+
+/* Load the WAV */
+if (SDL_LoadWAV_RW(myRWops, 1, &wav_spec, &wav_buffer, &wav_length) == NULL)
+{
+  fprintf(stderr, "Could not open test.wav: %s\\n", SDL_GetError());
+}
+else
+{
+  /* Do stuff with the WAV data, and then... */
+  SDL_FreeWAV(wav_buffer);
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+Currently raw and MS-ADPCM WAVE file are supported.
+
+You need to free the audio buffer with \fBSDL_FreeWAV()\fR when you are done with it.
+
+.SH RELATED FUNCTIONS
+\fISDL_FreeWAV\fR
+.br
+\fISDL_LoadWAV\fR
