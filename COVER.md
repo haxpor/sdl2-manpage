@@ -474,7 +474,7 @@ Chcked items are covered by this project.
 * [x] `SDL_LoadObject`
 * [x] `SDL_LoadWAV`
 * [x] `SDL_LoadWAV_RW`
-* [ ] `SDL_LockAudio`
+* [x] `SDL_LockAudio`
 * [ ] `SDL_LockAudioDevice`
 * [ ] `SDL_LockMutex`
 * [ ] `SDL_LockSurface`
