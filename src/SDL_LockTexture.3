@@ -1,0 +1,49 @@
+.TH SDL_LockTexture 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_LockTexture\fR -- Function
+
+.SH SYNOPSIS
+Use this function to lock a portion of the texture for \fBwrite-only\fR pixel access.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_LockTexture(SDL_Texture*      texture,
+                    const SDL_Rect*   rect,
+                    void**            pixels,
+                    int*              pitch)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+texture:T{
+the texture to lock for access, which was created with \fBSDL_TEXTUREACCESS_STREAMING\fR
+T}
+rect:T{
+an \fBSDL_Rect\fR structure representing the area to lock for access; NULL to lock the entire texture
+T}
+pixels:T{
+this is filled in with a pointer to the locked pixels, appropriately offset by the locked area
+T}
+pitch:T{
+this is filled in with the pitch of the locked pixels; the pitch is the length of one row in bytes
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code if the texture is not valid or was not created with \fBSDL_TEXTUREACCESS_STREAMING\fR; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+As an optimization, the pixels made available for editing don't necessarily contain the old texture data. This is a \fBwrite-only\fR operation, and if you need to keep a copy of the texture data you should do that at the application level.
+
+You must use \fBSDL_UnlockTexture()\fR to unlock the pixels and apply any changes.
+
+.SH RELATED FUNCTIONS
+\fISDL_UnlockTexture\fR
