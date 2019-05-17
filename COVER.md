@@ -479,7 +479,7 @@ Chcked items are covered by this project.
 * [x] `SDL_LockMutex`
 * [x] `SDL_LockSurface`
 * [x] `SDL_LockTexture`
-* [ ] `SDL_Log`
+* [x] `SDL_Log`
 * [ ] `SDL_LogCritical`
 * [ ] `SDL_LogDebug`
 * [ ] `SDL_LogError`

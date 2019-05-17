@@ -1,0 +1,48 @@
+.TH SDL_Log 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Log\fR -- Function
+
+.SH SYNOPSIS
+Use this function to log a message with \fBSDL_LOG_CATEGORY_APPLICATION\fR and
+\fBSDL_LOG_PRIORITY_INFO\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_Log(const char*    fmt,
+             ...)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+fmt:T{
+a printf() style message format string
+T}
+\.\.\.:T{
+additional parameters matching % tokens in the \fBfmt\fR string, if any
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_LogCritical\fR
+.br
+\fISDL_LogDebug\fR
+.br
+\fISDL_LogError\fR
+.br
+\fISDL_LogInfo\fR
+.br
+\fISDL_LogMessage\fR
+.br
+\fISDL_LogMessageV\fR
+.br
+\fISDL_LogVerbose\fR
+.br
+\fISDL_LogWarn\fR
