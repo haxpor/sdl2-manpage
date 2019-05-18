@@ -480,10 +480,10 @@ Chcked items are covered by this project.
 * [x] `SDL_LockSurface`
 * [x] `SDL_LockTexture`
 * [x] `SDL_Log`
-* [ ] `SDL_LogCritical`
-* [ ] `SDL_LogDebug`
-* [ ] `SDL_LogError`
-* [ ] `SDL_LogGetOutputFunction`
+* [x] `SDL_LogCritical`
+* [x] `SDL_LogDebug`
+* [x] `SDL_LogError`
+* [x] `SDL_LogGetOutputFunction`
 * [ ] `SDL_LogGetPriority`
 * [ ] `SDL_LogInfo`
 * [ ] `SDL_LogMessage`
