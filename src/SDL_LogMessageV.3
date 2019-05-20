@@ -1,0 +1,113 @@
+.TH SDL_LogMessageV 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_LogMessageV\fR -- Function
+
+.SH SYNOPSIS
+Use this function to log a message with the specified category and priority. This version of \fBSDL_LogMessage()\fR uses a stdarg variadic argument list.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_LogMessageV(int                category,
+                     SDL_LogPriority    priority,
+                     const char*        fmt,
+                     va_list            ap)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+category:T{
+the category of the message; see \fBRemarks\fR for details
+T}
+priority:T{
+the priority of the message; see \fRRemarks\fR for details
+T}
+fmt:T{
+a \fBprintf()\fR style message format string
+T}
+ap:T{
+a variable argument list
+T}
+.TE
+
+.SH REMARKS
+The \fBcategory\fR will be one of:
+
+.TS
+tab(:) allbox;
+ab a.
+SDL_LOG_CATEGORY_APPLICATION:T{
+application log
+T}
+SDL_LOG_CATEGORY_ERROR:T{
+error log
+T}
+SDL_LOG_CATEGORY_ASSERT:T{
+assert log
+T}
+SDL_LOG_CATEGORY_SYSTEM:T{
+system log
+T}
+SDL_LOG_CATEGORY_AUDIO:T{
+audio log
+T}
+SDL_LOG_CATEGORY_VIDEO:T{
+video log
+T}
+SDL_LOG_CATEGORY_RENDER:T{
+render log
+T}
+SDL_LOG_CATEGORY_INPUT:T{
+input log
+T}
+SDL_LOG_CATEGORY_TEST:T{
+test log
+T}
+SDL_LOG_CATEGORY_RESERVED#:T{
+# = 1-10; reserved for future SDL library use
+T}
+SDL_LOG_CATEGORY_CUSTOM:T{
+reserved for application use; see \fIRemarks\fR(\fIhttps://wiki.libsdl.org/SDL_LOG_CATEGORY#Remarks\fR) for details
+T}
+.TE
+
+The returned priority will be one of:
+
+.TS
+tab(:) allbox;
+ab a.
+SDL_LOG_PRIORITY_VERBOSE:
+SDL_LOG_PRIORITY_DEBUG:
+SDL_LOG_PRIORITY_INFO:
+SDL_LOG_PRIORITY_WARN:
+SDL_LOG_PRIORITY_ERROR:
+SDL_LOG_PRIORITY_CRITICAL:
+SDL_NUM_LOG_PRIORITIES:(internal use)
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_Log\fR
+.br
+\fISDL_LogCritical\fR
+.br
+\fISDL_LogDebug\fR
+.br
+\fISDL_LogError\fR
+.br
+\fISDL_LogInfo\fR
+.br
+\fISDL_LogMessage\fR
+.br
+\fISDL_LogVerbose\fR
+.br
+\fISDL_LogWarn\fR
