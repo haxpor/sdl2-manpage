@@ -1,0 +1,122 @@
+.TH SDL_LogSetOutputFunction 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_LogSetOutputFunction\fR -- Function
+
+.SH SYNOPSIS
+Use this function to replace the default log output function with one of your own.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_LogSetOutputFunction(SDL_LogOutputFunction   callback,
+                              void*                   userdata)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+callback:T{
+the function to call instead of the default; see \fIRemarks\fR for details
+T}
+userdata:T{
+a pointer that is passed to \fBcallback\fR
+T}
+.TE
+
+.SH REMARKS
+The function prototype for \fBcallback\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_LogOutputFunction(void*              userdata,
+                           int                category,
+                           SDL_LogPriority    priority,
+                           const char*        message)
+.fi
+T}
+.TE
+
+where its parameters are:
+
+.TS
+tab(:) allbox;
+ab l.
+userdata:T{
+what was passed as \fBuserdata\fR to \fBSDL_LogSetOutputFunction()\fR
+T}
+category:T{
+the category of the message; see \fIRemarks\fR for details
+T}
+priority:T{
+the priority of the message; see \fIRemarks\fR for details
+T}
+message:T{
+the message being output
+T}
+.TE
+
+The \fBcategory\fR will be one of:
+
+.TS
+tab(:) allbox;
+ab a.
+SDL_LOG_CATEGORY_APPLICATION:T{
+application log
+T}
+SDL_LOG_CATEGORY_ERROR:T{
+error log
+T}
+SDL_LOG_CATEGORY_ASSERT:T{
+assert log
+T}
+SDL_LOG_CATEGORY_SYSTEM:T{
+system log
+T}
+SDL_LOG_CATEGORY_AUDIO:T{
+audio log
+T}
+SDL_LOG_CATEGORY_VIDEO:T{
+video log
+T}
+SDL_LOG_CATEGORY_RENDER:T{
+render log
+T}
+SDL_LOG_CATEGORY_INPUT:T{
+input log
+T}
+SDL_LOG_CATEGORY_TEST:T{
+test log
+T}
+SDL_LOG_CATEGORY_RESERVED#:T{
+# = 1-10; reserved for future SDL library use
+T}
+SDL_LOG_CATEGORY_CUSTOM:T{
+reserved for application use; see \fIRemarks\fR(\fIhttps://wiki.libsdl.org/SDL_LOG_CATEGORY#Remarks\fR) for details
+T}
+.TE
+
+The returned priority will be one of:
+
+.TS
+tab(:) allbox;
+ab a.
+SDL_LOG_PRIORITY_VERBOSE:
+SDL_LOG_PRIORITY_DEBUG:
+SDL_LOG_PRIORITY_INFO:
+SDL_LOG_PRIORITY_WARN:
+SDL_LOG_PRIORITY_ERROR:
+SDL_LOG_PRIORITY_CRITICAL:
+SDL_NUM_LOG_PRIORITIES:(internal use)
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_LogGetOutputFunction\fR

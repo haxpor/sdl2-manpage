@@ -489,11 +489,11 @@ Chcked items are covered by this project.
 * [x] `SDL_LogMessage`
 * [x] `SDL_LogMessageV`
 * [x] `SDL_LogResetPriorities`
-* [ ] `SDL_LogSetAllPriority`
-* [ ] `SDL_LogSetOutputFunction`
-* [ ] `SDL_LogSetPriority`
-* [ ] `SDL_LogVerbose`
-* [ ] `SDL_LogWarn`
+* [x] `SDL_LogSetAllPriority`
+* [x] `SDL_LogSetOutputFunction`
+* [x] `SDL_LogSetPriority`
+* [x] `SDL_LogVerbose`
+* [x] `SDL_LogWarn`
 * [ ] `SDL_LowerBlit`
 * [ ] `SDL_LowerBlitScaled`
 * [ ] `SDL_MUSTLOCK`

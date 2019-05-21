@@ -1,0 +1,42 @@
+.TH SDL_LogSetAllPriority 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_LogSetAllPriority\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the priority of all log categories.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_LogSetAllPriority(SDL_LogPriority    priority)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+priority:T{
+the \fBSDL_LogPriority\fR to assign; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH REMARKS
+.TS
+tab(:) allbox;
+ab l.
+SDL_LOG_PRIORITY_VERBOSE:
+SDL_LOG_PRIORITY_DEBUG:
+SDL_LOG_PRIORITY_INFO:
+SDL_LOG_PRIORITY_WARN:
+SDL_LOG_PRIORITY_ERROR:
+SDL_LOG_PRIORITY_CRITICAL:
+SDL_NUM_LOG_PRIORITIES:(internal use)
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_LogSetPriority\fR
