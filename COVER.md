@@ -494,7 +494,7 @@ Chcked items are covered by this project.
 * [x] `SDL_LogSetPriority`
 * [x] `SDL_LogVerbose`
 * [x] `SDL_LogWarn`
-* [ ] `SDL_LowerBlit`
+* [x] `SDL_LowerBlit`
 * [ ] `SDL_LowerBlitScaled`
 * [ ] `SDL_MUSTLOCK`
 * [ ] `SDL_MapRGB`
