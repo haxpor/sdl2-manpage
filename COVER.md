@@ -495,10 +495,10 @@ Chcked items are covered by this project.
 * [x] `SDL_LogVerbose`
 * [x] `SDL_LogWarn`
 * [x] `SDL_LowerBlit`
-* [ ] `SDL_LowerBlitScaled`
-* [ ] `SDL_MUSTLOCK`
-* [ ] `SDL_MapRGB`
-* [ ] `SDL_MapRGBA`
+* [x] `SDL_LowerBlitScaled`
+* [x] `SDL_MUSTLOCK`
+* [x] `SDL_MapRGB`
+* [x] `SDL_MapRGBA`
 * [ ] `SDL_MasksToPixelFormatEnum`
 * [ ] `SDL_MaximizeWindow`
 * [ ] `SDL_MinimizeWindow`
