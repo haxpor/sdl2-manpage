@@ -499,11 +499,11 @@ Chcked items are covered by this project.
 * [x] `SDL_MUSTLOCK`
 * [x] `SDL_MapRGB`
 * [x] `SDL_MapRGBA`
-* [ ] `SDL_MasksToPixelFormatEnum`
-* [ ] `SDL_MaximizeWindow`
-* [ ] `SDL_MinimizeWindow`
-* [ ] `SDL_MixAudio`
-* [ ] `SDL_MixAudioFormat`
+* [x] `SDL_MasksToPixelFormatEnum`
+* [x] `SDL_MaximizeWindow`
+* [x] `SDL_MinimizeWindow`
+* [x] `SDL_MixAudio`
+* [x] `SDL_MixAudioFormat`
 * [ ] `SDL_MostSignificantBitIndex32`
 * [ ] `SDL_MouseIsHaptic`
 * [ ] `SDL_NumHaptics`

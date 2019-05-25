@@ -1,0 +1,74 @@
+.TH SDL_MixAudio 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_MixAudio\fR -- Function
+
+.SH SYNOPSIS
+This function is a legacy means of mixing audio. New programs might want to use \fBSDL_MixAudioFormat()\fR instead.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_MixAudio(Uint8*          dst,
+                  const Uint8*    src,
+                  Uint32          len,
+                  int             volume)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+dst:T{
+the destination for the mixed audio
+T}
+src:T{
+the source audio buffer to be mixed
+T}
+len:T{
+the length of the audio buffer in bytes
+T}
+volume:T{
+ranges from 0-128, and should be set to \fBSDL_MIX_MAXVOLUME\fR for full audio volume
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+.nf
+T{
+void MyAudioCallback(void*  udata, Uint8* stream, int len)
+{
+  extern const Uint8* mixdata;
+  \[u002F]\[u002F] make sure this is silence
+  SDL_memset(stream, 0, len);
+  \[u002F]\[u002F] mix our audio against the silence, at 50% volume.
+  SDL_MixAudio(stream, mixData, len, SDL_MIX_MAXVOLUME \[u002F] 2);
+.br
+}
+T}
+.fi
+.TE
+
+.SH REMARKS
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_MixAudioFormat(dst, src, format, len, volume);
+.fi
+T}
+.TE
+
+where \fBformat\fR is the obtained format of the audio device from the legacy \fBSDL_OpenAudio()\fR function.
+
+.SH RELATED FUNCTIONS
+\fISDL_MixAudioFormat\fR

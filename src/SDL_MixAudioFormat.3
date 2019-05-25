@@ -1,0 +1,71 @@
+.TH SDL_MixAudioFormat 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_MixAudioFormat\fR -- Function
+
+.SH SYNOPSIS
+Use this function to mix audio data in a specified format.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_MixAudioFormat(Uint8*            dst,
+                        const Uint8*      src,
+                        SDL_AudioFormat   format,
+                        Uint32            len,
+                        int               volume)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+dst:T{
+the destination for the mixed audio
+T}
+src:T{
+the source audio buffer to be mixed
+T}
+format:T{
+the \fBSDL_AudioFormat\fR structure representing the desired audio format
+T}
+len:T{
+the length of the audio buffer in bytes
+T}
+volume:T{
+ranges from 0-128, and should be set to \fBSDL_MIX_MAXVOLUME\fR for full audio volume
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+.nf
+T{
+void MyAudioCallback(void*  udata, Uint8* stream, int len)
+{
+  extern SDL_AudioFormat deviceFormat;
+  extern const Uint8* mixdata;
+  \[u002F]\[u002F] make sure this is silence
+  SDL_memset(stream, 0, len);
+  \[u002F]\[u002F] mix our audio against the silence, at 50% volume.
+  SDL_MixAudioFormat(stream, mixData, deviceFormat, len, SDL_MIX_MAXVOLUME \[u002F] 2);
+.br
+}
+T}
+.fi
+.TE
+
+.SH REMARKS
+This takes an audio buffer \fBsrc\fR of \fBlen\fR bytes of \fBformat\fR data and mixes it into \fBdst\fR performing addition, volume adjustment, and overflow clipping. The buffer pointed to by \fBdst\fR must also be \fBlen\fR bytes of \fBformat\fR data.
+
+This is provided for convenience -- you can mix your own audio data.
+
+\fBDo not\fR use this function for mixing together more than two streams of sample data. The output from repeated application of this function may be distorted by clipping, because there is no accumulator with greater range than the input (not to mention this being an inefficient way of doing it). Use mixing functions from \fBSDL_mixer\fR, \fIOpenAL\fR (\fIhttp://www.openal.org/\fR), or write your own mixer instead.
+
+It is a common misconception that this function is required to write audio data to an output stream in an audio callback. While you can do that, \fBSDL_MixAudioFormat()\fR is really only needed when you're mixing a single audio stream with a volume adjustment.
