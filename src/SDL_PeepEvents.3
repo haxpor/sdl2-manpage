@@ -1,0 +1,73 @@
+.TH SDL_PeepEvents 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_PeepEvents\fR -- Function
+
+.SH SYNOPSIS
+Use this function to check the event queue for messages and optionally return them.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_PeepEvents(SDL_Event*         events,
+                   int                numevents,
+                   SDL_eventaction    action,
+                   Uint32             minType,
+                   Uint32             maxType)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+events:T{
+destination buffer for the retrieved events
+T}
+numevents:T{
+if action is \fBSDL_ADDEVENT\fR, the number of events to add back to the event queue; if action is \fBSDL_PEEKEVENT\fR or \fBSDL_GETEVENT\fR, the maximum number of events to retrieve
+T}
+action:T{
+action to take; see \fIRemarks\fR for details
+T}
+minType:T{
+minimum value of the event type to be considered; \fBSDL_FIRSTEVENT\fR is a safe choice
+T}
+maxType:T{
+maximum value of the event type to be considered; \fBSDL_LASTEVENT\fR is a safe choice
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the number of events actually stored or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+\fBaction\fR may be any of the following:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_ADDEVENT:T{
+up to \fBnumevents\fR events will be added to the back of the event queue
+T}
+SDL_PEEKEVENT:T{
+up to \fBnumevents\fR events at the front of the event queue, within the specified minimum and maximum type, will be returned and will not be removed from the queue
+T}
+SDL_GETEVENT:T{
+up to \fBnumevents\fR events at the front of the event queue, within the specified minimum and maximum type, will be returned and will be removed from the queue
+T}
+.TE
+
+This function is thread-safe.
+
+You may have to call \fBSDL_PumpEvents()\fR before calling this function. Otherwise, the events may not be ready to be filtered when you call \fBSDL_PeepEvent()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_PollEvent\fR
+.br
+\fISDL_PumpEvents\fR
+.br
+\fISDL_PushEvent\fR

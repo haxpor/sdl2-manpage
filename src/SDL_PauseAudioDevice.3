@@ -1,0 +1,54 @@
+.TH SDL_PauseAudioDevice 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_PauseAudioDevice\fR -- Function
+
+.SH SYNOPSIS
+Use this function to pause and unpause audio playback on a specified device.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_PauseAudioDevice(SDL_AudioDeviceID   dev,
+                          int                 pause_on)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+dev:T{
+a device opened by \fBSDL_OpenAudioDevice()\fR
+T}
+pause_on:T{
+non-zero to pause, 0 to unpause
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+extern SDL_AudioDeviceID  devid;
+SDL_PauseAudioDevice(devid, 1);   // audio callback is stopped when this returns.
+SDL_Delay(5000);                  // audio device plays silence for 5 seconds
+SDL_PauseAudioDevice(devid, 0);   // audio callback starts running again.
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function pauses and unpauses the audio callback processing for a given device. Newly-opened audio devices start in the paused state, so you must call this function with \fBpause_on=0\fR after opening the specified audio device to start playing sound. This allows you to safely initialize data for your callback function after opening the audio device. Silence will be written to the audio device while paused, and the audio callback is guaranteed to not be called. Pausing one device does not prevent other unpaused devices from running their callbacks.
+
+Pausing state does not stack; even if you pause a device several times, a single unpause will start the device playing again, and vice versa. This is different from how \fBSDL_LockAudioDevice()\fR works.
+
+If you just need to protect a few variables from race conditions vs your callback, you shouldn't pause the audio device, as it will lead to dropouts in the audio playback. Instead, you should use \fBSDL_LockAudioDevice()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_LockAudioDevice\fR

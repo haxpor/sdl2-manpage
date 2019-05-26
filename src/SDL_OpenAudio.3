@@ -1,0 +1,105 @@
+.TH SDL_OpenAudio 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_OpenAudio\fR -- Function
+
+.SH SYNOPSIS
+This function is a legacy means of opening the audio device. New programs might want to use \fBSDL_OpenAudioDevice()\fR instead.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_OpenAudio(SDL_AudioSpec*    desired,
+                  SDL_AudioSpec*    obtained)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+desired:T{
+an \fBSDL_AudioSpec\fR structure representing the desired output format
+T}
+obtained:T{
+an \fBSDL_AudioSpec\fR structure filled in with the actual parameters, or NULL
+T}
+.TE
+
+.SH RETURN VALUE
+This function opens the audio device with the desired parameters, and returns 0 if successful, placing the actual hardware parameters in the structure pointed to by \fBobtained\fR.
+
+If \fBobtained\fR is NULL, the audio data passed to the callback function will be guarunteed to be in the requested format, and will be automatically converted to the actual hardware audio format if necessary. If \fBobtained\R is NULL, \fBdesired\fR will have fields modified.
+
+This function returns a negative error code on failure to open the audio device or failure to set up the audio thread; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_AudioSpec want, have;
+
+SDL_memset(&want, 0, sizeof(want));   /* or SDL_zero(want) */
+want.freq = 48000;
+want.format = AUDIO_F32;
+want.channels = 2;
+want.samples = 4096;
+want.callback = MyAudioCallback;  /* you wrote this function elsewhere -- see SDL_AudioSpec for details */
+
+if (SDL_OpenAudio(&want, &have) < 0)
+{
+  SDL_Log("Failed to open audio: %s", SDL_GetError());
+}
+else
+{
+  if (have.format != want.format)
+  {
+    SDL_Log("We didn't get Float32 audio format.");
+  }
+  SDL_PauseAudio(0);  /*  start audio playing. */
+  SDL_Delay(5000);    /*  let the audio callback play some sound for 5 seconds */
+  SDL_CloseAudio();
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function remains for compatibility with SDL 1.2, but also because it's slightly easier to use than the new functions in SDL 2.0. The new, more powerful, and preferred way to do this is \fBSDL_OpenAudioDevice()\fR.
+
+This function is roughly equivalent to:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_OpenAudioDevice(NULL, 0, desired, obtained, SDL_AUDIO_ALLOW_ANY_CHANGE);
+.fi
+T}
+.TE
+
+with two notable exceptions:
+
+.BI *
+If \fBobtained\fR is NULL, we use \fBdesired\fR (and allow no changes), which means \fBdesired\fR will be modified to have the correct values for silence, etc, and SDL will convert any differences between your app's specific request and the hardware behind the scenes.
+
+.BI *
+The return value is always success or failure, and not a device ID, which means you can only have one device open at a time with this function.
+
+.SH RELATED FUNCTIONS
+\fISDL_CloseAudio\fR
+.br
+\fISDL_LockAudio\fR
+.br
+\fISDL_PauseAudio\fR
+.br
+\fISDL_UnlockAudio\fR
+
+.SH RELATED STRUCTURES
+\fISDL_AudioSpec\fR

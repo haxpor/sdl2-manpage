@@ -508,11 +508,11 @@ Chcked items are covered by this project.
 * [ ] `SDL_MouseIsHaptic`
 * [ ] `SDL_NumHaptics`
 * [x] `SDL_NumJoysticks`
-* [ ] `SDL_OpenAudio`
-* [ ] `SDL_OpenAudioDevice`
-* [ ] `SDL_PauseAudio`
-* [ ] `SDL_PauseAudioDevice`
-* [ ] `SDL_PeepEvents`
+* [x] `SDL_OpenAudio`
+* [x] `SDL_OpenAudioDevice`
+* [x] `SDL_PauseAudio`
+* [x] `SDL_PauseAudioDevice`
+* [x] `SDL_PeepEvents`
 * [ ] `SDL_PixelFormatEnumToMasks`
 * [ ] `SDL_PointInRect`
 * [ ] `SDL_PollEvent`
