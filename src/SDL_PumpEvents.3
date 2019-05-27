@@ -1,0 +1,29 @@
+.TH SDL_PumpEvents 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_PumpEvents\fR -- Function
+
+.SH SYNOPSIS
+Use this function to pump the event loop, gathering events from the input devices.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_PumpEvents(void)
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function updates the event queue and internal input device state.
+
+\fBWarning\fR: This should only be run in the thread that initialized the video subsystem, and for extra safety, you should consider only doing those things on the main thread in any case.
+
+\fBSDL_PumpEvents()\fR gathers all the pending input information from devices and places it in the event queue. Without calls to \fBSDL_PumpEvents()\fR no events would ever be placed on the queue. Often the need for calls to \fBSDL_PumpEvents()\fR is hidden from the user since \fBSDL_PollEvent()\fR and \fBSDL_WaitEvent()\fR implicitly call \fBSDL_PumpEvents()\fR. However, if you are not polling or waiting for events (e.g. you are filtering them), then you must call \fBSDL_PumpEvents()\fR to force an event queue update.
+
+.SH RELATED FUNCTIONS
+\fISDL_PollEvent\fR
+.br
+\fISDL_WaitEvent\fR

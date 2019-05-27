@@ -513,11 +513,11 @@ Chcked items are covered by this project.
 * [x] `SDL_PauseAudio`
 * [x] `SDL_PauseAudioDevice`
 * [x] `SDL_PeepEvents`
-* [ ] `SDL_PixelFormatEnumToMasks`
-* [ ] `SDL_PointInRect`
-* [ ] `SDL_PollEvent`
-* [ ] `SDL_PumpEvents`
-* [ ] `SDL_PushEvent`
+* [x] `SDL_PixelFormatEnumToMasks`
+* [x] `SDL_PointInRect`
+* [x] `SDL_PollEvent`
+* [x] `SDL_PumpEvents`
+* [x] `SDL_PushEvent`
 * [ ] `SDL_QueryTexture`
 * [ ] `SDL_QueueAudio`
 * [ ] `SDL_Quit`

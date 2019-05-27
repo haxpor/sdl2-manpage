@@ -1,0 +1,70 @@
+.TH SDL_PollEvent 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_PollEvent\fR -- Function
+
+.SH SYNOPSIS
+Use this function to poll for currently pending events.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_PollEvent(SDL_Event*    event)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+event:T{
+the \fBSDL_Event\fR structure to be filled with the next event from the queue, or NULL
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 1 if there is a pending event or 0 if there are none available.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+while (1)
+{
+  SDL_Event event;
+  while (SDL_PollEvent(&event))
+  {
+    /* handle your event here */
+  }
+  /* do some other stuff here -- draw your app, etc. */
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+If \fBevent\fR is not NULL, the next event is removed from the queue and stored in the \fBSDL_Event\fR structure pointed to by \fBevent\fR. The 1 returned refers to this event, immediately stored in the SDL Event structure -- not an event to follow.
+
+If \fBevent\fR is NULL, it simply returns 1 if there is an event in the queue, but will not remove it.
+
+As this function implicitly calls \fBSDL_PumpEvents()\fR, you can only call this function in the thread that set the video mode.
+
+\fBSDL_PollEvent()\fR is the favored way of receiving system events since it can be done from the main loop and does not suspend the main loop while waiting on an event to be posted.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetEventFilter\fR
+.br
+\fISDL_PeepEvents\fR
+.br
+\fISDL_PushEvent\fR
+.br
+\fISDL_SetEventFilter\fR
+.br
+\fISDL_WaitEvent\fR
+.br
+\fISDL_WaitEventTimeout\fR

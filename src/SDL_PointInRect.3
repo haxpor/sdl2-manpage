@@ -1,0 +1,39 @@
+.TH SDL_PointInRect 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_PointInRect\fR -- Function
+
+.SH SYNOPSIS
+Use this function to check if a point resides inside a rectangle.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_PointInRect(const SDL_Point*   p,
+                         const SDL_Point*   r)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+p:T{
+an \fBSDL_Point\fR which is the point
+T}
+r:T{
+an \fBSDL_Rect\fR which is the rectangle
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if point resides inside rectangle or \fBSDL_FALSE\fR if not.
+
+.SH REMARKS
+Both \fBp\fR and \fBr\fR must not be NULL.
+
+.SH VERSION
+This function is available since SDL 2.0.4.

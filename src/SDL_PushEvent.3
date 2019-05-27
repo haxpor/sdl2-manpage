@@ -1,0 +1,63 @@
+.TH SDL_PushEvent 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_PushEvent\fR -- Function
+
+.SH SYNOPSIS
+Use this function to add an event to the event queue.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_PushEvent(SDL_Event*    event)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+event:T{
+the \fBSDL_Event\fR to be added to the queue
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 1 on success, 0 if the event was filtered, or a negative error code on failure; call \fBSDL_GetError()\fR for more information. A common reason for error is the event queue being full.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+// Default Usage:
+SDL_Event sdlevent;
+sdlevent.type = SDL_KEYDOWN;
+sdlevent.key.keysym.sym = SDLK_1;
+
+SDL_PushEvent(&sdlevent);
+.fi
+T}
+.TE
+
+.SH REMARKS
+The event queue can actually be used as a two way communication channel. Not only can events be read from the queue, but the user can also push their own events onto it. \fBevent\fR is a pointer to the event structure you wish to push onto the queue. The event is copied into the queue, and the caller may dispose of the memory pointed to after \fBSDL_PushEvent()\fR returns.
+
+\fBNote\fR: Pushing device input events onto the queue doesn't modify the state of the device within SDL.
+
+This function is thread-safe, and can be called from other threads safely.
+
+\fBNote\fR: Events pushed onto the queue with \fBSDL_PushEvent()\fR get passed through the event filter but events added with \fBSDL_PeepEvents()\fR do not.
+
+For pushing application-specific events, please use \fBSDL_RegisterEvents()\fR to get an event type that does not conflict with other code that also wants its own custom event types.
+
+.SH RELATED FUNCTIONS
+\fISDL_PeepEvents\fR
+.br
+\fISDL_PollEvent\fR
+.br
+\fISDL_RegisterEvents\fR
