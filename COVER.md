@@ -518,11 +518,11 @@ Chcked items are covered by this project.
 * [x] `SDL_PollEvent`
 * [x] `SDL_PumpEvents`
 * [x] `SDL_PushEvent`
-* [ ] `SDL_QueryTexture`
-* [ ] `SDL_QueueAudio`
-* [ ] `SDL_Quit`
-* [ ] `SDL_QuitRequested`
-* [ ] `SDL_QuitSubSystem`
+* [x] `SDL_QueryTexture`
+* [x] `SDL_QueueAudio`
+* [x] `SDL_Quit`
+* [x] `SDL_QuitRequested`
+* [x] `SDL_QuitSubSystem`
 * [ ] `SDL_REVISION`
 * [ ] `SDL_RWFromConstMem`
 * [ ] `SDL_RWFromFP`

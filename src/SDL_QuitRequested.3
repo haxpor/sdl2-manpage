@@ -1,0 +1,32 @@
+.TH SDL_QuitRequested 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_QuitRequested\fR -- Function
+
+.SH SYNOPSIS
+Use this function to see whether an \fBSDL_QUIT\fR event is queued.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_QuitRequested(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if \fBSDL_QUIT\fR is queued or \fBSDL_FALSE\fR otherwise.
+
+.SH REMARKS
+This is actually a macro that calls \fBSDL_PumpEvents()\fR followed by \fBSDL_PeepEvents()\fR. Since it pumps the event queue, it can only be used in the main thread.
+
+It's perfectly normal for applications to just look for \fBSDL_QUIT\fR in their event loop, too, without using this macro.
+
+.SH RELATED FUNCTIONS
+\fISDL_PollEvent\fR
+.br
+\fISDL_PumpEvents\fR
+.br
+\fISDL_WaitEvent\fR

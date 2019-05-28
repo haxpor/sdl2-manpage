@@ -1,0 +1,102 @@
+.TH SDL_QuitSubSystem 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_QuitSubSystem\fR -- Function
+
+.SH SYNOPSIS
+Use this function to shut down specific SDL subsystems.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_QuitSubSystem(Uint32   flags)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+flags:T{
+any of the flags used by \fBSDL_Init()\f; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include "SDL.h"
+
+/* ... */
+
+int main(int argc, char** argv)
+{
+  int sdl_initialized = 0;
+  sdl_initialized = !SDL_Init(0);
+
+  /* ... console stuff */
+  
+  if (sdl_initialized && SDL_InitSubSystem(SDL_INIT_VIDEO))
+  {
+    display_graph();
+    SDL_QuitSubSystem(SDL_INIT_VIDEO);
+  }
+
+  /* ... more console sutff ... */
+
+  if (sdl_initialized)  SDL_Quit();
+  return 0;
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+These are the flags which may be passed to \fBSDL_QuitSubSystem()\fR and may be OR'd together to quit multiple subsystems simultaneously.
+
+.TS
+tab(:) allbox;
+ab a.
+SDL_INIT_TIMER:T{
+timer subsystem
+T}
+SDL_INIT_AUDIO:T{
+audio subsystem
+T}
+SDL_INIT_VIDEO:T{
+video subsystem; automatically initializes the events subsystem
+T}
+SDL_INIT_JOYSTICK:T{
+joystick subsystem; automatically initializes the events subsystem
+T}
+SDL_INIT_HAPTIC:T{
+haptic (force feedback) subsystem
+T}
+SDL_INIT_GAMECONTROLLER:T{
+controller subsystem; automatically initializes the joystick subsystem
+T}
+SDL_INIT_EVENTS:T{
+events subsystem
+T}
+SDL_INIT_EVERYTHING:T{
+all of the above subsystems
+T}
+SDL_INIT_NOPARACHUTE:T{
+compatibility; this flag is ignored
+T}
+.TE
+
+If you start a subsystem using a call to that subsystem's init function (for example \fBSDL_VideoInit()\fR) instead of \fBSDL_Init()\fR or \fBSDL_InitSubSystem()\fR, \fBSDL_QuitSubSystem()\fR and \fBSDL_WasInit()\fR will not work. You will need to use that subsystem's quit function (\fBSDL_VideoQuit()\fR) directly instead.
+
+You still need to call \fBSDL_Quit()\fR even if you close all open subsystems with \fBSDL_QuitSubSystem()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_InitSubSystem\fR
+.br
+\fISDL_Quit\fR
