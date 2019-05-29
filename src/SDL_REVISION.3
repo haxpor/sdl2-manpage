@@ -1,0 +1,17 @@
+.TH SDL_REVISION 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_REVISION\fR -- Function
+
+.SH SYNOPSIS
+This macro is a string describing the source at a particular point in development.
+
+.SH REMARKS
+The revision is a string including sequential revision number that is incremented with each commit, and a hash of the last code change.
+
+.BI Example:
+hg-5344:94189aa89b54
+
+\fISDL_revision.h\fR must be included in your program explicitly if you want to use the \fBSDL_REVISION\fR constant.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetRevision\fR

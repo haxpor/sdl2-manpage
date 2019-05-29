@@ -523,11 +523,11 @@ Chcked items are covered by this project.
 * [x] `SDL_Quit`
 * [x] `SDL_QuitRequested`
 * [x] `SDL_QuitSubSystem`
-* [ ] `SDL_REVISION`
-* [ ] `SDL_RWFromConstMem`
-* [ ] `SDL_RWFromFP`
-* [ ] `SDL_RWFromFile`
-* [ ] `SDL_RWFromMem`
+* [x] `SDL_REVISION`
+* [x] `SDL_RWFromConstMem`
+* [x] `SDL_RWFromFP`
+* [x] `SDL_RWFromFile`
+* [x] `SDL_RWFromMem`
 * [ ] `SDL_RWclose`
 * [ ] `SDL_RWread`
 * [ ] `SDL_RWseek`

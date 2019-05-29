@@ -1,0 +1,72 @@
+.TH SDL_RWFromMem 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RWFromMem\fR -- Function
+
+.SH SYNOPSIS
+Use this function to prepare a read-write memory buffer for use with \fBSDL_RWops\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_RWops* SDL_RWFromMem(void*    mem,
+                         int      size)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+mem:T{
+a pointer to a buffer to feed an \fBSDL_RWops\fR stream
+T}
+size:T{
+the buffer size, in bytes
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a pointer to a new \fBSDL_RWops\fR structure, or NULL if it fails; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+char bitmap[310000];
+SDL_RWops *rw = SDL_RWFromMem(bitmap, sizeof(bitmap));
+SDL_SaveBMP_RW(screen, rw, 1);  /* close SDL_RWops, leaves us memory buffer of data */
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function sets up an \fBSDL_RWops\fR struct based on a memory area of a certain size, for both read and write access.
+
+This memory buffer is not copied by the \fBRWops\fR; the pointer you provide must remain valid until you close the stream. Closing the stream will not free the original buffer.
+
+If you need to make sure the \fBRWops\fR never writes to the memory buffer, you should use \fBSDL_RWFromConstMem()\fR with a read-only buffer of memory instead.
+
+.SH RELATED FUNCTIONS
+\fISDL_RWclose\fR
+.br
+\fISDL_RWFromConstMem\fR
+.br
+\fISDL_RWFromFile\fR
+.br
+\fISDL_RWFromFP\fR
+.br
+\fISDL_FromMem\fR
+.br
+\fISDL_RWread\fR
+.br
+\fISDL_RWseek\fR
+.br
+\fISDL_RWtell\fR
+.br
+\fISDL_RWwrite\fR

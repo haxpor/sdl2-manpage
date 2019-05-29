@@ -1,0 +1,69 @@
+.TH SDL_RWFromFP 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RWFromFP\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create an \fBSDL_RWops\fR structure from a standard I/O file pointer (\fIstdio.h\fR's \fBFILE*\fR).
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_RWops* SDL_RWFromFP(void*       fp,
+                        SDL_bool    autoclose)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+fp:T{
+the \fBFILE*\fR that feeds the \fBSDL_RWops\fR stream
+T}
+autoclose:T{
+\fBSDL_TRUE\fR to close the \fBFILE*\fR when closing the \fBSDL_RWops\fR, \fBSDL_FALSE\fR to leave the \fBFILE*\fR open when the \fBRWops\fR is closed
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a pointer to the \fBSDL_RWops\fR structure that is created, or NULL on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+FILE *fp = fopen("myfile.dat", "rb");
+SDL_RWops *rw = SDL_RWFromFP(fp, SDL_TRUE);
+/* Do things with rw... */
+SDL_RWclose(rw);  /* Automatically does an fclose(fp) in this case*/
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function is not available on Windows, since files opened in an application on that platform cannot be used by a dynamically linked library.
+
+On some platforms, the first parameter is a \fBvoid*\fR, on others, it's \fBFILE*\fR, depending on what system headers are available to SDL. It is always intended to be the \fBFILE*\fR type from the C runtime's \fIstdio.h\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_RWclose\fR
+.br
+\fISDL_RWFromConstMem\fR
+.br
+\fISDL_RWFromFile\fR
+.br
+\fISDL_RWFromMem\fR
+.br
+\fISDL_RWread\fR
+.br
+\fISDL_RWseek\fR
+.br
+\fISDL_RWtell\fR
+.br
+\fISDL_RWwrite\fR
