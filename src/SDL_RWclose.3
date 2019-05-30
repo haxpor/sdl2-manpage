@@ -1,0 +1,69 @@
+.TH SDL_RWclose 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RWclose\fR -- Function
+
+.SH SYNOPSIS
+Use this function to close and free an allocated \fBSDL_RWops\fR structure.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_RWclose(struct SDL_RWops*   context)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+context:T{
+\fBSDL_RWops\fR structure to close
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint8 buf[256];
+SDL_RWops *rw = SDL_RWFromFile("test.bin", "r");
+if (rw != NULL)
+{
+  SDL_RWread(rw, buf, sizeof(buf), 1);
+  SDL_RWclose(rw);
+}
+// Go on and use the data in buf...
+.fi
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_RWclose()\fR closes and cleans up the \fBSDL_RWops\fR stream. It releases any resources used by the stream and frees the \fBSDL_RWops\fR itself with \fBSDL_FreeRW()\fR. This returns 0 on success, or -1 if the stream failed to flush to its output (e.g. to disk).
+
+Note that if this fails to flush the stream to disk, this function reports an error, but the \fBSDL_RWops\fR is still invalid once this function returns.
+
+\fBSDL_RWclose()\fR is actually a macro that calls the \fBSDL_RWops\fR's \fBclose\fR method appropriately, to simplify application development.
+
+.SH RELATED FUNCTIONS
+\fISDL_RWFromConstMem\fR
+.br
+\fISDL_RWFromFile\fR
+.br
+\fISDL_RWFromFP\fR
+.br
+\fISDL_RWFromMem\fR
+.br
+\fISDL_RWread\fR
+.br
+\fISDL_RWseek\fR
+.br
+\fISDL_RWwrite\fR

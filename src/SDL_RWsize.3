@@ -1,0 +1,32 @@
+.TH SDL_RWsize 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RWsize\fR -- Function
+
+.SH SYNOPSIS
+Use this macro to get the size of the data stream in an \fBSDL_RWops\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Sint64 SDL_RWsize(SDL_RWops*    context)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+context:T{
+the \fBSDL_RWops\fR to get the size of the data stream from
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the size of the data stream in the \fBSDL_RWops\fR on success, -1 if unknown or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH VERSION
+This function is available since SDL 2.0.0.

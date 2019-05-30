@@ -1,0 +1,65 @@
+.TH SDL_RWtell 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RWtell\fR -- Function
+
+.SH SYNOPSIS
+Use this function to determine the current read/write offset in and \fBSDL_RWops\fR data stream.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Sint64 SDL_RWtell(struct SDL_RWops*   context)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+context:T{
+a \fBSDL_RWops\fR data stream object from which to get the current offset
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the current offset in the stream, or -1 if the information cannot be determined.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+extern SDL_RWops *rw;
+printf("Current position in stream: %lld\\n", (long long)SDL_RWtell(rw));
+if (SDL_RWseek(rw, 0, RW_SEEK_END) != -1)
+{
+  printf("Final position in stream: %lld\\n", (long long)SDL_RWtell(rw));
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+\fBSDL_RWtell\fR is actually a macro that calls the \fBSDL_RWops\fR's \fBseek\fR method, with an offset of 0 bytes from \fBRW_SEEK_CUR\fR, to simplify application development.
+
+.SH RELATED FUNCTIONS
+\fISDL_RWclose\fR
+.br
+\fISDL_RWFromConstMem\fR
+.br
+\fISDL_RWFromFile\fR
+.br
+\fISDL_RWFromFP\fR
+.br
+\fISDL_RWFromMem\fR
+.br
+\fISDL_RWread\fR
+.br
+\fISDL_RWseek\fR
+.br
+\fISDL_RWwrite\fR

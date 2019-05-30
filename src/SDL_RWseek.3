@@ -1,0 +1,104 @@
+.TH SDL_RWseek 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RWseek\fR -- Function
+
+.SH SYNOPSIS
+Use this function to seek within an \fBSDL_RWops\fR data stream.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Sint64 SDL_RWseek(SDL_RWops*    context,
+                  Sint64        offset,
+                  int           whence
+)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+context:T{
+a pointer to an \fBSDL_RWops\fR structure
+T}
+offset:T{
+an offset in bytes, relative to \fBwhence\fR location; can be negative
+T}
+whence:T{
+any of \fBRW_SEEK\fR, \fBRW_SEEK_CUR\fR, \fBRW_SEEK_END\fR; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the final offset in the data stream after the seek or -1 oon error.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_RWops *rw = SDL_RWFromFile("myfile.bin", "rb");
+if (rw != NULL)
+{
+  /* Seek to 0 bytes from the end of the file */
+  Sint64 length = SDL_RWseek(rw, 0, RW_SEEK_END);
+  SDL_RWclose(rw);
+
+  if (length < 0)
+  {
+    printf("Could not seek inside myfile.bin\\n");
+  }
+  else
+  {
+    printf("myfile.bin is %d bytes long\\n", length);
+  }
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function seeks to \fBoffset\fR relative to \fBwhence\fR.
+
+\fBwhence\fR may be any of the following values:
+
+.TS
+tab(:) allbox;
+ab a.
+RW_SEEK_SET:T{
+seek from the beginning of data
+T}
+RW_SEEK_CUR:T{
+seek relative to current read point
+T}
+RW_SEEK_END:T{
+seek relative to the end of data
+T}
+.TE
+
+If this stream cannot seek, it will return -1.
+
+\fBSDL_RWseek()\fR is actually a macro that calls the \fBSDL_RWops\fR's \fBseek\fR method appropriately, to simplify application development.
+
+.SH RELATED FUNCTIONS
+\fISDL_RWclose\fR
+.br
+\fISDL_RWFromConstMem\fR
+.br
+\fISDL_RWFromFile\fR
+.br
+\fISDL_RWFromFP\fR
+.br
+\fISDL_RWFromMem\fR
+.br
+\fISDL_RWread\fR
+.br
+\fISDL_RWtell\fR
+.br
+\fISDL_RWwrite\fR

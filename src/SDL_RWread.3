@@ -1,0 +1,142 @@
+.TH SDL_RWread 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RWread\fR -- Function
+
+.SH SYNOPSIS
+Use this function to read from a data source.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+size_t SDL_RWread(struct SDL_RWops*   context,
+                  void*               ptr,
+                  size_t              size,
+                  size_t              maxnum)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+context:T{
+a pointer to an \fBSDL_RWops\fR structure
+T}
+ptr:T{
+a pointer to a buffer to read data into
+T}
+size:T{
+the size of each object to read, in bytes
+T}
+maxnum:T{
+the maximum number of objects to be read
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the number of objects read, or 0 at error or end of file; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_RWops* rw = SDL_RWFromFile("test.bin", "r");
+if (rw != NULL)
+{
+  extern Uint8 buf[256];
+  SDL_RWread(rw, buf, sizeof(buf), 1);
+  SDL_RWclose(rw);
+}
+.fi
+T}
+.TE
+
+Read a complete file in memory (assuming size can be detected) (from \fIOpenGL WikiBook\fR (\fIhttps://gitlab.com/wikibooks-opengl/modern-tutorials/blob/master/common-sdl2/shader_utils.cpp\fR)):
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+char* file_read(const char* filename) {
+  SDL_RWops* rw = SDL_RWFromFile(filename, "rb");
+  if (rw == NULL) return NULL;
+
+  Sint64 res_size = SDL_RWsize(rw);
+  char* res = (char*)malloc(res_size + 1);
+
+  Sint64 nb_read_total = 0, nb_read = 1;
+  char* buf = res;
+  while (nb_read_total < res_size && nb_read != 0)
+  {
+    nb_read = SDL_RWread(rw, buf, 1, (res_size - nb_read_total));
+    nb_read_total += nb_read;
+    buf += nb_read;
+  }
+  SDL_RWclose(rw);
+  if (nb_read_total != res_size)
+  {
+    free(res);
+    return NULL;
+  }
+
+  res[nb_read_total] = '\\0';
+  return res;
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function reads up to \fBmaximum\fR objects each of size \fBsize\fR from the data source to the area pointed at by \fBptr\fR. This function may read less objects than requested. It will return zero when there has been an error or the data stream is completely read.
+
+\fBSDL_RWread()\fR is actually a macro that calls the \fBSDL_RWops\fR's \fBread\fR method appropriately, to simplify application development.
+
+.BI "More Examples"
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 buffer[10];
+SDL_RWread(rwop, buffer, sizeof(Uint32), 10);
+.fi
+T}
+.TE
+
+This will read 40 bytes of data, and put it into 'buffer', which is intended to hold 32-bit integers. Each \fBUint32\fR is 4 bytes, or 32-bits.
+
+.BI 
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint64 buffer[10];
+SDL_RWread(rwop, buffer, sizeof(Uint64), 10);
+.fi
+T}
+.TE
+
+This will read 80 bytes of data, and place them into 'buffer', which is now designed for 64-bit integers (\fBUint64\fR values). Each \fBUint64\fR (long) is 8 bytes, and we are reading 10 of them (as shown by buffer[10] when we make it).
+
+.SH RELATED FUNCTIONS
+\fISDL_RWclose\fR
+.br
+\fISDL_RWFromConstMem\fR
+.br
+\fISDL_RWFromFile\fR
+.br
+\fISDL_RWFromFP\fR
+.br
+\fISDL_RWFromMem\fR
+.br
+\fISDL_RWseek\fR
+.br
+\fISDL_RWwrite\fR

@@ -528,11 +528,11 @@ Chcked items are covered by this project.
 * [x] `SDL_RWFromFP`
 * [x] `SDL_RWFromFile`
 * [x] `SDL_RWFromMem`
-* [ ] `SDL_RWclose`
-* [ ] `SDL_RWread`
-* [ ] `SDL_RWseek`
-* [ ] `SDL_RWsize`
-* [ ] `SDL_RWtell`
+* [x] `SDL_RWclose`
+* [x] `SDL_RWread`
+* [x] `SDL_RWseek`
+* [x] `SDL_RWsize`
+* [x] `SDL_RWtell`
 * [ ] `SDL_RWwrite`
 * [ ] `SDL_RaiseWindow`
 * [ ] `SDL_ReadBE16`
