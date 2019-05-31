@@ -1,0 +1,35 @@
+.TH SDL_ReadBE32 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ReadBE32\fR -- Function
+
+.SH SYNOPSIS
+Use this function to read 32 bits of big-endian data from an \fBSDL_RWops\fR and return in native format.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 SDL_ReadBE32(SDL_RWops*    src)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+src:T{
+the stream from which to read data
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 32 bits of data in the native byte order of the platform.
+
+.SH REMARKS
+SDL byteswaps the data only if necessary, so the data returned will be in the native byte order.
+
+.SH RELATED FUNCTIONS
+\fISDL_ReadLE32\fR

@@ -533,11 +533,11 @@ Chcked items are covered by this project.
 * [x] `SDL_RWseek`
 * [x] `SDL_RWsize`
 * [x] `SDL_RWtell`
-* [ ] `SDL_RWwrite`
-* [ ] `SDL_RaiseWindow`
-* [ ] `SDL_ReadBE16`
-* [ ] `SDL_ReadBE32`
-* [ ] `SDL_ReadBE64`
+* [x] `SDL_RWwrite`
+* [x] `SDL_RaiseWindow`
+* [x] `SDL_ReadBE16`
+* [x] `SDL_ReadBE32`
+* [x] `SDL_ReadBE64`
 * [ ] `SDL_ReadLE16`
 * [ ] `SDL_ReadLE32`
 * [ ] `SDL_ReadLE64`
