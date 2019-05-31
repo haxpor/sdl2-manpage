@@ -6,6 +6,21 @@ Man-pages generated for SDL2. It covers APIs as listed [here](https://github.com
 * Clone this repository to somewhere on your computer with `git clone https://github.com/haxpor/sdl2-manpage.git`
 * Execute `sudo ./install.sh` to install to your system.
 
+# Usage
+
+After installation, you can do
+
+```
+man SDL_Init
+```
+
+or for other functions/structures. Anyway there are 2 special lookup tables you can query with the followings
+
+* `man SDLScancodeLookupTable` - for scancode lookup table
+* `man SDLKeycodeLookupTable` - for keycode lookup table
+
+Note that it's case **sensitive**.
+
 # Note on Upgrading or Removing
 
 Just remove this repository, those man-page files at `/usr/local/share/man/man3/` will become dead links, and you cannot man such relevant section anymore. It's safe.
