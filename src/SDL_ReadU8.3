@@ -1,0 +1,32 @@
+.TH SDL_ReadU8 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ReadU8\fR -- Function
+
+.SH SYNOPSIS
+Use this function to read a byte from an \fBSDL_RWops\fR
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint8 SDL_ReadU8(SDL_RWops*   src)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+src:T{
+the \fBSDL_RWops\fR to read from
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the read byte on success or 0 on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_WriteU8\fR

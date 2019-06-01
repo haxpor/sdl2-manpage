@@ -538,11 +538,11 @@ Chcked items are covered by this project.
 * [x] `SDL_ReadBE16`
 * [x] `SDL_ReadBE32`
 * [x] `SDL_ReadBE64`
-* [ ] `SDL_ReadLE16`
-* [ ] `SDL_ReadLE32`
-* [ ] `SDL_ReadLE64`
-* [ ] `SDL_ReadU8`
-* [ ] `SDL_RecordGesture`
+* [x] `SDL_ReadLE16`
+* [x] `SDL_ReadLE32`
+* [x] `SDL_ReadLE64`
+* [x] `SDL_ReadU8`
+* [x] `SDL_RecordGesture`
 * [ ] `SDL_RectEmpty`
 * [ ] `SDL_RectEquals`
 * [ ] `SDL_RegisterEvents`
