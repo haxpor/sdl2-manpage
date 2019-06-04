@@ -1,0 +1,36 @@
+.TH SDL_RectEquals 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RectEquals\fR -- Function
+
+.SH SYNOPSIS
+Use this function to check whether two rectangles are equal.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_RectEquals(const SDL_Rect*   a,
+                        const SDL_Rect*   b)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+a:T{
+an \fBSDL_Rect\fR structure representing the first rectangle
+T}
+b:T{
+an \fBSDL_Rect\fR structure representing the second rectangle
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if the two rectangles are exactly the same, \fBSDL_FALSE\fR otherwise; see \fIRemarks\fR for details.
+
+.SH REMARKS
+This function compares the width, height, and location (X and Y) values for each of the two rectangles and returns \fBSDL_TRUE\fR if all corresponding values are equal. If any value does not match or either rectangle is NULL, it returns \fBSDL_FALSE\fR.

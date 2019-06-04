@@ -1,0 +1,51 @@
+.TH SDL_RemoveTimer 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RemoveTimer\fR -- Function
+
+.SH SYNOPSIS
+Use this function to remove a timer created with \fBSDL_AddTimer()\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_RemoveTimer(SDL_TimerID    id)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+id:T{
+the ID of the timer to remove
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if the timer is removed or \fBSDL_FALSE\fR if the timer wasn't found.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 delay = (33 / 10) * 10;  /* To round it down to the nearest 10 ms */
+
+/* ... */
+
+SDL_TimerID my_timer_id = SDL_AddTimer(delay, my_callbackfunc, my_callback_param);
+
+/* ... */
+
+SDL_RemoveTimer(my_timer_id);
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_AddTimer\fR

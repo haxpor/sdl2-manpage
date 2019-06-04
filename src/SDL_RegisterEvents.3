@@ -1,0 +1,58 @@
+.TH SDL_RegisterEvents 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RegisterEvents\fR -- Function
+
+.SH SYNOPSIS
+Use this function to allocate a set of user-defined events, and return the beginning event number for that set of events.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 SDL_RegisterEvents(int   numevents)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+numevents:T{
+the number of events to be allocated
+T}
+.TE
+
+.SH RETURN VALUE
+The beginning event number, or (\fBUint32\fR)-1 if there are not enough user-defined events left.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 myEventType = SDL_RegisterEvents(1);
+if (myEventType != ((Uint32)-1))
+{
+  SDL_Event event;
+  SDL_memset(&event, 0, sizeof(event)); /* or SDL_zero(event) */
+  event.type = myEventType;
+  event.user.code = my_event_code;
+  event.user.data1 = significant_data;
+  event.user.data2 = 0;
+  SDL_PushEvent(&event);
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+Calling this function with \fBnumevents\fR <= 0 is an error and will return (\fBUint32\fR)-1.
+
+Note, (\fBUint32\fR)-1 means the maximum unsigned 32-bit integer value (or 0xFFFFFFFF), but is clearer to write.
+
+.SH RELATED FUNCTIONS
+\fISDL_PushEvent\fR

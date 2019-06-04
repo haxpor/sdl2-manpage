@@ -543,11 +543,11 @@ Chcked items are covered by this project.
 * [x] `SDL_ReadLE64`
 * [x] `SDL_ReadU8`
 * [x] `SDL_RecordGesture`
-* [ ] `SDL_RectEmpty`
-* [ ] `SDL_RectEquals`
-* [ ] `SDL_RegisterEvents`
-* [ ] `SDL_RemoveTimer`
-* [ ] `SDL_RenderClear`
+* [x] `SDL_RectEmpty`
+* [x] `SDL_RectEquals`
+* [x] `SDL_RegisterEvents`
+* [x] `SDL_RemoveTimer`
+* [x] `SDL_RenderClear`
 * [ ] `SDL_RenderCopy`
 * [ ] `SDL_RenderCopyEx`
 * [ ] `SDL_RenderDrawLine`
