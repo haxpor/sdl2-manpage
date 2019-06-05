@@ -1,9 +1,9 @@
-.TH SDL_RenderDrawLine 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.TH SDL_RenderDrawLines 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
 .SH NAME
-\fBSDL_RenderDrawLine\fR -- Function
+\fBSDL_RenderDrawLines\fR -- Function
 
 .SH SYNOPSIS
-Use this function to draw a line on the current rendering target.
+Use this function to draw a series of connected lines on the current rendering target.
 
 .SH SYNTAX
 .TS
@@ -11,11 +11,9 @@ tab(:) allbox;
 a.
 T{
 .nf
-int SDL_RenderDrawLine(SDL_Renderer*    renderer,
-                       int              x1,
-                       int              y1,
-                       int              x2,
-                       int              y2)
+int SDL_RenderDrawLines(SDL_Renderer*       renderer,
+                        const SDL_Point*    points,
+                        int                 count)
 .fi
 T}
 .TE
@@ -27,17 +25,11 @@ ab l.
 renderer:T{
 the rendering context
 T}
-x1:T{
-the x coordinate of the start point
+points:T{
+an array of \fBSDL_Point\fR structures representing points along the lines
 T}
-y1:T{
-the y coordinate of the start point
-T}
-x2:T{
-the x coordinate of the end point
-T}
-y2:T{
-the y coordinate of the end point
+count:T{
+the number of points, drawing count-1 lines
 T}
 .TE
 
@@ -51,6 +43,15 @@ a.
 T{
 .nf
 #include "SDL.h"
+
+#define POINTS_COUNT 4
+
+static SDL_Point points[POINTS_COUNT] = {
+    {320, 200},
+    {300, 240},
+    {340, 240},
+    {320, 200}
+};
 
 int main(int argc, char* argv[])
 {
@@ -68,9 +69,7 @@ int main(int argc, char* argv[])
                 SDL_RenderClear(renderer);
 
                 SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-                SDL_RenderDrawLine(renderer, 320, 200, 300, 240);
-                SDL_RenderDrawLine(renderer, 300, 240, 340, 240);
-                SDL_RenderDrawLine(renderer, 340, 240, 320, 200);
+                SDL_RenderDrawLines(renderer, points, POINTS_COUNT);
                 SDL_RenderPresent(renderer);
 
                 while (SDL_PollEvent(&event)) {
@@ -93,17 +92,14 @@ int main(int argc, char* argv[])
 }
 
 .fi
-T{
+T}
 .TE
-
-.SH REMARKS
-\fBSDL_RenderDrawLine()\fR draws the line to include both end points. If you want to draw multiple, connecting lines use \fBSDL_RenderDrawLines()\fR instead.
 
 .SH VERSION
 This function is available since SDL 2.0.0.
 
 .SH RELATED FUNCTIONS
-\fISDL_RenderDrawLines\fR
+\fISDL_RenderDrawLine\fR
 .br
 \fISDL_RenderDrawPoint\fR
 .br
@@ -112,6 +108,10 @@ This function is available since SDL 2.0.0.
 \fISDL_RenderDrawRect\fR
 .br
 \fISDL_RenderDrawRects\fR
+.br
+\fISDL_RenderFillRect\fR
+.br
+\fISDL_RenderFillRects\fR
 .br
 \fISDL_RenderPresent\fR
 .br

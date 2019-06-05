@@ -551,8 +551,8 @@ Chcked items are covered by this project.
 * [x] `SDL_RenderCopy`
 * [x] `SDL_RenderCopyEx`
 * [x] `SDL_RenderDrawLine`
-* [ ] `SDL_RenderDrawLines`
-* [ ] `SDL_RenderDrawPoint`
+* [x] `SDL_RenderDrawLines`
+* [x] `SDL_RenderDrawPoint`
 * [ ] `SDL_RenderDrawPoints`
 * [ ] `SDL_RenderDrawRect`
 * [ ] `SDL_RenderDrawRects`

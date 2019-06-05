@@ -1,0 +1,61 @@
+.TH SDL_RenderDrawPoint 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RenderDrawPoint\fR -- Function
+
+.SH SYNOPSIS
+Use this function to draw a point on the current rendering target.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_RenderDrawPoint(SDL_Renderer*     renderer,
+                        int               x,
+                        int               y)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the rendering context
+T}
+x:T{
+the x coordinate of the point
+T}
+y:T{
+the y coordinate of the point
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+\fBSDL_RenderDrawPoint()\fR draws a single point. If you want to draw multiple, use \fBSDL_RenderDrawPoints()\fR instead.
+
+.SH RELATED FUNCTIONS
+\fISDL_RenderDrawLine\fR
+.br
+\fISDL_RenderDrawLines\fR
+.br
+\fISDL_RenderDrawPoints\fR
+.br
+\fISDL_RenderDrawRect\fR
+.br
+\fISDL_RenderDrawRects\fR
+.br
+\fISDL_RenderFillRect\fR
+.br
+\fISDL_RenderFillRects\fR
+.br
+\fISDL_RenderPresent\fR
+.br
+\fISDL_SetRenderDrawBlendMode\fR
+.br
+\fISDL_SetRenderDrawColor\fR
