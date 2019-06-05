@@ -1,0 +1,69 @@
+.TH SDL_RenderCopyEx 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RenderCopyEx\fR -- Function
+
+.SH SYNOPSIS
+Use this function to copy a portion of the texture to the current rendering target, optionally rotating it by angle around the given center and also flipping it top-down and/or left-right.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_RenderCopyEx(SDL_Renderer*            renderer,
+                     SDL_Texture*             texture,
+                     const SDL_Rect*          srcrect,
+                     const SDL_Rect*          dstrect,
+                     const double             angle,
+                     const SDL_Point*         center,
+                     const SDL_RendererFlip   flip)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the rendering context
+T}
+texture:T{
+the source texture; see \fIRemarks\fR for details
+T}
+srcrect:T{
+the source \fBSDL_Rect\fR structure or NULL for the entire texture
+T}
+dstrect:T{
+the destination \fBSDL_Rect\fR structure or NULL for the entire rendering target
+T}
+angle:T{
+an angle in degrees that indicates the rotation that will be applied to \fBdstrect\fR rotating it in a clockwise direction
+T}
+center:T{
+a pointer to a point indicating around which \fBdstrect\fR will be rotated (if NULL, rotation will be done around \fBdstrect.w/2, dstrect.h/2\fR)
+T}
+flip:T{
+a \fBSDL_RendererFlip\fR value stating which flipping actions should be performed on the texture
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+The texture is blended with the destination based on its blend mode set with \fBSDL_SetTextureBlendMode()\fR.
+
+The texture color is affected based on its color modulation set by \fBSDL_SetTextureColorMod()\fR.
+
+The texture alpha is affected based on its alpha modulation set by \fBSDL_SetTextureAlphaMod()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_RenderCopy\fR
+.br
+\fISDL_SetTextureAlphaMod\fR
+.br
+\fISDL_SetTextureBlendMode\fR
+.br
+\fISDL_SetTextureColorMod\fR

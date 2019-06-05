@@ -548,9 +548,9 @@ Chcked items are covered by this project.
 * [x] `SDL_RegisterEvents`
 * [x] `SDL_RemoveTimer`
 * [x] `SDL_RenderClear`
-* [ ] `SDL_RenderCopy`
-* [ ] `SDL_RenderCopyEx`
-* [ ] `SDL_RenderDrawLine`
+* [x] `SDL_RenderCopy`
+* [x] `SDL_RenderCopyEx`
+* [x] `SDL_RenderDrawLine`
 * [ ] `SDL_RenderDrawLines`
 * [ ] `SDL_RenderDrawPoint`
 * [ ] `SDL_RenderDrawPoints`
