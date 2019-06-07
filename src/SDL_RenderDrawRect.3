@@ -1,0 +1,54 @@
+.TH SDL_RenderDrawRect 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RenderDrawRect\fR -- Function
+
+.SH SYNOPSIS
+Use this function to draw a rectangle on the current rendering target.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_RenderDrawRect(SDL_Renderer*      renderer,
+                       const SDL_Rect*    rect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the rendering context
+T}
+rect:T{
+an \fBSDL_Rect\fR structure representing the rectangle to draw, or NULL to outline the entire rendering target
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_RenderDrawLine\fR
+.br
+\fISDL_RenderDrawLines\fR
+.br
+\fISDL_RenderDrawPoint\fR
+.br
+\fISDL_RenderDrawPoints\fR
+.br
+\fISDL_RenderDrawRects\fR
+.br
+\fISDL_RenderFillRect\fR
+.br
+\fISDL_RenderFillRects\fR
+.br
+\fISDL_RenderPresent\fR
+.br
+\fISDL_SetRenderDrawBlendMode\fR
+.br
+\fISDL_SetRenderDrawColor\fR

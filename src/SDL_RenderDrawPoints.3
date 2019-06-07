@@ -1,0 +1,58 @@
+.TH SDL_RenderDrawPoints 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RenderDrawPoints\fR -- Function
+
+.SH SYNOPSIS
+Use this function to draw multiple points on the current rendering target.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_RenderDrawPoints(SDL_Renderer*      renderer,
+                         const SDL_Point*   points,
+                         int                count)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the rendering context
+T}
+points:T{
+an array of \fBSDL_Point\fR structures that represent the points to draw
+T}
+count:T{
+the number of points to draw
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_RenderDrawLine\fR
+.br
+\fISDL_RenderDrawLines\fR
+.br
+\fISDL_RenderDrawPoint\fR
+.br
+\fISDL_RenderDrawRect\fR
+.br
+\fISDL_RenderDrawRects\fR
+.br
+\fISDL_RenderFillRect\fR
+.br
+\fISDL_RenderFillRects\fR
+.br
+\fISDL_RenderPresent\fR
+.br
+\fISDL_SetRenderDrawBlendMode\fR
+.br
+\fISDL_SetRenderDrawColor\fR

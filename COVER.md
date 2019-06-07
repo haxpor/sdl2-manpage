@@ -553,11 +553,11 @@ Chcked items are covered by this project.
 * [x] `SDL_RenderDrawLine`
 * [x] `SDL_RenderDrawLines`
 * [x] `SDL_RenderDrawPoint`
-* [ ] `SDL_RenderDrawPoints`
-* [ ] `SDL_RenderDrawRect`
-* [ ] `SDL_RenderDrawRects`
-* [ ] `SDL_RenderFillRect`
-* [ ] `SDL_RenderFillRects`
+* [x] `SDL_RenderDrawPoints`
+* [x] `SDL_RenderDrawRect`
+* [x] `SDL_RenderDrawRects`
+* [x] `SDL_RenderFillRect`
+* [x] `SDL_RenderFillRects`
 * [ ] `SDL_RenderGetClipRect`
 * [ ] `SDL_RenderGetD3D9Device`
 * [ ] `SDL_RenderGetIntegerScale`
