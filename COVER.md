@@ -504,9 +504,9 @@ Chcked items are covered by this project.
 * [x] `SDL_MinimizeWindow`
 * [x] `SDL_MixAudio`
 * [x] `SDL_MixAudioFormat`
-* [ ] `SDL_MostSignificantBitIndex32`
-* [ ] `SDL_MouseIsHaptic`
-* [ ] `SDL_NumHaptics`
+* [x] `SDL_MostSignificantBitIndex32`
+* [x] `SDL_MouseIsHaptic`
+* [x] `SDL_NumHaptics`
 * [x] `SDL_NumJoysticks`
 * [x] `SDL_OpenAudio`
 * [x] `SDL_OpenAudioDevice`
@@ -558,8 +558,8 @@ Chcked items are covered by this project.
 * [x] `SDL_RenderDrawRects`
 * [x] `SDL_RenderFillRect`
 * [x] `SDL_RenderFillRects`
-* [ ] `SDL_RenderGetClipRect`
-* [ ] `SDL_RenderGetD3D9Device`
+* [x] `SDL_RenderGetClipRect`
+* [x] `SDL_RenderGetD3D9Device`
 * [ ] `SDL_RenderGetIntegerScale`
 * [ ] `SDL_RenderGetLogicalSize`
 * [ ] `SDL_RenderSetScale`

@@ -1,0 +1,43 @@
+.TH SDL_MostSignificantBitIndex32 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_MostSignificantBitIndex32\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the index of the most significant (set) bit in a 32-bit number. This is also the same as the base 2 logarithm of the number.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_MostSignificantBitIndex32(Uint32    x)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+x:T{
+the number to find the MSB of
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the index of the most significant bit of x, or -1 if x is 0.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+#include "SDL_bits.h"
+
+if (bitmask)
+{
+  int index = SDL_MostSignificantBitIndex32(bitmask);
+}
+T}
+.TE

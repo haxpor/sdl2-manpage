@@ -1,0 +1,26 @@
+.TH SDL_MouseIsHaptic 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_MouseIsHaptic\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get whether or not the current mouse has haptic capabilities.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_MouseIsHaptic(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if the mouse is haptic or \fBSDL_FALSE\fR if it isn't; call \fBSDL_GetError()\fR for more information.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_HapticOpenFromMouse\fR

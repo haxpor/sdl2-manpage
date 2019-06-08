@@ -1,0 +1,35 @@
+.TH SDL_RenderGetClipRect 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RenderGetClipRect\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the clip rectangle for the current target.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_RenderGetClipRect(SDL_Renderer*    renderer,
+                           SDL_Rect*        rect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the rendering context from which clip rectangle should be queried
+T}
+rect:T{
+an \fBSDL_Rect\fR structure filled in with the current clipping area or an empty rectangle if clipping is disabled
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_RenderIsClipEnabled\fR
+.br
+\fISDL_RenderSetClipRect\fR
