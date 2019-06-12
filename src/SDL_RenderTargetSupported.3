@@ -1,0 +1,35 @@
+.TH SDL_RenderTargetSupported 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RenderTargetSupported\fR -- Function
+
+.SH SYNOPSIS
+Use this function to determine whether a window supports the use of render targets.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_RenderTargetSupported(SDL_Renderer*    renderer)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the renderer that will be checked
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if supported or \fBSDL_FALSE\fR if not.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_SetRenderTarget\fR

@@ -560,11 +560,11 @@ Chcked items are covered by this project.
 * [x] `SDL_RenderFillRects`
 * [x] `SDL_RenderGetClipRect`
 * [x] `SDL_RenderGetD3D9Device`
-* [ ] `SDL_RenderGetIntegerScale`
-* [ ] `SDL_RenderGetLogicalSize`
-* [ ] `SDL_RenderSetScale`
-* [ ] `SDL_RenderSetViewport`
-* [ ] `SDL_RenderTargetSupported`
+* [x] `SDL_RenderGetIntegerScale`
+* [x] `SDL_RenderGetLogicalSize`
+* [x] `SDL_RenderSetScale`
+* [x] `SDL_RenderSetViewport`
+* [x] `SDL_RenderTargetSupported`
 * [ ] `SDL_ResetAssertionReport`
 * [ ] `SDL_RestoreWindow`
 * [ ] `SDL_SaveAllDollarTemplates`

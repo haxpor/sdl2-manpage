@@ -1,0 +1,39 @@
+.TH SDL_RenderSetViewport 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RenderSetViewport\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the drawing area for rendering on the current target.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_RenderSetViewport(SDL_Renderer*     renderer,
+                          const SDL_Rect*   rect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the rendering context
+T}
+rect:T{
+the \fBSDL_Rect\fR structure representing the drawing area, or NULL to set the viewport to the entire target
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+When the window is resized, the current viewport is automatically centered within the new window size.
+
+.SH RELATED FUNCTIONS
+\fISDL_RenderGetViewport\fR

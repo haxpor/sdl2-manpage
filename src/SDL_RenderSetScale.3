@@ -1,0 +1,50 @@
+.TH SDL_RenderSetScale 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RenderSetScale\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the drawing scale for rendering on the current target.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_RenderSetScale(SDL_Renderer*    renderer,
+                       float            scaleX,
+                       float            scaleY)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+a rendering context
+T}
+scaleX:T{
+the horizontal scaling factor
+T}
+scaleY:T{
+the vertical scaling factor
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+The drawing coordinates are scaled by the x/y scaling factors before they are used by the renderer. This allows resolution independent drawing with a single coordinate system.
+
+If this results in scaling or subpixel drawing by the rendering backend, it will be handled using the appropriate quality hints. For best results use integer scaling factors.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_RenderGetScale\fR
+.br
+\fISDL_RenderSetLogicalSize\fR

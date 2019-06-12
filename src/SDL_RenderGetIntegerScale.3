@@ -1,0 +1,44 @@
+.TH SDL_RenderGetIntegerScale 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RenderGetIntegerScale\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set whether to force integer scales for resolution-independent rendering.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_RenderGetIntegerScale(SDL_Renderer*   renderer,
+                              SDL_bool        enable)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the renderer for which integer scaling should be set
+T}
+enable:T{
+enable or disable the integer scaling for rendering
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This function restricts the logical viewport to integer values - that is, when a resolution is between two multiples of a logical size, the viewport size is rounded down to the lower multiple.
+
+.SH VERSION
+This function is available since SDL 2.0.5.
+
+.SH RELATED FUNCTIONS
+\fISDL_RenderGetIntegerScale\fR
+.br
+\fISDL_RenderSetLogicalSize\fR

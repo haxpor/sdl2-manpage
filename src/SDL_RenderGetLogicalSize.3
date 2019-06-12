@@ -1,0 +1,43 @@
+.TH SDL_RenderGetLogicalSize 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RenderGetLogicalSize\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get device independent resolution for rendering.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_RenderGetLogicalSize(SDL_Renderer*   renderer,
+                              int*            w,
+                              int*            h)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+a rendering context
+T}
+w:T{
+an int to be filled with the width
+T}
+h:T{
+an int to be filled with the height
+T}
+.TE
+
+.SH REMARKS
+If this function is called on an \fBSDL_Renderer\fR who never had its logical size set by \fBSDL_RenderSetLogicalSize()\fR, this function sets both \fBw\fR and \fBh\fR to 0.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_RenderSetLogicalSize\fR
