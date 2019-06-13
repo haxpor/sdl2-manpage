@@ -1,0 +1,31 @@
+.TH SDL_RestoreWindow 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_RestoreWindow\fR -- Function
+
+.SH SYNOPSIS
+Use this function to restore the size and position of a minimized or maximized window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_RestoreWindow(SDL_Window*    window)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to restore
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_MaximizeWindow\fR
+.br
+\fISDL_MinimizeWindow\fR

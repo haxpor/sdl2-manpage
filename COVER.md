@@ -565,11 +565,11 @@ Chcked items are covered by this project.
 * [x] `SDL_RenderSetScale`
 * [x] `SDL_RenderSetViewport`
 * [x] `SDL_RenderTargetSupported`
-* [ ] `SDL_ResetAssertionReport`
-* [ ] `SDL_RestoreWindow`
-* [ ] `SDL_SaveAllDollarTemplates`
-* [ ] `SDL_SaveBMP`
-* [ ] `SDL_SaveBMP_RW`
+* [x] `SDL_ResetAssertionReport`
+* [x] `SDL_RestoreWindow`
+* [x] `SDL_SaveAllDollarTemplates`
+* [x] `SDL_SaveBMP`
+* [x] `SDL_SaveBMP_RW`
 * [ ] `SDL_SaveDollarTemplate`
 * [ ] `SDL_SemPost`
 * [ ] `SDL_SemTryWait`
