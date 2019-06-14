@@ -1,0 +1,80 @@
+.TH SDL_SemPost 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SemPost\fR -- Function
+
+.SH SYNOPSIS
+Use this function to atomatically increment a semaphore's value and wake waiting threads.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SemPost(SDL_sem*    sem)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+sem:T{
+the semaphore to increment
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+Typical use of semaphores:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_atomic_t done;
+SDL_sem *sem;
+
+SDL_AtomicSet(&done, 0);
+sem = SDL_CreateSemaphore(0);
+.
+.
+Thread A:
+    while (!SDL_AtomicGet(&done)) {
+        add_data_to_queue();
+        SDL_SemPost(sem);
+    }
+
+Thread B:
+    while (!SDL_AtomicGet(&done)) {
+        SDL_SemWait(sem);
+        if (data_available()) {
+            get_data_from_queue();
+        }
+    }
+.
+.
+SDL_AtomicSet(&done, 1);
+SDL_SemPost(sem);
+wait_for_threads();
+SDL_DestroySemaphore(sem);
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateSemaphore\fR
+.br
+\fISDL_DestroySemaphore\fR
+.br
+\fISDL_SemTryWait\fR
+.br
+\fILSD_SemValue\fR
+.br
+\fISDL_SemWait\fR
+.br
+\fISDL_SemWaitTimeout\fR

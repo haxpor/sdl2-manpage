@@ -1,0 +1,81 @@
+.TH SDL_SemTryWait 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SemTryWait\fR -- Function
+
+.SH SYNOPSIS
+Use this function to see if a semaphore has a positive value and decrement it if it does.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SemTryWait(SDL_sem*   sem)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+sem:T{
+the semaphore to wait on
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on the wait succeeds, \fbSDL_MUTEX_TIMEOUT\fR if the wait would block, or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_atomic_t done;
+SDL_sem *sem;
+
+SDL_AtomicSet(&done, 0);
+sem = SDL_CreateSemaphore(0);
+.
+.
+Thread A:
+    while (!SDL_AtomicGet(&done)) {
+        add_data_to_queue();
+        SDL_SemPost(sem);
+    }
+
+Thread B:
+    while (!SDL_AtomicGet(&done)) {
+        if (SDL_SemTryWait(sem) == 0 && data_available()) {
+            get_data_from_queue();
+        }
+        ... do other processing
+    }
+.
+.
+SDL_AtomicSet(&done, 1);
+SDL_SemPost(sem);
+wait_for_threads();
+SDL_DestroySemaphore(sem);
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function checks to see if the semaphore pointed to by \fBsem\fR has a positive value and atomically decrements the semaphore value if it does. If the semaphore doesn't have a positive value, the function immediately returns \fBSDL_MUTEX_TIMEDOUT\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateSemaphore\fR
+.br
+\fISDL_DestroySemaphore\fR
+.br
+\fISDL_SemPost\fR
+.br
+\fISDL_SemValue\fR
+.br
+\fISDL_SemWait\fR
+.br
+\fISDL_SemWaitTimeout\fR

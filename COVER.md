@@ -570,11 +570,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SaveAllDollarTemplates`
 * [x] `SDL_SaveBMP`
 * [x] `SDL_SaveBMP_RW`
-* [ ] `SDL_SaveDollarTemplate`
-* [ ] `SDL_SemPost`
-* [ ] `SDL_SemTryWait`
-* [ ] `SDL_SemValue`
-* [ ] `SDL_SemWait`
+* [x] `SDL_SaveDollarTemplate`
+* [x] `SDL_SemPost`
+* [x] `SDL_SemTryWait`
+* [x] `SDL_SemValue`
+* [x] `SDL_SemWait`
 * [ ] `SDL_SemWaitTimeout`
 * [ ] `SDL_SetAssertionHandler`
 * [ ] `SDL_SetClipRect`

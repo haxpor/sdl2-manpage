@@ -1,0 +1,32 @@
+.TH SDL_SemValue 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SemValue\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the current value of a semaphore.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+sem SDL_SemValue(SDL_sem*   sem)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+sem:T{
+the semaphore to query
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the current value of the semaphore.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateSemaphore\fR

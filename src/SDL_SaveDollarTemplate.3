@@ -1,0 +1,41 @@
+.TH SDL_SaveDollarTemplate 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SaveDollarTemplate\fR -- Function
+
+.SH SYNOPSIS
+Use this function to save a currently loaded Dollar Gesture template.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SaveDollarTemplate(SDL_GestureID    gestureId,
+                           SDL_RWops*       dst)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+gestureId:T{
+a gesture id
+T}
+dst:T{
+a \fBSDL_RWops\fR to save to
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 1 on success or 0 on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_LoadDollarTemplates\fR
+.br
+\fISDL_SaveAllDollarTemplates\fR
