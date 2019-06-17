@@ -1,0 +1,34 @@
+.TH SDL_SetClipboardText 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetClipboardText\fR -- Function
+
+.SH SYNOPSIS
+Use this function to put UTF-8 text into the cilpboard.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetClipboardText(const char*    text)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+text:T{
+the text to store in the clipboard
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetClipboardText\fR
+.br
+\fISDL_HasClipboardText\fR

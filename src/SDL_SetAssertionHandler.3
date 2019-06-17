@@ -1,0 +1,68 @@
+.TH SDL_SetAssertionHandler 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetAssertionHandler\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set an application-defined assertion handler.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetAssertionHandler(SDL_AssertionHandler   handler,
+                             void*                  userdata)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+handler:T{
+the function to call when an assertion fails or NULL for the default handler; see \fIRemarks\fR for details
+T}
+userdata:T{
+a pointer that is passed to \fBhandler\fR
+T}
+.TE
+
+.SH REMARKS
+This function allows an application to show its own assertion UI and/or force the response to an assertion failure. If the application doesn't provide this, SDL will try to do the right thing, popping up a system-specific GUI dialog, and probably minimizing any fullscreen windows.
+
+The function prototype for \fBhandler\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_AssertState YourAssertionHandler(const SDL_AssertData*    data,
+                                     void*                    userdata)
+.fi
+T}
+.TE
+
+where \fBYourAssertionHandler\fR is the name of your function and its parameters are:
+
+.TS
+tab(:) allbox;
+ab l.
+data:T{
+a pointer to the \fBSDL_AssertData\fR structure corresponding to the current assertion
+T}
+userdata:T{
+what was passed as \fBuserdata\fR to \fBSDL_SetAssertionHandler()\fR
+T}
+.TE
+
+This callback should return an \fBSDL_AssertState\fR value indicating how to handle the assertion failure.
+
+This callback may fire from any thread, but it runs wrapped in a mutex, so it will only fire from one thread at a time.
+
+This callback is \fBNOT\fR reset to SDL's internal handler upon \fBSDL_Quit()\fR!
+
+.SH RELATED FUNCTIONS
+\fBSDL_GetAssertionHandler\fR

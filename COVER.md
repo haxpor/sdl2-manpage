@@ -575,11 +575,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SemTryWait`
 * [x] `SDL_SemValue`
 * [x] `SDL_SemWait`
-* [ ] `SDL_SemWaitTimeout`
-* [ ] `SDL_SetAssertionHandler`
-* [ ] `SDL_SetClipRect`
-* [ ] `SDL_SetClipboardText`
-* [ ] `SDL_SetColorKey`
+* [x] `SDL_SemWaitTimeout`
+* [x] `SDL_SetAssertionHandler`
+* [x] `SDL_SetClipRect`
+* [x] `SDL_SetClipboardText`
+* [x] `SDL_SetColorKey`
 * [ ] `SDL_SetCursor`
 * [ ] `SDL_SetError`
 * [ ] `SDL_SetEventFilter`

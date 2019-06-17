@@ -1,0 +1,87 @@
+.TH SDL_SemWaitTimeout 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SemWaitTimeout\fR -- Function
+
+.SH SYNOPSIS
+Use this function to wait until a semaphore has a positive value and then decrement it.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SemWaitTimeout(SDL_sem*   sem,
+                       Uint32     ms)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+sem:T{
+the semaphore to wait on
+T}
+ms:T{
+the length of the timeout in milliseconds
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 if the wait succeeds, \fBSDL_MUTEX_TIMEDOUT\fR if the wait does not succeed in the alloted time, or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_atomic_t done;
+SDL_sem *sem;
+
+SDL_AtomicSet(&done, 0);
+sem = SDL_CreateSemaphore(0);
+.
+.
+Thread A:
+    while (!SDL_AtomicGet(&done)) {
+        add_data_to_queue();
+        SDL_SemPost(sem);
+    }
+
+Thread B:
+    const Uint32 timeout = 1000; /* wake up every second */
+
+    while (!SDL_AtomicGet(&done)) {
+        if (SDL_SemWaitTimeout(sem, timeout) == 0 && data_available()) {
+            get_data_from_queue();
+        }
+        ... do other processing
+    }
+.
+.
+SDL_AtomicSet(&done, 1);
+SDL_SemPost(sem);
+wait_for_threads();
+SDL_DestroySemaphore(sem);
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function suspends the calling thread until either the semaphore pointed to by \fBsem\fR has a positive value, the call is interrupted by a signal or error, or the specified time has elapsed. If the call is successful, it will automatically decrement the semaphore value.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateSemaphore\fR
+.br
+\fISDL_DestroySemaphore\fR
+.br
+\fISDL_SemPost\fR
+.br
+\fISDL_SemTryWait\fR
+.br
+\fISDL_SemValue\fR
+.br
+\fISDL_SemWait\fR
