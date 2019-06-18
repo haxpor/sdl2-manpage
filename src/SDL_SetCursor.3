@@ -1,0 +1,36 @@
+.TH SDL_SetCursor 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetCursor\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the active cursor.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetCursor(SDL_Cursor*    cursor)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+cursor:T{
+a cursor to make active; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH REMARKS
+This function sets the currently active cursor to the specified one. If the cursor is currently visible, the change will be immediately represented on the display. \fBSDL_SetCursor(NULL)\fR can be used to force cursor redraw, if this is desired for any reason.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateCursor\fR
+.br
+\fISDL_GetCursor\fR
+.br
+\fISDL_ShowCursor\fR

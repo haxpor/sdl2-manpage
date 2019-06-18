@@ -1,0 +1,52 @@
+.TH SDL_SetHint 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetHint\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set a hint with normal priority.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_SetHint(const char*    name,
+                     const char*    value)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+name:T{
+the hint to set; see the list of hints on \fICategoryHints\fR (\fIhttps://wiki.libsdl.org/CategoryHints#Hints\fR) for details
+T}
+value:T{
+the value of the hint variable
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if the hint was set, \fBSDL_FALSE\fR otherwise.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+.fi
+T}
+.TE
+
+.SH REMARKS
+Hints will not be set if there is an existing override hint or environment variable that takes precedence. You can use \fBSDL_SetHintWithPriority()\fR to set the hint with override priority instead.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetHint\fR
+.br
+\fISDL_SetHintWithPriority\fR

@@ -1,0 +1,45 @@
+.TH SDL_SetHintWithPriority 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetHintWithPriority\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set a hint with a specific priority.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_bool SDL_SetHintWithPriority(const char*        name,
+                                 const char*        value,
+                                 SDL_HintPriority   priority)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+name:T{
+the hint to set; see the list of hints on \fICategoryHints\fR (\fIhttps://wiki.libsdl.org/CategoryHints#Hints\fR) for details
+T}
+value:T{
+the value of the hint variable
+T}
+priority:T{
+the \fBSDL_HintPriority\fR level for the hint
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_TRUE\fR if the hint was set, \fBSDL_FALSE\fR otherwise.
+
+.SH REMARKS
+The priority controls the behavior when setting a hint that already has a value. Hints will replace existing hints of their priority and lower. Environment variables are considered to have override priority.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetHint\fR
+.br
+\fISDL_SetHint\fR

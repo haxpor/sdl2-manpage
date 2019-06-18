@@ -580,11 +580,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SetClipRect`
 * [x] `SDL_SetClipboardText`
 * [x] `SDL_SetColorKey`
-* [ ] `SDL_SetCursor`
-* [ ] `SDL_SetError`
-* [ ] `SDL_SetEventFilter`
-* [ ] `SDL_SetHint`
-* [ ] `SDL_SetHintWithPriority`
+* [x] `SDL_SetCursor`
+* [x] `SDL_SetError`
+* [x] `SDL_SetEventFilter`
+* [x] `SDL_SetHint`
+* [x] `SDL_SetHintWithPriority`
 * [ ] `SDL_SetMainReady`
 * [ ] `SDL_SetModState`
 * [ ] `SDL_SetPaletteColors`
