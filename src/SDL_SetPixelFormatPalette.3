@@ -1,0 +1,38 @@
+.TH SDL_SetPixelFormatPalette 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetPixelFormatPalette\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the palette for a pixel format structure.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetPixelFormatPalette(SDL_PixelFormat*    format,
+                              SDL_Palette*        palette)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+format:T{
+the \fBSDL_PixelFormat\fR structure that will use the palette
+T}
+palette:T{
+the \fBSDL_Palette\fR structure that will be used
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_AllocPalette\fR
+.br
+\fISDL_FreePalette\fR

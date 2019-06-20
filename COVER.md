@@ -585,11 +585,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SetEventFilter`
 * [x] `SDL_SetHint`
 * [x] `SDL_SetHintWithPriority`
-* [ ] `SDL_SetMainReady`
-* [ ] `SDL_SetModState`
-* [ ] `SDL_SetPaletteColors`
-* [ ] `SDL_SetPixelFormatPalette`
-* [ ] `SDL_SetRelativeMouseMode`
+* [x] `SDL_SetMainReady`
+* [x] `SDL_SetModState`
+* [x] `SDL_SetPaletteColors`
+* [x] `SDL_SetPixelFormatPalette`
+* [x] `SDL_SetRelativeMouseMode`
 * [ ] `SDL_SetRenderDrawBlendMode`
 * [ ] `SDL_SetRenderDrawColor`
 * [ ] `SDL_SetRenderTarget`

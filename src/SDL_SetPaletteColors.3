@@ -1,0 +1,46 @@
+.TH SDL_SetPaletteColors 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetPaletteColors\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set a range of colors in a palette.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetPaletteColors(SDL_Palette*       palette,
+                         const SDL_Color*   colors,
+                         int                firstcolor,
+                         int                ncolors)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+palette:T{
+the \fBSDL_Palette\fR structure to modify
+T}
+colors:T{
+an array of \fBSDL_Color\fR structures to copy into the palette
+T}
+firstcolor:T{
+the index of the first palette entry to modify
+T}
+ncolors:T{
+the number of entries to modify
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code if not all of the colors could be set; call \fBSDL_GetError()\fR for more information.
+
+.SH RELATED FUNCTIONS
+\fISDL_AllocPalette\fR
+.br
+\fISDL_CreateRGBSurface\fR

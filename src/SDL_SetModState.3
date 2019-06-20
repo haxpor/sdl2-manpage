@@ -1,0 +1,34 @@
+.TH SDL_SetModState 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetModState\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the current key modifier state for the keyboard.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetModState(SDL_Keymod   modstate)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+modstate:T{
+the desired \fBSDL_Keymod\fR for the keyboard
+T}
+.TE
+
+.SH REMARKS
+The inverse of \fBSDL_GetModState()\fR, \fBSDL_SetModState()\fR allows you to impose modifier key states on your application. Simply pass your desired modifier state into \fBmodstate\fR. This value may be a bitwise, OR'd combination of \fBSDL_Keymod\fR values.
+
+This does not change the keyboard state, only the key modifier flags.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetModState\fR

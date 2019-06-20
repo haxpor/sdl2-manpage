@@ -24,7 +24,14 @@ name:description
 .TE
 
 .SH CODE EXAMPLES
-...
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+.fi
+T}
+.TE
 
 .SH REMARKS
 The function prototype for \fBcallback\fR is:

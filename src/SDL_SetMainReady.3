@@ -1,0 +1,51 @@
+.TH SDL_SetMainReady 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetMainReady\fR -- Function
+
+.SH SYNOPSIS
+Use this function to circumvent failure of \fBSDL_Init()\fR when not using \fBSDL_main()\fR as an entry point.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetMainReady(void)
+.fi
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#define SDL_MAIN_HANDLED
+#include "SDL.h"
+
+int main(int argc, char* argv[])
+{
+  SDL_SetMainReady();
+  SDL_Init(SDL_INIT_VIDEO);
+  
+  ...
+
+  SDL_Quit();
+
+  return 0; 
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function is defined in \fISDL_main.h\fR, along with the preprocessor rule to redefine \fBmain()\fR as \fBSDL_main()\fR. Thus to ensure that your \fBmain()\fR function will not be changed, it is necessary to define \fBSDL_MAIN_HANDLED\fR before including \fISDL.h\fR.
+
+Normally, we call this function whenever we want to manually proceed initialization sequence of SDL ourselves and not let SDL injects its main function, thus use our main function as it is.
+
+You should know what you are doing when calling this function.
+
+.SH RELATED FUNCTIONS
+\fBSDL_Init\fR

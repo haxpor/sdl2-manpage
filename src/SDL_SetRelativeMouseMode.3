@@ -1,0 +1,37 @@
+.TH SDL_SetRelativeMouseMode 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetRelativeMouseMode\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set relative mouse mode.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetRelativeMouseMode(SDL_bool   enabled)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+enabled:T{
+whether or not to enable relative mode, \fBSDL_TRUE\fR for enabled relative mode
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+If relative mode is not supported, this return -1.
+
+.SH REMARKS
+While the mouse is in relative mode, the cursor is hidden, and the driver will try to report continuous motion in the current window. Only relative motion events will be delivered, the mouse position will not change.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetRelativeMouseMode\fR
