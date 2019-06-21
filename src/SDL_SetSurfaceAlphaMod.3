@@ -1,0 +1,51 @@
+.TH SDL_SetSurfaceAlphaMod 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetSurfaceAlphaMod\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set an additional alpha value used in blit operations.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetSurfaceAlphaMod(SDL_Surface*   surface,
+                           Uint8          alpha)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+surface:T{
+the \fBSDL_Surface\fR structure to update
+T}
+alpha:T{
+the alpha value multiplied into blit operations
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+When this surface is blitted, during the blit operation the source alpha value is modulated by this alpha value according to the following formula.
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+srcA = srcA * (alpha / 255)
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GetSurfaceAlphaMod\fR
+.br
+\fISDL_SetSurfaceColorMod\fR

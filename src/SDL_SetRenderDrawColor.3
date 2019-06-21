@@ -1,0 +1,87 @@
+.TH SDL_SetRenderDrawColor 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetRenderDrawColor\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the color used for drawing operations (Rect, Line and Clear).
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetRenderDrawColor(SDL_Renderer*    renderer,
+                           Uint8            r,
+                           Uint8            g,
+                           Uint8            b,
+                           Uint8            a)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+renderer:T{
+the rendering context
+T}
+r:T{
+the red value used to draw on the rendering target
+T}
+g:T{
+the green value used to draw on the rendering target
+T}
+b:T{
+the blue value used to draw on the rendering target
+T}
+a:T{
+the alpha value used to draw on the rendering target; usually \fBSDL_ALPHA_OPAQUE(255)\fR. Use \fBSDL_SetRenderDrawBlendMode\fR to specify how the alpha channel is used.
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+SDL_Rect rectangle;
+
+rectangle.x = 0;
+rectangle.y = 0;
+rectangle.w = 50;
+rectangle.h = 50;
+SDL_RenderFillRect(renderer, &rectangle);
+.fi
+T}
+.TE
+
+.SH REMARKS
+Use this function to set the color for drawing or filling rectangles, lines, and points, and for \fBSDL_RenderClear()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetRenderDrawColor\fR
+.br
+\fISDL_RenderClear\fR
+.br
+\fISDL_RenderDrawLine\fR
+.br
+\fISDL_RenderDrawLines\fR
+.br
+\fISDL_RenderDrawPoint\fR
+.br
+\fISDL_RenderDrawPoints\fR
+.br
+\fISDL_RenderDrawRect\fR
+.br
+\fISDL_RenderDrawRects\fR
+.br
+\fISDL_RenderFillRect\fR
+.br
+\fISDL_RenderFillRects\fR

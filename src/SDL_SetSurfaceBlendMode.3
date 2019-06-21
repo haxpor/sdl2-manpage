@@ -1,0 +1,79 @@
+.TH SDL_SetSurfaceBlendMode 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetSurfaceBlendMode\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the blend mode used for blit operations.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetSurfaceBlendMode(SDL_Surface*    surface,
+                            SDL_BlendMode   blendMode)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+surface:T{
+the \fBSDL_Surface\fR structure to update
+T}
+blendMode:T{
+the \fBSDL_BlendMode\fR to use for blit blending; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+\fBblendMode\fR may be one of the following:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_BLENDMODE_NONE:T{
+no blending
+T}
+:T{
+dstRGBA = srcRGBA
+T}
+SDL_BLENDMODE_BLEND:T{
+alpha blending
+T}
+:T{
+dstRGB = (srcRGB * srcA) + (dstRGB * (1-srcA))
+T}
+:T{
+dstA = srcA + (dstA * (1-srcA))
+T}
+SDL_BLENDMODE_ADD:T{
+additive blending
+T}
+:T{
+dstRGB = (srcRGB * srcA) + dstRGB
+T}
+:T{
+dstA = dstA
+T}
+SDL_BLENDMODE:T{
+color modulate
+T}
+:T{
+dstRGB = srcRGB * dstRGB
+T}
+:T{
+dstA = dstA
+T}
+.TE
+
+To copy a surface to another surface (or texture) without blending with the existing data, the blendmode of the SOURCE surface should be set to \fBSDL_BLENDMODE_NONE\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetSurfaceBlendMode\fR

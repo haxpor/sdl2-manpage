@@ -590,11 +590,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SetPaletteColors`
 * [x] `SDL_SetPixelFormatPalette`
 * [x] `SDL_SetRelativeMouseMode`
-* [ ] `SDL_SetRenderDrawBlendMode`
-* [ ] `SDL_SetRenderDrawColor`
-* [ ] `SDL_SetRenderTarget`
-* [ ] `SDL_SetSurfaceAlphaMod`
-* [ ] `SDL_SetSurfaceBlendMode`
+* [x] `SDL_SetRenderDrawBlendMode`
+* [x] `SDL_SetRenderDrawColor`
+* [x] `SDL_SetRenderTarget`
+* [x] `SDL_SetSurfaceAlphaMod`
+* [x] `SDL_SetSurfaceBlendMode`
 * [ ] `SDL_SetSurfaceColorMod`
 * [ ] `SDL_SetSurfacePalette`
 * [ ] `SDL_SetSurfaceRLE`
