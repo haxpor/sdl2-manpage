@@ -1,0 +1,36 @@
+.TH SDL_SetSurfacePalette 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetSurfacePalette\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the palette used by a surface.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetSurfacePalette(SDL_Surface*    surface,
+                          SDL_Palette*    palette)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+surface:T{
+the \fBSDL_Surface\fR structure to update
+T}
+palette:T{
+the \fBSDL_Palette\fR structure to use
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+A single palette can be shared with many surfaces.

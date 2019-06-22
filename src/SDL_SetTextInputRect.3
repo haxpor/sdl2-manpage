@@ -1,0 +1,32 @@
+.TH SDL_SetTextInputRect 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetTextInputRect\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the rectangle used to type Unicode text inputs.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetTextInputRect(SDL_Rect*   rect)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+rect:T{
+the \fBSDL_Rect\fR structure representing the rectangle to receive text (ignored if NULL)
+T}
+.TE
+
+.SH REMARKS
+There is a \fItutorial\fR (\fIhttps://wiki.libsdl.org/Tutorials/TextInput\fR).
+
+.SH RELATED FUNCTIONS
+\fISDL_StartTextInput\fR

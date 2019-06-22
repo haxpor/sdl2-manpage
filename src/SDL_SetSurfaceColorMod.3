@@ -1,0 +1,59 @@
+.TH SDL_SetSurfaceColorMod 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetSurfaceColorMod\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set an additional color value multiplied into blit operations.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetSurfaceColorMod(SDL_Surface*   surface,
+                           Uint8          r,
+                           Uint8          g,
+                           Uint8          b)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+surface:T{
+the \fBSDL_Surface\fR structure to update
+T}
+r:T{
+the red color value multiplied into blit operations
+T}
+g:T{
+the green color value multiplied into blit operations
+T}
+b:T{
+the blue color value multiplied into blit operations
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+When this surface is blitted, during the blit operation each source color channel is modulated by the appropriate color value according to the following formula:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+srcC = srcC * (color / 255)
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GetSurfaceColorMod\fR
+.br
+\fISDL_SetSurfaceAlphaMod\fR

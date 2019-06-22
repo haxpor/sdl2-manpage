@@ -595,11 +595,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SetRenderTarget`
 * [x] `SDL_SetSurfaceAlphaMod`
 * [x] `SDL_SetSurfaceBlendMode`
-* [ ] `SDL_SetSurfaceColorMod`
-* [ ] `SDL_SetSurfacePalette`
-* [ ] `SDL_SetSurfaceRLE`
-* [ ] `SDL_SetTextInputRect`
-* [ ] `SDL_SetTextureAlphaMod`
+* [x] `SDL_SetSurfaceColorMod`
+* [x] `SDL_SetSurfacePalette`
+* [x] `SDL_SetSurfaceRLE`
+* [x] `SDL_SetTextInputRect`
+* [x] `SDL_SetTextureAlphaMod`
 * [ ] `SDL_SetTextureBlendMode`
 * [ ] `SDL_SetTextureColorMod`
 * [ ] `SDL_SetThreadPriority`

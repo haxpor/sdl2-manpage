@@ -1,0 +1,43 @@
+.TH SDL_SetSurfaceRLE 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetSurfaceRLE\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the RLE acceleration hint for a surface.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetSurfaceRLE(SDL_Surface*    surface,
+                      int             flag)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+surface:T{
+the \fBSDL_Surface\fR structure to optimize
+T}
+flag:T{
+0 to disable, non-zero to enable RLE acceleration
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+If RLE is enabled, color key and alpha blending blits are much faster, but the surface must be locked before directly accessing the pixels.
+
+.SH RELATED FUNCTIONS
+\fISDL_BlitSurface\fR
+.br
+\fISDL_LockSurface\fR
+.br
+\fISDL_UnlockSurface\fR

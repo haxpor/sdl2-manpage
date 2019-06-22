@@ -1,0 +1,53 @@
+.TH SDL_SetTextureAlphaMod 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetTextureAlphaMod\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set an additional alpha value multiplied into render copy operations.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetTextureAlphaMod(SDL_Texture*   texture,
+                           Uint8          alpha)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+texture:T{
+the texture to update
+T}
+alpha:T{
+the source alpha value multiplied into copy operations
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+When this texture is rendered, during the copy operation the source alpha value is modulated by this alpha value according to the following formula:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+srcA = srcA * (alpha / 255)
+.fi
+T}
+.TE
+
+Alpha modulation is not always supported by the renderer; it will return -1 if alpha modulation is not supported.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetTextureAlphaMod\fR
+.br
+\fISDL_SetTextureColorMod\fR
