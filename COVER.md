@@ -600,11 +600,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SetSurfaceRLE`
 * [x] `SDL_SetTextInputRect`
 * [x] `SDL_SetTextureAlphaMod`
-* [ ] `SDL_SetTextureBlendMode`
-* [ ] `SDL_SetTextureColorMod`
-* [ ] `SDL_SetThreadPriority`
-* [ ] `SDL_SetWindowBordered`
-* [ ] `SDL_SetWindowBrightness`
+* [x] `SDL_SetTextureBlendMode`
+* [x] `SDL_SetTextureColorMod`
+* [x] `SDL_SetThreadPriority`
+* [x] `SDL_SetWindowBordered`
+* [x] `SDL_SetWindowBrightness`
 * [ ] `SDL_SetWindowData`
 * [ ] `SDL_SetWindowDisplayMode`
 * [ ] `SDL_SetWindowFullscreen`

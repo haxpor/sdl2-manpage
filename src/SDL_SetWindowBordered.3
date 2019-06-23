@@ -1,0 +1,41 @@
+.TH SDL_SetWindowBordered 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowBordered\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the border state of a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetWindowBordered(SDL_Window*    window,
+                           SDL_bool       bordered)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window of which to change the border state
+T}
+bordered:T{
+\fBSDL_FALSE\fR to remove border, \fBSDL_TRUE\fR to add border
+T}
+.TE
+
+.SH REMARKS
+This will add or remove the window's \fBSDL_WINDOW_BORDERLESS\fR flag and add or remove the border from the actual window. This is a no-op if the window's border already matches the requested state.
+
+You can't change the border state of a fullscreen window.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowFlags\fR

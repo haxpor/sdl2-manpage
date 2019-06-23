@@ -1,0 +1,59 @@
+.TH SDL_SetTextureBlendMode 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetTextureBlendMode\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the blend mode for a texture, used by \fBSDL_RenderCopy()\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetTextureBlendMode(SDL_Texture*      texture,
+                            SDL_BlendMode*    blendMode)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+texture:T{
+the texture to update
+T}
+blendMode:T{
+the \fBSDL_BlendMode\fR to use for texture blending; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+\fBblendMode\fR will be filled in with one of the following:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_BLENDMODE_NONE:no blending
+:dstRGBA = srcRGBA
+SDL_BLENDMODE_BLEND:alhpa blending
+:dstRGB = (srcRGB * srcA) + (dstRGB * (1 - srcA))
+:dstA = srcA + (dstA * (1 - srcA))
+SDL_BLENDMODE_ADD:additive blending
+:dstRGB = (srcRGB * srcA) + dstRGB
+:dstA = dstA
+SDL_BLENDMODE_MOD:color modulate
+:dstRGB = srcRGB * dstRGB
+:dstA = dstA
+.TE
+
+If the blend mode is not supported, the closest supported mode is chosen and this function returns -1.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetTextureBlendMode\fR
+.br
+\fISDL_RenderCopy\fR

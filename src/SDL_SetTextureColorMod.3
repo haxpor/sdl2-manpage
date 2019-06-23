@@ -1,0 +1,75 @@
+.TH SDL_SetTextureColorMod 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetTextureColorMod\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set an additional color value multiplied into render copy operations.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetTextureColorMod(SDL_Texture*   texture,
+                           Uint8          r,
+                           Uint8          g,
+                           Uint8          b)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+texture:T{
+the texture to update
+T}
+r:T{
+the red color value multiplied into copy operations
+T}
+g:T{
+the green color value multiplied into copy operations
+T}
+b:T{
+the blue color value multiplied into copy operations
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+...
+SDL_Surface pTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
+SDL_SetTextureColorMod(pTexture, 64, 64, 64);
+...
+.fi
+T}
+.TE
+
+.SH REMARKS
+When this texture is rendered, during the copy operation each source color channel is modulated by the appropriate color value accoding to the following formula:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+srcC = srcC * (color / 255)
+.fi
+T}
+.TE
+
+Color modulation is not always supported by the renderer; it will return -1 if color modulation is not supported.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetTextureColorMod\fR
+.br
+\fISDL_SetTextureAlphaMod\fR

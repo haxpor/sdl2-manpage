@@ -1,0 +1,46 @@
+.TH SDL_SetThreadPriority 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetThreadPriority\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the priority for the current thread.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetThreadPriority(SDL_ThreadPriority    priority)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+priority:T{
+the \fBSDL_ThreadPriority\fR to set; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+\fBpriority\fR may be one of the following:
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_THREAD_PRIORITY_LOW:T{
+for non-urgent, background processing
+T}
+SDL_THREAD_PRIORITY_NORMAL:T{
+for general purpose processing (default)
+T}
+SDL_THREAD_PRIORITY_HIGH:T{
+for timing-critical processing
+T}
+.TE
