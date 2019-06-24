@@ -1,0 +1,47 @@
+.TH SDL_SetWindowGammaRamp 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowGammaRamp\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the gamma ramp for the display that owns a given window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetWindowGammaRamp(SDL_Window*      window,
+                           const Uint16*    red,
+                           const Uint16*    green,
+                           const Uint16*    blue)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window used to select the display whose gamma ramp will be changed
+T}
+red:T{
+a 256 element array of 16-bit quantities representing the translation table for the red channel, or NULL
+T}
+green:T{
+a 256 element array of 16-bit quantities representing the translation table for the green channel, or NULL
+T}
+blue:T{
+a 256 element array of 16-bit quantities representing the translation table for the blue channel, or NULL
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+Set the gamma translation table for the red, green, and blue channels of the video hardware. Each table is an array of 256 16-bit quantities, representing a mapping between the input and output for that channel. The input is the index into the array, and the output is the 16-bit gamma value at that index, scaled to the output color precision. Desite the name and signature, this method sets th gamma ramp of the entire display, not an individual window. A window is considered to be owned by the display that contains the window's center pixel. (The index of this display can be retrieved using \fBSDL_GetWindowDisplayIndex()\fR.) The gamma ramp set will not follow the window if it is moved to another display.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowGammaRamp\fR

@@ -605,11 +605,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SetThreadPriority`
 * [x] `SDL_SetWindowBordered`
 * [x] `SDL_SetWindowBrightness`
-* [ ] `SDL_SetWindowData`
-* [ ] `SDL_SetWindowDisplayMode`
-* [ ] `SDL_SetWindowFullscreen`
-* [ ] `SDL_SetWindowGammaRamp`
-* [ ] `SDL_SetWindowGrab`
+* [x] `SDL_SetWindowData`
+* [x] `SDL_SetWindowDisplayMode`
+* [x] `SDL_SetWindowFullscreen`
+* [x] `SDL_SetWindowGammaRamp`
+* [x] `SDL_SetWindowGrab`
 * [ ] `SDL_SetWindowHitTest`
 * [ ] `SDL_SetWindowIcon`
 * [ ] `SDL_SetWindowInputFocus`

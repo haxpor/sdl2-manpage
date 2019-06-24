@@ -1,0 +1,40 @@
+.TH SDL_SetWindowGrab 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowGrab\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set a window's input grab mode.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetWindowGrab(SDL_Window*    window,
+                       SDL_bool       grabbed)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window for which the input grab mode should be set
+T}
+grabbed:T{
+\fBSDL_TRUE\fR to grab input or \fBSDL_FALSE\fR to release input
+T}
+.TE
+
+.SH REMARKS
+When input is grabbed, the mouse is confined to the window.
+
+If the caller enables a grab while another window is currently grabbed, the other window loses its grab in favor of the caller's window.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetGrabbedWindow\fR
+.br
+\fISDL_GetWindowGrab\fR

@@ -1,0 +1,41 @@
+.TH SDL_SetWindowDisplayMode 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowDisplayMode\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the display mode to use when a window is visible at fullscreen.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetWindowDisplayMode(SDL_Window*              window,
+                             const SDL_DisplayMode*   mode)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to affect
+T}
+mode:T{
+the \fBSDL_DisplayMode\fR structure representing the mode to use, or NULL to use the window's dimensions and the desktop's format and refresh rate
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This only affects the display mode used when the window is fullscreen. To change the window size when the window is not fullscreen, use \fBSDL_SetWindowSize()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowDisplayMode\fR
+.br
+\fISDL_SetWindowFullscreen\fR

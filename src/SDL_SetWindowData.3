@@ -1,0 +1,43 @@
+.TH SDL_SetWindowData 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowData\fR -- Function
+
+.SH SYNOPSIS
+Use this function to associate an arbitrary named pointer with a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void* SDL_SetWindowData(SDL_Window*   window,
+                        const char    name,
+                        void*         userdata)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to associate with the pointer
+T}
+name:T{
+the name of the pointer
+T}
+userdata:T{
+the associated pointer
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the previous value associated with \fBname\fR.
+
+.SH REMARKS
+\fBname\fR is case-sensitive.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowData\fR

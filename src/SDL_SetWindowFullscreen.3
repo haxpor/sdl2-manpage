@@ -1,0 +1,44 @@
+.TH SDL_SetWindowFullscreen 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowFullscreen\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set a window's fullscreen state.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetWindowFullscreen(SDL_Window*   window,
+                            Uint32        flags)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to change
+T}
+flags:T{
+\fBSDL_WINDOW_FULLSCREEN\fR, \fBSDL_WINDOW_FULLSCREEN_DESKTOP\fR or 0; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+\fBflags\fR may be \fBSDL_WINDOW_FULLSCREEN\fR, for "real" fullscreen with a videomode change; \fBSDL_WINDOW_FULLSCREEN_DESKTOP\fR for "fake" fullscreen that takes the size ofthe desktop; and 0 for windowed mode.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowDisplayMode\fR
+.br
+\fISDL_SetWindowDisplayMode\fR
