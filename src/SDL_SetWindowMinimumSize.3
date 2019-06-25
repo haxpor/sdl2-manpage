@@ -1,0 +1,39 @@
+.TH SDL_SetWindowMinimumSize 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowMinimumSize\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the minimum size of a window's client area.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetWindowMinimumSize(SDL_Window*   window,
+                              int           min_w,
+                              int           min_h)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to change
+T}
+min_w:T{
+the minimum width of the window in pixels
+T}
+min_h:T{
+the minimum height of the window in pixels
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowMinimumSize\fR
+.br
+\fISDL_SetWindowMaximumSize\fR

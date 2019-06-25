@@ -1,0 +1,39 @@
+.TH SDL_SetWindowMaximumSize 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowMaximumSize\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the maximum size of a window's client area.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetWindowMaximumSize(SDL_Window*   window,
+                              int           max_w,
+                              int           max_h)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to change
+T}
+max_w:T{
+the maximum width of the window in pixels
+T}
+max_h:T{
+the maximum height of the window in pixels
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowMaximumSize\fR
+.br
+\fISDL_SetWindowMinimumSize\fR

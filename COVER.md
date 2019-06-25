@@ -610,11 +610,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SetWindowFullscreen`
 * [x] `SDL_SetWindowGammaRamp`
 * [x] `SDL_SetWindowGrab`
-* [ ] `SDL_SetWindowHitTest`
-* [ ] `SDL_SetWindowIcon`
-* [ ] `SDL_SetWindowInputFocus`
-* [ ] `SDL_SetWindowMaximumSize`
-* [ ] `SDL_SetWindowMinimumSize`
+* [x] `SDL_SetWindowHitTest`
+* [x] `SDL_SetWindowIcon`
+* [x] `SDL_SetWindowInputFocus`
+* [x] `SDL_SetWindowMaximumSize`
+* [x] `SDL_SetWindowMinimumSize`
 * [ ] `SDL_SetWindowModalFor`
 * [ ] `SDL_SetWindowOpacity`
 * [ ] `SDL_SetWindowPosition`
