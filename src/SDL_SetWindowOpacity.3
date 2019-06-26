@@ -1,0 +1,46 @@
+.TH SDL_SetWindowOpacity 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowOpacity\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the opacity for a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetWindowOpacity(SDL_Window*    window,
+                         float          opacity)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window which will be made transparent or opaque
+T}
+opacity:T{
+the opacity value (0.0f - transparent, 1.0f - opaque)
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+The parameter \fBopacity\fR will be clamped internally between 0.0 (transparent) and 1.0f (opaque).
+
+This function also returns -1 if setting the opacity isn't supported.
+
+This function is only supported on DirectFB, X11, Cocoa (Apple macOS) and Microsoft Windows.
+
+.SH VERSION
+This function is available since SDL 2.0.5.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowOpacity\fR

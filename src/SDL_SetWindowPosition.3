@@ -1,0 +1,40 @@
+.TH SDL_SetWindowPosition 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowPosition\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the position of a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetWindowPosition(SDL_Window*    window,
+                           int            x,
+                           int            y)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to reposition
+T}
+x:T{
+the x coordinate of the window in screen coordinate, or \fBSDL_WINDOWPOS_CENTERED\fR or \fBSDL_WINDOWPOS_UNDEFINED\fR
+T}
+y:T{
+the y coordinate of the window in screen coordinate, or \fBSDL_WINDOWPOS_CENTERED\fR or \fBSDL_WINDOWPOS_UNDEFINED\fR
+T}
+.TE
+
+.SH REMARKS
+The window coordinate origin is the upper left of the display.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowPosition\fR

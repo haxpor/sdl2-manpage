@@ -1,0 +1,41 @@
+.TH SDL_SetWindowResizable 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowResizable\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the user-resizable state of a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetWindowResizable(SDL_Window*   window,
+                            SDL_bool      resizable)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window of which to change the resizable state
+T}
+resizable:T{
+\fBSDL_TRUE\fR to allow resizing, \fBSDL_FALSE\fR to disallow
+T}
+.TE
+
+.SH REMARKS
+This will add or remove the window's \fBSDL_WINDOW_RESIZABLE\fR flag and allow/disallow user resizing of the window. This is a no-op if the window's resizable state already matches the requested state.
+
+\fINote\fR: You can't change the resizable state of a fullscreen window.
+
+.SH VERSION
+This function is available since SDL 2.0.5.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowFlags\fR

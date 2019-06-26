@@ -23,6 +23,9 @@ ab l.
 name:description
 .TE
 
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
 .SH CODE EXAMPLES
 .TS
 tab(:) allbox;

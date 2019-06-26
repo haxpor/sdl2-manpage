@@ -615,11 +615,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SetWindowInputFocus`
 * [x] `SDL_SetWindowMaximumSize`
 * [x] `SDL_SetWindowMinimumSize`
-* [ ] `SDL_SetWindowModalFor`
-* [ ] `SDL_SetWindowOpacity`
-* [ ] `SDL_SetWindowPosition`
-* [ ] `SDL_SetWindowResizable`
-* [ ] `SDL_SetWindowSize`
+* [x] `SDL_SetWindowModalFor`
+* [x] `SDL_SetWindowOpacity`
+* [x] `SDL_SetWindowPosition`
+* [x] `SDL_SetWindowResizable`
+* [x] `SDL_SetWindowSize`
 * [ ] `SDL_SetWindowTitle`
 * [ ] `SDL_SetWindowsMessageHook`
 * [ ] `SDL_ShowCursor`

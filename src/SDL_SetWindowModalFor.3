@@ -1,0 +1,39 @@
+.TH SDL_SetWindowModalFor 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowModalFor\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the window as a modal for another window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_SetWindowModalFor(SDL_Window*   modal_window,
+                          SDL_Window*   parent_window)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+modal_window:T{
+the window that should be set modal
+T}
+parent_window:T{
+the parent window for the modal window
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This function is only supported on X11.
+
+.SH VERSION
+This function is available since SDL 2.0.5.
