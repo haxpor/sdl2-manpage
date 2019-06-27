@@ -1,0 +1,62 @@
+.TH SDL_SetWindowsMessageHook 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_SetWindowsMessageHook\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set a function that is called for every windows message, before \fBTranslateMessage()\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_SetWindowsMessageHook(SDL_WindowsMessageHook   callback,
+                               void*                    userdata)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+callback:T{
+the function to call for every message; see \fIRemarks\fR for details
+T}
+userdata:T{
+a pointer that is passed to \fBcallback\fR
+T}
+.TE
+
+.SH REMARKS
+This function is available on Microsoft Windows.
+
+The function prototype for \fBcallback\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_WindowsMessageHook(void*           userdata,
+                            void*           hWnd,
+                            unsigned int    message,
+                            Uint64          wParam,
+                            Sint64          lParam)
+.fi
+T}
+.TE
+
+where its parameters are:
+
+.TS
+tab(:) allbox;
+a l.
+userdata:T{
+what was passed as \fBuserdata\fR to \fBSDL_SetWindowsMessageHook()\fR
+T}
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.4.

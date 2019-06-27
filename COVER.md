@@ -620,11 +620,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SetWindowPosition`
 * [x] `SDL_SetWindowResizable`
 * [x] `SDL_SetWindowSize`
-* [ ] `SDL_SetWindowTitle`
-* [ ] `SDL_SetWindowsMessageHook`
-* [ ] `SDL_ShowCursor`
-* [ ] `SDL_ShowMessageBox`
-* [ ] `SDL_ShowSimpleMessageBox`
+* [x] `SDL_SetWindowTitle`
+* [x] `SDL_SetWindowsMessageHook`
+* [x] `SDL_ShowCursor`
+* [x] `SDL_ShowMessageBox`
+* [x] `SDL_ShowSimpleMessageBox`
 * [ ] `SDL_ShowWindow`
 * [ ] `SDL_StartTextInput`
 * [ ] `SDL_StopTextInput`

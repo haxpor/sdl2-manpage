@@ -1,0 +1,72 @@
+.TH SDL_ShowCursor 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ShowCursor\fR -- Function
+
+.SH SYNOPSIS
+Use this function to toggle whether or not the cursor is shown.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_ShowCursor(int    toggle)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+toggle:T{
+\fBSDL_ENABLE\fR to show the cursor, \fBSDL_DISABLE\fR to hide it, \fBSDL_QUERY\fR to query the current state
+T}
+.TE
+
+.SH RETURN VALUE
+Returns \fBSDL_ENABLE\fR if the cursor is shown, or \fBSDL_DISABLE\fR if the cursor is hidden, or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int main(int argc, char *argv[])
+{
+  /* creates a blank cursor */
+  SDL_ShowCursor(SDL_DISABLE);
+  /* ... */
+  return 0;
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+The cursor starts off displayed but can be turned off. Passing \fBSDL_ENABLE\fR displays the cursor and passing \fBSDL_DISABLE\fR hides it.
+
+The current state of the mouse cursor can be queried by passing \fBSDL_QUERY\fR; either \fBSDL_DISABLE\fR or \fBSDL_ENABLE\fR will be returned.
+
+\fBtoggle\fR may be any of the following:
+
+.TS
+tab(:) allbox;
+a ab l.
+-1:SDL_QUERY:T{
+returns the current visibility of the cursor
+T}
+0:SDL_DISABLE:T{
+makes the cursor hidden (also a return value as to the current state of the cursor)
+T}
+1:SDL_ENABLE:T{
+makes the cursor visible (also a return value as to the current state of the cursor)
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateCursor\fR
+.br
+\fISDL_SetCursor\fR
