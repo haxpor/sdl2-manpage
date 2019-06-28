@@ -1,0 +1,34 @@
+.TH SDL_Swap16 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_Swap16\fR -- Function
+
+.SH SYNOPSIS
+Use this function to swap the byte order of a 16-bit value.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint16 SDL_Swap16(Uint16    x)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+x:T{
+the value to be swapped
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the swapped value.
+
+.SH RELATED FUNCTIONS
+\fISDL_SwapBE16\fR
+.br
+\fISDL_SwapLE16\fR

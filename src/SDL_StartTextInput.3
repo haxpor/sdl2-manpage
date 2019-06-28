@@ -1,0 +1,29 @@
+.TH SDL_StartTextInput 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_StartTextInput\fR -- Function
+
+.SH SYNOPSIS
+Use this function to start accepting Unicode text input events.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_StartTextInput(void)
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function will start accepting Unicode text input events in the focused SDL window, and start emitting \fBSDL_TEXTINPUT\fR and \fBSDL_TEXTEDITING\fR events. Please use this function in pair with \fBSDL_StopTextInput()\fR.
+
+On some platforms using this function activates the screen keyboard.
+
+There is a \fItutorial\fR (\fIhttps://wiki.libsdl.org/Tutorials/TextInput\fR).
+
+.SH RELATED FUNCTIONS
+\fISDL_SetTextInputRect\fR
+.br
+\fISDL_StopTextInput\fR

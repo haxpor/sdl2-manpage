@@ -1,0 +1,34 @@
+.TH SDL_ShowWindow 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_ShowWindow\fR -- Function
+
+.SH SYNOPSIS
+Use this function to show a window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_ShowWindow(SDL_Window*   window)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to show
+T}
+.TE
+
+.SH REMARKS
+In SDL 1.2, you might have used \fBBOOL WINAPI ShowWindow(_In_HWND hWnd, _In_ int nCmdShow)\fR for Win32 builds. \fBSDL_ShowWindow()\fR replaces this.
+
+.SH RELATED FUNCTIONS
+\fISDL_HideWindow\fR
+.br
+\fISDL_RaiseWindow\fR

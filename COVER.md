@@ -625,11 +625,11 @@ Chcked items are covered by this project.
 * [x] `SDL_ShowCursor`
 * [x] `SDL_ShowMessageBox`
 * [x] `SDL_ShowSimpleMessageBox`
-* [ ] `SDL_ShowWindow`
-* [ ] `SDL_StartTextInput`
-* [ ] `SDL_StopTextInput`
-* [ ] `SDL_Swap16`
-* [ ] `SDL_Swap32`
+* [x] `SDL_ShowWindow`
+* [x] `SDL_StartTextInput`
+* [x] `SDL_StopTextInput`
+* [x] `SDL_Swap16`
+* [x] `SDL_Swap32`
 * [ ] `SDL_Swap64`
 * [ ] `SDL_SwapBE16`
 * [ ] `SDL_SwapBE32`
