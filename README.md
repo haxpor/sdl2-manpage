@@ -3,33 +3,27 @@ Man-pages generated for SDL2. It covers APIs as listed [here](https://github.com
 
 # Installation
 
-* Clone this repository to somewhere on your computer with `git clone https://github.com/haxpor/sdl2-manpage.git`
+* Clone this repository to somewhere on your computer with `git clone https://github.com/haxpor/sdl2-manpage.git`;
 * Execute `sudo ./install.sh` to install to your system.
 
 # Usage
 
-After installation, you can do
+After installation, you can get man pages for SDL functions. For example, `man SDL_Init`.
+Additionally, there are two special lookup tables that you can use for reference:
 
-```
-man SDL_Init
-```
+* `man SDLScancodeLookupTable` - scancode lookup table;
+* `man SDLKeycodeLookupTable` - keycode lookup table
 
-or for other functions/structures. Anyway there are 2 special lookup tables you can query with the followings
+Note that the page names are case-**sensitive**.
 
-* `man SDLScancodeLookupTable` - for scancode lookup table
-* `man SDLKeycodeLookupTable` - for keycode lookup table
+# Uninstallation and Upgrading
 
-Note that it's case **sensitive**.
-
-# Note on Upgrading or Removing
-
-Just remove this repository, those man-page files at `/usr/local/share/man/man3/` will become dead links, and you cannot man such relevant section anymore. It's safe.
-
-This project decides to do just this as multiple version of man-page for a library seems to be tedious to manage on users' system.
-The same man-page file can potential link to different version of library if you upgrade, or such relevant section is removed in older version of library.
-
-So to be safe, we just do sym-link to actual files on this cloned repository on your system.
+To uninstall the man pages, you can simply remove the original repository clone directory; the created sym-links will die.
+As sym-links are used and no actual files are copied into the man-page directory, upgrading is as easy as pulling the latest version of the repository.
 
 # License
 
-[MIT](https://github.com/haxpor/sdl2-manpage/blob/master/LICENSE), Wasin Thonkaew
+This project is licensed under the [MIT License](https://github.com/haxpor/sdl2-manpage/blob/master/LICENSE)
+
+Wasin Thonkaew
+
