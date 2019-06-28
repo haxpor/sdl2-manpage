@@ -14,7 +14,7 @@ Additionally, there are two special lookup tables that you can use for reference
 * `man SDLScancodeLookupTable` - scancode lookup table;
 * `man SDLKeycodeLookupTable` - keycode lookup table
 
-As with all man pages, remember that the page names are case-**sensitive**.
+Note that the page names are case-**sensitive**.
 
 # Uninstallation and Upgrading
 
