@@ -8,6 +8,9 @@ FILES=($(find ./src -type f -name '*.3' -exec basename {} \;))
 TARGET=/usr/local/share/man/man3
 WORKING_DIR=$(pwd)
 
+# create the target directory if it does not exist
+mkdir -p $TARGET
+
 if [ -z "$1" ]
 then
 	for f in "${FILES[@]}"; do
