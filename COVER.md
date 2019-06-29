@@ -630,11 +630,11 @@ Chcked items are covered by this project.
 * [x] `SDL_StopTextInput`
 * [x] `SDL_Swap16`
 * [x] `SDL_Swap32`
-* [ ] `SDL_Swap64`
-* [ ] `SDL_SwapBE16`
-* [ ] `SDL_SwapBE32`
-* [ ] `SDL_SwapBE64`
-* [ ] `SDL_SwapFloat`
+* [x] `SDL_Swap64`
+* [x] `SDL_SwapBE16`
+* [x] `SDL_SwapBE32`
+* [x] `SDL_SwapBE64`
+* [x] `SDL_SwapFloat`
 * [ ] `SDL_SwapFloatBE`
 * [ ] `SDL_SwapFloatLE`
 * [ ] `SDL_SwapLE16`
