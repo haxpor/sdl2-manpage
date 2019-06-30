@@ -635,11 +635,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SwapBE32`
 * [x] `SDL_SwapBE64`
 * [x] `SDL_SwapFloat`
-* [ ] `SDL_SwapFloatBE`
-* [ ] `SDL_SwapFloatLE`
-* [ ] `SDL_SwapLE16`
-* [ ] `SDL_SwapLE32`
-* [ ] `SDL_SwapLE64`
+* [x] `SDL_SwapFloatBE`
+* [x] `SDL_SwapFloatLE`
+* [x] `SDL_SwapLE16`
+* [x] `SDL_SwapLE32`
+* [x] `SDL_SwapLE64`
 * [ ] `SDL_TICKS_PASSED`
 * [ ] `SDL_TLSCreate`
 * [ ] `SDL_TLSGet`
