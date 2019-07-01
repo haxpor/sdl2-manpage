@@ -16,6 +16,14 @@ Additionally, there are two special lookup tables that you can use for reference
 
 Note that the page names are case-**sensitive**.
 
+# List all man pages
+
+To list all man pages related to (installed) SDL, execute the following
+
+```
+apropos -r '^SDL_'
+```
+
 # Uninstallation and Upgrading
 
 To uninstall the man pages, you can simply remove the original repository clone directory; the created sym-links will die.
