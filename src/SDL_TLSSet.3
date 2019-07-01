@@ -1,0 +1,68 @@
+.TH SDL_TLSSet 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_TLSSet\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the value associated with a thread local storage ID for the current thread.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_TLSSet(SDL_TLSID      id,
+               const void*    value,
+               void (*destructor) (void*))
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+id:T{
+the thread local storage ID
+T}
+value:T{
+the value to associate with the ID for the current thread
+T}
+destructor:T{
+a function called when the thread exits, to free the value
+}T
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+The function prototype for \fBdestructor\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void destructor(void* value)
+.fi
+T}
+.TE
+
+where its parameters are:
+
+.TS
+tab(:) allbox;
+a l.
+value:T{
+what was passed as \fBvalue\fR to \fBSDL_TLSSet()\fR
+T}
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_TLSCreate\fR
+.br
+\fISDL_TLSGet\fR

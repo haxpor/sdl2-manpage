@@ -1,0 +1,54 @@
+.TH SDL_TICKS_PASSED 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_TICKS_PASSED\fR -- Macro
+
+.SH SYNOPSIS
+Use this macro to compare SDL ticks values.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_TICKS_PASSED(A, B)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+A:T{
+the first ticks values
+T}
+B:T{
+the second ticks values
+T}
+.TE
+
+.SH RETURN VALUE
+Returns "true" if A has passed B.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+/* if you want to wait 100ms, you could do this: */
+Uint32 timeout = SDL_GetTicks() + 100;
+while (!SDL_TICKS_PASSED(SDL_GetTicks(), timeout))
+{
+  /* ... do work until timeout has elapsed
+}
+.fi
+T}
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.1.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetTicks()\fR

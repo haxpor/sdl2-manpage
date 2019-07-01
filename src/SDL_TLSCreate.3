@@ -1,0 +1,59 @@
+.TH SDL_TLSCreate 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_TLSCreate\fR -- Function
+
+.SH SYNOPSIS
+Use this function to create an identifier that is globally visible to all threads but refers to data that is thread-specific.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_TLSID SDL_TLSCreate(void)
+.fi
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the newly created thread local storage identifier or 0 on error.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+static SDL_SpinLock tls_lock;
+static SDL_TLSID thread_local_storage;
+
+void SetMyThreadData(void *value)
+{
+  if (!thread_local_storage)
+  {
+    SDL_AtomicLock(&tls_lock);
+    if (!thread_local_storage)
+    {
+      thread_local_storage = SDL_TLSCreate();
+    }
+    SDL_AtomicUnlock(&tls_lock);
+  }
+  SDL_TLSSet(thread_local_storage, value, 0);
+}
+
+void *GetMyThreadData(void)
+{
+  return SDL_TLSGet(thread_local_storage);
+}
+.fi
+T}
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_TLSGet\fR
+.br
+\fISDL_TLSSet\fR

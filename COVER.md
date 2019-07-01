@@ -640,11 +640,11 @@ Chcked items are covered by this project.
 * [x] `SDL_SwapLE16`
 * [x] `SDL_SwapLE32`
 * [x] `SDL_SwapLE64`
-* [ ] `SDL_TICKS_PASSED`
-* [ ] `SDL_TLSCreate`
-* [ ] `SDL_TLSGet`
-* [ ] `SDL_TLSSet`
-* [ ] `SDL_ThreadID`
+* [x] `SDL_TICKS_PASSED`
+* [x] `SDL_TLSCreate`
+* [x] `SDL_TLSGet`
+* [x] `SDL_TLSSet`
+* [x] `SDL_ThreadID`
 * [ ] `SDL_TriggerBreakpoint`
 * [ ] `SDL_TryLockMutex`
 * [ ] `SDL_UnionRect`

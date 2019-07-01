@@ -1,0 +1,37 @@
+.TH SDL_TLSGet 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_TLSGet\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get the value associated with a thread local storage ID for the current thread.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void* SDL_TLSGet(SDL_TLSID    id)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+id:T{
+the thread local storage ID
+T}
+.TE
+
+.SH RETURN VALUE
+Returns the value associated with the ID for the current thread or NULL if no value has been set; call \fBSDL_GetError()\fR for more information.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_TLSCreate\fR
+.br
+\fISDL_TLSSet\fR
