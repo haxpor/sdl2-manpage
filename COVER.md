@@ -645,11 +645,11 @@ Chcked items are covered by this project.
 * [x] `SDL_TLSGet`
 * [x] `SDL_TLSSet`
 * [x] `SDL_ThreadID`
-* [ ] `SDL_TriggerBreakpoint`
-* [ ] `SDL_TryLockMutex`
-* [ ] `SDL_UnionRect`
-* [ ] `SDL_UnloadObject`
-* [ ] `SDL_UnlockAudio`
+* [x] `SDL_TriggerBreakpoint`
+* [x] `SDL_TryLockMutex`
+* [x] `SDL_UnionRect`
+* [x] `SDL_UnloadObject`
+* [x] `SDL_UnlockAudio`
 * [ ] `SDL_UnlockAudioDevice`
 * [ ] `SDL_UnlockMutex`
 * [ ] `SDL_UnlockSurface`

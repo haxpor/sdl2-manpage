@@ -1,0 +1,62 @@
+.TH SDL_UnlockAudio 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_UnlockAudio\fR -- Function
+
+.SH SYNOPSIS
+This function is a legacy means of unlocking the audio device. New programs might want to use \fBSDL_UnlockAudioDevice()\fR instead.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_UnlockAudio(void)
+.fi
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void MyAudioCallback(void* userdata, Uint8* stream, int len)
+{
+  printf("The audio callback is running!\\n");
+  SDL_memset(stream, 0, len);
+  printf("The audio callback is done!\\n");
+}
+
+// don't lock for 2 seconds at a time in real life, please.
+SDL_Delay(2000);  // callback runs for 2 seconds
+SDL_LockAudio();
+printf("The audio callback can't be running right now!\n");
+SDL_Delay(2000);
+printf("Ok, unlocking!\n");
+SDL_UnlockAudio();
+SDL_Delay(2000);  // callback runs for 2 seconds
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function is equivalent to calling
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_UnlockAudioDevice(1);
+.fi
+T}
+.TE
+
+and is only useful if you used the legacy \fBSDL_OpenAudio()\fR function.
+
+.SH RELATED FUNCTIONS
+\fISDL_LockAudio\fR
+.br
+\fISDL_UnlockAudioDevice\fR

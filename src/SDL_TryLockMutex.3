@@ -1,0 +1,75 @@
+.TH SDL_TryLockMutex 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_TryLockMutex\fR -- Function
+
+.SH SYNOPSIS
+Use this function to try to lock a mutex without blocking.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_TryLockMutex(SDL_mutex*   mutex)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+mutex:T{
+the mutex to try to lock
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0, \fBSDL_MUTEX_TIMEDOUT\fR, or -1 on error; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int status;
+SDL_mutex *mutex;
+
+mutex = SDL_CreateMutex();
+if (!mutex)
+{
+  fprintf(stderr, "Couldn't create mutex\\n");
+  return;
+}
+
+status = SDL_TryLockMutex(mutex);
+
+if (status == 0)
+{
+  printf("Locked mutex\\n");
+  SDL_UnlockMutex(mutex);
+}
+else if (status == SDL_MUTEX_TIMEDOUT)
+{
+  /* Mutex not available for locking right now */
+}
+else
+{
+  fprintf(stderr, "Couldn't lock mutex\\n");
+}
+
+SDL_DestroyMutex(mutex);
+.fi
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateMutex\fR
+.br
+\fISDL_DestroyMutex\fR
+.br
+\fISDL_LockMutex\fR
+.br
+\fISDL_UnlockMutex\fR

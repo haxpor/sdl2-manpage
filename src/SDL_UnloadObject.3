@@ -1,0 +1,31 @@
+.TH SDL_UnloadObject 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_UnloadObject\fR -- Function
+
+.SH SYNOPSIS
+Use this function to unload a shared object from memory.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_UnloadObject(void*   handle)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+handle:T{
+a valid shared object handle returned by \fBSDL_LoadObject()\fR
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_LoadFunction\fR
+.br
+\fISDL_LoadObject\fR
