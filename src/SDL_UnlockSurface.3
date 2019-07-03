@@ -1,0 +1,54 @@
+.TH SDL_UnlockSurface 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_UnlockSurface\fR -- Function
+
+.SH SYNOPSIS
+Use this function to release a surface after directly accessing the pixels.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_UnlockSurface(SDL_Surface*   surface)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+surface:T{
+the \fBSDL_Surface\fR structure to be unlocked
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+/* Make the pixels pointer valid in the surface */
+
+SDL_LockSurface(surface);
+
+/* Surface is locked */
+/* Direct pixel access on surface here */
+
+SDL_UnlockSurface(surface);
+
+/* Surface is now unlocked */
+.fi
+T}
+.TE
+
+.SH REMARKS
+Between calls to \fBSDL_LockSurface()\fR / \fBSDL_UnlockSurface()\fR, you can write to and read from \fBsurface->pixels\fR, using the pixel format stored in \fBsurface->format\fR. Once you are done accessing the surface, you should use \fBSDL_UnlockSurface()\fR to release it.
+
+Not all surfaces require locking. If \fBSDL_MUSTLOCK(surface)\fR evaluates to 0, then you can read and write to the surface at any time, and the pixel format of the surface will not change.
+
+.SH RELATED FUNCTIONS
+\fISDL_LockSurface\fR

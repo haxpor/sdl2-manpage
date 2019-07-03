@@ -650,11 +650,11 @@ Chcked items are covered by this project.
 * [x] `SDL_UnionRect`
 * [x] `SDL_UnloadObject`
 * [x] `SDL_UnlockAudio`
-* [ ] `SDL_UnlockAudioDevice`
-* [ ] `SDL_UnlockMutex`
-* [ ] `SDL_UnlockSurface`
-* [ ] `SDL_UnlockTexture`
-* [ ] `SDL_UpdateTexture`
+* [x] `SDL_UnlockAudioDevice`
+* [x] `SDL_UnlockMutex`
+* [x] `SDL_UnlockSurface`
+* [x] `SDL_UnlockTexture`
+* [x] `SDL_UpdateTexture`
 * [ ] `SDL_UpdateWindowSurface`
 * [ ] `SDL_UpdateWindowSurfaceRects`
 * [ ] `SDL_UpdateYUVTexture`

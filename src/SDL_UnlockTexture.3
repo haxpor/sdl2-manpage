@@ -1,0 +1,32 @@
+.TH SDL_UnlockTexture 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_UnlockTexture\fR -- Function
+
+.SH SYNOPSIS
+Use this function to unlock a texture, uploading the changes to video memory, if needed.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_UnlockTexture(SDL_Texture*   texture)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+texture:T{
+a texture locked by \fBSDL_LockTexture()\fR
+T}
+.TE
+
+.SH REMARKS
+\fBWARNING:\fR See \fBSDL bug #1586\fR (\fIhttps://bugzilla.libsdl.org/show_bug.cgi?id=1586\fR) before using this function!
+
+.SH RELATED FUNCTIONS
+\fISDL_LockTexture\fR
