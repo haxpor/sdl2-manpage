@@ -1,0 +1,46 @@
+.TH SDL_VERSIONNUM 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_VERSIONNUM\fR -- Macro
+
+.SH SYNOPSIS
+Use this macro to convert separate version components into a single numeric value.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_VERSIONNUM(X, Y, Z)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+X:T{
+major version; reported in thousands place
+T}
+Y:T{
+minor version; reported in hundreds place
+T}
+Z:T{
+update version (patchlevel); reported in tens and ones places
+T}
+.TE
+
+.SH REMARKS
+This assumes that there will never be more than 100 patchlevels.
+
+.BI Example:
+
+.nf
+SDL_VERSIONNUM(1,2,3) -> (1203)
+.fi
+
+.SH RELATED MACROS
+\fISDL_COMPILEDVERSION\fR
+.br
+\fISDL_VERSION_ATLEAST\fR

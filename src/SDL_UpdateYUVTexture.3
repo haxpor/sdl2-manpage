@@ -1,0 +1,66 @@
+.TH SDL_UpdateYUVTexture 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_UpdateYUVTexture\fR -- Function
+
+.SH SYNOPSIS
+Use this function to update a rectangle within a planar YV12 or IYUV texture with new pixel data.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_UpdateYUVTexture(SDL_Texture*       texture,
+                         const SDL_Rect*    rect,
+                         const Uint8*       Yplane,
+                         int                Ypitch,
+                         const Uint8*       Uplane,
+                         int                Upitch,
+                         const Uint8*       Vplane,
+                         int                Vpitch)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+texture:T{
+the texture to update
+T}
+rect:T{
+a pointer to the rectangle of pixels to update, or NULL to update the entire texture
+T}
+Yplane:T{
+the raw pixel data for the Y plane
+T}
+Ypitch:T{
+the number of bytes between rows of pixel data for the Y plane
+T}
+Uplane:T{
+the raw pixel data for the U plane
+T}
+Upitch:T{
+the number of bytes between rows of pixel data for the U plane
+T}
+Vplane:T{
+the raw pixel data for the V plane
+T}
+Vpitch:T{
+the number of bytes between rows of pixel data for the V plane
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or -1 if the texture is not valid; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+You can use \fBSDL_UpdateTexture()\fR as long as your pixel data is a contiguous block of Y and U/V planes in the proper order, but this function is available if your pixel data is not contiguous.
+
+.SH VERSION
+This function is available since SDL 2.0.1.
+
+.SH RELATED FUNCTIONS
+\fISDL_UpdateTexture\fR

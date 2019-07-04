@@ -655,11 +655,11 @@ Chcked items are covered by this project.
 * [x] `SDL_UnlockSurface`
 * [x] `SDL_UnlockTexture`
 * [x] `SDL_UpdateTexture`
-* [ ] `SDL_UpdateWindowSurface`
-* [ ] `SDL_UpdateWindowSurfaceRects`
-* [ ] `SDL_UpdateYUVTexture`
-* [ ] `SDL_VERSION`
-* [ ] `SDL_VERSIONNUM`
+* [x] `SDL_UpdateWindowSurface`
+* [x] `SDL_UpdateWindowSurfaceRects`
+* [x] `SDL_UpdateYUVTexture`
+* [x] `SDL_VERSION`
+* [x] `SDL_VERSIONNUM`
 * [ ] `SDL_VERSION_ATLEAST`
 * [ ] `SDL_VideoInit`
 * [ ] `SDL_VideoQuit`

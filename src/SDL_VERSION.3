@@ -1,0 +1,69 @@
+.TH SDL_VERSION 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_VERSION\fR -- Macro
+
+.SH SYNOPSIS
+Use this macro to determine the SDL version your program was compiled against.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_VERSION(x)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+x:T{
+an \fBSDL_version\fR structure to initialize
+T}
+.TE
+
+.SH RETURN VALUE
+Fills the selected struct with:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+(x)->major = SDL_MAJOR_VERSION
+(x)->minor = SDL_MINOR_VERSION
+(x)->patch = SDL_PATCHLEVEL
+.fi
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_version compiled;
+SDL_version linked;
+
+SDL_VERSION(&compiled);
+SDL_GetVersion(&linked);
+printf("We compiled against SDL version %d.%d.%d ...\\n",
+       compiled.major, compiled.minor, compiled.patch);
+printf("But we are linking against SDL version %d.%d.%d.\\n",
+       linked.major, linked.minor, linked.patch);
+.fi
+T}
+.TE
+
+.SH REMARKS
+This macro fills in an \fBSDL_version\fR structure with the version of the library you compiled against. This is determined by what header the compiler uses. Note that if you dynamically linked the library, you might have a slightly newer or older version at runtime. That version can be determined with \fBSDL_GetVersion()\fR which, unlike \fBSDL_VERSION()\fR, is not a macro.
+
+.SH RELATED STRUCTURES
+\fISDL_version\fR
+
+.SH RELATED FUNCTIONS
+\fISDL_GetVersion\fR

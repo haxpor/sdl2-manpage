@@ -1,0 +1,39 @@
+.TH SDL_UpdateWindowSurface 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_UpdateWindowSurface\fR -- Function
+
+.SH SYNOPSIS
+Use this function to copy the window surface to the screen.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_UpdateWindowSurface(SDL_Window*   window)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to update
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This is the function you use to reflect any changes to the surface on the screen.
+
+This function is equivalent to the SDL 1.2 API \fBSDL_Flip()\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetWindowSurface\fR
+.br
+\fISDL_UpdateWindowSurfaceRects\fR
