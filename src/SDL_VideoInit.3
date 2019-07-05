@@ -1,0 +1,88 @@
+.TH SDL_VideoInit 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_VideoInit\fR -- Function
+
+.SH SYNOPSIS
+Use this function to initialize the video subsystem, optionally specifying a video driver.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_VideoInit(const char*   driver_name)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+driver_name:T{
+the name of a video driver to initialize, or NULL for the default driver
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include "SDL.h"
+#include <stdio.h> /* for printf() */
+#include <stdlib.h> /* for atexit() */
+
+SDL_bool videoinit = SDL_FALSE;
+
+void OnQuit(void) {
+    if (videoinit) {
+        SDL_VideoQuit();
+    }
+    SDL_Quit();
+}
+
+int main(int argc, char** argv) {
+    if (SDL_Init(0) != 0) {
+        printf("Error initializing SDL:  %s\\n", SDL_GetError());
+        return 1;
+    }
+    atexit(OnQuit);
+
+    if (SDL_VideoInit(NULL) != 0) {
+        printf("Error initializing SDL video:  %s\\n", SDL_GetError());
+        return 2;
+    }
+    videoinit = SDL_TRUE;
+
+    /* ... */
+
+    return 0;
+}
+
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function initializes the video subsystem, setting up a connection to the window manager, etc, and determines the available display modes and pixel formats, but does not initialize a window or graphics mode.
+
+If you use this function and you haven't used the \fBSDL_INIT_VIDEO\fR flag with either \fBSDL_Init()\fR or \fBSDL_InitSubSystem()\fR, you should call \fBSDL_VideoQuit()\fR before calling \fBSDL_Quit()\fR.
+
+It is safe to call this function multiple times. \fBSDL_VideoInit()\fR will call \fBSDL_VideoQuit()\fR itself if the video subsystem has already been initialized.
+
+You can use \fBSDL_GetNumVideoDrivers()\fR and \fBSDL_GetVideoDriver()\fR to find a specific \fBdriver_name\fR.
+
+.SH RELATED FUNCTIONS
+\fISDL_GetNumVideoDrivers\fR
+.br
+\fISDL_GetVideoDriver\fR
+.br
+\fISDL_InitSubSystem\fR
+.br
+\fISDL_VideoQuit\fR

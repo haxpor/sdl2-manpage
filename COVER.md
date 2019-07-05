@@ -660,12 +660,12 @@ Chcked items are covered by this project.
 * [x] `SDL_UpdateYUVTexture`
 * [x] `SDL_VERSION`
 * [x] `SDL_VERSIONNUM`
-* [ ] `SDL_VERSION_ATLEAST`
-* [ ] `SDL_VideoInit`
-* [ ] `SDL_VideoQuit`
-* [ ] `SDL_WaitEvent`
-* [ ] `SDL_WaitEventTimeout`
-* [ ] `SDL_WaitThread`
+* [x] `SDL_VERSION_ATLEAST`
+* [x] `SDL_VideoInit`
+* [x] `SDL_VideoQuit`
+* [x] `SDL_WaitEvent`
+* [x] `SDL_WaitEventTimeout`
+* [x] `SDL_WaitThread`
 * [ ] `SDL_WarpMouseGlobal`
 * [ ] `SDL_WarpMouseInWindow`
 * [ ] `SDL_WasInit`

@@ -1,0 +1,99 @@
+.TH SDL_WaitThread 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_WaitThread\fR -- Function
+
+.SH SYNOPSIS
+Use this function to wait for a thread to finish.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_WaitThread(SDL_Thread*   thread,
+                    int*          status)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+thread:T{
+the \fBSDL_Thread\fR pointer that was returned from the \fBSDL_CreateThread()\fR call that started this thread
+T}
+status:T{
+pointer to an integer that will receive the value returned from the thread function by its 'return', or \fBNULL\fR to not receive such value back. See \fIRemarks\fR for details.
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include <stdio.h>
+#include "SDL_thread.h"
+#include "SDL_timer.h"
+
+// Very simple thread - counts 0 to 9 delaying 50ms between increments
+static int TestThread(void *ptr)
+{
+    int cnt;
+
+    for (cnt = 0; cnt < 10; ++cnt) {
+        printf("\\nThread counter: %d", cnt);
+        SDL_Delay(50);
+    }
+
+    // Return the final value to the SDL_WaitThread function above
+    return cnt;
+}
+
+int main(int argc, char *argv[])
+{
+    SDL_Thread *thread;
+    int         threadReturnValue;
+
+    printf("\\nSimple SDL_CreateThread test:");
+
+    // Simply create a thread
+    thread = SDL_CreateThread(TestThread, "TestThread", (void *)NULL);
+
+    if (NULL == thread) {
+        printf("\\nSDL_CreateThread failed: %s\\n", SDL_GetError());
+    } else {
+        // Wait for the thread to complete. The thread functions return code will
+        //       be placed in the "threadReturnValue" variable when it completes.
+        //
+        SDL_WaitThread(thread, &threadReturnValue);
+        printf("\\nThread returned value: %d", threadReturnValue);
+    }
+
+    return 0;
+}
+
+.fi
+T}
+.TE
+
+.SH REMARKS
+Wait for a thread to finish. Threads that haven't been detached will remain (as a "zombie") until this function cleans them up. Not doing so is a resource leak.
+
+Once a thread has been cleaned up through this function, the \fBSDL_Thread\fR that references it becomes invalid and should not be referenced again. As such, only one thread may call \fBSDL_WaitThread()\fR on another.
+
+The return code for the thread function is placed in the area pointed to by \fBstatus\fR, if \fBstatus\fR is not NULL.
+
+You may not wait on a thread that has been used in a call to \fBSDL_DetachThread()\fR. Use either that function or this one, but not both, or behavior is undefined.
+
+It is safe to pass a NULL thread to this function; it is a no-op.
+
+Note that the thread pointer is freed by this function and is not valid afterward.
+
+.SH RELATED FUNCTIONS
+\fISDL_CreateThread\fR
+.br
+\fISDL_DetachThread\fR

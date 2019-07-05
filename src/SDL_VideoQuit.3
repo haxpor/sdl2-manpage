@@ -1,0 +1,23 @@
+.TH SDL_VideoQuit 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_VideoQuit\fR -- Function
+
+.SH SYNOPSIS
+Use this function to shut down the video subsystem, if initialized with \fBSDL_VideoInit()\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_VideoQuit(void)
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function closes all windows, and restores the original video mode.
+
+.SH RELATED FUNCTIONS
+\fISDL_VideoInit\fR

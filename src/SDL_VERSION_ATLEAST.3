@@ -1,0 +1,55 @@
+.TH SDL_VERSION_ATLEAST 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_VERSION_ATLEAST\fR -- Macro
+
+.SH SYNOPSIS
+Use this macro to determine whether the SDL version compiled against is at least as new as the specified version.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_VERSION_ATLEAST(X, Y, Z)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+X:T{
+major version
+T}
+Y:T{
+minor version
+T}
+Z:T{
+update version (patchlevel)
+T}
+.TE
+
+.SH RETURN VALUE
+This macro will evaulate to true if compiled with SDL version at least X.Y.Z.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+if (!SDL_VERSION_ATLEAST(2,0,0))
+{
+  SDL_Log("SDL_VERSION %i is less than 2.0.0", SDL_MAJOR_VERSION);
+  return 1;
+}
+.fi
+T}
+.TE
+
+.SH RELATED MACROS
+\fISDL_COMPILEDVERSION\fR
+.br
+\fISDL_VERSIONNUM\fR
