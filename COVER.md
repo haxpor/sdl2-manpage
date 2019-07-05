@@ -2,7 +2,7 @@
 
 Mirror support against online API as seen [here](https://wiki.libsdl.org/CategoryAPI).
 
-Chcked items are covered by this project.
+Checked items are covered by this project.
 
 ## Hints
 
