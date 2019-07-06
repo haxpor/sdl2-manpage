@@ -1,0 +1,41 @@
+.TH SDL_WarpMouseGlobal 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_WarpMouseGlobal\fR -- Function
+
+.SH SYNOPSIS
+Use this function to move the mouse to the given position in global screen space.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_WarpMouseGlobal(int   x,
+                        int   y)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+x:T{
+the x coordinate
+T}
+y:T{
+the y coordinate
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This function generates a mouse motion event.
+
+A failure of this function usually means that it is unsupported by a platform.
+
+.SH RELATED FUNCTIONS
+\fISDL_WarpMouseInWindow\fR

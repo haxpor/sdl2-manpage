@@ -1,0 +1,123 @@
+.TH SDL_WasInit 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_WasInit\fR -- Function
+
+.SH SYNOPSIS
+Use this function to get a mask of the specified subsystems which have previously been initialized.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 SDL_WasInit(Uint32   flags)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+flags:T{
+any of the flags used by \fBSDL_Init()\fR; see \fIRemarks\fR for details
+T}
+.TE
+
+.SH RETURN VALUE
+If \fBflags\fR is 0 it returns a mask of all initialized subsystems, otherwise it returns the initialization status of the specified subsystems.
+
+The return value does not include \fBSDL_INIT_NOPARACHUTE\fR.
+
+.SH CODE EXAMPLES
+.BI "Get init data on all the subsystems"
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 subsystem_init;
+
+subsystem_init = SDL_WasInit(SDL_INIT_EVERYTHING);
+
+if (subsystem_init & SDL_INIT_VIDEO) {
+  printf("Video is initialized.\\n");
+} else {
+  printf("Video is not initialized.\\n");
+}
+.fi
+T}
+.TE
+
+.BI "Just check for one specific subsystem"
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+if (SDL_WasInit(SDL_INIT_VIDEO) != 0) {
+  printf("Video is initialized.\\n");
+} else {
+  printf("Video is not initialized.\\n");
+}
+.fi
+T}
+.TE
+
+.BI "Check for two subsystems"
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+Uint32 subsystem_mask = SDL_INIT_VIDEO | SDL_INIT_AUDIO;
+
+if (SDL_WasInit(subsystem_mask) == subsystem_mask) {
+  printf("Video and Audio initialized.\\n");
+} else {
+  printf("Video and Audio not initialized.\\n");
+}
+.fi
+T}
+.TE
+
+.SH REMARKS
+These are the flags which may be passed to \fBSDL_WasInit()\fR and may be OR'd together to query multiple subsystems simultaneously.
+
+.TS
+tab(:) allbox;
+ab l.
+SDL_INIT_TIMER:T{
+timer subsystem
+T}
+SDL_INIT_AUDIO:T{
+audio subsystem
+T}
+SDL_INIT_VIDEO:T{
+video subsystem; automatically initializes the events subsystem
+T}
+SDL_INIT_JOYSTICK:T{
+joystick subsystems; automatically initializes the events subsystem
+T}
+SDL_INIT_HAPTIC:T{
+haptic (force feedback) subsystem
+T}
+SDL_INIT_GAMECONTROLLER:T{
+controller subsystem; automatically initializes the joystick subsystem
+T}
+SDL_INIT_EVENTS:T{
+events subsystem
+T}
+SDL_INIT_EVERYTHING:T{
+all of the above subsystems
+T}
+SDL_INIT_NOPARACHUTE:T{
+compatibility; this flag is ignored
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_Init\fR
+.br
+\fISDL_InitSubSystem\fR

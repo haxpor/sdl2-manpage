@@ -1,0 +1,40 @@
+.TH SDL_WinRTGetFSPathUNICODE 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_WinRTGetFSPathUNICODE\fR -- Function
+
+.SH SYNOPSIS
+Use this function to retrieve a WinRT defined path on the local file system.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+const wchar_t* SDL_WinRTGetFSPathUNICODE(SDL_WinRT_Path   pathType)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+pathType:T{
+the type of path to retrieve, one of \fBSDL_WinRT_Path\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns a UCS-2 string (16-bit, wide-char) containing the path, or NULL if the path is not available for any reason; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+Not all paths are available on all versions of Windows. This is especially true on Windows Phone. Check the documentation for the given \fBSDL_WinRT_Path\fR for more information on which path types are supported where.
+
+Documentation on most app-specific path types on WinRT can be found on MSDN, at the URL: \fIhttp://msdn.microsoft.com/en-us/library/windows/apps/hh464917.aspx\fR.
+
+.SH VERSION
+This function is available since SDL 2.0.3.
+
+.SH RELATED FUNCTIONS
+\fISDL_WinRTGetFSPathUTF8\fR

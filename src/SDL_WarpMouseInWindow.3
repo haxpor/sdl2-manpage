@@ -1,0 +1,40 @@
+.TH SDL_WarpMouseInWindow 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_WarpMouseInWindow\fR -- Function
+
+.SH SYNOPSIS
+Use this function to move the mouse to the given position within the window.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_WarpMouseInWindow(SDL_Window*    window,
+                           int            x,
+                           int            y)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window to move the mouse into, or NULL for the current mouse focus
+T}
+x:T{
+the x coordinate within the window
+T}
+y:T{
+the y coordinate within the window
+T}
+.TE
+
+.SH REMARKS
+This function generates a mouse motion event.
+
+.SH RELATED FUNCTIONS
+\fISDL_WarpMouseGlobal\fR

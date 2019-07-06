@@ -666,11 +666,11 @@ Checked items are covered by this project.
 * [x] `SDL_WaitEvent`
 * [x] `SDL_WaitEventTimeout`
 * [x] `SDL_WaitThread`
-* [ ] `SDL_WarpMouseGlobal`
-* [ ] `SDL_WarpMouseInWindow`
-* [ ] `SDL_WasInit`
-* [ ] `SDL_WinRTGetFSPathUNICODE`
-* [ ] `SDL_WinRTGetFSPathUTF8`
+* [x] `SDL_WarpMouseGlobal`
+* [x] `SDL_WarpMouseInWindow`
+* [x] `SDL_WasInit`
+* [x] `SDL_WinRTGetFSPathUNICODE`
+* [x] `SDL_WinRTGetFSPathUTF8`
 * [ ] `SDL_WinRTRunApp`
 * [ ] `SDL_WriteBE16`
 * [ ] `SDL_WriteBE32`
