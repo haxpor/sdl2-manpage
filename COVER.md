@@ -671,7 +671,7 @@ Checked items are covered by this project.
 * [x] `SDL_WasInit`
 * [x] `SDL_WinRTGetFSPathUNICODE`
 * [x] `SDL_WinRTGetFSPathUTF8`
-* [ ] `SDL_WinRTRunApp`
+* [x] `SDL_WinRTRunApp`
 * [ ] `SDL_WriteBE16`
 * [ ] `SDL_WriteBE32`
 * [ ] `SDL_WriteBE64`

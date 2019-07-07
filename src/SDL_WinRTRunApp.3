@@ -1,0 +1,62 @@
+.TH SDL_WinRTRunApp 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_WinRTRunApp\fR -- Function
+
+.SH SYNOPSIS
+Use this function to initialize and launch an SDL/WinRT application.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_WinRTRunApp(MainFunction        mainFunction,
+                    void*               reserved)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+mainFunction:T{
+the SDL app's C-style main(); see \fIRemarks\fR for details
+T}
+reserved:T{
+reserved for future use; should be NULL
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or -1 on failure; call \fBSDL_GetError()\fR to retrieve more information on the failure.
+
+.SH REMARKS
+The function prototype for \fBmainFunction\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int MainFunction(int argc, char **argv)
+.fi
+T}
+.TE
+
+where its parameters are:
+
+.TS
+tab(:) allbox;
+a l.
+argc:T{
+the number of arguments
+T}
+argv:T{
+an array of arguments
+T}
+.TE
+
+.SH VERSION
+This function is available since SDL 2.0.3.
