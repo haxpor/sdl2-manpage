@@ -1,0 +1,39 @@
+.TH SDL_WriteBE64 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_WriteBE64\fR -- Function
+
+.SH SYNOPSIS
+Use this function to write 64 bits in native format to a \fBSDL_RWops\fR as big-endian data.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+size_t SDL_WriteBE64(SDL_RWops*     data,
+                     Uint64         value)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+dst:T{
+the stream to which data will be written
+T}
+value:T{
+the data to be written, in native format
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 1 on successful write, 0 on error
+
+.SH REMARKS
+SDL byteswaps the data only if necessary, so the application specifies native format, and the data written will be in big-endian format.
+
+.SH RELATED FUNCTIONS
+\fISDL_WriteLE64\fR

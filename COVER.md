@@ -672,11 +672,11 @@ Checked items are covered by this project.
 * [x] `SDL_WinRTGetFSPathUNICODE`
 * [x] `SDL_WinRTGetFSPathUTF8`
 * [x] `SDL_WinRTRunApp`
-* [ ] `SDL_WriteBE16`
-* [ ] `SDL_WriteBE32`
-* [ ] `SDL_WriteBE64`
-* [ ] `SDL_WriteLE16`
-* [ ] `SDL_WriteLE32`
+* [x] `SDL_WriteBE16`
+* [x] `SDL_WriteBE32`
+* [x] `SDL_WriteBE64`
+* [x] `SDL_WriteLE16`
+* [x] `SDL_WriteLE32`
 * [ ] `SDL_WriteLE64`
 * [ ] `SDL_WriteU8`
 * [ ] `SDL_acos`
