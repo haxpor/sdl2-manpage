@@ -1,0 +1,54 @@
+.TH SDL_acos 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_acos\fR -- Function
+
+.SH SYNOPSIS
+Use this function to compute arc cosine of \fBx\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+double SDL_acos(double      x)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+x:T{
+floating point value, in radians
+T}
+.TE
+
+.SH RETURN VALUE
+Returns arc cosine of \fBx\fR.
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+/* acos(x) = Pi/2 - asin(x) */
+SDL_Log("acos(0):\\t\\t%f", SDL_acos(0));
+SDL_Log("Pi/2 - asin(0):\\t%f", M_PI / 2 - SDL_asin(0));
+
+/* acos(-x) = Pi - acos(x) */
+SDL_Log("acos(-(-1)):\\t%f", SDL_acos(-(-1)));
+SDL_Log("Pi - acos(-1):\\t%f", M_PI - SDL_acos(-1));
+.fi
+T}
+.TE
+
+.SH REMARKS
+The definition of y = acos(\fBx\fR) is \fBx\fR = cos(y).
+Domain: -1 <= x <= 1
+Range: 0 <= y <= Pi
+
+.SH VERSION
+This function is available since SDL 2.0.2.

@@ -1,0 +1,39 @@
+.TH SDL_WriteU8 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_WriteU8\fR -- Function
+
+.SH SYNOPSIS
+Use this function to write a byte to an \fBSDL_RWops\fR.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+size_t SDL_WriteU8(SDL_RWops*       dst,
+                   Uint8            value)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+dst:T{
+the \fBSDL_RWops\fR to write to
+T}
+value:T{
+the byte value to write
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 1 on success or 0 on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_ReadU8\fR

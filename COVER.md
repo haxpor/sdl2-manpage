@@ -677,11 +677,11 @@ Checked items are covered by this project.
 * [x] `SDL_WriteBE64`
 * [x] `SDL_WriteLE16`
 * [x] `SDL_WriteLE32`
-* [ ] `SDL_WriteLE64`
-* [ ] `SDL_WriteU8`
-* [ ] `SDL_acos`
-* [ ] `SDL_assert`
-* [ ] `SDL_assert_paranoid`
+* [x] `SDL_WriteLE64`
+* [x] `SDL_WriteU8`
+* [x] `SDL_acos`
+* [x] `SDL_assert`
+* [x] `SDL_assert_paranoid`
 * [ ] `SDL_assert_release`
 * [ ] `SDL_iPhoneSetAnimationCallback`
 * [ ] `SDL_iPhoneSetEventPump`

@@ -1,0 +1,46 @@
+.TH SDL_assert 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_assert\fR -- Function
+
+.SH SYNOPSIS
+Use this macro to create an assertion for debugging.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_assert(condition)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+condition:T{
+the expression to check
+T}
+.TE
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+SDL_assert(1 == 0);     // trigger an assertion
+SDL_assert(1 == 1);     // does NOT trigger an assertion
+.fi
+T}
+.TE
+
+.SH REMARKS
+This function is enabled only when the \fBSDL_ASSERT_LEVEL\fR is set to 2 or 3, otherwise it is disabled. See the \fIAssertions Category page\fR (\fIhttps://wiki.libsdl.org/CategoryAssertions\fR) for details.
+
+.SH RELATED FUNCTIONS
+\fISDL_assert_paranoid\fR
+.br
+\fISDL_assert_release\fR
