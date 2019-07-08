@@ -682,9 +682,9 @@ Checked items are covered by this project.
 * [x] `SDL_acos`
 * [x] `SDL_assert`
 * [x] `SDL_assert_paranoid`
-* [ ] `SDL_assert_release`
-* [ ] `SDL_iPhoneSetAnimationCallback`
-* [ ] `SDL_iPhoneSetEventPump`
+* [x] `SDL_assert_release`
+* [x] `SDL_iPhoneSetAnimationCallback`
+* [x] `SDL_iPhoneSetEventPump`
 
 ## Misc
 

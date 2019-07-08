@@ -1,0 +1,76 @@
+.TH SDL_iPhoneSetAnimationCallback 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_iPhoneSetAnimationCallback\fR -- Function
+
+.SH SYNOPSIS
+Use this function to set the animation callback on Apple iOS.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_iPhoneSetAnimationCallback(SDL_Window*      window,
+                                   int              interval,
+                                   void (*callback)(void*),
+                                   void*            callbackParam)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+window:T{
+the window for which the animation callback should be set
+T}
+interval:T{
+the number of frames after which \fBcallback\fR will be called
+T}
+callback:T{
+the function to call for every frame; see \fIRemarks\fR for details
+T}
+callbackParam:T{
+a pointer that is passed to \fBcallback\fR
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+The function prototype for \fBcallback\fR is:
+
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void callback(void*     callbackParam)
+.fi
+T}
+.TE
+
+where its parameters are:
+
+.TS
+tab(:) allbox;
+a l.
+callbackParam:T{
+what was passed as \fBcallbackParam\fR to \fBSDL_iPhoneSetAnimationCallback()\fR
+T}
+.TE
+
+This function is only available on Apple iOS.
+
+For more information see: \fIREADME-ios.md\fR (\fIhttps://hg.libsdl.org/SDL/file/default/docs/README-ios.md\fR).
+
+This function is also accessible using the macro \fBSDL_iOSSetAnimationCallback()\fR since SDL 2.0.4.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
+
+.SH RELATED FUNCTIONS
+\fISDL_iPhoneSetEventPump\fR

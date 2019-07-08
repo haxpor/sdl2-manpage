@@ -1,0 +1,34 @@
+.TH SDL_assert_release 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.SH NAME
+\fBSDL_assert_release\fR -- Macro
+
+.SH SYNOPSIS
+Use this macro to create an assertion for detailed checking.
+
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+void SDL_assert_release(condition)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+condition:T{
+the expression to check
+T}
+.TE
+
+.SH REMARKS
+This macro is enabled by default. It can be disabled by setting the \fBSDL_ASSERT_LEVEL\fR to 0. See the \fIAssertions Category page\fR(\fIhttps://wiki.libsdl.org/CategoryAssertions\fR).
+
+.SH RELATED FUNCTIONS
+\fISDL_assert\fR
+.br
+\fISDL_assert_paranoid\fR
