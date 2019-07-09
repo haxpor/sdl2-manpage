@@ -26,8 +26,8 @@ apropos -r '^SDL_'
 
 # Uninstallation and Upgrading
 
-To uninstall the man pages, you can simply remove the original repository clone directory; the created sym-links will die.
-As sym-links are used and no actual files are copied into the man-page directory, upgrading is as easy as pulling the latest version of the repository.
+To uninstall the man pages, you can simply remove the original cloned repository's directory; the created sym-links will die.
+As sym-links are used and no actual files are copied into the man-page directory, upgrading is as easy as pulling the latest version of the repository, then execute `install.sh` script again.
 
 # Customize Man page's Colors
 
