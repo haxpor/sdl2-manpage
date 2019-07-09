@@ -29,6 +29,23 @@ apropos -r '^SDL_'
 To uninstall the man pages, you can simply remove the original repository clone directory; the created sym-links will die.
 As sym-links are used and no actual files are copied into the man-page directory, upgrading is as easy as pulling the latest version of the repository.
 
+# Customize Man page's Colors
+
+By default, your pager should be `less` on Linux.
+
+In case, your man page doesn't have any color, the following is good customization to be put into your `~/.bash_aliases` or `~/.bashrc`. Thanks to [this](https://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/) for handy tips!.
+
+```
+export PAGER=less
+export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\e[0m'           # end mode
+export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\e[0m'           # end underline
+export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
+```
+
 # License
 
 This project is licensed under the [MIT License](https://github.com/haxpor/sdl2-manpage/blob/master/LICENSE)
