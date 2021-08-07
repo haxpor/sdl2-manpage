@@ -1,20 +1,39 @@
-.TH SDL_Init 3 "2018.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.TH SDL_Init 3 "2021.08.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
 .SH NAME
 SDL_Init - API
 
 .SH SYNOPSIS
-.sb
-\fBint SDL_Init\fR(\fBUint32 \fRflags)
+Initialize the SDL library.
 
-.SH DESCRIPTION
-Use this function to initialize the SDL library. This must be called before using most other SDL functions.
+.SH SYNTAX
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+int SDL_Init(Uint32 flags)
+.fi
+T}
+.TE
+
+.SH FUNCTION PARAMETERS
+.TS
+tab(:) allbox;
+ab l.
+flags:T{
+subsystem initialization flags
+T}
+.TE
+
+.SH RETURN VALUE
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
 
 .SH REMARKS
 \fBSDL_Init\fR() simply forwards to calling \fBSDL_InitSubSystem\fR(). Therefore, the two may be used interchangeably. Though for readability of your code \fBSDL_InitSubSystem\fR() might be preferred.
 .PP
-The file I/O and threading subsystem are intitialized by default. You must specifically initialize other subsystems if you use them in your application.
+The file I/O (for example: \fBSDL_RWFromFile\fR) and threading (\fBSDL_CreateThread\fR) subsystems are initialized by default. Message boxes (\fBSDL_ShowSimpleMessageBox\fR) also attempt to work without initializing the video subsystem, in hopes of being useful in showing an error dialog when \fBSDL_Init\fR fails. You must specifically initialize other subsystems if you use them in your application.
 .PP
-Logging works without initialization too.
+Logging (such as \fBSDL_Log\fR) works without initialization, too.
 
 .PP
 \fBflags\fR may be any of the following OR'd together.
@@ -49,7 +68,38 @@ Logging works without initialization too.
 .RE
 
 .PP
-If you want to initialize subsystems separately you would call \fBSDL_Init\fR(0) followed by \fBSDL_InitSubSystem\fR() with the desired subsystem flag.
+Subsystem initialization is ref-counted, you must call \fBSDL_QuitSubSystem()\fR for each \fBSDL_InitSubSystem()\fR to correctly shutdown a subsystem manually (or call \fBSDL_Quit()\fR to force shutdown). If a subsystem is already loaded then this call will increase the ref-count and return.
 
-.SH "SEE ALSO"
-SDL_InitSubSystem, SDL_Quit, SDL_SetMainReady, SDL_WasInit
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+#include "SDL.h"
+
+int main(int argc, char* argv[])
+{
+    if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO) != 0) {
+        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
+        return 1;
+    }
+
+    /* ... */
+
+    SDL_Quit();
+
+    return 0;
+}
+T}
+.TE
+
+.SH RELATED FUNCTIONS
+\fISDL_InitSubSystem\fR
+.br
+\fISDL_Quit\fR
+.br
+\fISDL_SetMainReady\fR
+.br
+\fISDL_WasInit\fR
+
