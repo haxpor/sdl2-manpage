@@ -3,7 +3,7 @@
 \fBSDL_Quit\fR -- Function
 
 .SH SYNOPSIS
-Use this function to clean up all initialized subsystems. You should call it upon all exit conditions.
+Clean up all initialized subsystems.
 
 .SH SYNTAX
 .TS
@@ -16,6 +16,13 @@ void SDL_Quit(void)
 T}
 .TE
 
+.SH REMARKS
+You should call this function even if you have already shutdown each initialized subsystem with \fBSDL_QuitSubSystem()\fR. It is safe to call this function even in the case of errors in initialization.
+.PP
+If you start a subsystem using a call to that subsystem's init function (for example \fBSDL_VideoInit()\fR) instead of \fBSDL_Init()\fR or \fBSDL_InitSubSystem()\fR, then you must use that subsystem's quit function (\fBSDL_VideoQuit()\fR) to shut it down before calling \fBSDL_Quit()\fR. But generally, you should not be using those functions directly anyhow; use \fBSDL_Init()\fR instead.
+.PP
+You can use this function with atexit() to ensure that it is run when your application is shutdown, but it is not wise to do this from a library or other dynamically loaded code.
+
 .SH CODE EXAMPLES
 .TS
 tab(:) allbox;
@@ -24,30 +31,22 @@ T{
 .nf
 #include "SDL.h"
 #include <stdio.h>
-#include <stdilib.h>
+#include <stdlib.h>
 
-int main(int argc, char** argv)
-{
-  if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
-  {
-    fprintf(stderr, "Unable to initialize SDL: %s\\n", SDL_GetError());
-    return 1;
-  }
-  ateixt(SDL_Quit);
+int main(int argc, char** argv) {
+    if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+        fprintf(stderr, "Unable to initialize SDL:  %s\n", SDL_GetError());
+        return 1;
+    }
+    atexit(SDL_Quit);
 
-  /* ... */
-  return 0;
+    /* ... */
+
+    return 0;
 }
 .fi
 T}
 .TE
-
-.SH REMARKS
-You should call this function even if you have shutdown each initialized subsystem with \fBSDL_QuitSubSystem()\fR. It is safe to call this function even in the case of errors in initialization.
-
-If you start a subsystem using a call to that subsystem's init function (for example \fBSDL_VideoInit()\fR) instead of \fBSDL_Init()\fR or \fBSDL_InitSubSystem()\fR, then you must use that subsystem's quit function (\fBSDL_VideoQuit()\fR) to shut it down before calling \fBSDL_Quit()\fR.
-
-You can use this function with \fBatexit()\fR to ensure that it is run when your application is shutdown, but it is not wise to do this from a library or other dynamically loaded code.
 
 .SH RELATED FUNCTIONS
 \fISDL_Init\fR
