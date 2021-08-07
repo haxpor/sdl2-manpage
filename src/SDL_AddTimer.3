@@ -1,9 +1,9 @@
-.TH SDL_AddTimer 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.TH SDL_AddTimer 3 "2021.08.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
 .SH NAME
 \fBSDL_AddTimer\fR -- Function
 
 .SH SYNOPSIS
-Use this function to set up a callback function to be run on a separate thread after the specified number of milliseconds has elapsed.
+Call a callback function at a future time.
 
 .SH SYNTAX
 .TS
@@ -92,6 +92,14 @@ T}
 .TE
 
 .SH REMARKS
-The function ...
+If you use this function, you must pass \fBSDL_INIT_TIMER\fR to \fBSDL_Init()\fR.
+
+The callback function is passed the current timer interval and the user supplied parameter from the \fBSDL_AddTimer()\fR call and should return the next timer interval. If the value returned from the callback is 0, the timer is canceled.
+
+The callback is run on a separate thread.
+
+Timers take into account the amount of time it took to execute the callback. For example, if the callback took 250 ms to execute and returned 1000 (ms), the timer would only wait another 750 ms before its next iteration.
+
+Timing may be inexact due to OS scheduling. Be sure to note the current time with \fBSDL_GetTicks()\fR or \fBSDL_GetPerformanceCounter()\fR in case your callback needs to adjust for variances.
 
 .SH RELATED FUNCTIONS
