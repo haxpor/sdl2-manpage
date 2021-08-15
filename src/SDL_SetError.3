@@ -1,9 +1,9 @@
-.TH SDL_SetError 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.TH SDL_SetError 3 "2021.08.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
 .SH NAME
 \fBSDL_SetError\fR -- Function
 
 .SH SYNOPSIS
-Use this function to set the SDL error message.
+Set the SDL error message for the current thread.
 
 .SH SYNTAX
 .TS
@@ -11,8 +11,10 @@ tab(:) allbox;
 a.
 T{
 .nf
-int SDL_SetError(const char*    fmt,
-                 ...)
+int SDL_SetError(
+  SDL_PRINTF_FORMAT_STRING const char *fmt,
+  ...
+) SDL_PRINTF_VARARG_FUNC(1)
 .fi
 T}
 .TE
@@ -32,7 +34,24 @@ T}
 .SH RETURN VALUE
 Returns always -1.
 
-.SH CODE EXAMPLEs
+.SH REMARKS
+Calling this function will replace any previous error message that was set.
+.PP
+This function always returns -1, since SDL frequently uses -1 to signify an failing result, leading to this idiom:
+.PP
+.TS
+tab(:) allbox;
+a.
+T{
+.nf
+if (error_code) {
+    return SDL_SetError("This operation has failed: %d", error_code);
+}
+.fi
+T}
+.TE
+
+.SH CODE EXAMPLES
 .TS
 tab(:) allbox;
 a.
@@ -49,17 +68,14 @@ a.
 T{
 .nf
 int errorCode = 0;
-...
+ ...
 errorCode = -37;
-...
+ ...
 if (errorCode < 0)
     SDL_SetError("Something unexpected happened: Error Code %d", errorCode);
 .fi
 T}
 .TE
-
-.SH REMARKS
-Calling this function will replace any previous error message that was set.
 
 .SH RELATED FUNCTIONS
 \fISDL_ClearError\fR

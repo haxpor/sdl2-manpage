@@ -1,9 +1,9 @@
-.TH SDL_InitSubSystem 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.TH SDL_InitSubSystem 3 "2021.08.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
 .SH NAME
 \fBSDL_InitSubSystem\fR -- Function
 
 .SH SYNOPSIS
-Use this function to initialize specific SDL subsystems.
+Compatibility function to initialize the SDL library.
 
 .SH SYNTAX
 .TS
@@ -11,7 +11,7 @@ tab(:) allbox;
 a.
 T{
 .nf
-int SDL_InitSubSystem(Uint32    flags)
+int SDL_InitSubSystem(Uint32 flags)
 .fi
 T}
 .TE
@@ -21,12 +21,15 @@ T}
 tab(:) allbox;
 ab l.
 flags:T{
-any of the flags used by \fBSDL_Init()\fR; see \fIRemarks\fR for detials
+any of the flags used by \fBSDL_Init()\fR; see \fBSDL_Init\fR for details
 T}
 .TE
 
 .SH RETURN VALUE
-Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()f\R for more information.
+Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+In SDL2, this function and \fBSDL_Init()\fR are interchangeable.
 
 .SH CODE EXAMPLES
 .TS
@@ -38,11 +41,13 @@ T{
 SDL_Init(SDL_INIT_VIDEO);
 
 SDL_Window* window = SDL_CreateWindow("A Window",
-  SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-  640, 480, SDL_WINDOW_FULLSCREEN);
+    SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480,
+    SDL_WINDOW_FULLSCREEN);
 SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
 
-/* Do some video stuff */
+/* Do Some Video stuff */
+
+/* Initialize the joystick subsystem */
 SDL_InitSubSystem(SDL_INIT_JOYSTICK);
 
 /* Do some stuff with video and joystick */
@@ -52,49 +57,6 @@ SDL_Quit();
 .fi
 T}
 .TE
-
-.SH REMARKS
-After SDL has been initialized with \fBSDL_Init()\fR you may initialize unintialized subsystems with \fBSDL_InitSubSystem()\fR.
-
-These are the flags which may be passed to \fBSDL_InitSubSystem()\fR and may be OR'd together to initialize multiple subsystems simultaneously.
-
-.TS
-tab(:) allbox;
-ab l.
-SDL_INIT_TIMER:T{
-time subsystem
-T}
-SDL_INIT_AUDIO:T{
-audio subsystem
-T}
-SDL_INIT_VIDEO:T{
-video subsystem; automatically initializes the events subsystem
-T}
-SDL_INIT_JOYSTICK:T{
-joystick subsystem; automatically initializes the events subsystem
-T}
-SDL_INIT_HAPTIC:T{
-haptic (force feedback) subsystem
-T}
-SDL_INIT_GAMECONTROLLER:T{
-controller subsystem; automatically initializes the joystick subsystem
-T}
-SDL_INIT_EVENTS:T{
-events subsystem
-T}
-SDL_INIT_EVERYTHING:T{
-all of the above subsystems
-T}
-SDL_INIT_NOPARACHUTE:T{
-compatibility; this flag is ignored
-T}
-.TE
-
-.br
-
-\fBSDL_Init()\fR initializes assertions and crash protection and then calls \fBSDL_InitSubSystems()\fR. If you want to bypass those protections you can call \fBSDL_InitSubSystem()\fR directly.
-
-Subsystem initialization is ref-counted, you must call \fBSDL_QuitSubSystem()\fR for each \fBSDL_InitSubSystem()\fR to correctly shutdown a subsystem manually (or call \fBSDL_Quit()\fR to force shutdown). If a subsystem is already loaded then this call will increase the ref-count and return.
 
 .SH RELATED FUNCTIONS
 \fISDL_Init\fR

@@ -1,9 +1,9 @@
-.TH SDL_CreateWindow 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.TH SDL_CreateWindow 3 "2021.08.14" "https://github.com/haxpor/sdl2-manpage" "SDL2"
 .SH NAME
 \fBSDL_CreateWindow\fR -- Function
 
 .SH SYNOPSIS
-Use this function to create a window with the specified position, dimensions, and flags.
+Create a window with the specified position, dimensions, and flags.
 
 .SH SYNTAX
 .TS
@@ -41,12 +41,75 @@ h:T{
 the height of the window, in screen coordinates
 T}
 flags:T{
-0, or none or more \fBSDL_WindowFlags\fR OR'd together; see \fBRemarks\fR for details
+0, or one or more \fBSDL_WindowFlags\fR OR'd together
 T}
 .TE
 
 .SH RETURN VALUE
 Returns the window that was created or NULL on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+\fBflags\fR may be any of the following OR'd together:
+
+.TS
+tab(:) allbox;
+a l.
+SDL_WINDOW_FULLSCREEN:T{
+fullscreen window
+T}
+SDL_WINDOW_FULLSCREEN_DESKTOP:T{
+fullscreen window at desktop resolution
+T}
+SDL_WINDOW_OPENGL:T{
+window usable with OpenGL context
+T}
+SDL_WINDOW_VULKAN:T{
+window usable with a Vulkan instance
+T}
+SDL_WINDOW_METAL:T{
+window usable with a Metal instance
+T}
+SDL_WINDOW_HIDDEN:T{
+window is not visible
+T}
+SDL_WINDOW_BORDERLESS:T{
+no window decoration
+T}
+SDL_WINDOW_RESIZABLE:T{
+window can be resized
+T}
+SDL_WINDOW_MINIMIZED:T{
+window is minimized
+T}
+SDL_WINDOW_MAXIMIZED:T{
+window is maximized
+T}
+SDL_WINDOW_INPUT_GRABBED:T{
+window has grabbed input focus
+T}
+SDL_WINDOW_ALLOW_HIGHDPI:T{
+window should be created in high-DPI mode if supported (>= SDL 2.0.1)
+T}
+.TE
+
+\fBSDL_WINDOW_SHOWN\fR is ignored by \fBSDL_CreateWindow()\fR. The \fBSDL_Window\fR is implicitly shown if \fBSDL_WINDOW_HIDDEN\fR is not set. \fBSDL_WINDOW_SHOWN\fR may be queried later using \fBSDL_GetWindowFlags()\fR.
+
+On Apple's macOS you \fBmust\fR set the NSHighResolutionCapable Info.plist property to YES, otherwise you will not receive a High-DPI OpenGL canvas.
+
+If the window is created with the \fBSDL_WINDOW_ALLOW_HIGHDPI\fR flag, its sizes in pixels may differ from its size in screen coordinate on platforms with high-DPI support (e.g. iOS and macOS). Use \fBSDL_GetWindowSize()\fR to query the client area's size in screen coordinates, and \fBSDL_GetDrawableSize()\fR or \fBSDL_GetRendererOutputSize()\fR to query the drawable size in pixels.
+
+If the window is set fullscreen, the width and height parameters \fBw\fR and \fBh\fR will not be used. However, invalid size parameters (e.g. too large) may still fail. Window size is actually limited to 16384 x 16384 for all platforms at window creation.
+
+If the window is created with any of the \fBSDL_WINDOW_OPENGL\fR or \fBSDL_WINDOW_VULKAN\fR flags, then the corresponding LoadLibrary function (\fBSDL_GL_LoadLibrary\fR or \fBSDL_Vulkan_LoadLibrary\fR) is called and the corresponding UnloadLibrary function is called by \fBSDL_DestroyWindow()\fR.
+
+If \fBSDL_WINDOW_VULKAN\fR is specified and there isn't a working Vulkan driver, \fBSDL_CreateWindow()\fR will fail because \fBSDL_Vulkan_LoadLibrary()\fR will fail.
+
+If \fBSDL_WINDOW_METAL\fR is specified on an OS that does not support Metal, \fBSDL_CreateWindow()\fR will fail.
+
+On non-Apple devices, SDL requires you to either not link to the Vulkan loader or link to a dynamic library version. This limitation may be removed in a future version of SDL.
+
+.SH VERSION
+This function is available since SDL 2.0.0.
 
 .SH CODE EXAMPLES
 .TS
@@ -79,7 +142,7 @@ int main(int argc, char* argv[])
   if (window == NULL)
   {
     // in the case that the window could not be made
-    printf("Could not create window: %s\n", SDL_GetError());
+    printf("Could not create window: %s\\n", SDL_GetError());
     return 1;
   }
 
@@ -97,58 +160,6 @@ int main(int argc, char* argv[])
 .fi
 T}
 .TE
-
-.SH REMARKS
-\fBflags\fR may be any of the following OR'd together:
-
-.TS
-tab(:) allbox;
-a l.
-SDL_WINDOW_FULLSCREEN:T{
-fullscreen window
-T}
-SDL_WINDOW_FULLSCREEN_DESKTOP:T{
-fullscreen window at the current desktop resolution
-T}
-SDL_WINDOW_OPENGL:T{
-window usable with OpenGL context
-T}
-SDL_WINDOW_VULKAN:T{
-window usable with a Vulkan instance
-T}
-SDL_WINDOW_HIDDEN:T{
-window is not visible
-T}
-SDL_WINDOW_BORDERLESS:T{
-no window decoration
-T}
-SDL_WINDOW_RESIZABLE:T{
-window can be resized
-T}
-SDL_WINDOW_MINIMIZED:T{
-window is minimized
-T}
-SDL_WINDOW_MAXIMIZED:T{
-window is maximized
-T}
-SDL_WINDOW_INPUT_GRABBED:T{
-window has grabbed input focus
-T}
-SDL_WINDOW_ALLOW_HIGHDPI:T{
-window should be created in high-DPI mode if supported (>= SDL 2.0.1)
-T}
-.TE
-
-\fBSDL_WINDOW_SHOWN\fR is ignored by \fBSDL_CreateWindow()\fR. The \fBSDL_Window\fR is implicitly shown if \fBSDL_WINDOW_HIDDEN\fR is not set. \fBSDL_WINDOW_SHOWN\fR may be queried later using \fBSDL_GetWindowFlags()\fR.
-
-On Apple's macOS you \fBmust\fR set the NSHighResolutionCapable Info.plist property to YES, otherwise you will not receive a High DPI OpenGL canvas.
-
-If the window is created with the \fBSDL_WINDOW_ALLOW_HIGHDPI\fR flag, its sizes in pixels may differ from its size in screen coordinate on platforms with high-DPI support (e.g. iOS and macOS). Use \fBSDL_GetWindowSize()\fR to query the client area's size in screen coordinates, and \fBSDL_GetDrawableSize()\fR or \fBSDL_GetRendererOutputSize()\fR to query the drawable size in pixels.
-
-If the window is set fullscreen, the width and height parameters \fBw\fR and \fBh\fR will not be used. However, invalid size parameters (e.g. too large) may still fail. Window size is actually limited to 16384 x 16384 for all platforms at window creation.
-
-.SH VERSION
-This function is available since SDL 2.0.0.
 
 .SH RELATED FUNCTIONS
 \fISDL_CreateWindowFrom

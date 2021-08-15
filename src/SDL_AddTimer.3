@@ -1,9 +1,9 @@
-.TH SDL_AddTimer 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.TH SDL_AddTimer 3 "2021.08.15" "https://github.com/haxpor/sdl2-manpage" "SDL2"
 .SH NAME
 \fBSDL_AddTimer\fR -- Function
 
 .SH SYNOPSIS
-Use this function to set up a callback function to be run on a separate thread after the specified number of milliseconds has elapsed.
+Call a callback function at a future time.
 
 .SH SYNTAX
 .TS
@@ -23,10 +23,10 @@ T}
 tab(:) allbox;
 ab l.
 interval:T{
-the timer delay (ms) passed to \fBcallback\fR
+the timer delay, in milliseconds, passed to \fBcallback\fR
 T}
 callback:T{
-the function to call when the specified \fBinterval\fR elapses; see \fIRemarks\fR for details
+the \fBSDL_TimerCallback\fR function to call when the specified interval \fBelapses\fR
 T}
 param:T{
 a pointer that is passed to \fBcallback\fR
@@ -36,12 +36,27 @@ T}
 .SH RETURN VALUE
 Returns a timer ID or 0 if an error occurs; call \fBSDL_GetError()\fR for more information.
 
-.SH CODE EXAMPLES
+.SH REMARKS
+If you use this function, you must pass \fBSDL_INIT_TIMER\fR to \fBSDL_Init()\fR.
 
+The callback function is passed the current timer interval and the user supplied parameter from the \fBSDL_AddTimer()\fR call and should return the next timer interval. If the value returned from the callback is 0, the timer is canceled.
+
+The callback is run on a separate thread.
+
+Timers take into account the amount of time it took to execute the callback. For example, if the callback took 250 ms to execute and returned 1000 (ms), the timer would only wait another 750 ms before its next iteration.
+
+Timing may be inexact due to OS scheduling. Be sure to note the current time with \fBSDL_GetTicks()\fR or \fBSDL_GetPerformanceCounter()\fR in case your callback needs to adjust for variances.
+
+
+.SH CODE EXAMPLES
+.TS
+tab(:) allbox;
+a.
+T{
 .nf
 /* Start the timer; the callback below will be executed after the delay */
 
-Uint32 delay = (33 / 10) * 10;	/* To round it down to the nearest 10 ms */
+Uint32 delay = (33 / 10) * 10;  /* To round it down to the nearest 10 ms */
 SDL_TimerID my_timer_id = SDL_AddTimer(delay, my_callbackfunc, my_callback_param);
 
 ...
@@ -64,34 +79,59 @@ Uint32 my_callbackfunc(Uint32 interval, void *param)
   event.user = userevent;
 
   SDL_PushEvent(&event);
-  return interval;
+  return(interval);
 }
 .fi
-
-.SH REMARKS
-The function prototype for \fBcallback\fR is:
-
+T}
+.TE
+.P
+Note that it is possible to avoid the multithreading problems with SDL timers by giving to userevent.data1 the address of a function you want to be executed and to \fBuserevent.data2\fR its params, and then deal with it in the event loop.
 .TS
 tab(:) allbox;
 a.
 T{
 .nf
-void SDL_YourCallbackHere(...)
+/* with the same code as before: */
+Uint32 my_callbackfunc(Uint32 interval, void *param)
+{
+  SDL_Event event;
+  SDL_UserEvent userevent;
+
+  /* In this example, our callback pushes a function
+  into the queue, and causes our callback to be called again at the
+  same interval: */
+
+  userevent.type = SDL_USEREVENT;
+  userevent.code = 0;
+  userevent.data1 = &my_function;
+  userevent.data2 = param;
+
+  event.type = SDL_USEREVENT;
+  event.user = userevent;
+
+  SDL_PushEvent(&event);
+  return(interval);
+}
+
+/* Now the event loop */
+SDL_Event event;
+while (SDL_PollEvent (&event))
+{
+  switch(event.type)
+  {
+    case SDL_USEREVENT: {
+      /* and now we can call the function we wanted to call in the
+        timer but couldn't because of the multithreading problems */
+      void (*p) (void*) = event.user.data1;
+      p(event.user.data2);
+      break;
+    }
+    /* ... */
+  }
+}
 .fi
 T}
 .TE
 
-where its parameters are:
-
-.TS
-tab(:) allbox;
-a l.
-name:T{
-first
-T}
-.TE
-
-.SH REMARKS
-The function ...
-
 .SH RELATED FUNCTIONS
+\fISDL_RemoveTimer\fR

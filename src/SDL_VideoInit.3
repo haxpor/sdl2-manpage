@@ -1,9 +1,9 @@
-.TH SDL_VideoInit 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.TH SDL_VideoInit 3 "2021.08.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
 .SH NAME
 \fBSDL_VideoInit\fR -- Function
 
 .SH SYNOPSIS
-Use this function to initialize the video subsystem, optionally specifying a video driver.
+Initialize the video subsystem, optionally specifying a video driver.
 
 .SH SYNTAX
 .TS
@@ -11,7 +11,7 @@ tab(:) allbox;
 a.
 T{
 .nf
-int SDL_VideoInit(const char*   driver_name)
+int SDL_VideoInit(const char* driver_name)
 .fi
 T}
 .TE
@@ -27,6 +27,15 @@ T}
 
 .SH RETURN VALUE
 Returns 0 on success or a negative error code on failure; call \fBSDL_GetError()\fR for more information.
+
+.SH REMARKS
+This function initializes the video subsystem, setting up a connection to the window manager, etc, and determines the available display modes and pixel formats, but does not initialize a window or graphics mode.
+.PP
+If you use this function and you haven't used the \fBSDL_INIT_VIDEO\fR flag with either \fBSDL_Init()\fR or \fBSDL_InitSubSystem()\fR, you should call \fBSDL_VideoQuit()\fR before calling \fBSDL_Quit()\fR.
+.PP
+It is safe to call this function multiple times. \fBSDL_VideoInit()\fR will call \fBSDL_VideoQuit()\fR itself if the video subsystem has already been initialized.
+.PP
+You can use \fBSDL_GetNumVideoDrivers()\fR and \fBSDL_GetVideoDriver()\fR to find a specific \fIdriver_name\fB.
 
 .SH CODE EXAMPLES
 .TS
@@ -68,15 +77,6 @@ int main(int argc, char** argv) {
 .fi
 T}
 .TE
-
-.SH REMARKS
-This function initializes the video subsystem, setting up a connection to the window manager, etc, and determines the available display modes and pixel formats, but does not initialize a window or graphics mode.
-
-If you use this function and you haven't used the \fBSDL_INIT_VIDEO\fR flag with either \fBSDL_Init()\fR or \fBSDL_InitSubSystem()\fR, you should call \fBSDL_VideoQuit()\fR before calling \fBSDL_Quit()\fR.
-
-It is safe to call this function multiple times. \fBSDL_VideoInit()\fR will call \fBSDL_VideoQuit()\fR itself if the video subsystem has already been initialized.
-
-You can use \fBSDL_GetNumVideoDrivers()\fR and \fBSDL_GetVideoDriver()\fR to find a specific \fBdriver_name\fR.
 
 .SH RELATED FUNCTIONS
 \fISDL_GetNumVideoDrivers\fR

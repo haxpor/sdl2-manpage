@@ -1,9 +1,9 @@
-.TH SDL_GetError 3 "2018.10.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
+.TH SDL_GetError 3 "2021.08.07" "https://github.com/haxpor/sdl2-manpage" "SDL2"
 .SH NAME
 \fBSDL_GetError\fR -- Function
 
 .SH SYNOPSIS
-Use this function to retrieve a message about the last error that occurred.
+Retrieve a message about the last error that occurred on the current thread.
 
 .SH SYNTAX
 .TS
@@ -18,6 +18,17 @@ T}
 
 .SH RETURN VALUE
 Returns a message with information about the specific error that occurred, or an empty string if there hasn't been an error message set since the last call to \fBSDL_ClearError()\fR. The message is only applicable when an SDL function has signaled an error. You must check the return values of SDL function calls to determine when to appropriate call \fBSDL_GetError()\fR.
+
+.SH REMARKS
+It is possible for multiple errors to occur before calling \fBSDL_GetError()\fR. Only the last error is returned.
+.PP
+The message is only applicable when an SDL function has signaled an error. You must check the return values of SDL function calls to determine when to appropriately call \fBSDL_GetError()\fR. You should \fInot\fR use the results of \fBSDL_GetError()\fR to decide if an error has occurred! Sometimes SDL will set an error string even when reporting success.
+.PP
+SDL will _not_ clear the error string for successful API calls. You \fImust\fR check return values for failure cases before you can assume the error string applies.
+.PP
+Error strings are set per-thread, so an error set in a different thread will not interfere with the current thread's operation.
+.PP
+The returned string is internally allocated and must not be freed by the application.
 
 .SH CODE EXAMPLES
 .TS
@@ -35,11 +46,6 @@ T}
 .TE
 
 Note: Although this example uses \fBSDL_Init()\fR, \fBSDL_GetError()\fR provides an error message for an failed SDL operation which supports error reporting, see the wiki page for each particular SDL function.
-
-.SH REMARKS
-It is possible for multiple errors to occcur before calling \fBSDL_GetError()\fR. Only the last error is returned.
-
-The returned string is statically allocated and must not be freed by the application.
 
 .SH RELATED FUNCTIONS
 \fISDL_ClearError
