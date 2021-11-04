@@ -5,9 +5,22 @@ Man-pages generated for SDL2. It covers APIs as listed [here](https://github.com
 
 # Installation
 
+## Manually from source
+
 * Clone this repository to somewhere on your computer with `git clone https://github.com/haxpor/sdl2-manpage.git`;
 * Execute `sudo ./install.sh` to install to your system.
 * (optional) `sudo mandb` - likely only first time, or when there's no new pages. This will update all existing indexes of manual pages.
+
+## Via published packages
+
+### PPA package
+
+* `sudo add-apt-repository ppa:haxpor/combined`
+* `sudo apt install sdl2-manpage`
+
+### AUR package
+
+(WIP)
 
 # Usage
 
