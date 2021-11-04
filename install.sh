@@ -14,13 +14,17 @@ mkdir -p $TARGET
 if [ -z "$1" ]
 then
 	for f in "${FILES[@]}"; do
-		ln -sf "$WORKING_DIR/src/$f" "$TARGET/$f"
-		echo "[OK] $f"
+		cp -a "$WORKING_DIR/src/$f" "$TARGET/$f"
+		if [ $? -ne 0 ]; then
+			echo "[ERROR] $f"
+		else
+			echo "[OK] $f"
+		fi
 	done
 else
 	if [ -f "$WORKING_DIR/src/$1.3" ]
 	then
-		ln -sf "$WORKING_DIR/src/$1.3" "$TARGET/$1.3"
+		cp -a "$WORKING_DIR/src/$1.3" "$TARGET/$1.3"
 		echo "[OK] $1"
 	else
 		echo "[FAILED] $1 - No such file"
