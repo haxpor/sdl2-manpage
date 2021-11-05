@@ -13,12 +13,12 @@ Man-pages generated for SDL2. It covers APIs as listed [here](https://github.com
 
 ## Via published packages
 
-### PPA package
+### Debian/Ubuntu
 
 * `sudo add-apt-repository ppa:haxpor/combined`
 * `sudo apt install sdl2-manpage`
 
-### AUR package
+### Arch
 
 (WIP)
 
