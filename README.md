@@ -20,7 +20,9 @@ Man-pages generated for SDL2. It covers APIs as listed [here](https://github.com
 
 ### Arch
 
-(WIP)
+The package is available on [aur](https://aur.archlinux.org/packages/sdl2-manpage-git/).
+
+* `yay -S sdl2-manpage-git`
 
 # Usage
 
